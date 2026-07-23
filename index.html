@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>恩恩統計家教 Enen Statistics - 2026–27 AP® Statistics 雙語教學入口網</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax LaTeX Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+  <!-- Google Identity Services (GIS) Auth SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navbar Header -->
+  <header class="navbar">
+    <a href="#" class="brand-container">
+      <img src="assets/images/logo.png" alt="恩恩統計家教" class="brand-logo" onerror="this.src='assets/images/mascot.jpg'">
+      <div>
+        <div class="brand-title">恩恩統計家教 Enen Statistics</div>
+        <div class="brand-subtitle">2026–27 AP® Statistics 5-Unit 雙語家教門戶</div>
+      </div>
+    </a>
+
+    <div class="nav-right-actions">
+      <!-- User Profile Badge -->
+      <div id="userProfileBadge" class="user-profile-badge">
+        <img id="userAvatar" src="assets/images/mascot.jpg" class="user-avatar" alt="User">
+        <span id="userName">未登入 (Guest)</span>
+      </div>
+
+      <!-- Teacher Admin Toggle Button -->
+      <button class="btn-teacher-toggle" onclick="openTeacherAdminModal()">
+        ⚙️ 教師管理後台
+      </button>
+    </div>
+  </header>
+
+  <!-- Unit Selector Ribbon Nav -->
+  <nav class="unit-selector-nav" id="unitTabRibbon">
+    <!-- Dynamic Injected Unit 1 ~ Unit 5 + Exam Center Tabs -->
+  </nav>
+
+  <!-- Main App Layout Container -->
+  <div class="app-container">
+
+    <!-- Left Sidebar: Topic Module Nav & Search -->
+    <aside class="sidebar-left">
+      <div class="sidebar-header-box">
+        <div class="sidebar-title">
+          <span>📖</span>
+          <span id="currentUnitTitle">Unit 1 課程地圖</span>
+        </div>
+      </div>
+
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 搜尋觀念、公式或 TI-84 步驟..." oninput="handleSearch(this.value)">
+
+      <ul id="moduleNavList" class="module-nav-list">
+        <!-- JS Dynamic Injected Topic Items -->
+      </ul>
+    </aside>
+
+    <!-- Center Main Content Reader -->
+    <main class="main-content">
+      <!-- Active Unit Hero Banner -->
+      <section id="unitBanner" class="unit-banner-card">
+        <span id="unitBadgeTag" class="unit-badge-tag" style="background:#00f2fe; color:#000;">Unit 1</span>
+        <h1 id="unitMainTitle" class="unit-main-title">Exploring One-Variable Data & Data Collection</h1>
+        <p id="unitSubtitleText" class="unit-subtitle-text">單變數資料分析、統計圖表、常態分布與抽樣實驗設計</p>
+      </section>
+
+      <!-- Active Module Article (or Locked Overlay) -->
+      <article id="moduleArticle" class="module-article-card">
+        <!-- JS Dynamic Injected Module Content -->
+      </article>
+    </main>
+
+    <!-- Right Sidebar: Interactive Tutor Toolkit -->
+    <aside class="sidebar-right">
+
+      <!-- Interactive Z-Score Calculator Card -->
+      <div class="toolkit-card">
+        <div class="toolkit-header">
+          <span>🧮</span>
+          <span>Z-Score & 常態分布動態繪圖</span>
+        </div>
+
+        <div class="calc-input-group">
+          <div class="calc-input-row">
+            <span>標準化 Z 分數:</span>
+            <input type="number" id="zValInput" value="1.0" step="0.1" min="-3.5" max="3.5" oninput="updateZCalculator()">
+          </div>
+        </div>
+
+        <canvas id="normalCanvas"></canvas>
+
+        <div style="margin-top:0.75rem; padding:0.6rem; background:#080c14; border-radius:6px; font-size:0.8rem; border:1px solid var(--border-color);">
+          <div style="display:flex; justify-space-between; margin-bottom:0.2rem;">
+            <span style="color:var(--text-secondary);">累積機率 P(Z &lt; z):</span>
+            <strong id="zProbResult" style="color:var(--accent-cyan); font-family:var(--font-mono);">0.8413</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:var(--text-secondary);">百分位數 (Percentile):</span>
+            <strong id="zPctResult" style="color:var(--accent-gold); font-family:var(--font-mono);">84.1%</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive t-Distribution Calculator Card -->
+      <div class="toolkit-card">
+        <div class="toolkit-header">
+          <span>📈</span>
+          <span>t-Distribution & p-Value 計算器</span>
+        </div>
+
+        <div class="calc-input-group">
+          <div class="calc-input-row">
+            <span>t 統計量 (t-stat):</span>
+            <input type="number" id="tValInput" value="2.1" step="0.1" oninput="updateTCalculator()">
+          </div>
+          <div class="calc-input-row">
+            <span>自由度 (df):</span>
+            <input type="number" id="tDfInput" value="15" step="1" min="1" max="100" oninput="updateTCalculator()">
+          </div>
+        </div>
+
+        <div style="padding:0.6rem; background:#080c14; border-radius:6px; font-size:0.8rem; border:1px solid var(--border-color);">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.2rem;">
+            <span style="color:var(--text-secondary);">雙尾 p-value (Two-tailed):</span>
+            <strong id="tTwoTailResult" style="color:var(--accent-purple); font-family:var(--font-mono);">0.0530</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:var(--text-secondary);">右單尾 p-value (Right-tailed):</span>
+            <strong id="tRightTailResult" style="color:var(--accent-green); font-family:var(--font-mono);">0.0265</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Searchable Glossary Quick Card -->
+      <div class="toolkit-card">
+        <div class="toolkit-header">
+          <span>📖</span>
+          <span>AP 雙語核心詞彙對照</span>
+        </div>
+        <input type="text" class="search-input" placeholder="搜尋英文術語 (如 CLT, Residual)..." oninput="filterGlossary(this.value)">
+        <div id="glossaryContainer" style="max-height: 220px; overflow-y: auto; display:flex; flex-direction:column; gap:0.4rem;">
+          <!-- Injected Glossary Items -->
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- Modal 1: Mandatory Google Sign-In Gate Overlay -->
+  <div id="authGateModal" class="modal-overlay">
+    <div class="modal-box" style="text-align:center;">
+      <img src="assets/images/mascot.jpg" alt="Enen Statistics" style="width:80px; height:80px; border-radius:50%; border:3px solid var(--accent-cyan); margin-bottom:1rem; box-shadow:var(--shadow-glow);">
+      <div class="modal-title">恩恩統計家教 門戶身分驗證</div>
+      <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.5rem;">為完整紀錄學員學習歷程與保障付費學員權益，請使用 Google 帳號登入系統。</p>
+
+      <!-- Google Sign-In Button Container -->
+      <div id="g_id_onload"
+           data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+           data-callback="handleGoogleSignIn"
+           data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin" data-type="standard" data-size="large" data-theme="filled_blue" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left" style="display:inline-block;"></div>
+
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+        <p style="font-size:0.8rem; color:var(--text-muted);">測試展示功能：可直接點擊下方進行 Demo 學員體驗登入</p>
+        <button class="btn-primary" style="margin-top:0.5rem; font-size:0.8rem; background:rgba(255,255,255,0.1); color:var(--accent-cyan); border:1px solid var(--accent-cyan);" onclick="loginAsDemoStudent()">
+          🚀 以展示學員身份進入 (Demo Login)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Teacher Permission Management Portal Modal -->
+  <div id="teacherAdminModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 680px;">
+      <div class="modal-title" style="display:flex; justify-content:space-between; align-items:center;">
+        <span>⚙️ 恩恩老師權限管理後台</span>
+        <button onclick="closeTeacherAdminModal()" style="background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer;">✕</button>
+      </div>
+
+      <div id="teacherLockScreen">
+        <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:1rem;">請輸入教師解鎖密碼以存取學員權限管理矩陣：</p>
+        <input type="password" id="teacherPassInput" class="modal-input" placeholder="輸入教師密碼 (預設直接點解鎖)">
+        <div style="display:flex; gap:0.5rem; justify-content:flex-end;">
+          <button class="btn-primary" onclick="unlockTeacherAdmin()">驗證解鎖</button>
+        </div>
+      </div>
+
+      <div id="teacherAdminPanel" style="display:none;">
+        <div style="background:rgba(0,0,0,0.3); padding:0.75rem; border-radius:var(--radius-sm); margin-bottom:1rem;">
+          <h4 style="font-size:0.9rem; color:var(--accent-gold); margin-bottom:0.5rem;">➕ 新增付費學員 Google Email</h4>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="email" id="newStudentEmail" class="modal-input" style="margin:0;" placeholder="student.name@gmail.com">
+            <input type="text" id="newStudentName" class="modal-input" style="margin:0; width:140px;" placeholder="學生姓名">
+            <button class="btn-primary" onclick="addNewStudent()">新增</button>
+          </div>
+        </div>
+
+        <h4 style="font-size:0.9rem; color:var(--text-primary); margin-bottom:0.5rem;">📋 付費學員與 5 大單元開放權限矩陣</h4>
+        <div style="max-height:240px; overflow-y:auto;">
+          <table class="student-permission-table">
+            <thead>
+              <tr>
+                <th>學員姓名 / Email</th>
+                <th>U1</th>
+                <th>U2</th>
+                <th>U3</th>
+                <th>U4</th>
+                <th>U5</th>
+                <th>Exam</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="studentPermissionsBody">
+              <!-- Injected Student Rows -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:1rem; display:flex; justify-content:space-between; align-items:center;">
+          <button onclick="exportPermissionsJSON()" style="background:none; border:1px solid var(--border-color); color:var(--text-secondary); padding:0.4rem 0.8rem; border-radius:4px; font-size:0.8rem; cursor:pointer;">💾 備份權限 JSON</button>
+          <button class="btn-primary" onclick="saveTeacherChanges()">儲存權限設定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/content.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
