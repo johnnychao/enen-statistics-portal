@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "enen-statistics-tutoring-portal",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
