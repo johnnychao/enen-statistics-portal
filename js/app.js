@@ -579,9 +579,11 @@ document.addEventListener('click', function(e) {
     const unit = COURSE_DATA.units.find(u => u.id === targetUnitId);
     if (unit && unit.modules.find(m => m.id === targetModuleId)) {
       if (activeUnitId !== targetUnitId) {
-        switchUnit(targetUnitId);
+        selectUnit(targetUnitId);
       }
-      loadModule(targetModuleId);
+      activeModuleId = targetModuleId;
+      renderSidebarModules(unit);
+      renderActiveModule();
       window.scrollTo({top:0, behavior:'smooth'});
     } else {
       console.warn("Module not found: ", targetModuleId);
