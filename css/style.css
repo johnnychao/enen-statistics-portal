@@ -749,3 +749,8 @@ article tr:last-child td {
 article tr:hover td {
   background: rgba(255, 255, 255, 0.02);
 }
+
+/* Ensure text wrapping */
+.module-body-content { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+.module-body-content p, .module-body-content blockquote { white-space: normal; }
+.module-body-content pre, .module-body-content code { white-space: pre-wrap; word-break: break-all; }

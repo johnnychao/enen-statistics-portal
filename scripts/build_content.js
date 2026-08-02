@@ -21,18 +21,18 @@ function parseQuartoCallouts(markdown) {
     if (type === 'warning') cssClass = 'warning-box';
     if (type === 'note') cssClass = 'concept-box';
     
-    let html = `<div class="${cssClass}">`;
+    let html = `\n\n<div class="${cssClass}">\n`;
     if (title) {
-      html += `<h4 class="callout-title">${title}</h4>`;
+      html += `  <h4 class="callout-title">${title}</h4>\n`;
     }
-    html += `<div class="callout-body">`;
+    html += `  <div class="callout-body">\n\n`;
     return html;
   });
 
   // Replace ending tag :::
   // Note: this simple regex assumes no nested :::
   // A better way is to replace lines exactly equal to :::
-  processed = processed.replace(/^:::\s*$/gm, '</div></div>');
+  processed = processed.replace(/^:::\s*$/gm, '\n\n  </div>\n</div>\n\n');
 
   return processed;
 }
