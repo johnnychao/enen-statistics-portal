@@ -1,0 +1,7 @@
+﻿---
+title: "Unit 4｜Probability, Random Variables, and Probability Distributions"
+ap-unit: 4
+module: "u4"
+---
+## 機率與隨機變數
+本單元尚在建置中。

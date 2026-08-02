@@ -165,6 +165,46 @@ const GENERATED_COURSE_DATA = {
         },
         "html": "<p><img src=\"content/assets/images/generated/module-6-causal-experiment.png\" alt=\"\">{.module-banner fig-alt=&quot;晨間介入試驗微縮模型以抽籤器將學生分到平行的處理與控制路徑，並以區集與重複單位呈現因果設計。&quot;}</p>\n<h2>情境與決策</h2>\n<p>問卷顯示睡眠較長的學生通常有較高準備度，但學校不能要求學生在家「隨機多睡兩小時」。校方改提出一項可控制的晨間介入：到校後參加 15 分鐘晨間規劃活動，或維持原有晨間流程。你要設計公平比較，並界定能說到哪裡。</p>\n<p>本模組使用原創合成資料 <code>morning_readiness_pilot.csv</code>。每列是一位虛構參與者，不含真實個資。</p>\n<h2>Topic 1.13｜觀察研究、實驗與結論邊界（第 23–25 節）</h2>\n<h3>Investigative Question</h3>\n<blockquote>\n<p><strong>中文：</strong> 參加 15 分鐘晨間規劃活動，是否會造成學生晨間準備度提高？<br><strong>English:</strong> Does a 15-minute morning-planning routine cause an improvement in students’ morning readiness?</p>\n</blockquote>\n<h3>資料來源與變數角色</h3>\n<table>\n<thead>\n<tr>\n<th>欄位</th>\n<th>角色／意義</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><code>participant_id</code></td>\n<td>虛構參與者代碼</td>\n</tr>\n<tr>\n<td><code>grade</code></td>\n<td>年級，可作 blocking variable</td>\n</tr>\n<tr>\n<td><code>baseline_readiness</code></td>\n<td>介入前準備度</td>\n</tr>\n<tr>\n<td><code>assignment_group</code></td>\n<td>隨機分派群組代碼</td>\n</tr>\n<tr>\n<td><code>intervention</code></td>\n<td>morning_planning 或 usual_routine</td>\n</tr>\n<tr>\n<td><code>blocked_by_grade</code></td>\n<td>是否依年級區集後分派</td>\n</tr>\n<tr>\n<td><code>post_readiness</code></td>\n<td>介入後準備度</td>\n</tr>\n<tr>\n<td><code>change_score</code></td>\n<td>post − baseline</td>\n</tr>\n<tr>\n<td><code>attended_sessions</code></td>\n<td>實際出席活動次數</td>\n</tr>\n</tbody></table>\n<h3>先預測，再看資料</h3>\n<ol>\n<li>若學生自行選擇是否參加 morning_planning，哪些既有差異可能形成 confounding？</li>\n<li>Random assignment 的目的不是讓兩組每一項都完全相同；它主要幫助什麼？</li>\n<li>若每組只有 3 人，即使隨機分派，結果會有什麼不穩定問題？</li>\n</ol>\n<h3>觀察研究與實驗</h3>\n<ul>\n<li><strong>Observational study</strong>：研究者觀察既有條件，不主動分派 treatment。</li>\n<li><strong>Experiment</strong>：研究者將 experimental units 分派至 treatments，再比較 response。</li>\n</ul>\n<p>有 association 不代表有 causation。自願參加者可能原本就更重視作息；這種既有差異會和 treatment effect 混在一起。</p>\n<h3>一個可稽核的隨機實驗</h3>\n<ol>\n<li><strong>Experimental units</strong>：同意參與的學生。</li>\n<li><strong>Treatments</strong>：morning_planning 與 usual_routine。</li>\n<li><strong>Random assignment</strong>：用亂數將學生分派到兩組，而非讓其自選。</li>\n<li><strong>Control</strong>：兩組在相同期間接受相同測量；對照組維持通常流程。</li>\n<li><strong>Replication</strong>：每種處理包含足夠多學生，並在多個早晨執行。</li>\n<li><strong>Blocking</strong>：若年級與準備度明顯相關，可先按年級分區集，再在每個區集內隨機分派。</li>\n<li><strong>Response</strong>：事先指定 <code>change_score</code> 或 <code>post_readiness</code>，避免看到結果後才挑有利指標。</li>\n</ol>\n<p>Random assignment 傾向讓已知與未知混雜變數在組間平衡，因此支持將 treatment groups 的系統差異歸因於處理。但它不保證小樣本每一個特徵都恰好相等。</p>\n<div class=\"ti84-box\"><h4 class=\"callout-title\">AP English Response｜實驗設計</h4><div class=\"callout-body\">\n> Within each grade-level block, randomly assign students to either the morning-planning treatment or the usual-routine control group. Keep the measurement schedule the same for both groups and compare their readiness change scores. Random assignment helps balance potential confounding variables, allowing a cause-and-effect conclusion for the participating students.\n</div></div>\n### 推廣與因果是兩個不同問題<table>\n<thead>\n<tr>\n<th>選取樣本</th>\n<th>分派處理</th>\n<th>合理結論</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Random sampling</td>\n<td>Random assignment</td>\n<td>可支持推廣至抽樣母體，並支持因果結論</td>\n</tr>\n<tr>\n<td>Random sampling</td>\n<td>無 random assignment</td>\n<td>可推廣觀察到的關聯，但不能建立因果</td>\n</tr>\n<tr>\n<td>非 random sampling</td>\n<td>Random assignment</td>\n<td>可支持參與者範圍內的因果，但廣泛推廣有限</td>\n</tr>\n<tr>\n<td>非 random sampling</td>\n<td>無 random assignment</td>\n<td>主要限於所觀察樣本的描述／關聯</td>\n</tr>\n</tbody></table>\n<p>實際研究還要考量倫理、依從性與實施差異。不能把學生刻意置於有害或不合理條件；若參與者未依分派出席，要誠實報告，而非悄悄刪除不符合預期者。</p>\n<h3>常見迷思</h3>\n<ul>\n<li><strong>迷思：</strong> 有 control group 就一定能談因果。<br><strong>修正：</strong> 若學生自選群組，confounding 仍可能存在。</li>\n<li><strong>迷思：</strong> Random assignment 讓實驗樣本代表全校。<br><strong>修正：</strong> 它處理組間可比性；代表性主要與選樣方式有關。</li>\n<li><strong>迷思：</strong> Blocking 與 stratified sampling 相同。<br><strong>修正：</strong> 都先分組，但 blocking 發生在實驗分派；stratification 發生在抽樣。</li>\n<li><strong>迷思：</strong> 介入組平均較高就證明每個人都受益。<br><strong>修正：</strong> 平均處理差異不代表所有個體反應相同。</li>\n</ul>\n<h3>A／B／C 分層練習</h3>\n<p><strong>A｜分類</strong>　學生自選參加 morning_planning，研究者只比較期末分數。這是 experiment 還是 observational study？</p>\n<p><strong>B｜設計</strong>　寫出在每個年級內進行隨機分派的明確程序，包含亂數工具與兩種處理。</p>\n<p><strong>C｜結論</strong>　40 位自願參與學生被隨機分派，morning_planning 組平均改善較多。可以談哪一種因果結論？為何不能直接推廣到全校？</p>\n<div class=\"concept-box\"><h4 class=\"callout-title\">低風險練習自我檢核</h4><div class=\"callout-body\">\n- A：observational study，因 treatment 是自選而非研究者分派。\n- B：按年級建立區集，在每區集為學生編號，用亂數將約一半分至 morning_planning、另一半分至 usual_routine。\n- C：在實驗執行良好時，可支持對自願參與者或類似條件下參與者的因果解釋；自願樣本未必代表全校。\n</div></div>\n### Exit Ticket 1.13<p>完成兩句話：</p>\n<ol>\n<li>Random sampling allows us to ______ because ______.</li>\n<li>Random assignment allows us to ______ because ______.</li>\n</ol>\n<p>並各寫一個不能由該方法單獨保證的結論。</p>\n<h2>Lab 6｜隨機分派與區集</h2>\n<p>開啟 <a href=\"../../labs/colab/lab-06-experimental-design.ipynb\">Lab 6：Experimental Design</a>。依提示比較完全隨機與依年級區集的分派，檢查兩組 baseline readiness，並解釋一次分派不平衡不等於隨機化失敗。</p>\n<p>完成證據：實驗流程圖、處理與反應變數、random assignment 理由、blocking 理由，以及一段同時界定 causation 與 generalization 的結論。</p>\n<h2>第 26 節｜把證據轉成決策</h2>\n<p>最後一節不新增統計名詞，而是把研究問題、圖表、摘要量數、抽樣限制與實驗設計整合成可供校務團隊採取行動的論證。</p>\n<h2>單元整合任務</h2>\n<ol>\n<li>完成 <a href=\"../../assessment/unit1-assessment.qmd\">12 題單元評量</a>。</li>\n<li>回到 <a href=\"../../assessment/frq.qmd\">10 分數位 FRQ</a>，完成研究設計部分並整體修訂。</li>\n<li>以六個模組的證據完成<a href=\"../../assessment/data-memo.qmd\">雙語資料建議書</a>。</li>\n</ol>\n<div class=\"concept-box\"><h4 class=\"callout-title\">最後自我檢核</h4><div class=\"callout-body\">\n每個結論都要問：資料來自誰？變數如何測量？使用什麼圖表或量數？研究設計允許描述、推廣、還是因果？\n</div></div>\n[返回 Unit 1 地圖](index.qmd) ｜ [前往分層練習](../../practice/index.qmd)\n"
       }
+    },
+    "u2": {
+      "index": {
+        "metadata": {
+          "title": "Unit 2｜Exploring Two-Variable Data",
+          "ap-unit": 2,
+          "module": "u2"
+        },
+        "html": "<h2>雙變數資料探索</h2>\n<p>本單元尚在建置中。</p>\n"
+      }
+    },
+    "u3": {
+      "index": {
+        "metadata": {
+          "title": "Unit 3｜Collecting Data",
+          "ap-unit": 3,
+          "module": "u3"
+        },
+        "html": "<h2>收集資料與抽樣</h2>\n<p>本單元尚在建置中。</p>\n"
+      }
+    },
+    "u4": {
+      "index": {
+        "metadata": {
+          "title": "Unit 4｜Probability, Random Variables, and Probability Distributions",
+          "ap-unit": 4,
+          "module": "u4"
+        },
+        "html": "<h2>機率與隨機變數</h2>\n<p>本單元尚在建置中。</p>\n"
+      }
+    },
+    "u5": {
+      "index": {
+        "metadata": {
+          "title": "Unit 5｜Sampling Distributions",
+          "ap-unit": 5,
+          "module": "u5"
+        },
+        "html": "<h2>抽樣分佈</h2>\n<p>本單元尚在建置中。</p>\n"
+      }
     }
   },
   "practice": {

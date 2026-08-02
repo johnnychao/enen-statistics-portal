@@ -6,14 +6,16 @@ const DEFAULT_PAID_STUDENTS = [
     name: "張小明 (Demo Student)",
     allowedUnits: ["u1", "u2", "u3"],
     joinedDate: "2026-07-01",
-    note: "已繳費 Unit 1~3 課程"
+    note: "已繳費 Unit 1~3 課程",
+    completedModules: []
   },
   {
     email: "enen.vip@gmail.com",
     name: "李大華 (VIP 全修生)",
     allowedUnits: ["u1", "u2", "u3", "u4", "u5", "exam"],
     joinedDate: "2026-06-15",
-    note: "AP 5分全修保證班"
+    note: "AP 5分全修保證班",
+    completedModules: []
   }
 ];
 
@@ -32,9 +34,31 @@ document.addEventListener("DOMContentLoaded", () => {
   checkUserAuth();
   initUnitTabs();
   initGlossary();
+  initLabs();
   updateZCalculator();
   updateTCalculator();
 });
+
+function initLabs() {
+  const container = document.getElementById("colabLabsContainer");
+  if (!container) return;
+  container.innerHTML = "";
+  
+  if (GENERATED_COURSE_DATA && GENERATED_COURSE_DATA.labs && GENERATED_COURSE_DATA.labs.colab) {
+    const colabFiles = GENERATED_COURSE_DATA.labs.colab;
+    for (const [labId, labData] of Object.entries(colabFiles)) {
+      // labId is like lab-01-data-questions
+      const a = document.createElement("a");
+      // Use standard Github -> Colab redirect URL format
+      a.href = \`https://colab.research.google.com/github/johnnychao/enen-statistics-portal/blob/main/content/labs/colab/\${labId}.ipynb\`;
+      a.target = "_blank";
+      a.className = "glossary-item"; // Reuse styling
+      a.style.display = "block";
+      a.innerHTML = \`<strong style="color:var(--accent-cyan);">\${labId.replace(/-/g, ' ')}</strong><div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">啟動 Jupyter Notebook 🚀</div>\`;
+      container.appendChild(a);
+    }
+  }
+}
 
 function buildCourseData() {
   if (typeof GENERATED_COURSE_DATA === 'undefined') return;
@@ -301,31 +325,73 @@ function renderSidebarModules(unit) {
 
 function renderActiveModule() {
   const unit = COURSE_DATA.units.find(u => u.id === activeUnitId);
-  if (!unit) return;
   const mod = unit.modules.find(m => m.id === activeModuleId);
-  if (!mod) return;
-
   const article = document.getElementById("moduleArticle");
-  
-  let teacherSec = '';
-  if (isTeacherUnlocked) {
-    teacherSec = `
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:2px dashed var(--accent-purple);">
+
+  if (!mod) {
+    article.innerHTML = "<p>找不到模組內容</p>";
+    return;
+  }
+
+  // Student content
+  let html = `
+    <h2 style="color:var(--accent-cyan); margin-bottom:0.5rem; font-size:1.5rem;">${mod.code}: ${mod.title}</h2>
+    <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem;">${mod.summary}</p>
+    <div class="module-body-content">
+      ${mod.studentContent}
+    </div>
+  `;
+
+  // Teacher content if unlocked
+  if (isTeacherUnlocked && mod.teacherContent) {
+    html += `
+      <div style="margin-top:2rem; padding-top:1.5rem; border-top:2px dashed var(--accent-gold);">
         ${mod.teacherContent}
       </div>
     `;
   }
+  
+  // Progress Tracking Button
+  if (currentUser) {
+    let student = paidStudents.find(s => s.email.toLowerCase() === currentUser.email.toLowerCase());
+    if (student) {
+      if (!student.completedModules) student.completedModules = [];
+      const isCompleted = student.completedModules.includes(mod.id);
+      
+      html += `
+        <div style="margin-top:2rem; padding:1.5rem; background:rgba(0,0,0,0.3); border-radius:var(--radius-sm); border:1px solid var(--border-color); text-align:center;">
+          <h4 style="color:var(--text-primary); margin-bottom:0.5rem;">學習進度追蹤</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;">完成本章節學習與練習後，點擊下方按鈕記錄進度，恩恩老師會在後台看到你的努力！</p>
+          <button id="completionBtn" class="btn-primary" style="background:${isCompleted ? 'var(--accent-green)' : 'var(--accent-cyan)'}; border:none; width:200px;" onclick="toggleModuleCompletion('${mod.id}')">
+            ${isCompleted ? '✅ 已完成 (點擊取消)' : '未完成 (點擊標記為完成)'}
+          </button>
+        </div>
+      `;
+    }
+  }
 
-  article.innerHTML = `
-    <h2 style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.4rem;">${mod.title}</h2>
-    <p style="font-size:0.9rem; color:var(--text-secondary); border-bottom:1px solid var(--border-color); padding-bottom:0.75rem; margin-bottom:1rem;">${mod.summary}</p>
-    <div>${mod.studentContent}</div>
-    ${teacherSec}
-  `;
+  article.innerHTML = html;
+  
+  // Re-run MathJax to parse new content
+  if (window.MathJax) {
+    MathJax.typesetPromise([article]).catch((err) => console.log(err.message));
+  }
+}
 
-  // Trigger MathJax re-render
-  if (window.MathJax && MathJax.typesetPromise) {
-    MathJax.typesetPromise([article]).catch(err => console.log(err));
+function toggleModuleCompletion(moduleId) {
+  if (!currentUser) return;
+  let student = paidStudents.find(s => s.email.toLowerCase() === currentUser.email.toLowerCase());
+  if (student) {
+    if (!student.completedModules) student.completedModules = [];
+    
+    if (student.completedModules.includes(moduleId)) {
+      student.completedModules = student.completedModules.filter(id => id !== moduleId);
+    } else {
+      student.completedModules.push(moduleId);
+    }
+    
+    localStorage.setItem("enen_paid_students", JSON.stringify(paidStudents));
+    renderActiveModule();
   }
 }
 
@@ -497,7 +563,8 @@ function renderStudentPermissionsTable() {
     tr.innerHTML = `
       <td>
         <strong>${student.name}</strong><br>
-        <span style="color:var(--text-muted); font-size:0.75rem;">${student.email}</span>
+        <span style="color:var(--text-muted); font-size:0.75rem;">${student.email}</span><br>
+        <span style="color:var(--accent-green); font-size:0.7rem;">✅ 進度: ${student.completedModules ? student.completedModules.length : 0} 個模組</span>
       </td>
       ${switchesHtml}
       <td>
