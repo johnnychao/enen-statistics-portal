@@ -144,6 +144,13 @@ function buildCourseData() {
   // Sort units
   newCourseData.units.sort((a, b) => a.id.localeCompare(b.id));
 
+  // Preserve glossary if it exists in the original COURSE_DATA
+  if (COURSE_DATA && COURSE_DATA.glossary) {
+    newCourseData.glossary = COURSE_DATA.glossary;
+  } else {
+    newCourseData.glossary = [];
+  }
+
   COURSE_DATA = newCourseData;
 }
 
@@ -490,6 +497,7 @@ function updateTCalculator() {
 
 /* --- 4. Search & Glossary --- */
 function initGlossary() {
+  if (!COURSE_DATA.glossary) return;
   renderGlossary(COURSE_DATA.glossary);
 }
 
