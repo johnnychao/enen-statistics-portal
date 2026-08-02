@@ -1,7 +1,8 @@
-﻿---
+---
 title: "Unit 3｜Collecting Data"
 ap-unit: 3
-module: "u3"
 ---
-## 收集資料與抽樣
-本單元尚在建置中。
+
+# Collecting Data
+
+本單元為自動化轉譯之 AP 統計學原文教材。

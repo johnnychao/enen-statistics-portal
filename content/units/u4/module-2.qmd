@@ -1,0 +1,509 @@
+---
+title: "2.2 Probability basics"
+---
+
+104
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.3
+Side effects of Avandia, Part I. Rosiglitazone is the active ingredient in the controversial type 2
+diabetes medicine Avandia and has been linked to an increased risk of serious cardiovascular problems such
+as stroke, heart failure, and death. A common alternative treatment is pioglitazone, the active ingredient
+in a diabetes medicine called Actos. In a nationwide retrospective observational study of 227,571 Medicare
+beneficiaries aged 65 years or older, it was found that 2,593 of the 67,593 patients using rosiglitazone and
+5,386 of the 159,978 using pioglitazone had serious cardiovascular problems. These data are summarized in
+the contingency table below.5
+Cardiovascular problems
+Yes
+No
+Total
+Treatment
+Rosiglitazone
+2,593
+65,000
+67,593
+Pioglitazone
+5,386
+154,592
+159,978
+Total
+7,979
+219,592
+227,571
+Determine if each of the following statements is true or false. If false, explain why. Be careful: The reasoning
+may be wrong even if the statement's conclusion is correct. In such cases, the statement should be considered
+false.
+(a) Since more patients on pioglitazone had cardiovascular problems (5,386 vs. 2,593), we can conclude that
+the rate of cardiovascular problems for those on a pioglitazone treatment is higher.
+(b) The data suggest that diabetic patients who are taking rosiglitazone are more likely to have cardio-
+vascular problems since the rate of incidence was (2,593 / 67,593 = 0.038) 3.8% for patients on this
+treatment, while it was only (5,386 / 159,978 = 0.034) 3.4% for patients on pioglitazone.
+(c) The fact that the rate of incidence is higher for the rosiglitazone group proves that rosiglitazone causes
+serious cardiovascular problems.
+(d) Based on the information provided so far, we cannot tell if the diﬀerence between the rates of incidences
+is due to a relationship between the two variables or due to chance.
+2.4
+Views on immigration. 910 randomly sampled registered voters from Tampa, FL were asked if they
+thought undocumented workers in the US should be (i) allowed to keep their jobs and apply for US citizenship,
+(ii) allowed to keep their jobs as temporary guest workers but not allowed to apply for US citizenship, or
+(iii) lose their jobs and have to leave the country. The results of the survey by political ideology are shown
+below.6
+Political ideology
+Conservative
+Moderate
+Liberal
+Total
+(i) Apply for citizenship
+57
+120
+101
+278
+(ii) Guest worker
+121
+113
+28
+262
+Response
+(iii) Leave the country
+179
+126
+45
+350
+(iv) Not sure
+15
+4
+1
+20
+Total
+372
+363
+175
+910
+(a) What percent of these Tampa, FL voters identify themselves as conservatives?
+(b) What percent of these Tampa, FL voters are in favor of the citizenship option?
+(c) What percent of these Tampa, FL voters identify themselves as conservatives and are in favor of the
+citizenship option?
+(d) What percent of these Tampa, FL voters who identify themselves as conservatives are also in favor of
+the citizenship option? What percent of moderates share this view? What percent of liberals share this
+view?
+(e) Do political ideology and views on immigration appear to be independent? Explain your reasoning.
+5D.J. Graham et al. "Risk of acute myocardial infarction, stroke, heart failure, and death in elderly Medicare
+patients treated with rosiglitazone or pioglitazone". In: JAMA 304.4 (2010), p. 411. issn: 0098-7484.
+6SurveyUSA, News Poll #18927, data collected Jan 27-29, 2012.
+
+
+### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
+105
+2.5
+Heart transplant data display. The Stanford University Heart Transplant Study was conducted to
+determine whether an experimental heart transplant program increased lifespan. Each patient entering the
+program was oﬃcially designated a heart transplant candidate, meaning that they were gravely ill and might
+benefit from a new heart. Patients were randomly assigned into treatment and control groups. Patients in
+the treatment group received a transplant, and those in the control group did not. The visualizations below
+display two diﬀerent versions of the study results.7
+(a) Provide one aspect of the two group comparison that is easier to see from the stacked bar plot (left)?
+(b) Provide one aspect of the two group comparison that is easier to see from the standardized bar plot
+(right)?
+(c) For the Heart Transplant Study which of those aspects would be more important to display? That is,
+which bar plot would be better as a data visualization?
+2.6
+Shipping holiday gifts data display. A local news survey asked 500 randomly sampled Los Angeles
+residents which shipping carrier they prefer to use for shipping holiday gifts. The bar plots below show the
+distribution of responses by age group as well as distribution of responses by shipping method.
+(a) Which graph (top or bottom) would you use to understand the shipping choices of people of diﬀerent
+ages? Explain.
+(b) Which graph (top or bottom) would you use to understand the age distribution across diﬀerent types
+of shipping choices? Explain.
+(c) A new shipping company would like to market to people over the age of 55. Who will be their biggest
+competitor? Explain.
+(d) FedEx would like to reach out to grow their market share so as to balance the age demographics of
+FedEx users. To what age group should FedEx market?
+7B. Turnbull et al. "Survivorship of Heart Transplant Data". In: Journal of the American Statistical Association
+69 (1974), pp. 74-80.
+
+
+106
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.2
+Probability basics
+What is the probability of rolling an even number on a die? Of getting 5 heads in row when tossing
+a coin? Of drawing a Heart or an Ace from a deck of cards? The study of probability is fun and
+interesting in its own right, but it also forms the foundation for statistical models and inferential
+procedures, many of which we will investigate in upcoming chapters.
+Learning objectives
+1. Estimate probabilities using simulations.
+2. Calculate probabilities for events and their complements.
+3. Justify why two events are mutually exclusive (or disjoint) using joint probability.
+4. Calculate probabilities for independent events.
+2.2.1
+Introductory examples
+EXAMPLE 2.6
+A "die", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the
+chance of getting 1 when rolling a die?
+If the die is fair, then the chance of a 1 is as good as the chance of any other number. Since there
+are six outcomes, the chance must be 1-in-6 or, equivalently, 1/6.
+EXAMPLE 2.7
+What is the chance of getting a 1 or 2 in the next roll?
+1 and 2 constitute two of the six equally likely possible outcomes, so the chance of getting one of
+these two outcomes must be 2/6 = 1/3.
+EXAMPLE 2.8
+What is the chance of getting either 1, 2, 3, 4, 5, or 6 on the next roll?
+100%. The outcome must be one of these numbers.
+EXAMPLE 2.9
+What is the chance of not rolling a 2?
+Since the chance of rolling a 2 is 1/6 or 16.¯6%, the chance of not rolling a 2 must be 100% -16.¯6% =
+83.¯3% or 5/6.
+Alternatively, we could have noticed that not rolling a 2 is the same as getting a 1, 3, 4, 5, or 6,
+which makes up five of the six equally likely outcomes and has probability 5/6.
+
+
+### 2.2. PROBABILITY BASICS
+107
+EXAMPLE 2.10
+Consider rolling two dice. If 1/6th of the time the first die is a 1 and 1/6th of those times the second
+die is a 1, what is the chance of getting two 1s?
+If 16.¯6% of the time the first die is a 1 and 1/6th of those times the second die is also a 1, then the
+chance that both dice are 1 is (1/6) × (1/6) or 1/36.
+2.2.2
+Estimating probabilities using simulation
+We use probability to build tools to describe and understand apparent randomness. We often
+frame probability in terms of a random process giving rise to an outcome. A random process
+generates results that are determined by chance. An outcome is the result of one trial of a random
+process.
+Roll a die
+→
+1, 2, 3, 4, 5, or 6
+Flip a coin
+→
+H or T
+Rolling a die or flipping a coin is a seemingly random process and each gives rise to an outcome.
+PROBABILITY
+The probability of an outcome is the proportion of times the outcome would occur if we
+observed the random process an infinite number of times.
+Probability is defined as a proportion, and it always takes values between 0 and 1 (inclusively).
+It may also be displayed as a percentage between 0% and 100%.
+An event is a collection of outcomes. Probability can be illustrated by rolling a die many times.
+Consider the event "roll a 1". We can use a simulation to model this event and to estimate the
+likelihood of the event by calculating the relative frequency of the event. The relative frequency
+of an event is the proportion of times the event occurs out of the number of trials. Let ˆpn be the
+proportion of outcomes that are 1 after the first n rolls. As the number of rolls increases, ˆpn (the
+relative frequency of rolls) will converge to the probability of rolling a 1, p = 1/6. Figure 2.9 shows
+this convergence for 100,000 die rolls. The tendency of ˆpn to stabilize around p, that is, the tendency
+of the relative frequency to stabilize around the true probability, is described by the Law of Large
+Numbers.
+n (number of rolls)
+1
+10
+100
+1,000
+10,000
+100,000
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+p^
+n
+Figure 2.9: The fraction of die rolls that are 1 at each stage in a simulation. The
+relative frequency tends to get closer to the probability 1/6 ≈0.167 as the number
+of rolls increases.
+
+
+108
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+LAW OF LARGE NUMBERS
+The law of large numbers states that for independent trials, as the number of trials increases,
+the long-run relative frequency of the outcome or event gets closer and closer to a single value.
+Occasionally the proportion will veer oﬀfrom the probability and appear to defy the Law of
+Large Numbers, as ˆpn does many times in Figure 2.9. However, these deviations become smaller as
+the number of rolls increases.
+Above we write p as the probability of rolling a 1. We can also write this probability as
+P(rolling a 1)
+As we become more comfortable with this notation, we will abbreviate it further. For instance,
+if it is clear that the process is "rolling a die", we could abbreviate P(rolling a 1) as P(1).
+GUIDED PRACTICE 2.11
+Random processes include rolling a die and flipping a coin. (a) Think of another random process.
+(b) Describe all the possible outcomes of that process. For instance, rolling a die is a random process
+with potential outcomes 1, 2, ..., 6. 8
+What we think of as random processes are not necessarily random, but they may just be too
+diﬃcult to understand exactly. The fourth example in the footnote solution to Guided Practice 2.11
+suggests a roommate's behavior is a random process. However, even if a roommate's behavior is not
+truly random, modeling her behavior as a random process can still be useful.
+MODELING A PROCESS AS RANDOM
+It can be helpful to model a process as random even if it is not truly random.
+2.2.3
+Sample space and complement of an event
+Rolling a die produces a value in the set {1, 2, 3, 4, 5, 6}. This set of all possible outcomes is
+called the sample space (S) for rolling a die. The probability of the sample space is 1: if we roll
+a die, it will come up as one of the numbers among 1, 2, 3, 4, 5, or 6. Additionally, the probability
+of any event is always between 0 and 1, inclusive.
+We can say that the probability of rolling an even number when rolling a die is 3/6 = 1/2,
+because there are three possible outcomes that are even (2, 4, 6) among the six possible outcomes
+and each of the outcomes in the sample space is equally likely.
+More generally, if all outcomes
+in the sample space are equally likely, then the theoretical probability an event E will occur can
+be found by dividing the number of outcomes in event E by the total number of outcomes in the
+sample space. Probability calculations tend to be more straightforward when each possible outcome
+is equally likely. However, this is often not the case. For example, while someone playing the lottery
+can either win or not win, the chance of winning is not 50%!
+8Here are four examples. (i) Whether someone gets sick in the next month or not is an apparently random process
+with outcomes sick and not. (ii) We can generate a random process by randomly picking a person and measuring
+that person's height. The outcome of this process will be a positive number. (iii) Whether the stock market goes up
+or down next week is a seemingly random process with possible outcomes up, down, and no change. Alternatively, we
+could have used the percent change in the stock market as a numerical outcome. (iv) Whether your roommate cleans
+her dishes tonight probably seems like a random process with possible outcomes cleans dishes and leaves dishes.
+
+
+### 2.2. PROBABILITY BASICS
+109
+We often use the sample space to examine the scenario where an event does not occur. Let
+D = {2, 3} represent the event that the outcome of a die roll is 2 or 3. Then the complement
+represents all outcomes in our sample space that are not in D, which is denoted by Dc = {1, 4, 5,
+6}. That is, Dc is the set of all possible outcomes not already included in D. Figure 2.10 shows the
+relationship between D, Dc, and the sample space S.
+1
+4
+5
+6
+2
+3
+D
+DC
+S
+Figure 2.10: Event D = {2, 3} and its complement, Dc = {1, 4, 5, 6}. S represents
+the sample space, which is the set of all possible events.
+GUIDED PRACTICE 2.12
+(a) Compute P(Dc) = P(rolling a 1, 4, 5, or 6). (b) What is P(D) + P(Dc)?9
+GUIDED PRACTICE 2.13
+Events A = {1, 2} and B = {4, 6} are shown in Figure 2.11 on page 111. (a) Write out what Ac and
+Bc represent. (b) Compute P(Ac) and P(Bc). (c) Compute P(A) + P(Ac) and P(B) + P(Bc).10
+An event A together with its complement Ac comprise the entire sample space. Because of this
+we can say that P(A) + P(Ac) = 1.
+COMPLEMENT
+The complement of event A is denoted Ac, and Ac represents all outcomes not in A. A and Ac
+are mathematically related:
+P(A) + P(Ac) = 1,
+i.e.
+P(A) = 1 -P(Ac)
+In simple examples, computing A or Ac is feasible in a few steps. However, using the complement
+can save a lot of time as problems grow in complexity.
+GUIDED PRACTICE 2.14
+A die is rolled 10 times. (a) What is the complement of getting at least one 6 in 10 rolls of the die?
+(b) What is the complement of getting at most three 6's in 10 rolls of the die?11
+9(a) The outcomes are disjoint and each has probability 1/6, so the total probability is 4/6 = 2/3. (b) We can also
+see that P(D) = 1
+6 + 1
+6 = 1/3. Because D and Dc are disjoint, P(D) + P(Dc) = 1.
+10Brief solutions: (a) Ac = {3, 4, 5, 6} and Bc = {1, 2, 3, 5}. (b) Noting that each outcome is disjoint, add the
+individual outcome probabilities to get P(Ac) = 2/3 and P(Bc) = 2/3. (c) A and Ac are disjoint, and the same is true
+of B and Bc. Therefore, P(A) + P(Ac) = 1 and P(B) + P(Bc) = 1.
+11(a) The complement of getting at least one 6 in ten rolls of a die is getting zero 6's in the 10 rolls. (b) The
+complement of getting at most three 6's in 10 rolls is getting four, five, ..., nine, or ten 6's in 10 rolls.
+
+
+110
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.2.4
+Disjoint or mutually exclusive outcomes
+Two outcomes are called disjoint or mutually exclusive if they cannot both happen in the
+same trial. For instance, if we roll a die, the outcomes 1 and 2 are disjoint since they cannot both
+occur on a single roll. On the other hand, the outcomes 1 and "rolling an odd number" are not
+disjoint since both occur if the outcome of the roll is a 1. The terms disjoint and mutually exclusive
+are equivalent and interchangeable.
+Calculating the probability of disjoint outcomes is easy. When rolling a die, the outcomes 1
+and 2 are disjoint, and we compute the probability that one of these outcomes will occur by adding
+their separate probabilities:
+P(1 or 2) = P(1) + P(2) = 1/6 + 1/6 = 1/3
+What about the probability of rolling a 1, 2, 3, 4, 5, or 6? Here again, all of the outcomes are
+disjoint so we add the probabilities:
+P(1 or 2 or 3 or 4 or 5 or 6)
+= P(1) + P(2) + P(3) + P(4) + P(5) + P(6)
+= 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 1.
+The Addition Rule guarantees the accuracy of this approach when the outcomes are disjoint.
+ADDITION RULE OF DISJOINT OUTCOMES
+If A1 and A2 represent two disjoint outcomes, then the probability that one of them occurs is
+given by
+P(A1 or A2) = P(A1) + P(A2)
+If there are many disjoint outcomes A1, ..., Ak, then the probability that one of these outcomes
+will occur is
+P(A1) + P(A2) + ⋯+ P(Ak)
+GUIDED PRACTICE 2.15
+We are interested in the probability of rolling a 1, 4, or 5. (a) Explain why the outcomes 1, 4, and
+5 are disjoint. (b) Apply the Addition Rule for disjoint outcomes to determine P(1 or 4 or 5).12
+GUIDED PRACTICE 2.16
+In the email data set in Chapter 1, the number variable described whether no number (labeled
+none), only one or more small numbers (small), or whether at least one big number appeared in an
+email (big). Of the 3,921 emails, 549 had no numbers, 2,827 had only one or more small numbers,
+and 545 had at least one big number. (a) Are the outcomes none, small, and big disjoint? (b)
+Determine the proportion of emails with value small and big separately. (c) Use the Addition Rule
+for disjoint outcomes to compute the probability a randomly selected email from the data set has a
+number in it, small or big.13
+12(a) The random process is a die roll, and at most one of these outcomes can come up. This means they are
+disjoint outcomes. (b) P(1 or 4 or 5) = P(1) + P(4) + P(5) = 1
+6 + 1
+6 + 1
+6 = 3
+6 = 1
+2
+13(a) Yes. Each email is categorized in only one level of number. (b) Small:
+2827
+3921 = 0.721. Big:
+545
+3921 = 0.139. (c)
+P(small or big) = P(small) + P(big) = 0.721 + 0.139 = 0.860.
+
+
+### 2.2. PROBABILITY BASICS
+111
+Statisticians rarely work with individual outcomes and instead consider sets or collections of
+outcomes. Let A represent the event where a die roll results in 1 or 2 and B represent the event
+that the die roll is a 4 or a 6. We write A as the set of outcomes {1, 2} and B = {4, 6}. These
+sets are commonly called events. Because A and B have no elements in common, they are disjoint
+events. A and B are represented in Figure 2.11.
+1
+2
+3
+4
+5
+6
+A
+B
+D
+Figure 2.11: Three events, A, B, and D, consist of outcomes from rolling a die. A
+and B are disjoint since they do not have any outcomes in common.
+The Addition Rule applies to both disjoint outcomes and disjoint events. The probability that
+one of the disjoint events A or B occurs is the sum of the separate probabilities:
+P(A or B) = P(A) + P(B) = 1/3 + 1/3 = 2/3
+GUIDED PRACTICE 2.17
+(a) Verify the probability of event A, P(A), is 1/3 using the Addition Rule. (b) Do the same for
+event B.14
+GUIDED PRACTICE 2.18
+(a) Using Figure 2.11 as a reference, what outcomes are represented by event D? (b) Are events B
+and D disjoint? (c) Are events A and D disjoint?15
+GUIDED PRACTICE 2.19
+In Guided Practice 2.18, you confirmed B and D from Figure 2.11 are disjoint.
+Compute the
+probability that either event B or event D occurs.16
+2.2.5
+Joint probabilies when events are independent
+Just as variables and observations can be independent, random processes can be independent,
+too. Two processes are independent if knowing the outcome of one provides no useful information
+about the outcome of the other. For instance, flipping a coin and rolling a die are two independent
+processes - knowing the coin was heads does not help determine the outcome of a die roll. On the
+other hand, stock prices usually move up or down together, so they are not independent. To define
+independence mathematically, we will have to wait for the discussion of conditional probability in
+the next section.
+Example 2.10 provides a basic example of two independent processes: rolling two dice. We
+want to determine the probability that both will be 1.
+Suppose one of the dice is red and the
+other white. If the outcome of the red die is a 1, it provides no information about the outcome
+of the white die. We first encountered this same question in Example 2.10 (page 107), where we
+calculated the probability using the following reasoning: 1/6th of the time the red die is a 1, and
+1/6th of those times the white die will also be 1. This is illustrated in Figure 2.12. Because the rolls
+are independent, the probabilities of the corresponding outcomes can be multiplied to get the final
+answer: (1/6) × (1/6) = 1/36. This can be generalized to many independent processes.
+14(a) P(A) = P(1 or 2) = P(1) + P(2) = 1
+6 + 1
+6 = 2
+6 = 1
+3 . (b) Similarly, P(B) = 1/3.
+15(a) Outcomes 2 and 3. (b) Yes, events B and D are disjoint because they share no outcomes. (c) The events A
+and D share an outcome in common, 2, and so are not disjoint.
+16Since B and D are disjoint events, use the Addition Rule: P(B or D) = P(B) + P(D) = 1
+3 + 1
+3 = 2
+3 .
+
+
+112
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+All rolls
+1/6th of the first
+rolls are a 1.
+1/6th of those times where
+the first roll is a 1 the
+second roll is also a 1.
+Figure 2.12: 1/6th of the time, the first roll is a 1. Then 1/6th of those times, the
+second roll will also be a 1.
+EXAMPLE 2.20
+What if there was also a blue die independent of the other two? What is the probability of rolling
+the three dice and getting all 1s?
+The same logic applies from Example 2.10. If 1/36th of the time the white and red dice are both 1,
+then 1/6th of those times the blue die will also be 1, so multiply:
+P(white = 1 and red = 1 and blue = 1) = P(white = 1) × P(red = 1) × P(blue = 1)
+= (1/6) × (1/6) × (1/6) = 1/216
+Examples 2.10 and 2.20 illustrate what is called the Multiplication Rule for independent pro-
+cesses.
+MULTIPLICATION RULE FOR INDEPENDENT PROCESSES
+If A and B represent events from two diﬀerent and independent processes, then the probability
+that both A and B occur can be calculated as the product of their separate probabilities:
+P(A and B) = P(A) × P(B)
+Similarly, if there are k events A1, ..., Ak from k independent processes, then the probability
+they all occur is
+P(A1) × P(A2) × ⋯× P(Ak)
+GUIDED PRACTICE 2.21
+About 9% of people are left-handed. Suppose 2 people are selected at random from the U.S. pop-
+ulation. Because the sample size of 2 is very small relative to the population, it is reasonable to
+assume these two people are independent. (a) What is the probability that both are left-handed?
+(b) What is the probability that both are right-handed?17
+17(a) The probability the first person is left-handed is 0.09, which is the same for the second person. We apply the
+Multiplication Rule for independent processes to determine the probability that both will be left-handed: 0.09×0.09 =
+0.0081.
+(b) It is reasonable to assume the proportion of people who are ambidextrous (both right- and left-handed) is nearly
+0, which results in P(right-handed) = 1 -0.09 = 0.91. Using the same reasoning as in part (a), the probability that
+both will be right-handed is 0.91 × 0.91 = 0.8281.
+
+
+### 2.2. PROBABILITY BASICS
+113
+GUIDED PRACTICE 2.22
+Suppose 5 people are selected at random.18
+(a) What is the probability that all are right-handed?
+(b) What is the probability that all are left-handed?
+(c) What is the probability that not all of the people are right-handed?
+Suppose the variables handedness and gender are independent, i.e. knowing someone's gender
+provides no useful information about their handedness and vice-versa.
+Then we can compute
+whether a randomly selected person is right-handed and female19 using the Multiplication Rule:
+P(right-handed and female)
+=
+P(right-handed) × P(female)
+=
+0.91 × 0.50 = 0.455
+GUIDED PRACTICE 2.23
+Three people are selected at random.20
+(a) What is the probability that the first person is male and right-handed?
+(b) What is the probability that the first two people are male and right-handed?.
+(c) What is the probability that the third person is female and left-handed?
+(d) What is the probability that the first two people are male and right-handed and the third
+person is female and left-handed?
+Sometimes we wonder if one outcome provides useful information about another outcome. The
+question we are asking is, are the occurrences of the two events independent? We say that two
+events A and B are independent if they satisfy Equation (2.21).
+EXAMPLE 2.24
+If we shuﬄe up a deck of cards and draw one, is the event that the card is a heart independent of
+the event that the card is an ace?
+The probability the card is a heart is 1/4 and the probability that it is an ace is 1/13. The probability
+the card is the ace of hearts is 1/52. We check whether Equation 2.21 is satisfied:
+P(♡) × P(ace) = 1
+4 × 1
+13 = 1
+52 = P(♡and ace)
+Because the equation holds, the event that the card is a heart and the event that the card is an ace
+are independent events.
+18(a) The abbreviations RH and LH are used for right-handed and left-handed, respectively. Since each are indepen-
+dent, we apply the Multiplication Rule for independent processes:
+P(all five are RH) = P(first = RH, second = RH, ..., fifth = RH)
+= P(first = RH) × P(second = RH) × ⋅⋅⋅× P(fifth = RH)
+= 0.91 × 0.91 × 0.91 × 0.91 × 0.91 = 0.624
+(b) Using the same reasoning as in (a), 0.09 × 0.09 × 0.09 × 0.09 × 0.09 = 0.0000059
+(c) Use the complement, P(all five are RH), to answer this question:
+P(not all RH) = 1 -P(all RH) = 1 -0.624 = 0.376
+19The actual proportion of the U.S. population that is female is about 50%, and so we use 0.5 for the probability
+of sampling a woman. However, this probability does diﬀer in other countries.
+20Brief answers are provided. (a) This can be written in probability notation as P(a randomly selected person is
+male and right-handed) = 0.455. (b) 0.207. (c) 0.045. (d) 0.0093.
+
+

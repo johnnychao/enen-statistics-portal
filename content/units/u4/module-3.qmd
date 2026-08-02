@@ -1,0 +1,1052 @@
+---
+title: "2.3 Conditional probability"
+---
+
+114
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+Section summary
+• A random process generates results that are determined by chance.
+• An outcome is the result of one trial of a random process.
+• An event is a collection of outcomes.
+• Simulation is a way to model random events such that the simulated outcomes closely match
+real-world outcomes. All possible outcomes are associated with a value to be determined by
+chance. Record the counts of simulated outcomes and the count total.
+• The probability of an outcome or event is its long-run relative frequency-- that is, its relative
+frequency over a large number of trials.
+• The relative frequency of an outcome or event determined from empirical data can be used
+to estimate the actual, or true, probability of that outcome or event.
+• The law of large numbers states that for independent trials, as the number of trials increases,
+the long-run relative frequency of the outcome or event gets closer and closer to a single value.
+• The probability of an event is always between 0 and 1, inclusive.
+• The sample space of a random process is the set of all possible nonoverlapping outcomes.
+The probability of the sample space is 1.
+• If all outcomes in the sample space are equally likely, then the theoretical probability an event
+E will occur can be found by dividing the number of outcomes in event E by the total number
+of outcomes in the sample space.
+• The probability of the complement of an event E, which can written as "not E" or Ec, is
+equal to 1-P(E), i.e. P(Ec) = 1-P(E). This can also be applied as P(E) = 1-P(Ec).
+• The probability that events A and B both will occur, that is the joint probability of A and
+B, is the probability of the intersection of A and B.
+• Two events A and B are mutually exclusive, or disjoint, if they cannot happen together.
+In this case, the events do not overlap and P(A and B) = 0.
+• In the special case where A and B are disjoint events: P(A or B) = P(A) + P(B).
+• When considering only two events, the probability that one or the other happens is equal to
+the probability that at least one of the two events happens.
+• To find the probability that at least one of several events occurs, use a special case of the rule
+of complements: P(at least one) = 1 -P(none).
+• Two events are independent when the occurrence of one does not change the likelihood of
+the other. Outcomes of coin tosses or rolls of a dice are classic examples of independent events.
+• In the special case where A and B are independent: P(A and B) = P(A) × P(B).
+
+
+### 2.2. PROBABILITY BASICS
+115
+Exercises
+2.7
+True or false. Determine if the statements below are true or false, and explain your reasoning.
+(a) If a fair coin is tossed many times and the last eight tosses are all heads, then the chance that the next
+toss will be heads is somewhat less than 50%.
+(b) Drawing a face card (jack, queen, or king) and drawing a red card from a full deck of playing cards are
+mutually exclusive events.
+(c) Drawing a face card and drawing an ace from a full deck of playing cards are mutually exclusive events.
+2.8
+Roulette wheel. The game of roulette involves spinning a wheel with 38 slots: 18 red, 18 black, and 2
+green. A ball is spun onto the wheel and will eventually land in a slot, where each slot has an equal chance
+of capturing the ball.
+(a) You watch a roulette wheel spin 3 consecutive times and the ball
+lands on a red slot each time. What is the probability that the
+ball will land on a red slot on the next spin?
+(b) You watch a roulette wheel spin 300 consecutive times and the
+ball lands on a red slot each time. What is the probability that
+the ball will land on a red slot on the next spin?
+(c) Are you equally confident of your answers to parts (a) and (b)?
+Why or why not?
+Photo by H˚akan Dahlstr¨om
+(http://flic.kr/p/93fEzp)
+CC BY 2.0 license
+2.9
+Four games, one winner.
+Below are four versions of the same game. Your archnemesis gets to
+pick the version of the game, and then you get to choose how many times to flip a coin: 10 times or 100
+times. Identify how many coin flips you should choose for each version of the game. It costs $1 to play each
+game. Explain your reasoning.
+(a) If the proportion of heads is larger than 0.60, you win $1.
+(b) If the proportion of heads is larger than 0.40, you win $1.
+(c) If the proportion of heads is between 0.40 and 0.60, you win $1.
+(d) If the proportion of heads is smaller than 0.30, you win $1.
+2.10
+Backgammon. Backgammon is a board game for two players in which the playing pieces are moved
+according to the roll of two dice. Players win by removing all of their pieces from the board, so it is usually
+good to roll high numbers. You are playing backgammon with a friend and you roll two 6s in your first
+roll and two 6s in your second roll. Your friend rolls two 3s in his first roll and again in his second row.
+Your friend claims that you are cheating, because rolling double 6s twice in a row is very unlikely. Using
+probability, show that your rolls were just as likely as his.
+2.11
+Coin flips. If you flip a fair coin 10 times, what is the probability of
+(a) getting all tails?
+(b) getting all heads?
+(c) getting at least one tails?
+2.12
+Dice rolls. If you roll a pair of fair dice, what is the probability of
+(a) getting a sum of 1?
+(b) getting a sum of 5?
+(c) getting a sum of 12?
+
+
+116
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.3 Conditional probability, intersections, and unions
+What is the likelihood that a machine learning algorithm will misclassify a photo as being about
+fashion if it is not actually about fashion? How does the probability of surviving smallpox given
+being vaccinated compare to the probability of being vaccinated given having survived smallpox? To
+answer these questions, we investigate conditional probabilities. We also develop a general formula
+for "and" probabilities and a general formula for "or" probabilities.
+Learning objectives
+1. Calculate probabilities using two-way tables and Venn diagrams.
+2. Calculate and interpret conditional probabilities.
+3. Use a tree diagram along with the conditional probability rule to solve "inverted" conditional
+probabilities.
+4. Calculate the probability of joint events whether or not the events are independent.
+5. Calculate the probability of the union of two events, whether or not the events are mutually
+exclusive.
+6. Determine whether two events are independent and whether they are mutually exclusive.
+2.3.1
+Exploring probabilities with a two-way table
+The photo classify data set represents a sample of 1822 photos from a photo sharing website.
+Data scientists have been working to improve a classifier for whether the photo is about fashion or
+not, and these 659 photos represent a test for their classifier. Each photo gets two classifications:
+the first is called mach learn and gives a classification from a machine learning (ML) system of
+either pred fashion or pred not. Each of these 1822 photos have also been classified carefully by
+a team of people, which we take to be the source of truth; this variable is called truth and takes
+values fashion and not. Figure 2.13 summarizes the results.
+truth
+fashion
+not
+Total
+pred fashion
+197
+22
+219
+mach learn
+pred not
+112
+1491
+1603
+Total
+309
+1513
+1822
+Figure 2.13: two-way table summarizing the photo classify data set.
+EXAMPLE 2.25
+If a photo is actually about fashion, what is the chance the ML classifier correctly identified the
+photo as being about fashion?
+We can estimate this probability using the data. Of the 309 fashion photos, the ML algorithm
+correctly classified 197 of the photos:
+P(mach learn is pred fashion given truth is fashion) = 197
+309 = 0.638
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+117
+ML Predicts Fashion
+Fashion Photos
+0.11
+0.01
+0.06
+Neither: 0.82
+Figure 2.14: A Venn diagram using boxes for the photo classify data set.
+EXAMPLE 2.26
+We sample a photo from the data set and learn the ML algorithm predicted this photo was not
+about fashion. What is the probability that it was incorrect and the photo is about fashion?
+If the ML classifier suggests a photo is not about fashion, then it comes from the second row in the
+data set. Of these 1603 photos, 112 were actually about fashion:
+P(truth is fashion given mach learn is pred not) = 112
+1603 = 0.070
+2.3.2
+Marginal and joint probabilities
+Figure 2.13 includes row and column totals for each variable separately in the photo classify
+data set. These totals represent marginal probabilities for the sample, which are the probabilities
+based on a single variable without regard to any other variables. For instance, a probability based
+solely on the mach learn variable is a marginal probability:
+P(mach learn is pred fashion) = 219
+1822 = 0.12
+A probability of outcomes for two or more variables or processes is called a joint probability:
+P(mach learn is pred fashion and truth is fashion) = 197
+1822 = 0.11
+It is common to substitute a comma for "and" in a joint probability, although using either the word
+"and" or a comma is acceptable:
+P(mach learn is pred fashion, truth is fashion)
+means the same thing as
+P(mach learn is pred fashion and truth is fashion)
+MARGINAL AND JOINT PROBABILITIES
+If a probability is based on a single variable, it is a marginal probability. The probability of
+outcomes for two or more variables or processes is called a joint probability.
+
+
+118
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+We use table proportions to summarize joint probabilities for the photo classify sample.
+These proportions are computed by dividing each count in Figure 2.13 by the table's total, 1822,
+to obtain the proportions in Figure 2.15. The joint probability distribution of the mach learn and
+truth variables is shown in Figure 2.16.
+truth: fashion
+truth: not
+Total
+mach learn: pred fashion
+0.1081
+0.0121
+0.1202
+mach learn: pred not
+0.0615
+0.8183
+0.8798
+Total
+0.1696
+0.8304
+1.00
+Figure 2.15: Probability table summarizing the photo classify data set.
+Joint outcome
+Probability
+mach learn is pred fashion and truth is fashion
+0.1081
+mach learn is pred fashion and truth is not
+0.0121
+mach learn is pred not and truth is fashion
+0.0615
+mach learn is pred not and truth is not
+0.8183
+Total
+1.0000
+Figure 2.16: Joint probability distribution for the photo classify data set.
+GUIDED PRACTICE 2.27
+Verify Figure 2.16 represents a probability distribution: events are disjoint, all probabilities are
+non-negative, and the probabilities sum to 1.21
+We can compute marginal probabilities using joint probabilities in simple cases. For example,
+the probability that a randomly selected photo from the data set is about fashion is found by
+summing the outcomes in which truth takes value fashion:
+P(truth is fashion) = P(mach learn is pred fashion and truth is fashion)
++ P(mach learn is pred not and truth is fashion)
+= 0.1081 + 0.0615
+= 0.1696
+2.3.3
+Defining conditional probability
+The ML classifier predicts whether a photo is about fashion, even if it is not perfect. We would
+like to better understand how to use information from a variable like mach learn to improve our
+probability estimation of a second variable, which in this example is truth.
+The probability that a random photo from the data set is about fashion is about 0.17. If we
+knew the machine learning classifier predicted the photo was about fashion, could we get a better
+estimate of the probability the photo is actually about fashion? Absolutely. To do so, we limit our
+view to only those 219 cases where the ML classifier predicted that the photo was about fashion and
+look at the fraction where the photo was actually about fashion:
+P(truth is fashion given mach learn is pred fashion) = 197
+219 = 0.900
+We call this a conditional probability because we computed the probability under a condition:
+the ML classifier prediction said the photo was about fashion.
+21Each of the four outcome combination are disjoint, all probabilities are indeed non-negative, and the sum of the
+probabilities is 0.1081 + 0.0121 + 0.0615 + 0.8183 = 1.00.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+119
+There are two parts to a conditional probability, the outcome of interest and the condition.
+It is useful to think of the condition as information we know to be true, and this information usually
+can be described as a known outcome or event. We generally separate the text inside our probability
+notation into the outcome of interest and the condition with a vertical bar:
+P(truth is fashion given mach learn is pred fashion)
+= P(truth is fashion ∣mach learn is pred fashion) = 197
+219 = 0.900
+The vertical bar "∣" is read as given.
+In the last equation, we computed the probability a photo was about fashion based on the
+condition that the ML algorithm predicted it was about fashion as a fraction:
+P(truth is fashion ∣mach learn is pred fashion)
+= # cases where truth is fashion and mach learn is pred fashion
+# cases where mach learn is pred fashion
+= 197
+219 = 0.900
+We considered only those cases that met the condition, mach learn is pred fashion, and then we
+computed the ratio of those cases that satisfied our outcome of interest, photo was actually about
+fashion.
+Frequently, marginal and joint probabilities are provided instead of count data. For example,
+disease rates are commonly listed in percentages rather than in a count format. We would like to
+be able to compute conditional probabilities even when no counts are available, and we use the last
+equation as a template to understand this technique.
+We considered only those cases that satisfied the condition, where the ML algorithm predicted
+fashion. Of these cases, the conditional probability was the fraction representing the outcome of
+interest, that the photo was about fashion.
+Suppose we were provided only the information in
+Figure 2.15, i.e. only probability data. Then if we took a sample of 1000 photos, we would anticipate
+about 12.0% or 0.120 × 1000 = 120 would be predicted to be about fashion (mach learn is pred
+fashion). Similarly, we would expect about 10.8% or 0.108×1000 = 108 to meet both the information
+criteria and represent our outcome of interest. Then the conditional probability can be computed as
+P(truth is fashion ∣mach learn is pred fashion)
+= # (truth is fashion and mach learn is pred fashion)
+# (mach learn is pred fashion)
+= 108
+120 = 0.108
+0.120 = 0.90
+Here we are examining exactly the fraction of two probabilities, 0.108 and 0.120, which we can write
+as
+P(truth is fashion and mach learn is pred fashion)
+and
+P(mach learn is pred fashion).
+The fraction of these probabilities is an example of the general formula for conditional probability.
+CONDITIONAL PROBABILITY
+The conditional probability of the outcome of interest A given condition B is computed as the
+following:
+P(A∣B) = P(A and B)
+P(B)
+
+
+120
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+GUIDED PRACTICE 2.28
+(a) Write out the following statement in conditional probability notation: "The probability that the
+ML prediction was correct, if the photo was about fashion". Here the condition is now based on the
+photo's truth status, not the ML algorithm.
+(b) Determine the probability from part (a). Figure 2.15 on page 118 may be helpful.22
+GUIDED PRACTICE 2.29
+(a) Determine the probability that the algorithm is incorrect if it is known the photo is about fashion.
+(b) Using the answers from part (a) and Guided Practice 2.28(b), compute
+P(mach learn is pred fashion ∣truth is fashion)
++ P(mach learn is pred not ∣truth is fashion)
+(c) Provide an intuitive argument to explain why the sum in (b) is 1.23
+The smallpox data set provides a sample of 6,224 individuals from the year 1721 who were
+exposed to smallpox in Boston.24 Doctors at the time believed that inoculation, or vaccination that
+involved exposing a person to the disease in a controlled form, could reduce the likelihood of death.
+Each case represents one person with two variables: inoculated and result. The variable
+inoculated takes two levels: yes or no, indicating whether the person was inoculated or not. The
+variable result has outcomes lived or died. These data are summarized in Tables 2.17 and 2.18.
+inoculated
+yes
+no
+Total
+lived
+238
+5136
+5374
+result
+died
+6
+844
+850
+Total
+244
+5980
+6224
+Figure 2.17: Contingency table for the smallpox data set.
+inoculated
+yes
+no
+Total
+lived
+0.0382
+0.8252
+0.8634
+result
+died
+0.0010
+0.1356
+0.1366
+Total
+0.0392
+0.9608
+1.0000
+Figure 2.18: Table proportions for the smallpox data, computed by dividing each
+count by the table total, 6224.
+GUIDED PRACTICE 2.30
+Write out, in formal notation, the probability a randomly selected person who was not inoculated
+died from smallpox, and find this probability.25
+22(a) If the photo is about fashion and the ML algorithm prediction was correct, then the ML algorithm my
+have a value of pred fashion:
+P(mach learn is pred fashion ∣truth is fashion) (b) The equation for condi-
+tional probability indicates we should first find P(mach learn is pred fashion and truth is fashion) = 0.1081 and
+P(truth is not) = 0.1696. Then the ratio represents the conditional probability: 0.1081/0.1696 = 0.6374.
+23(a) This probability is P (mach learn is pred not, truth is fashion)
+P (truth is fashion)
+= 0.0615
+0.1696 = 0.3626. (b) The total equals 1. (c) Under
+the condition the photo is about fashion, the ML algorithm must have either predicted it was about fashion or
+predicted it was not about fashion. The complement still works for conditional probabilities, provided the probabilities
+are conditioned on the same information.
+24Fenner F. 1988. Smallpox and Its Eradication (History of International Public Health, No. 6). Geneva: World
+Health Organization. ISBN 92-4-156110-6.
+25P(result = died ∣not inoculated) = P (result = died and not inoculated)
+P (not inoculated)
+= 0.1356
+0.9608 = 0.1411.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+121
+GUIDED PRACTICE 2.31
+Determine the probability that an inoculated person died from smallpox.
+How does this result
+compare with the result of Guided Practice 2.30?26
+GUIDED PRACTICE 2.32
+The people of Boston self-selected whether or not to be inoculated. (a) Is this study observational
+or was this an experiment? (b) Can we draw a causal conclusion using these data? (c) What is a
+potential confounding variable that might influence whether someone lived or died and also aﬀect
+whether that person was inoculated?27
+2.3.4
+General multiplication rule for joint probabilities
+When finding joint probabilities, we can use the General Multiplication Rule.
+GENERAL MULTIPLICATION RULE
+If A and B represent two outcomes or events, then to find the joint probability A and B we
+use:
+P(A ∩B) = P(A) × P(B∣A)
+This General Multiplication Rule can also be seen as a rearrangement of the conditional prob-
+ability rule: P(B∣A) = P (A∩B)
+P (A) .
+EXAMPLE 2.33
+Consider the smallpox data set. Suppose we are given only two pieces of information: 96.08%
+of residents were not inoculated, and 85.88% of the residents who were not inoculated ended up
+surviving. How could we compute the probability that a resident was not inoculated and lived?
+We will compute our answer using the General Multiplication Rule and then verify it using Fig-
+ure 2.18. We want to determine
+P(not inoculated and lived)
+and we are given:
+P(not inoculated) = 0.9608
+P(lived ∣not inoculated) = 0.8588
+Among the 96.08% of people who were not inoculated, 85.88% survived, so:
+P(not inoculated and lived) = 0.9608 × 0.8588 = 0.825.
+This is equivalent to the General Multiplication Rule. We can confirm this probability in Figure 2.18
+at the intersection of no and lived (with a small rounding error).
+26P(died ∣inoculated) = P (died and inoculated)
+P (inoculated)
+= 0.0010
+0.0392 = 0.0255. The death rate for individuals who were inocu-
+lated is only about 1 in 40 while the death rate is about 1 in 7 for those who were not inoculated.
+27Brief answers: (a) Observational. (b) No, we cannot draw a causal conclusion from this observational study.
+(However, further research has shown that inoculation is eﬀective at reducing death rates.) (c) Accessibility to the
+latest and best medical care, so income could be a confounding variable. There are other valid answers for part (c).
+
+
+122
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+GUIDED PRACTICE 2.34
+Use P(inoculated) = 0.0392 and P(lived ∣inoculated) = 0.9754 to determine the probability
+that a person was both inoculated and lived.28
+GUIDED PRACTICE 2.35
+If 97.54% of the inoculated people lived, what proportion of inoculated people must have died?29
+2.3.5
+Tree diagrams and inverted conditional probabilities
+Tree diagrams are a tool to organize outcomes and probabilities around the structure of the
+data. They are most useful when two or more processes occur in a sequence and each process is
+conditioned on its predecessors.
+The smallpox data fit this description.
+We see the population as split by inoculation:
+inoculated and not inoculated. Following this split, survival rates were observed for each group.
+This structure is reflected in the tree diagram shown in Figure 2.19. The first branch for inoculation
+is said to be the primary branch while the other branches are secondary.
+Inoculation
+Result
+inoculated,  0.0392
+lived,  0.9754
+died,  0.0246
+not
+inoculated,  0.9608
+lived,  0.8589
+died,  0.1411
+Figure 2.19: A tree diagram of the smallpox data set.
+Tree diagrams are annotated with probabilities for the primary and secondary branches, as
+shown in Figure 2.19. This tree diagram splits the smallpox data by inoculation into inoculated
+and not inoculated with respective probabilities 0.0392 and 0.9608. The secondary branches are
+conditioned on the first, so we assign conditional probabilities to these branches. For example, the
+top secondary branch in Figure 2.19 is the probability of lived conditioned on inoculated.
+To calculate a joint probability, we use the General Multiplication Rule. For example:
+P(inoculated and lived) = P(inoculated) × P(lived ∣inoculated)
+= 0.0392 × 0.9754
+= 0.0382
+28The answer is 0.0382, which can be verified using Figure 2.18.
+29There were only two possible outcomes: lived or died. This means that 100% - 97.54% = 2.46% of the people
+who were inoculated died.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+123
+EXAMPLE 2.36
+What is the probability that a randomly selected person lived?
+There are two ways that a person could have lived: be inoculated and lived OR not be inoculated
+and lived. To find this probability, we sum the two disjoint probabilities:
+P(lived) = P(inoculated and lived) + P(not inoculated and lived)
+= 0.0392 × 0.9754 + 0.9608 × 0.8589
+= 0.0382 + 0.8252
+= 0.8634
+EXAMPLE 2.37
+What is the probability that a randomly selected person who was inoculated lived?
+This is equivalent to asking the proportion that lived among those who were inoculated.
+This
+probability can be written as P(lived ∣inoculated) and can be found in the second branch as
+0.9754.
+Now, instead of asking the probability that a randomly selected person who was inoculated lived,
+we might want to know the probability that a randomly selected person who lived was inoculated.
+That is, instead of P(lived ∣inoculated), we want to find P(inoculated ∣lived). This is more
+challenging because it cannot be read directly from the tree diagram. However, we can apply the
+conditional probability rule to find this "inverted" conditional probability.
+P(inoculated ∣lived) = P(inoculated and lived)
+P(lived)
+=
+0.0392 × 0.9754
+0.0392 × 0.9754 + 0.9608 × 0.8589
+= 0.0382
+0.8634
+= 0.0442
+You might be surprised to see that P(inoculated ∣lived) is only 0.0442 while the probability
+P(lived ∣inoculated) is 0.9754.
+While most people who were inoculated lived, it is not true
+that most people who lived were inoculated. These two conditional probabilities are very diﬀerent
+because the subset lived is much larger than the subset inoculated.
+We can also observe that the events "inoculated" and "lived" are dependent. The conditional
+probability that someone was inoculated given that they lived (0.0442) is greater than the uncondi-
+tional probability that someone was inoculated (0.0392).
+GUIDED PRACTICE 2.38
+What is the probability that a random selected person who died was inoculated?30
+30 This is equivalent to P(inoculated ∣died). This conditional probability can be found as P (inoculated and died)
+P (died)
+=
+0.0392×0.0246
+0.0392×0.0246 + 0.9608×0.1411 = 0.00096
+0.13653 = 0.0070. Among those who died, only 0.70% were inoculated.
+
+
+124
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+EXAMPLE 2.39
+Jose visits campus every Thursday evening. However, some days the parking garage is full, often
+due to college events. There are academic events on 35% of evenings, sporting events on 20% of
+evenings, and no events on 45% of evenings. When there is an academic event, the garage fills up
+about 25% of the time, and it fills up 70% of evenings with sporting events. On evenings when there
+are no events, it only fills up about 5% of the time. If Jose comes to campus and finds the garage
+full, what is the probability that there is a sporting event? Use a tree diagram to solve this problem.
+The tree diagram, with three primary branches, is shown below.
+Event
+Garage full
+Academic,  0.35
+Full,  0.25
+Spaces Available,  0.75
+Sporting,  0.20
+Full,  0.7
+Spaces Available,  0.3
+None,  0.45
+Full,  0.05
+Spaces Available,  0.95
+We want to find the probability that there is a sporting event given that the garage is full.
+P(sporting event ∣garage full) = P(sporting event and garage full)
+P(garage full)
+=
+0.20 × 0.7
+0.35 × 0.25 + 0.20 × 0.7 + 0.45 × 0.05
+=
+0.14
+0.0875 + 0.14 + 0.0225
+= 0.56.
+If the garage is full, there is a 56% probability that there is a sporting event.
+This example oﬀers a way to update our belief about whether there is a sporting event, academic
+event, or no event going on at the school based on the information that the parking lot is full.
+This strategy of updating beliefs is the foundation of an entire theory of statistics called Bayesian
+statistics. While Bayesian statistics has many applications, we will not have time to cover it in this
+book.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+125
+2.3.6
+Sampling without replacement
+EXAMPLE 2.40
+Professors sometimes select a student at random to answer a question. If each student has an equal
+chance of being selected and there are 15 people in your class, what is the chance that you will get
+selected for the next question?
+If there are 15 people to ask and none are skipping class, then the probability is 1/15, or about
+0.067.
+EXAMPLE 2.41
+If the professor asks 3 questions, what is the probability that you will not be selected? Assume that
+she will not pick the same person twice in a given lecture.
+For the first question, she will pick someone else with probability 14/15. When she asks the second
+question, she only has 14 people who have not yet been asked. Thus, if you were not picked on the
+first question, the probability you are again not picked is 13/14. Similarly, the probability you are
+again not picked on the third question is 12/13, and the probability of not being picked for any of
+the three questions is
+P(not picked in 3 questions)
+= P(Q1 = not picked and Q2 = not picked and Q3 = not picked.)
+= 14
+15 × 13
+14 × 12
+13 = 0.80
+GUIDED PRACTICE 2.42
+What rule permitted us to multiply the probabilities in Example 2.41?31
+EXAMPLE 2.43
+Suppose the professor randomly picks without regard to who she already selected, i.e. students can
+be picked more than once. What is the probability that you will not be picked for any of the three
+questions?
+Each pick is independent, and the probability of not being picked for any individual question is
+14/15. Thus, we can use the Multiplication Rule for independent processes.
+P(not picked in 3 questions)
+= P(Q1 = not picked and Q2 = not picked and Q3 = not picked.)
+= 14
+15 × 14
+15 × 14
+15 = 0.813
+You have a slightly higher chance of not being picked compared to when she picked a new person
+for each question. However, you now may be picked more than once.
+31We used the General Multiplication Rule to find the product of three probabilities, where the second and third
+are conditional probabilities:
+P(Q1 = not picked) × P(Q2 = not picked ∣Q1 = not picked) × P(Q3 = not picked ∣Q1 = not picked and Q2 = not picked)
+
+
+126
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+If we sample from a small population without replacement, we no longer have independence
+between our observations. In Example 2.41, the probability of not being picked for the second ques-
+tion was conditioned on the event that you were not picked for the first question. In Example 2.43,
+the professor sampled her students with replacement: she repeatedly sampled the entire class
+without regard to who she already picked.
+GUIDED PRACTICE 2.44
+Continuing Examples 2.41 and 2.43, if the professor asks three questions, what is the probability
+that you will be chosen at least once if she chooses students randomly without replacement (repeats
+not allowed)? What if she chooses randomly with replacement (repeats allowed)? There are 15
+students in the class.32
+GUIDED PRACTICE 2.45
+Now, let's say that you are in a large lecture hall with 150 students. If the professor asks three
+questions, what is the probability that you will be chosen at least once if she chooses students
+randomly without replacement? What if she chooses randomly with replacement?33
+EXAMPLE 2.46
+Compare your answers to Guided Practice 2.44 and to Guided Practice 2.45. What do you notice?
+The probability of being chosen at least once when the professor randomly samples 3 students out
+of 15 without replacement versus with replacement diﬀers by 0.003 (0.20-0.187). The probability
+of being chosen at least once when the professor randomly samples 3 students out of 150 without
+replacement versus with replacement diﬀers by 0.0001 (0.0200-0.0199). When the population size
+is larger relative to the sample size, the diﬀerence between the conditional and the unconditional
+probabilities used in the probability calculations is smaller. Therefore, when the population size is
+large relative to the sample size, the diﬀerence between sampling without replacement and sampling
+with replacement becomes negligible.
+When taking a small sample from a much larger population and sampling without replacement,
+the observations are technically not independent but can be treated as if they were independent for
+calculation purposes. A rule of thumb says that if the sample size is less than 10% of the population
+size, or equivalently if the population size is at least 10 times greater than the sample size, then the
+observations can be treated as if they were independent.
+SAMPLING WITHOUT REPLACEMENT
+When the sample size is only a small fraction of the population (under 10%), observations can
+be considered independent even when sampling without replacement.
+32(a) If you don't get chosen at least once, that means you never get chosen. Therefore, using complements, the
+probability of being chosen at least once is equal to 1 -the probability of never being chosen.
+Without replacement: P(chosen at least once) = 1 -(14/15)(13/14)(12/13) = 1 -0.80 = 0.20.
+(b) With replacement: P(chosen at least once) = 1 -(14/15)3 = 1 -0.813 = 0.187.
+33(a) Without replacement: P(chosen at least once) = 1 -(149/150)(148/149)(147/148) = 1 -0.9800 = 0.0200.
+(b) With replacement: P(chosen at least once) = 1 -(149/150)3 = 1 -0.9801 = 0.0199.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+127
+2.3.7
+Independence considerations in conditional probability
+If two processes are independent, then knowing the outcome of one should provide no informa-
+tion about the other. We can show this is mathematically true using conditional probabilities.
+GUIDED PRACTICE 2.47
+Let X and Y represent the outcomes of rolling two dice. (a) What is the probability that the first die,
+X, is 1? (b) What is the probability that both X and Y are 1? (c) Use the formula for conditional
+probability to compute P(Y = 1 ∣X = 1), then compare this to P(Y = 1).34
+We can also show that in Guided Practice 2.47(c) the conditioning information has no influence
+by using the Multiplication Rule for independence processes:
+P(Y = 1 ∣X = 1)
+=
+P(Y = 1 and X = 1)
+P(X = 1)
+=
+P(Y = 1) × P(X = 1)
+P(X = 1)
+=
+P(Y = 1)
+GUIDED PRACTICE 2.48
+Ron is watching a roulette table in a casino and notices that the last five outcomes were black. He
+figures that the chances of getting black six times in a row is very small (about 1/64) and puts his
+paycheck on red. What is wrong with his reasoning?35
+2.3.8
+Probabilities when events are not disjoint
+Let's consider calculations for two events that are not disjoint in the context of a regular deck
+of 52 cards, represented in Figure 2.20. If you are unfamiliar with the cards in a regular deck, please
+see the footnote.36
+2♣
+3♣
+4♣
+5♣
+6♣
+7♣
+8♣
+9♣
+10♣
+J♣
+Q♣
+K♣
+A♣
+2♢
+3♢
+4♢
+5♢
+6♢
+7♢
+8♢
+9♢
+10♢
+J♢
+Q♢
+K♢
+A♢
+2♡
+3♡
+4♡
+5♡
+6♡
+7♡
+8♡
+9♡
+10♡
+J♡
+Q♡
+K♡
+A♡
+2♠
+3♠
+4♠
+5♠
+6♠
+7♠
+8♠
+9♠
+10♠
+J♠
+Q♠
+K♠
+A♠
+Figure 2.20: Representations of the 52 unique cards in a deck.
+GUIDED PRACTICE 2.49
+(a) What is the probability that a randomly selected card is a diamond? (b) What is the probability
+that a randomly selected card is a face card?37
+34Brief solutions: (a) 1/6. (b) 1/36. (c) P(Y = 1 ∣X = 1)= P (Y = 1 and X= 1)
+P (X= 1)
+= 1/36
+1/6 = 1/6. This probability is the
+same as P(Y = 1) = 1/6. The probability that Y = 1 was unchanged by knowledge about X, which makes sense as X
+and Y are independent.
+35He has forgotten that the next roulette spin is independent of the previous spins. Casinos do employ this practice;
+they post the last several outcomes of many betting games to trick unsuspecting gamblers into believing the odds are
+in their favor. This is called the gambler's fallacy.
+36The 52 cards are split into four suits: ♣(club), ♢(diamond), ♡(heart), ♠(spade). Each suit has its 13 cards
+labeled: 2, 3, ..., 10, J (jack), Q (queen), K (king), and A (ace). Thus, each card is a unique combination of a suit and
+a label, e.g. 4♡and J♣. The 12 cards represented by the jacks, queens, and kings are called face cards. The cards
+that are ♢or ♡are typically colored red while the other two suits are typically colored black.
+37(a) There are 52 cards and 13 diamonds. If the cards are thoroughly shuﬄed, each card has an equal chance of
+being drawn, so the probability that a randomly selected card is a diamond is P(♢) = 13
+52 = 0.250. (b) Likewise, there
+are 12 face cards, so P(face card) = 12
+52 =
+3
+13 = 0.231.
+
+
+128
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+10
+3
+9
+0.1923
+0.0577
+0.1731
+There are also
+30 cards that are
+neither diamonds
+nor face cards
+Diamonds, 0.2500
+Face cards, 0.2308
+Figure 2.21: A Venn diagram for diamonds and face cards.
+Venn diagrams are useful when outcomes can be categorized as "in" or "out" for two or three
+variables, attributes, or random processes. The Venn diagram in Figure 2.21 uses a oval to represent
+diamonds and another to represent face cards. If a card is both a diamond and a face card, it falls
+into the intersection of the ovals. If it is a diamond but not a face card, it will be in part of the left
+oval that is not in the right oval (and so on). The total number of cards that are diamonds is given
+by the total number of cards in the diamonds oval: 10 + 3 = 13. The probabilities are also shown
+(e.g. 10/52 = 0.1923).
+GUIDED PRACTICE 2.50
+Using the Venn diagram, verify P(face card) = 12/52 = 3/13.38
+Let A represent the event that a randomly selected card is a diamond and B represent the
+event that it is a face card. How do we compute P(A or B)? Events A and B are not disjoint - the
+cards J♢, Q♢, and K♢fall into both categories - so we cannot use the Addition Rule for disjoint
+events. Instead we use the Venn diagram. We start by adding the probabilities of the two events:
+P(A) + P(B) = P(♢) + P(face card) = 13/52 + 12/52
+However, the three cards that are in both events were counted twice, once in each probability. We
+must correct this double counting:
+P(A or B)
+=
+P(♢) + P(face card)
+=
+P(♢) + P(face card) -P(♢and face card)
+=
+13/52 + 12/52 -3/52
+=
+22/52 = 11/26
+Equation (2.51) is an example of the General Addition Rule.
+GENERAL ADDITION RULE
+If A and B are any two events, disjoint or not, then the probability that A or B will occur is
+P(A or B) = P(A) + P(B) -P(A and B)
+where P(A and B) is the probability that both events occur.
+38The Venn diagram shows face cards split up into "face card but not ♢" and "face card and ♢". Since these
+correspond to disjoint events, P(face card) is found by adding the two corresponding probabilities:
+3
+52 + 9
+52 = 12
+52 =
+3
+13 .
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+129
+SYMBOLIC NOTATION FOR "AND" AND "OR"
+The symbol ∩means intersection and is equivalent to "and".
+The symbol ∪means union and is equivalent to "or".
+It is common to see the General Addition Rule written as
+P(A ∪B) = P(A) + P(B) -P(A ∩B)
+"OR" IS INCLUSIVE
+When we write, "or" in statistics, we mean "and/or" unless we explicitly state otherwise. Thus,
+A or B occurs means A, B, or both A and B occur. This is equivalent to at least one of A or
+B occurring.
+GUIDED PRACTICE 2.51
+(a) If A and B are disjoint, describe why this implies P(A and B) = 0. (b) Using part (a), verify
+that the General Addition Rule simplifies to the simpler Addition Rule for disjoint events if A and
+B are disjoint.39
+GUIDED PRACTICE 2.52
+In the email data set with 3,921 emails, 367 were spam, 2,827 contained some small numbers but
+no big numbers, and 168 had both characteristics. Create a Venn diagram for this setup.40
+GUIDED PRACTICE 2.53
+(a) Use your Venn diagram from Guided Practice 2.52 to determine the probability a randomly drawn
+email from the email data set is spam and had small numbers (but not big numbers). (b) What is
+the probability that the email had either of these attributes?41
+2.3.9
+Checking for independent and mutually exclusive events
+If A and B are independent events, then the probability of B being true is unchanged if A is
+true. Mathematically, this is written as
+P(B∣A) = P(B)
+The General Multiplication Rule states that P(A ∩B) equals P(A) × P(B∣A). If A and B are
+independent events, we can replace P(B∣A) with P(B) and the following multiplication rule applies:
+P(A ∩B) = P(A) × P(B)
+39(a) If A and B are disjoint, A and B can never occur simultaneously. (b) If A and B are disjoint, then the last
+term of Equation (2.51) is 0 (see part (a)) and we are left with the Addition Rule for disjoint events.
+40Both the counts and corresponding probabilities (e.g.
+2659/3921 = 0.678)
+are shown.
+Notice that the number of emails represented in the left oval
+corresponds to 2659 + 168 = 2827, and the number represented in the right
+oval is 168 + 199 = 367.
+small numbers and no big numbers
+spam
+2659
+168
+199
+0.678
+0.043
+0.051
+Other emails: 3921-2659-168-199 = 895 (0.228)
+41(a) The solution is represented by the intersection of the two ovals: 0.043. (b) This is the sum of the three
+disjoint probabilities shown in the ovals: 0.678 + 0.043 + 0.051 = 0.772.
+
+
+130
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+CHECKING WHETHER TWO EVENTS ARE INDEPENDENT
+To determine if two events A and B are independent, check whether one of the following
+equations holds (there is no need to check both equations):
+P(B∣A) = P(B)
+P(A ∩B) = P(A) × P(B)
+If the equation that is checked holds true (the left and right sides are equal), then A and B are
+independent. If the equation does not hold, then A and B are dependent.
+EXAMPLE 2.54
+Are teenager college attendance and parent college degrees independent or dependent? Use infor-
+mation from Figure 2.22, which shows data from a simulated sample.
+We'll check for independence by seeing if the relationship P(B∣A) = P(B) holds. If the teen and
+parents variables are independent, it must be true that
+P(teen college ∣parent degree) = P(teen college)
+Using Figure 2.22, we check whether equality holds in this equation.
+P(teen college ∣parent degree) ?= P(teen college)
+231
+280
+?= 445
+792
+0.83 ≠0.56
+Because the sides are not equal, teenager college attendance and parent degree are dependent. We
+estimate the probability a teenager attended college to be higher if we know that one of the teen's
+parents has a college degree.
+parents
+degree
+not
+Total
+college
+231
+214
+445
+teen
+not
+49
+298
+347
+Total
+280
+512
+792
+Figure 2.22: Contingency table summarizing the family college data set.
+GUIDED PRACTICE 2.55
+Also show that teenager college attendance and parent college degree are dependent by showing that
+P(A ∩B) ≠P(A) × P(B).42
+42We check for equality in the following equation:
+P(teen college ∩parent degree) ?= P(teen college) × P(parent degree)
+231
+792
+?= 445
+792 × 280
+792
+0.292 ≠0.199
+These terms are not equal, which confirms what we learned in Example 2.54: teenager college attendance and parent
+college degrees are dependent.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+131
+If A and B are mutually exclusive events, then A and B cannot occur at the same time.
+Mathematically, this is written as
+P(A ∩B) = 0
+The General Addition Rule states that P(A ∪B) equals P(A) + P(B) -P(A ∩B). If A and B are
+mutually exclusive events, we can replace P(A and B) with 0 and the following special addition rule
+applies:
+P(A ∪B) = P(A) + P(B)
+CHECKING WHETHER TWO EVENTS ARE MUTUALLY EXCLUSIVE (DISJOINT)
+To determine if events A and B are mutually exclusive, check whether one of the following
+equations holds (there is no need to check both equations):
+P(A ∩B) = 0
+P(A ∪B) = P(A) + P(B)
+If the equation that is checked holds true (the left and right sides are equal), A and B are
+mutually exclusive. If the equation does not hold, then A and B are not mutually exclusive.
+EXAMPLE 2.56
+Are teen college attendance and parent college degree mutually exclusive?
+Looking in the table, we see that there are 231 instances where both the teenager attended college
+and parent has a degree, indicating the probability of both events occurring is greater than 0. Since
+we have found an example where both of these events happen together, these two events are not
+mutually exclusive. We can write this more formally as:
+P(teen college ∩parent degree) = 231
+792 ≠0
+Since this probability is not zero, teenager college attendance and parent college degree are not
+mutually exclusive.
+MUTUALLY EXCLUSIVE AND INDEPENDENT ARE DIFFERENT
+If two events are mutually exclusive, then if one is true, the other cannot be true. This implies
+the two events are in some way connected, meaning they must be dependent.
+If two events are independent, then if one occurs, it is still possible for the other to occur,
+meaning the events are not mutually exclusive.
+DEPENDENT EVENTS NEED NOT BE MUTUALLY EXCLUSIVE.
+If two events are dependent, this does not imply that they are mutually exclusive. For example,
+teenager college attendance and parent college degree are dependent, but these events are not
+mutually exclusive.
+
+
+132
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+Section summary
+• A conditional probability can be written as P(A∣B) and is read, "Probability of A given B".
+• In a conditional probability of the form P(A∣B), we are given information about B. In an
+unconditional probability of the form P(A), we are not given any information.
+• To find the probability of A given B, use the conditional probability rule P(A∣B) = P (A∩B)
+P (B) .
+• To find the probability of A and B, that is A intersect B, use the General Multiplication
+Rule: P(A∩B) = P(A)×P(B∣A). Equivalently, P(A∩B) can be found using the conditional
+probability rule by multiplying P(A∣B) times P(B).
+• Sometimes, the conditional probability P(B∣A) may be known, but we want to find the "in-
+verted" probability P(A∣B).
+In this case, draw a tree diagram and apply the conditional
+probability rule P(A∣B) = P (A∩B)
+P (B) , where P(B) is computed using multiple pieces of informa-
+tion from the tree diagram.
+• Two events are independent when the outcome of one has no eﬀect on the outcome of the
+other. When A and B are independent, P(B∣A) = P(B) and P(A∣B) = P(A).
+• In the special case where A and B are independent, P(A ∩B) = P(A) × P(B).
+• When sampling with replacement, events are independent. When sampling without replace-
+ment from a very large population, events may be considered as if they were independent, and
+the use of conditional or unconditional probabilities will make little diﬀerence in the answer
+when calculating joint probabilities.
+• When sampling without replacement from a small population, events are dependent and
+one cannot simply multiply unconditional probabilities to find a joint probability.
+• To find the probability of A or B, that is A union B, use the General Addition Rule:
+P(A or B) = P(A)+P(B)-P(A and B), also written as: P(A∪B) = P(A)+P(B)-P(A∩B).
+• When A and B are mutually exclusive (disjoint), P(A ∩B) = 0.
+• In the special case where A and B are mutually exclusive (disjoint), P(A∪B) = P(A)+P(B).
+• If A and B are mutually exclusive, they must be dependent, because the occurrence of
+one of them changes the probability that the other occurs to 0.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+133
+Exercises
+2.13
+Joint and conditional probabilities. P(A) = 0.3, P(B) = 0.7
+(a) Can you compute P(A and B) if you only know P(A) and P(B)?
+(b) Assuming that events A and B arise from independent random processes,
+i. what is P(A and B)?
+ii. what is P(A or B)?
+iii. what is P(A∣B)?
+(c) If we are given that P(A and B) = 0.1, are the random variables giving rise to events A and B indepen-
+dent?
+(d) If we are given that P(A and B) = 0.1, what is P(A∣B)?
+2.14
+PB & J. Suppose 80% of people like peanut butter, 89% like jelly, and 78% like both. Given that a
+randomly sampled person likes peanut butter, what's the probability that he also likes jelly?
+2.15
+Global warming.
+A Pew Research poll asked 1,306 Americans "From what you've read and
+heard, is there solid evidence that the average temperature on earth has been getting warmer over the past
+few decades, or not?". The table below shows the distribution of responses by party and ideology, where
+the counts have been replaced with relative frequencies.43
+Response
+Earth is
+Not
+Don't Know
+warming
+warming
+Refuse
+Total
+Conservative Republican
+0.11
+0.20
+0.02
+0.33
+Party and
+Mod/Lib Republican
+0.06
+0.06
+0.01
+0.13
+Ideology
+Mod/Cons Democrat
+0.25
+0.07
+0.02
+0.34
+Liberal Democrat
+0.18
+0.01
+0.01
+0.20
+Total
+0.60
+0.34
+0.06
+1.00
+(a) Are believing that the earth is warming and being a liberal Democrat mutually exclusive?
+(b) What is the probability that a randomly chosen respondent believes the earth is warming or is a liberal
+Democrat?
+(c) What is the probability that a randomly chosen respondent believes the earth is warming given that he
+is a liberal Democrat?
+(d) What is the probability that a randomly chosen respondent believes the earth is warming given that he
+is a conservative Republican?
+(e) Does it appear that whether or not a respondent believes the earth is warming is independent of their
+party and ideology? Explain your reasoning.
+(f) What is the probability that a randomly chosen respondent is a moderate/liberal Republican given that
+he does not believe that the earth is warming?
+43Pew Research Center, Majority of Republicans No Longer See Evidence of Global Warming, data collected on
+October 27, 2010.
+
+

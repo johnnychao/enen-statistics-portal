@@ -1,7 +1,8 @@
-﻿---
+---
 title: "Unit 5｜Sampling Distributions"
 ap-unit: 5
-module: "u5"
 ---
-## 抽樣分佈
-本單元尚在建置中。
+
+# Sampling Distributions
+
+本單元為自動化轉譯之 AP 統計學原文教材。

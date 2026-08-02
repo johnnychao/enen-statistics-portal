@@ -1,0 +1,322 @@
+---
+title: "1.5.4 Introduction to experiments"
+---
+
+62
+CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
+Figure 1.34:
+In February 2010, some media
+pundits cited one large snow storm as valid
+evidence against global warming. As comedian
+Jon Stewart pointed out, "It's one storm, in
+one region, of one country."
+-------------------
+February 10th, 2010.
+Lastly, it is important that the investigative question indicates the type(s) of conclusion(s)
+applicable from the study. The investigative question should provide the population to which the
+conclusions will be applicable and, in the case of an experiment that uses random assignment, a
+cause-and-eﬀect conclusion.
+1.5.2
+Anecdotal evidence
+Consider the following possible responses to the three research questions:
+1. A man on the news got mercury poisoning from eating swordfish, so the average mercury
+concentration in swordfish must be dangerously high.
+2. I met two students who took more than 7 years to graduate from Duke, so it must take longer
+to graduate at Duke than at many other colleges.
+3. My friend's dad had a heart attack and died after they gave him a new heart disease drug, so
+the drug must not work.
+Each conclusion is based on data. However, there are two problems. First, the data only represent
+one or two cases.
+Second, and more importantly, it is unclear whether these cases are actually
+representative of the population. Data collected in this haphazard fashion are called anecdotal
+evidence.
+ANECDOTAL EVIDENCE
+Be careful of making inferences based on anecdotal evidence. Such evidence may be true and
+verifiable, but it may only represent extraordinary cases. The majority of cases and the average
+case may in fact be very diﬀerent.
+Anecdotal evidence typically is composed of unusual cases that we recall based on their striking
+characteristics. For instance, we may vividly remember the time when our friend bought a lottery
+ticket and won $250 but forget most the times she bought one and lost. Instead of focusing on the
+most unusual cases, we should examine a representative sample of many cases.
+
+
+### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
+63
+1.5.3
+Explanatory and response variables
+When we ask questions about the relationship between two variables, we sometimes also want
+to determine if the change in one variable causes a change in the other. Consider the following
+rephrasing of an earlier question about the county data set:
+If there is an increase in the median household income in a county, does this drive an
+increase in its population?
+In this question, we are asking whether one variable aﬀects another.
+If this is our underlying
+belief, then median household income is the explanatory variable and the population change is the
+response variable in the hypothesized relationship.44
+EXPLANATORY AND RESPONSE VARIABLES
+When we suspect one variable might causally aﬀect another, we label the first variable the
+explanatory variable and the second the response variable.
+might affect
+explanatory
+variable
+response
+variable
+For many pairs of variables, there is no hypothesized relationship, and these labels would not
+be applied to either variable in such cases.
+ASSOCIATION DOES NOT IMPLY CAUSATION
+Labeling variables as explanatory and response does not guarantee the relationship between the
+two is actually causal, even if there is an association identified between the two variables. We
+use these labels only to keep track of which variable we suspect aﬀects the other.
+In many cases, the relationship is complex or unknown. It may be unclear whether variable A
+explains variable B or whether variable B explains variable A. For example, it is now known that a
+particular protein called REST is much depleted in people suﬀering from Alzheimer's disease. While
+this raises hopes of a possible approach for treating Alzheimer's, it is still unknown whether the
+lack of the protein causes brain deterioration, whether brain deterioration causes depletion in the
+REST protein, or whether some third variable causes both brain deterioration and REST depletion.
+That is, we do not know if the lack of the protein is an explanatory variable or a response variable.
+Perhaps it is both.45
+44Sometimes the explanatory variable is called the independent variable and the response variable is called the
+dependent variable. However, this becomes confusing since a pair of variables might be independent or dependent,
+so we avoid this language.
+45nytimes.com/2014/03/20/health/fetal-gene-may-protect-brain-from-alzheimers-study-finds.html
+
+
+64
+CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
+1.5.4
+Introduction to experiments
+There are two primary types of data collection: experiments and observational studies.
+When researchers want to investigate the possibility of a causal connection, they conduct an
+experiment. For all experiments, the researchers must impose a treatment. For most studies there
+will be both an explanatory and a response variable. For instance, we may suspect administering
+a drug will reduce mortality in heart attack patients over the following year.
+To check if there
+really is a causal connection between the explanatory variable and the response, researchers will
+collect a sample of individuals and split them into groups.
+The individuals in each group are
+assigned a treatment. When individuals are randomly assigned to a group, the experiment is called
+a randomized experiment.
+For example, each heart attack patient in a drug trial could be
+randomly assigned into one of two groups: the first group receives a placebo (fake treatment) and
+the second group receives the drug. See the case study in Section 1.7.1 for another example of an
+experiment.
+In an experiment, a treatment is applied to an observational unit called an experimental unit.
+When the experimental units are people, we commonly refer to them as subjects or participants
+rather than experimental units. In our example, each heart attack patient received a placebo or a
+drug, so the experimental unit or subject in this study is a heart attack patient. At the end of the
+study, the response variable is measured on each experimental unit. Here, there response variable
+could be whether or not a heart attack patient survived at least 5 years after receiving the drug or
+placebo. Reachers will compare the proportion in each group that survived at least 5 years. If the
+diﬀerence is significant, and if the experiment is well-designed, then the researchers will be able to
+draw a causal conclusion about the eﬀect of the drug.
+Some experiments study more than one factor (explanatory variable) at a time, and each of
+these factors may have two or more levels (possible values). For example, suppose a researcher
+plans to investigate how the type and volume of music aﬀect a person's performance on a particular
+video game. Because these two factors, type and volume, could interact in interesting ways, we do
+not want to test one factor at a time. Instead, we want to do an experiment in which we test all
+combinations of the factors. Let's say that volume has two levels (soft and loud) and that type has
+three levels (dance, classical, and punk). Then, we would want to have experiment groups for each
+of the six (2 x 3 = 6) combinations: soft dance, soft classical, soft punk, loud dance, loud classical,
+loud punk. Each combination is a treatment. Therefore, this experiment will have 2 factors and
+6 treatments. To replicate each treatment 10 times, one would need to play the game 60 times.
+GUIDED PRACTICE 1.52
+A researcher wants to compare the eﬀectiveness of four diﬀerent drugs.
+She also wants to test
+each of the drugs at two doses: low and high. Describe the factors, levels, and treatments of this
+experiment.46
+As the number of factors and levels increases, the number of treatments become large and
+the analysis of the resulting data becomes more complex, requiring the use of advanced statistical
+methods. We will investigate only one factor at a time in this book.
+46There are two factors: type of drug, which has four levels, and dose, which has 2 levels. There will be 4 x 2 = 8
+treatments: drug 1 at low dose, drug 1 at high dose, drug 2 at low dose, and so on.
+
+
+### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
+65
+1.5.5
+Observational studies
+Researchers perform an observational study when they collect data without interfering with
+how the data arise. For instance, researchers may collect information via surveys, review medical or
+company records, or follow a cohort of many similar individuals to study why certain diseases might
+develop. In each of these situations, researchers merely observe or take measurements of things that
+arise naturally.
+Observational studies come in two forms: prospective and retrospective studies. A prospec-
+tive study identifies individuals and collects information as events unfold. For instance, medical
+researchers may identify and follow a group of similar individuals over many years to assess the
+possible influences of behavior on cancer risk. One example of such a study is The Nurses' Health
+Study, started in 1976 and expanded in 1989. This prospective study recruits registered nurses and
+then collects data from them using questionnaires. Retrospective studies collect data after events
+have taken place, e.g. researchers may review past events in medical records. Some data sets, such
+as county, may contain both prospectively- and retrospectively-collected variables. Local govern-
+ments prospectively collect some variables as events unfolded (e.g. retails sales) while the federal
+government retrospectively collected others during the 2010 census (e.g. county population counts).
+EXAMPLE 1.53
+Suppose that a researcher is interested in the average tip customers at a particular restaurant give.
+Should she carry out an observational study or an experiment?
+In addressing this question, we ask, "Will the researcher be imposing any treatment?" Because
+there is no treatment or interference that would be applicable here, it will be an observational study.
+Additionally, one consideration the researcher should be aware of is that, if customers know their
+tips are being recorded, it could change their behavior, making the results of the study inaccurate.
+Making causal conclusions based on experiments is often reasonable. However, making the same
+causal conclusions based on observational data is treacherous and is not recommended. Observational
+studies are generally only suﬃcient to show associations.
+GUIDED PRACTICE 1.54
+Suppose an observational study tracked sunscreen use and skin cancer, and it was found people who
+use sunscreen are more likely to get skin cancer than people who do not use sunscreen. Does this
+mean sunscreen causes skin cancer?47
+Some previous research tells us that using sunscreen actually reduces skin cancer risk, so maybe
+there is another variable that can explain this hypothetical association between sunscreen usage and
+skin cancer. One important piece of information that is absent is sun exposure. Sun exposure is
+what is called a confounding variable, confounding factor, or a confounder).
+sun exposure
+use sunscreen
+skin cancer
+?
+CONFOUNDING VARIABLE
+A confounding variable is a variable that is associated with both the explanatory and response
+variables. Because of the confounding variable's association with both variables, we do not
+know if the response is due to the explanatory variable or due to the confounding variable.
+47No. See the paragraph following the exercise for an explanation.
+
+
+66
+CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
+Sun exposure is a confounding factor because it is associated with both the use of sunscreen
+and the development of skin cancer. People who are out in the sun all day are more likely to use
+sunscreen, and people who are out in the sun all day are more likely to get skin cancer. Research
+shows us the development of skin cancer is due to the sun exposure. The variables of sunscreen usage
+and sun exposure are confounded, and without this research, we would have no way of knowing
+which one was the true cause of skin cancer.
+EXAMPLE 1.55
+In a study that followed 1,169 non-diabetic adults who had been hospitalized for a first heart attack,
+the people that reported eating chocolate had increased survival rate over the next 8 years than
+those that reported not eating chocolate. Also, those who ate more chocolate tended to live longer
+on average. The researchers controlled for several confounding factors, such as age, physical activity,
+smoking, and many other factors. Can we conclude that the consumption of chocolate caused the
+people to live longer?
+This is an observational study, not a controlled randomized experiment. Even though the researchers
+controlled for many possible variables, there may still be other confounding factors. (Can you think
+of any that weren't mentioned?) While it is possible that the chocolate had an eﬀect, this study
+cannot prove that chocolate increased the survival rate of patients.
+EXAMPLE 1.56
+The authors who conducted the study did warn in the article that additional studies would be nec-
+essary to determine whether the correlation between chocolate consumption and survival translates
+to any causal relationship. That is, they acknowledged that there may be confounding factors. One
+possible confounding factor not considered was mental health. In context, explain what it would
+mean for mental health to be a confounding factor in this study.
+Mental health would be a confounding factor if, for example, people with better mental health
+tended to eat more chocolate, and those with better mental health also were less likely to die within
+the 8 year study period. Notice that if better mental health were not associated with eating more
+chocolate, it would not be considered a confounding factor because it wouldn't explain the observed
+associated between eating chocolate and having a better survival rate. If better mental health were
+associated only with eating chocolate and not with a better survival rate, then it would also not be
+confounding for the same reason. Only if a variable that is associated with both the explanatory
+variable of interest (chocolate) and the outcome variable in the study (survival during the 8 year
+study period) can it be considered a confounding factor.
+While one method to justify making causal conclusions from observational studies is to exhaust
+the search for confounding variables, there is no guarantee that all confounding variables can be
+examined or measured.
+ASSOCIATION ≠CAUSATION
+In general, association does not imply causation, and causation can only be inferred from a
+randomized experiment.
+
+
+### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
+67
+Section summary
+• The nature and purpose of the investigative question should guide the data collection process
+and should be phrased in terms of the variable(s) of interest in the study. If the purpose
+is to draw a causal conclusion an experiment should be used. If the purpose is to make a
+generalization from a sample to a larger population, a random sample from the population of
+interest should be taken.
+• Depending on the investigative question, one of two main data analysis methods may be used:
+confidence intervals or hypothesis tests. With confidence intervals, we seek to estimate a stated
+parameter within a range of reasonable values. With hypothesis tests, we seek to determine
+how much evidence there is that the stated parameter is greater than, less than, or diﬀerent
+from a certain hypothesized value.
+• An investigative question should indicate the type(s) of conclusion(s) applicable from the
+study. The investigative question should provide the population to which the conclusions will
+be applicable and, in the case of an experiment that uses random assignment, a cause-and-eﬀect
+conclusion.
+• A census consists of recording information from all items or individuals in a population.
+• An experiment is a study in which a researcher assigns conditions, or treatments, to exper-
+imental units to explore an investigative question of interest. The goal is to draw a causal
+conclusion about the eﬀect of the treatment(s).
+• The experimental unit is the observational unit to which the treatment is assigned. When
+experimental units consist of people, they are sometimes referred to as subjects or participants.
+• In an experiment, an explanatory variable, or factor, is a variable whose diﬀerent categories,
+or levels, are imposed on the experimental units. The diﬀerent categories, or levels, of the
+explanatory variable are called treatments. When there is more than one explanatory variable,
+the combinations of the categories, or levels, of the explanatory variables are called treatments.
+• A response variable is an outcome measured on each experimental unit after the treatment
+has been administered.
+• An observational study is a study where treatments are not imposed. The researcher records
+the values of the variables of interest in order to explore an investigative question of interest.
+• To be able to genera
+• A prospective study is one in which the observational units of study are selected at a point
+in time, and data are gathered both at that time and into the future.
+• A retrospective study is one in which the observational units of study are selected at a point
+in time and data from the past are gathered.
+• A survey is an observational study in which the data are collected from humans using a
+standard set of questions.
+• A confounding variable in an observational study provides an alternative explanation for
+the observed relationship between the explanatory and response variables determined in the
+study, thereby lowering the credibility of the assertion of a causal relationship between the
+explanatory and response variables of interest. To be a confounding variable, a variable must
+be associated with both the explanatory variable and the response variable.
+• A sample is considered random when all observational units in the sample have an equal chance
+of being selected from the population. A random mechanism is any resource used to select the
+observational units to be included in the sample.
+• It is appropriate to generalize from a sample to the population of individuals from which the
+sample was selected only when the individuals in the sample are randomly selected from the
+population. Do not generalize from anecdotal evidence or from volunteer or other types of
+non-random samples.
+• When observational units, or experimental units, in a sample are not randomly selected from
+a population, it is appropriate to make generalizations only about a population of individuals
+that are similar to those used in the study.
+
+
+68
+CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
+Exercises
+1.31
+Air pollution and birth outcomes, scope of inference.
+Exercise 1.1 introduces a study where
+researchers collected data to examine the relationship between air pollutants and preterm births in Southern
+California. During the study air pollution levels were measured by air quality monitoring stations. Length of
+gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure
+during gestation was calculated for each birth.
+(a) Identify the population of interest and the sample in this study.
+(b) Comment on whether or not the results of the study can be generalized to the population, and if the
+findings of the study can be used to establish causal relationships.
+1.32
+Cheaters, scope of inference. Exercise 1.3 introduces a study where researchers studying the rela-
+tionship between honesty, age, and self-control conducted an experiment on 160 children between the ages
+of 5 and 15. The researchers asked each child to toss a fair coin in private and to record the outcome (white
+or black) on a paper sheet, and said they would only reward children who report white. Half the students
+were explicitly told not to cheat and the others were not given any explicit instructions. Diﬀerences were
+observed in the cheating rates in the instruction and no instruction groups, as well as some diﬀerences across
+children's characteristics within each group.
+(a) Identify the population of interest and the sample in this study.
+(b) Comment on whether or not the results of the study can be generalized to the population, and if the
+findings of the study can be used to establish causal relationships.
+1.33
+Buteyko method, scope of inference. Exercise 1.2 introduces a study on using the Buteyko shallow
+breathing technique to reduce asthma symptoms and improve quality of life. As part of this study 600
+asthma patients aged 18-69 who relied on medication for asthma treatment were recruited and randomly
+assigned to two groups: one practiced the Buteyko method and the other did not. Those in the Buteyko
+group experienced, on average, a significant reduction in asthma symptoms and an improvement in quality
+of life.
+(a) Identify the population of interest and the sample in this study.
+(b) Comment on whether or not the results of the study can be generalized to the population, and if the
+findings of the study can be used to establish causal relationships.
+1.34
+Stressed out, Part I. A study that surveyed a random sample of otherwise healthy high school students
+found that they are more likely to get muscle cramps when they are stressed. The study also noted that
+students drink more coﬀee and sleep less when they are stressed.
+(a) What type of study is this?
+(b) Can this study be used to conclude a causal relationship between increased stress and muscle cramps?
+(c) State possible confounding variables that might explain the observed relationship between increased
+stress and muscle cramps.
+
+

@@ -1,0 +1,729 @@
+---
+title: "5.1 Summarizing bivariate numerical data"
+---
+
+396
+Chapter 5
+Regression Analysis
+### 5.1 Summarizing bivariate numerical data
+### 5.2 Line fitting and residuals
+### 5.3 Least squares regression
+
+
+397
+Linear regression is a very powerful statistical technique. Many people have some
+familiarity with regression just from reading the news, where graphs with straight
+lines are overlaid on scatterplots. Linear models can be used to see trends and to
+make predictions.
+For videos, slides, and other resources, please visit
+www.openintro.org/ahss
+
+
+398
+CHAPTER 5. REGRESSION ANALYSIS
+5.1
+Summarizing bivariate numerical data
+In this section, we explore scatterplots and describe the relationship between two numerical variables.
+We use the loan50 data set and a new data set on US counties, called county 2023.
+We also
+introduce a new bivariate summary called the correlation coeﬃcient.
+Learning objectives
+1. Use scatterplots to depict the relationship between two numerical variables.
+2. Describe the characteristics of a scatterplot.
+3. Justify a claim using scatterplots depicting the distribution of two numerical variables.
+4. Interpret the correlation for a linear relationship.
+5.1.1
+Scatterplots for paired data
+Scatterplots are one type of graph used to study the relationship between two numerical vari-
+ables. A scatterplot is a 2-dimensional graph where each case is plotted as a point. In a practical
+sense, it provides a case-by-case view of data that illustrates the relationship between two numerical
+variables. Consider the loan50 data set introduced earlier in the book. Figure 5.1 displays rows 1,
+2, 3, and 50 of the data set for 50 randomly sampled loans oﬀered through Lending Club.
+loan amount
+interest rate
+term
+grade
+state
+total income
+homeownership
+1
+7500
+7.34
+36
+A
+MD
+70000
+rent
+2
+25000
+9.43
+60
+B
+OH
+254000
+mortgage
+3
+14500
+6.08
+36
+A
+MO
+80000
+mortgage
+⋮
+⋮
+⋮
+⋮
+⋮
+⋮
+⋮
+⋮
+50
+3000
+7.96
+36
+A
+CA
+34000
+rent
+Figure 5.1: Four rows from the loan50 data matrix.
+A scatterplot is shown in Figure 5.2, showing the total income of a borrower (total income)
+and the amount they borrowed (loan amount) for the loan50 data set. In any scatterplot, each
+point represents a single case. For this example, each point represents a single loan. Since there are
+50 loans in loan50, there are 50 points in Figure 5.2.
+Looking at Figure 5.2, we see that there are many borrowers with an income below $100,000
+on the left side of the graph, while there are only a few borrowers with income above $250,000. We
+can also see the range of loan amounts by looking at the vertical axis. While it is more diﬃcult
+to discern the exact distributions of each of these variables, what we can easily observe from the
+scatterplot is the relationship or association between the variables.
+GUIDED PRACTICE 5.1
+Examine the variables in the loan50 data set summarized in Figure 5.1, Create two questions about
+possible relationships between variables in loan50 that are of interest to you.1
+1Two example questions: (1) What is the relationship between loan amount and interest rate? (2) If someone's
+income is above the average, will their interest rate tend to be above or below the average?
+
+
+### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
+399
+Total Income
+$0
+$50k
+$100k
+$150k
+$200k
+$250k
+$300k
+$0
+$10k
+$20k
+$30k
+$40k
+Loan Amount
+Figure 5.2: A scatterplot of loan amount versus total income for the loan50
+data set.
+EXAMPLE 5.2
+A scatterplot requires bivariate, or paired data. What does paired data mean?
+We say observations are paired when the two observations correspond to the same case or individual.
+In unpaired data, there is no such correspondence. In our example the two observations correspond
+to a particular loan.
+The variable that is suspected to be the response variable (or dependent variable) is plotted on
+the vertical (y) axis and the variable that is suspected to be the explanatory variable is plotted on
+the horizontal (x) axis. In this example, we suspect the loan amount is dependent on total income,
+not the reverse.
+DRAWING SCATTERPLOTS
+(1) Decide which variable should go on each axis, and draw and label the two axes.
+(2) Note the range of each variable, and add tick marks and scales to each axis.
+(3) Plot the dots as you would on an (x,y) coordinate plane.
+GUIDED PRACTICE 5.3
+Why are scatterplots useful? What do they show us that a list of (x, y) data points does not?2
+2Answers may vary. Scatterplots are helpful in quickly spotting associations between variables.
+
+
+400
+CHAPTER 5. REGRESSION ANALYSIS
+5.1.2
+Describing the relationship between two numerical variables
+Many analyses are motivated by a researcher looking for a relationship between two or more
+variables. We will investigate relationships between variables using a new data set, the county 2023
+data set. These data come from the US Census Bureau's 2023 American Community Survey (ACS).
+Unlike the Decennial Census, which takes place every 10 years and attempts to collect basic
+demographic data from every resident of the US, the ACS is an ongoing survey that is sent to
+approximately 3.5 million households per year.
+As stated on the ACS website, these data help
+communities "plan for hospitals and schools, support school lunch programs, improve emergency
+services, build bridges, and inform businesses looking to add jobs and expand to new markets, and
+more."3 A social scientist may like to answer some of the following questions:
+(1) How strongly associated are median household income and share of adults with a bachelor's
+degree?
+(2) Is the relationship between median household income and poverty rate for the counties linear
+or nonlinear?
+(3) How useful a predictor is share of adults with a bachelor's degree for mean travel time to work?
+When describing a scatterplot or describing the association between two numerical variables, it
+is helpful to discuss form, strength, and direction. Form can be described as linear, where the points
+follow a trend that changes at an approximately constant rate, or nonlinear, where the points follow
+a trend that is curved rather than constant. We describe the strength of the association as weak,
+moderate, or strong, depending on how closely the points follow the general pattern.
+When two variables show some connection with one another, they are said to be associated.
+The direction of association between two variables can be positive or negative, or there can be no
+association. Positive association means that larger values of the first variable are associated with
+larger values of the second variable.
+EXAMPLE 5.4
+What would it mean for two variables to have a negative association? What about no association?
+Negative association implies that larger values of the first variable are associated with smaller values
+of the second variable. No association implies that the values of the second variable tend to be
+independent of diﬀerences in the first variable.
+Figure 5.3 shows the association between the percent with a bachelor's degree among those 25
+years and older and median household income for each of the 3,144 US counties. Each point on the
+plot represents a single county. For instance, the highlighted dot corresponds to County 1456 in the
+county 2023 data set: Oktibbeha County, Mississippi, which has 45.8% of those ages 25 and older
+with a bachelor's degree and a median household income of $43,482.
+The scatterplot in Figure 5.3 shows a roughly linear, constant trend, with a moderate associa-
+tion. It also shows a positive relationship between the two variables: counties with a higher median
+household income tend to have higher percent of those age 25 and older with a bachelor's degree. In
+this case, it is a choice which variable to put on the horizontal axis. It is true that households with
+higher income tend to be more able to aﬀord college, but it is also true that those with a college
+degree tend to earn higher incomes.
+Oktibbeha County, Mississippi, identified in Figure 5.3 does not quite follow the trend. This
+county has a lower than average household income, but a higher than average percent of bachelor's
+degrees among those 25 years and older. One possible factor is the presence of Mississippi State
+University (MSU) in Oktibbeha County and its adjoining county, which attracts and graduates many
+students in the area.
+3https://www.census.gov/programs-surveys/acs/about.html
+
+
+### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
+401
+$0
+$50k
+$100k
+$150k
+0%
+20%
+40%
+60%
+80%
+Median Household Income
+Bachelor's Degree (Percent)
+Figure 5.3: A scatterplot of percent with a bachelor's degree among those 25
+years and older versus median household income for the county 2023 data set.
+The highlighted dot represents Oktibbeha County, Mississippi, which has median
+household income of $43,482 and 45.8% of those age 25 and older with a bachelor's
+degree.
+EXAMPLE 5.5
+Figure 5.4 shows a scatterplot of median household income versus the poverty rate for the 3,144
+counties in the US. Each point represents one county. Describe the relationship between these two
+variables.
+The relationship between median household income and poverty rate is nonlinear, as highlighted
+by the dashed line. This is diﬀerent from the scatterplot in Figure 5.3, which did not show much,
+if any, curvature in the trend. The association seems fairly strong as the points follow the curved
+trend pretty closely. There is also a negative association here, as higher rates of poverty tend to be
+associated with lower median household income.
+0%
+10%
+20%
+30%
+40%
+50%
+$0
+$50k
+$100k
+$150k
+Poverty Rate (Percent)
+Median Household Income
+Figure 5.4: A scatterplot of the median household income against the poverty rate
+for the county 2023 data set. A statistical model has also been fit to the data and
+is shown as a dashed line.
+
+
+402
+CHAPTER 5. REGRESSION ANALYSIS
+EXAMPLE 5.6
+Figure 5.5 shows a scatterplot of mean travel time to work versus percent with a bachelor's degree
+among those 25 years and older for counties in the US. The mean travel time to work across all
+counties is shown as a dashed line. Based on the scatterplot, how much help does knowing the
+percent with a bachelor's degree in a county provide for predicting that county's mean travel time
+to work?
+There seems to be almost no association between mean travel time to work and the percent with a
+bachelor's degree. Therefore, knowing the percent with a bachelor's degree in a county oﬀers almost
+no help in trying to predict that county's mean travel time to work. For example, the mean travel
+time to work among those counties with a low percent with a bachelor's degree seems to be about
+the same as the mean travel time to work among those counties with a high percent with a bachelor's
+degree. On the other hand, in Figure 5.4, we see a fairly strong negative association between median
+household income and poverty rate. If a county has a low poverty rate, we would tend to predict
+a higher median household income, whereas if a county has a high poverty rate, we would tend to
+predict a lower median income.
+20%
+40%
+60%
+80%
+10
+20
+30
+40
+Bachelor's Degree (percent)
+Mean Travel Time to Work (minutes)
+Figure 5.5: A scatterplot of mean travel time to work versus the percent with a
+bachelor's degree among those 25 years for the county 2023 data set.
+GUIDED PRACTICE 5.7
+Describe two variables that would have a horseshoe-shaped association in a scatterplot (∩or ∪).4
+4Consider the case where your vertical axis represents something "good" and your horizontal axis represents
+something that is only good in moderation. Health and water consumption fit this description: we require some water
+to survive, but consume too much and it becomes toxic and can kill a person. If health was represented on the vertical
+axis and water consumption on the horizontal axis, then we would create a ∩shape.
+
+
+### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
+403
+GUIDED PRACTICE 5.8
+Consider the dot plots in Figure 5.6. Do these graphs tell us anything about the association between
+unemployment rates in the two states?5
+0
+2
+4
+6
+8
+10
+12
+Unemployment rate for each of
+the 67 counties in Florida
+0
+2
+4
+6
+8
+10
+12
+Unemployment rate for each of
+the 58 counties in California
+Figure 5.6: Dot plots for unemployment rate, rounded to the nearest percent, for
+counties in Florida and counties in California from the county 2023 data set.
+Describing association between two numerical variables is diﬀerent than comparing distribu-
+tions. When comparing distributions, we ask questions such as, "Which distribution has a greater
+average?" and "How do the shapes of the distribution diﬀer?" The number of individuals in each
+data set need not be the same. When we look at association, we are interested in form, direction,
+and strength of the association between the variables. This requires data sets of equal length that
+are essentially paired (e.g. unemployment rate and poverty rate measured for each county or loan
+amount and corresponding interest rate for the loan).
+COMPARING DISTRIBUTIONS VERSUS LOOKING AT ASSOCIATION
+We compare two distributions with respect to center, spread, and shape.
+To compare the
+distributions visually, we use comparative graphs, such as two histograms, two dot plots, parallel
+box plots, or a back-to-back stem-and-leaf. When describing association between two variables,
+we comment on type, strength, and direction of the association. To see association visually, we
+require a scatterplot.
+5No, to see association we require a scatterplot. Moreover, these data are not paired in any way, so the discussion
+of association does not make sense here.
+
+
+404
+CHAPTER 5. REGRESSION ANALYSIS
+5.1.3
+Describing linear relationships with correlation
+When a linear relationship exists between two variables, we can quantify the strength and
+direction of the linear relation with the correlation coeﬃcient, or just correlation for short.
+Figure 5.7 shows eight plots and their corresponding correlations.
+r = 0.33
+r = 0.69
+r = 0.98
+r = 1.00
+r = -0.08
+r = -0.64
+r = -0.92
+r = -1.00
+Figure 5.7: Sample scatterplots and their correlations. The first row shows vari-
+ables with a positive relationship, represented by the trend up and to the right.
+The second row shows variables with a negative trend, where a large value in one
+variable is associated with a low value in the other.
+Only when the relationship is perfectly linear is the correlation coeﬃcient either -1 or 1. If the
+linear relationship is strong and positive, the correlation coeﬃcient will be near +1. If it is strong
+and negative, it will be near -1. If there is no apparent linear relationship between the variables,
+then the correlation coeﬃcient will be near zero.
+THE CORRELATION COEFFICIENT MEASURES THE STRENGTH OF A LINEAR RELATIONSHIP
+The correlation coeﬃcient, which always takes values between -1 and 1, describes the direc-
+tion and strength of the linear relationship between two numerical variables. The strength can
+be strong, moderate, or weak.
+We compute the correlation using a formula, just as we did with the sample mean and standard
+deviation. Formally, we can compute the correlation for observations (x1,y1), (x2,y2), ..., (xn,yn)
+using the formula
+r =
+1
+n -1 ∑(xi -¯x
+sx
+)(yi -¯y
+sy
+)
+where ¯x, ¯y, sx, and sy are the sample means and standard deviations for each variable. This formula
+is rather complex, and we generally perform the calculations on a computer or calculator. We can
+note, though, that the computation involves taking, for each point, the product of the Z-scores that
+correspond to the x and y values.
+
+
+### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
+405
+EXAMPLE 5.9
+Take a look at Figure 5.5 on page 402. How would the correlation coeﬃcient between Mean Travel
+Time to Work and Percent with a Bachelor's degree change if travel time was recorded in hours
+rather than seconds?
+Here, changing the units of y corresponds to dividing all the y values by a certain number. This
+would change the mean and the standard deviation of y, but it would not change the correlation
+coeﬃcient. To see this, imagine dividing every number on the vertical axis by 60. The units of y
+are now in hours rather than minutes, but the graph has remained exactly the same. The units of
+y have changed, by the relative distance of the y values about the mean are the same; that is, the
+Z-scores corresponding to the y values have remained the same.
+CHANGING UNITS OF X AND Y DOES NOT AFFECT THE CORRELATION COEFFICIENT
+The correlation coeﬃcient, r, between two variables is not dependent upon the units in which
+the variables are recorded. The correlation coeﬃcient itself has no units.
+The correlation coeﬃcient is intended to quantify the strength of a linear trend. Nonlinear
+trends, even when strong, sometimes produce correlations coeﬃcients that do not reflect the strength
+of the relationship; see three such examples in Figure 5.8.
+r = -0.23
+r = 0.31
+r = 0.50
+Figure 5.8: Sample scatterplots and their correlation coeﬃcients. In each case,
+there is a strong relationship between the variables. However, the correlation is
+not very strong, and the relationship is not linear.
+
+
+406
+CHAPTER 5. REGRESSION ANALYSIS
+EXAMPLE 5.10
+Consider the four scatterplots in Figure 5.9. In which scatterplot is the correlation between x and
+y the strongest?
+All four data sets have the exact same correlation coeﬃcient of r = 0.816 as well as the same
+equation for the best fit line! This group of four graphs, known as Anscombe's Quartet, remind
+us that knowing the value of the correlation coeﬃcient does not tell us what the corresponding
+scatterplot looks like. It is always important to first graph the data.
+Figure 5.9: Four scatterplots with best fit line drawn in, made in Desmos. Inves-
+tigate Anscombe's Quartet at: desmos.com/calculator/paknt6oneh
+
+
+### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
+407
+Section summary
+• A bivariate quantitative data set consists of observations of ordered pairs from two quantitative
+variables, collected from the same individuals in a sample or population, and can be used to
+construct a scatterplot.
+• A scatterplot shows the relationship between two quantitative variables for each observation,
+one corresponding to the value on the x-axis and one corresponding to the value on the y-axis.
+The explanatory variable is placed on the x-axis and is the variable whose values are used to
+explain or predict the corresponding values for the response variable, which is placed on the
+y-axis.
+• A description of the association shown in a scatterplot includes form, direction, strength, and
+unusual features.
+- The form of the association shown in a scatterplot, if any, can be described as linear or
+nonlinear.
+- The direction of the association shown in a scatterplot, if any, can be described as positive
+or negative.
+A positive association means that as values of the explanatory variable
+increase, the values of the response variable tend to increase. A negative association means
+that as values of the explanatory variable increase, the values of the response variable
+tend to decrease. Note that the terms "increase" and "decrease" here are descriptive and
+do not imply a causal relationship.
+- The strength of the association shown in a scatterplot is how closely the points follow the
+general pattern. Strength can be described as strong, moderate, or weak.
+- Unusual features of a scatterplot include clusters of individual points or points that don't
+fit in the general pattern of association between the two variables.
+• Scatterplots depicting the distribution of two numeric variables may reveal information that
+can be used to justify claims about the variable in context.
+• The correlation coeﬃcient r, summarizes the strength and direction of the linear associa-
+tion between two quantitative variables. The correlation coeﬃcient r is unit-free and always
+between -1 and 1, inclusive.
+A negative correlation coeﬃcient value indicates a negative
+association, and a positive correlation coeﬃcient value indicates a positive association.
+• The strength of the linear association is determined by how close the correlation coeﬃcient is
+to -1 or 1. A value of r = 0 indicates that there is no linear association, though there may
+be a diﬀerent type of association such as a quadratic association. A value of r = -1 or r = 1
+indicates that there is a perfect linear association.
+• A correlation coeﬃcient close to -1 or 1 does not necessarily mean that a linear model is
+appropriate.
+• A perceived or real relationship between two variables does not mean that changes in one
+variable cause changes in the other. That is, correlation does not necessarily imply causation.
+
+
+408
+CHAPTER 5. REGRESSION ANALYSIS
+Exercises
+5.1
+ACS, Part I. Each year, the US Census Bureau surveys about 3.5 million households with The American
+Community Survey (ACS). Data collected from the ACS have been crucial in government and policy deci-
+sions, helping to determine the allocation of federal and state funds each year. Some of the questions asked
+on the survey are about their income, age (in years), and gender. The table below contains this information
+for a random sample of 20 respondents to the 2012 ACS.6
+Income
+Age
+Gender
+1
+53,000
+28
+male
+2
+1600
+18
+female
+3
+70,000
+54
+male
+4
+12,800
+22
+male
+5
+1,200
+18
+female
+6
+30,000
+34
+male
+7
+4,500
+21
+male
+8
+20,000
+28
+female
+9
+25,000
+29
+female
+10
+42,000
+33
+male
+Income
+Age
+Gender
+11
+670
+34
+female
+12
+29,000
+55
+female
+13
+44,000
+33
+female
+14
+48,000
+41
+male
+15
+30,000
+47
+female
+16
+60,000
+30
+male
+17
+108,000
+61
+male
+18
+5,800
+50
+female
+19
+50,000
+24
+female
+20
+11,000
+19
+male
+(a) Use technology to create a scatterplot of income vs. age, and describe the relationship between these
+two variables.
+(b) Now create two scatterplots: one for income vs. age for males and another for females.
+(c) How, if at all, do the relationships between income and age diﬀer for males and females?
+5.2
+MLB stats. A baseball team's success in a season is usually measured by their number of wins. In
+order to win, the team has to have scored more points (runs) than their opponent in any given game. As
+such, number of runs is often a good proxy for the success of the team. The table below shows number of
+runs, home runs, and batting averages for a random sample of 10 teams in the 2014 Major League Baseball
+season.7
+Team
+Runs
+Home runs
+Batting avg.
+1
+Baltimore
+705
+211
+0.256
+2
+Boston
+634
+123
+0.244
+3
+Cincinnati
+595
+131
+0.238
+4
+Cleveland
+669
+142
+0.253
+5
+Detroit
+757
+155
+0.277
+6
+Houston
+629
+163
+0.242
+7
+Minnesota
+715
+128
+0.254
+8
+NY Yankees
+633
+147
+0.245
+9
+Pittsburgh
+682
+156
+0.259
+10
+San Francisco
+665
+132
+0.255
+(a) Use technology to create a scatterplot of runs vs. home runs.
+(b) Now create a scatterplot of runs vs. batting averages.
+(c) Are home runs or batting averages more strongly associated with number of runs? Explain your rea-
+soning.
+6United States Census Bureau.
+Summary File.
+2012 American Community Survey.
+U.S. Census Bureau's
+American Community Survey Oﬃce, 2013. Web.
+7ESPN: MLB Team Stats - 2014.
+
+
+### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
+409
+5.3
+Mammal life spans. Data were collected on life spans (in years) and gestation lengths (in days) for 62
+mammals. A scatterplot of life span versus length of gestation is shown below.8
+(a) What type of an association is apparent be-
+tween life span and length of gestation?
+(b) What type of an association would you ex-
+pect to see if the axes of the plot were re-
+versed, i.e. if we plotted length of gestation
+versus life span?
+(c) Are life span and length of gestation inde-
+pendent? Explain your reasoning.
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+GG
+G
+G
+G
+G
+G
+G
+G
+G
+G
+Gestation (days)
+Life Span (years)
+0
+200
+400
+600
+0
+25
+50
+75
+100
+5.4
+Associations. Indicate which of the plots show (a) a positive association, (b) a negative association,
+or (c) no association. Also determine if the positive and negative associations are linear or nonlinear. Each
+part may refer to more than one plot.
+(1)
+(2)
+(3)
+(4)
+5.5
+Exams and grades. The two scatterplots below show the relationship between final and mid-semester
+exam grades recorded during several years for a Statistics course at a university.
+(a) Based on these graphs, which of the two exams has the strongest correlation with the final exam grade?
+Explain.
+(b) Can you think of a reason why the correlation between the exam you chose in part (a) and the final
+exam is higher?
+Exam 1
+Final Exam
+40
+60
+80
+100
+40
+60
+80
+100
+Exam 2
+Final Exam
+40
+60
+80
+100
+40
+60
+80
+100
+8T. Allison and D.V. Cicchetti. "Sleep in mammals: ecological and constitutional correlates". In: Arch. Hydrobiol
+75 (1975), p. 442.
+
+

@@ -1,7 +1,8 @@
-﻿---
+---
 title: "Unit 2｜Exploring Two-Variable Data"
 ap-unit: 2
-module: "u2"
 ---
-## 雙變數資料探索
-本單元尚在建置中。
+
+# Exploring Two-Variable Data
+
+本單元為自動化轉譯之 AP 統計學原文教材。

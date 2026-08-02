@@ -1,0 +1,486 @@
+---
+title: "2.1 Relationships between two categorical variables"
+---
+
+94
+Chapter 2
+Probability, random
+variables, and probability
+distributions
+### 2.1 Relationships between two categorical variables
+### 2.2 Probability basics
+2.3 Conditional probability, intersections, and unions
+### 2.4 Discrete random variables
+### 2.5 Binomial distributions
+### 2.6 Normal distributions
+### 2.7 Sampling distributions and the central limit theorem
+
+
+95
+Probability forms a foundation of statistics, and you're probably already aware of
+many of the ideas. However, formalization of the concepts is new for most. We begin
+by introducing probability concepts through examples that will be familiar to most
+people. Then we analyze and apply discrete probability distributions, including the
+binomial distribution, and the most important continuous distribution in statistics -
+the normal distribution. Finally, we introduce the concept of a sampling distribution
+which will lay the groundwork for the next two chapters.
+For videos, slides, and other resources, please visit
+www.openintro.org/ahss
+
+
+96
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+### 2.1 Relationships between two categorical variables
+How do we visualize and summarize categorical data? How can we see the relationship between
+two categorical variables? For example, is there an association between the categorical variables of
+homeownership type and application type? Does email type provide any useful value in classifying
+email as spam or not spam?
+In this section, we will introduce tables and other basic tools for
+categorical data that are used throughout this book.
+Learning objectives
+1. Compare tabular and graphical representations for the relationship between two categorical
+variables.
+2. Justify a claim using tabular and graphical representations for the distributions of two cate-
+gorical variables.
+3. Calculate summary statistics from two-way tables.
+4. Compare summary statistics for two categorical variables.
+5. Justify a claim using summary statistics for two categorical variables.
+2.1.1
+Introduction to two-way tables
+In Section 1.2 we summarized homeownership, a categorical variable from the loan data set
+that has three levels, using a one-way frequency table and a one-way relative frequency table. Those
+tables are reproduced here.
+homeownership
+Count
+rent
+3858
+mortgage
+4789
+own
+1353
+Total
+10000
+homeownership
+Relative Frequency
+rent
+0.3858
+mortgage
+0.4789
+own
+0.1353
+Total
+1.000
+Sometimes we to represent the frequencies split among two categorical variables. Figure 2.1
+summarizes two variables: app type and homeownership. A table that summarizes data for two
+categorical variables in this way is called a two-way table or a contingency table. In a two-
+way frequency table, each value in the table represents the count or number of times a particular
+combination of outcomes occurred. For example, the value 3496 corresponds to the number of loans
+in the data set where the borrower rents and the application type was individual.
+Row and column totals are also included. The row totals provide the total counts across each
+row (e.g. 3496 + 3839 + 1170 = 8505), and column totals are total counts down each column.
+homeownership
+rent
+mortgage
+own
+Total
+individual
+3496
+3839
+1170
+8505
+app type
+joint
+362
+950
+183
+1495
+Total
+3858
+4789
+1353
+10000
+Figure 2.1: A two-way frequency table for app type and homeownership.
+
+
+### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
+97
+We can also create a two-way relative frequency table that shows the proportion for each
+combination of categories. These proportions are called joint relative frequencies. To calculate
+these, we divide every count in the frequency table by the entire table total of 10,000. For example,
+we calculate the proportion of the loans that are classified as own and individual as 1170/10,000
+= 0.1170.
+The row and column totals are called the marginal relative frequencies. The marginal
+relative frequency for the first row is 0.8505, which found by taking the individual row total
+divided by the total for the entire table. The marginal relative frequency for the second column is
+0.4789, which is found by taking the mortgage column total divided by the total for the entire table.
+homeownership
+rent
+mortgage
+own
+Total
+individual
+0.3496
+0.3839
+0.1170
+0.8505
+app type
+joint
+0.0362
+0.0950
+0.0183
+0.1495
+Total
+0.3858
+0.4789
+0.1353
+1.000
+Figure 2.2: A two-way relative frequency table for app type and homeownership.
+2.1.2
+Graphical representations for two categorical variables
+Bar charts and mosaic plots provide a way to visualize and compare the distributions of cate-
+gorical variables. A segmented bar chart, or stacked bar chart, is a graphical display of two-way
+table information. For example, a segmented bar chart is shown in Figure 2.3(a), where we have first
+created a bar chart using the homeownership variable and then divided each group by the levels of
+app type.
+One related visualization to the segmented bar chart is the side-by-side bar chart.
+An
+example is shown in Figure 2.3(b).
+Figures 2.3(c) and 2.3(d) show a standardize segmented bar chart and a standardized side-
+by-side bar chart. These visualizations are helpful for understanding the proportion of individual
+or joint loan applications for borrowers in each level of homeownership. Additionally, because the
+proportions of joint and individual vary across the groups, we can conclude that the two variables
+are associated.
+EXAMPLE 2.1
+Examine the four bar charts in Figure 2.3.
+When is the segmented, side-by-side, standardized
+segmented bar chart, or standardized side-by-side the most useful?
+The segmented bar chart is most useful when it's reasonable to assign one variable as the explanatory
+variable and the other variable as the response, since we are eﬀectively grouping by one variable first
+and then breaking it down by the others.
+Side-by-side bar charts are more agnostic in their display about which variable, if any, represents
+the explanatory and which the response variable. It is also easy to discern the number of cases in
+of the six diﬀerent group combinations. However, one downside is that it tends to require more
+horizontal space; the narrowness of Figure 2.3(b) makes the plot feel a bit cramped. Additionally,
+when two groups are of very diﬀerent sizes, as we see in the own group relative to either of the other
+two groups, it is diﬃcult to discern if there is an association between the variables.
+The standardized segmented bar chart is helpful if the primary variable in the segmented bar chart
+is relatively imbalanced, e.g. the own category has only a third of the observations in the mortgage
+category, making the simple segmented bar chart less useful for checking for an association. The
+major downside of the standardized version is that we lose all sense of how many cases each of the
+bars represents.
+The last plot is a standardized side-by-side bar chart. It shows the joint and individual groups as
+proportions within each level of homeownership, and it oﬀers similar benefits and tradeoﬀs to the
+standardized version of the stacked bar plot.
+
+
+98
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+rent
+mortgage
+own
+0
+1000
+2000
+3000
+4000
+joint
+individual
+Frequency
+(a)
+rent
+mortgage
+own
+0
+1000
+2000
+3000
+4000
+joint
+individual
+Frequency
+(b)
+rent
+mortgage
+own
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+joint
+individual
+Proportion
+(c)
+rent
+mortgage
+own
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Proportion
+joint
+individual
+(d)
+Figure 2.3:
+(a) segmented bar chart for homeownership, where the counts
+have been further broken down by app type.
+(b) Side-by-side bar chart for
+homeownership and app type.
+(c) Standardized version of the segmented
+bar chart. (d) Standardized side-by-side bar chart.
+A mosaic plot is a visualization technique suitable for two-way tables that resembles a stan-
+dardized segmented bar chart with the added benefit that we still see the relative group sizes of the
+primary variable as well.
+To get started in creating our first mosaic plot, we'll break a square into columns for each
+category of the homeownership variable, with the result shown in Figure 2.4(a).
+Each column
+represents a level of homeownership, and the column widths correspond to the proportion of loans
+in each of those categories. For instance, there are fewer loans where the borrower is an owner than
+where the borrower has a mortgage. In general, mosaic plots use box areas to represent the number
+of cases in each category.
+To finish the completed mosaic plot, the single-variable mosaic plot is further divided into
+pieces in Figure 2.4(b) using the app type variable. As with the standardized segmented bar chart
+in Figure 2.3(c), each column is split proportional to the number of loans from individual and joint
+borrowers. For example, the second column represents loans where the borrower has a mortgage,
+and it was divided into individual loans (upper) and joint loans (lower). As another example, the
+bottom segment of the third column represents loans where the borrower owns their home and applied
+jointly, while the upper segment of this column represents borrowers who are homeowners and filed
+individually. We can again use this plot to see that the homeownership and app type variables are
+associated, since some columns are divided in diﬀerent vertical locations than others, which was the
+same technique used for checking an association in the standardized segmented bar chart.
+
+
+### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
+99
+rent
+mortgage
+own
+(a)
+rent
+mortgage
+own
+individual
+joint
+(b)
+Figure 2.4: (a) The one-variable mosaic plot for homeownership. (b) Two-variable
+mosaic plot for both homeownership and app type.
+In Figure 2.4(b), we chose to first split by the homeowner status of the borrower. However, we
+could have instead first split by the application type, as in Figure 2.5. Like with the bar charts, it's
+common to use the explanatory variable to represent the first split in a mosaic plot, and then for
+the response to break up each level of the explanatory variable.
+indiv.
+joint
+rent
+mortgage
+own
+Figure 2.5: Mosaic plot where loans are grouped by the homeownership variable
+after they've been divided into the individual and joint application types.
+2.1.3
+Conditional relative frequencies
+The bar charts and mosaic plots encountered in the previous section provide visual representa-
+tions of counts or proportions in two-way tables. We will find these summaries useful when looking for
+evidence of an association between two categorical variables, such as app type and homeownership.
+For instance, suppose we are interested in the following: for applicants who rent, what proportion
+apply as an individual and what proportion apply jointly? Also, how does this compare to applicants
+whose homeownership type is mortgage?
+We can calculate the proportion of individual or joint application types within each homeownership
+type and compare them. These proportions are called conditional relative freqencies. Looking
+at Figure 2.6, we will condition on homeownership type and compute column proportions: we take
+each cell frequency and divide it by the column total to see what proportion of the column variable
+it represents. Notice that these proportions can be seen in the standardized stacked and segmented
+bar graphs shown in Figure 2.3 and in the mosaic plot in Figure 2.4(b).
+
+
+100
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+In Figure 2.6, the value 0.906 indicates that 90.6% of renters applied as individuals. This is
+equivalent to saying that the rate of individual applications among renters is 90.6%. This rate is
+higher than among those with mortgages (80.2%) or who own their own home (85.1%). Because
+these rates vary between the three levels of homeownership (rent, mortgage, own), this provides
+evidence that the app type and homeownership variables are associated.
+rent
+mortgage
+own
+Total
+individual
+0.906
+0.802
+0.865
+0.851
+joint
+0.094
+0.198
+0.135
+0.150
+Total
+1.000
+1.000
+1.000
+1.000
+Figure 2.6:
+A two-way table with column proportions for the app type and
+homeownership variables.
+The total for the last column is oﬀby 0.001 due to
+a rounding error.
+We can also ask a diﬀerent question. What proportion of individual applicants rent, have a
+mortgage, or own? And how does this compare to joint applicants? Here, we condition on app
+type and we calculate row proportions: we take each cell frequency and divide it by the row total to
+see what proportion of the row variable it represents, as shown in Figure 2.7. To calculate the row
+proportion at the intersection of individual and rent, we divide 3496 by the row total of 8505,
+which equals 0.411 and represents the proportion of individual applicants who rent.
+rent
+mortgage
+own
+Total
+individual
+0.411
+0.451
+0.138
+1.000
+joint
+0.242
+0.635
+0.122
+1.000
+Total
+0.386
+0.479
+0.135
+1.000
+Figure 2.7:
+A two-way table with row proportions for the app type and
+homeownership variables. The row total is oﬀby 0.001 for the joint row due
+to a rounding error.
+When comparing these row proportions, we would look down columns to see if the proportion
+of loans where the borrower rents, has a mortgage, or owns varied across the individual to joint
+application types. Here we also see an association: those with a joint application are more likely
+to have a mortgage and less likely to rent than those with an individual application. We can see
+these row proportions in the mosaic plot in Figure 2.5, while we can see the column proportions in
+the mosaic plot in Figure 2.4(b).
+GUIDED PRACTICE 2.2
+(a) What does 0.802 represent in Figure 2.6? (b) What does 0.451 represent in Figure 2.7? 1
+GUIDED PRACTICE 2.3
+(a) What does 0.135 represent in the Figure 2.6? (b) What does 0.122 at the intersection of joint
+and own represent in Figure 2.7?2
+1(a) 0.802 represents the fraction of applicants with mortgages who applied as individuals. (b) 0.451 represents
+the proportion of individual applicants who have a mortgage.
+2(a) 0.135 represents the proportion of home-owning borrowers who had a joint application for the loan. (b) 0.122
+represents the proportion of joint borrowers who own their home.
+
+
+### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
+101
+EXAMPLE 2.4
+Data scientists use statistics to filter spam from incoming email messages. By noting specific char-
+acteristics of an email, a data scientist may be able to classify some emails as spam or not spam with
+high accuracy. One such characteristic is whether the email contains no numbers, small numbers, or
+big numbers. Another characteristic is the email format, which indicates whether or not an email
+has any HTML content, such as bolded text. We'll focus on email format and spam status using the
+email data set, and these variables are summarized in a two-way table in Figure 2.8. Which would
+be more helpful to someone hoping to classify email as spam or regular email for this table: row or
+column proportions?
+A data scientist would be interested in how the proportion of spam changes within each email
+format. This corresponds to column proportions: the proportion of spam in plain text emails and
+the proportion of spam in HTML emails.
+If we generate the column proportions, we can see that a higher proportion of plain text emails are
+spam (209/1195 = 17.5%) than compared to HTML emails (158/2726 = 5.8%). This information on
+its own is insuﬃcient to classify an email as spam or not spam, as over 80% of plain text emails
+are not spam. Yet, when we carefully combine this information with many other characteristics, we
+stand a reasonable chance of being able to classify some emails as spam or not spam with confidence.
+text
+HTML
+Total
+spam
+209
+158
+367
+not spam
+986
+2568
+3554
+Total
+1195
+2726
+3921
+Figure 2.8: A two-way table for spam and format.
+Example 2.4 points out that row and column proportions are not equivalent. Before settling
+on one form for a table, it is important to consider each to ensure that the most useful table is
+constructed.
+We will revisit this idea of "conditioning" on a row or column variable to look for association
+between two variables in Section 2.3 when we investigate conditional probability. To determine of
+the association is "significant" or not, we will have to wait for Chapter 3, Inference for categorical
+data: proportions.
+EXAMPLE 2.5
+Look back to the mosaic plots in Figures 2.4(b) and 2.5 and the tables in Figures 2.7 and 2.6. Are
+there any obvious scenarios where one might be more useful than the other?
+None that we thought were obvious! What is distinct about app type and homeownership vs the
+email example is that these two variables don't have a clear explanatory-response variable relation-
+ship that we might hypothesize (see Section 1.5.3 for these terms). Usually it is most useful to
+"condition" on the explanatory variable. For instance, in the email example, the email format was
+seen as a possible explanatory variable of whether the message was spam, so we would find it more
+interesting to compute the relative frequencies (proportions) for each email format.
+
+
+102
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+Section summary
+• A two-way table, also called a contingency table, can be used to summarize and compare
+data for two categorical variables. The entries in the cells of the table can be frequencies (i.e.,
+counts) or relative frequencies (i.e., proportions).
+• Side-by-side bar charts, segmented bar charts, and mosaic plots are examples of graphs
+used to display the relationship between two categorical variables. In these graphs, the fre-
+quency or relative frequency of each category, or level, of one of the categorical variables is
+displayed for each category of the other categorical variable.
+• Graphical representations of two categorical variables can be used to compare the relationship
+of one categorical variable across the levels of the other categorical variable and determine
+whether the two variables are associated.
+• Tabular and graphical representations for the distributions of two categorical variables may
+reveal information that can be used to justify claims about the variables in context.
+• A joint relative frequency in a two-way table is a cell frequency divided by the total for
+the entire table.
+• A marginal relative frequency in a two-way table is a row total divided by the total for
+the entire table or a column total divided by the total for the entire table.
+• A conditional relative frequency is a relative frequency computed by restricting to a
+particular level, or category of interest. A conditional relative frequency can be a cell frequency
+in a column divided by the total for that column or it can be a cell frequency in a row divided
+by the total for that row.
+• Summary statistics for two categorical variables can be used to compare distributions for
+evidence of an association between the two variables and may reveal information that can be
+used to justify claims about the variable in context.
+
+
+### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
+103
+Exercises
+2.1
+Views on the DREAM Act. A random sample of registered voters from Tampa, FL were asked if they
+support the DREAM Act, a proposed law which would provide a path to citizenship for people brought
+illegally to the US as children. The survey also collected information on the political ideology of the respon-
+dents. Based on the mosaic plot shown below, do views on the DREAM Act and political ideology appear
+to be independent? Explain your reasoning.3
+Conservative
+Moderate
+Liberal
+Support
+Not support
+Not sure
+2.2
+Raise taxes. A random sample of registered voters nationally were asked whether they think it's better
+to raise taxes on the rich or raise taxes on the poor. The survey also collected information on the political
+party aﬃliation of the respondents. Based on the mosaic plot shown below, do views on raising taxes and
+political aﬃliation appear to be independent? Explain your reasoning.4
+Democrat
+Republican
+Indep / Other
+Raise taxes on the rich
+Raise taxes on the poor
+Not sure
+3SurveyUSA, News Poll #18927, data collected Jan 27-29, 2012.
+4Public Policy Polling, Americans on College Degrees, Classic Literature, the Seasons, and More, data collected
+Feb 20-22, 2015.
+
+

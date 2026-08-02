@@ -1,0 +1,620 @@
+---
+title: "2.5 Binomial distributions"
+---
+
+### 2.4. DISCRETE RANDOM VARIABLES
+143
+Section summary
+• A random variable is a variable whose values have numerical outcomes that result from a
+random phenomenon.
+• A probability distribution for a discrete random variable shows the probability associated
+with every possible value of the random variable. The sum of the probabilities over all possible
+values of a discrete random variable is 1.
+• A discrete probability distribution can be determined using the rules of probability or estimated
+with a simulation.
+• A discrete probability distribution can be represented as a graph, table, or function showing
+the probabilities associated with values of a random variable.
+• A cumulative probability distribution can be represented as a table or function and shows the
+probability of being less than or equal to each value of the discrete random variable.
+• A numerical value measuring a characteristic of a probability distribution of a random variable,
+or a population, is a parameter. The value of a parameter is a single, fixed value. The mean
+and standard deviation are parameters of a probability distribution.
+• The mean (expected value) and standard deviation of a discrete random variable X can
+be found using the following formulas, where xi is a value of the random variable and P(xi)
+is the probability of that value:
+E(X) = µX = ∑xi ⋅P(xi)
+= x1 ⋅P(x1) + x2 ⋅P(x2) + ⋯+ xn ⋅P(xn)
+V ar(X) = σ2
+X = ∑(xi -µX)2 ⋅P(xi)
+= (x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
+SD(X) = σX =
+√
+∑(xi -µX)2 ⋅P(xi)
+=
+√
+(x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
+We can think of P(xi) as the weight, and each term is weighted its appropriate amount.
+• The square of the standard deviation of a random variable is called the variance of the random
+variable and is denoted as σ2
+X.
+• The mean or expected value can be interpreted as the long-run average outcome of the random
+variable, that is the average after many, many repetitions of the random process. The mean
+of a probability distribution does not need to be a value in the distribution.
+• The standard deviation can be interpreted as the typical deviation of the values of the random
+variable from the mean value over the long run, that is after many, many repetitions of the
+random process.
+• The parameters mean and standard deviation for the probability distribution of a discrete
+random variable should be interpreted in the context of a specific population.
+
+
+144
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+Exercises
+2.25
+Patreon contributions.
+The distribution of monthly contributions made to a particular Patreon
+creator is given as follows:
+Monthly Contribution
+$3
+$5
+$10
+$25
+Proportion
+0.50
+0.30
+0.15
+0.05
+(a) Compute the average monthly contribution made to this creator.
+(b) Compute the standard deviation of the monthly contributions made to this creator.
+2.26
+Experiment launch impact. An online shopping website develops new features and iterates on its
+product recommendations on a regular basis. The team also uses an experiment when launching each new
+feature to assess the impact of the change on the total sales. Below is a summary table of the impacts that
+the team observes:
+Number of Sales From Launch
+-200
+0
++200
++500
+Proportion of Launches
+0.1
+0.5
+0.3
+0.1
+(a) Compute the average impact for the experiments.
+(b) Compute the standard deviation of the impact from these experiments.
+2.27
+Hearts win. In a new card game, you start with a well-shuﬄed full deck and draw 3 cards without
+replacement. If you draw 3 hearts, you win $50. If you draw 3 black cards, you win $25. For any other
+draws, you win nothing.
+(a) Create a probability model for the amount you win at this game, and find the expected winnings. Also
+compute the standard deviation of this distribution.
+(b) If the game costs $5 to play, what would be the expected value and standard deviation of the net profit
+(or loss)? (Hint: profit = winnings -cost; X -5)
+(c) If the game costs $5 to play, should you play this game? Explain.
+2.28
+Ace of clubs wins. Consider the following card game with a well-shuﬄed deck of cards. If you draw
+a red card, you win nothing. If you get a spade, you win $5. For any club, you win $10 plus an extra $20
+for the ace of clubs.
+(a) Create a probability model for the amount you win at this game. Also, find the expected winnings for
+a single game and the standard deviation of the winnings.
+(b) What is the maximum amount you would be willing to pay to play this game? Explain your reasoning.
+2.29
+Portfolio return. A portfolio's value increases by 18% during a financial boom and by 9% during
+normal times. It decreases by 12% during a recession. What is the expected return on this portfolio if each
+scenario is equally likely?
+2.30
+Baggage fees. An airline charges the following baggage fees: $25 for the first bag and $35 for the
+second. Suppose 54% of passengers have no checked luggage, 34% have one piece of checked luggage and
+12% have two pieces. We suppose a negligible portion of people check more than two bags.
+(a) Build a probability model, compute the average revenue per passenger, and compute the corresponding
+standard deviation.
+(b) About how much revenue should the airline expect for a flight of 120 passengers? With what standard
+deviation? Note any assumptions you make and if you think they are justified.
+
+
+### 2.5. BINOMIAL DISTRIBUTIONS
+145
+2.5
+Binomial distributions
+What is the probability of exactly 50 heads in 100 coin tosses? If 12 people are randomly selected for
+a jury, what is the probability that more than 9 of them identify as male? Given that the probability
+of a defective part is 1%, how many defective items would we expect in a random shipment of 200 of
+those parts? We can model these scenarios and answer these questions using a binomial distribution.
+Learning objectives
+1. Justify why a random variable is or is not a binomial random variable.
+2. Calculate the mean and standard deviation for a binomial distribution.
+3. Interpret the mean, standard deviation, and probabilities for a binomial distribution.
+4. Estimate probabilities of binomial random variables using data from a simulation.
+5. Calculate probabilities for a binomial distribution.
+2.5.1
+Binary variables
+Many health insurance plans in the United States have a deductible, where the insured individ-
+ual is responsible for costs up to the deductible, and then the costs above the deductible are shared
+between the individual and insurance company for the remainder of the year.
+Suppose a health insurance company found that 70% of the people they insure stay below their
+deductible in any given year. Each of these people can be thought of as a trial. We label a person a
+success if her healthcare costs do not exceed the deductible. We label a person a failure if she does
+exceed her deductible in the year. Because 70% of the individuals will not exceed their deductible,
+we denote the probability of a success as p = 0.7. The probability of a failure is 1 -p, which
+would be 0.3 for the insurance example.
+When an individual trial only has two possible outcomes, often labeled as success or failure,
+it is called a Bernoulli random variable, or more simply, a binary variable or yes/no variable.
+We chose to label a person who does not exceed her deductible as a "success" and all others as
+"failures". However, we could just as easily have reversed these labels. The mathematical framework
+we will build does not depend on which outcome is labeled a success and which a failure, as long as
+we are consistent.
+Binary variables are often denoted as 1 for a success and 0 for a failure. In addition to being
+convenient in entering data, it is also mathematically handy. Suppose we observe ten trials:
+1 1 1 0 1 0 0 1 1 0
+Then the sample proportion, ˆp, is the sample mean of these observations:
+ˆp = # of successes
+# of trials
+= 1 + 1 + 1 + 0 + 1 + 0 + 0 + 1 + 1 + 0
+10
+= 0.6
+In general, it is useful to think about a binary random variable as a random process with only
+two outcomes: a success or failure. Then we build our mathematical framework using the numerical
+labels 1 and 0 for successes and failures, respectively.
+
+
+146
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.5.2
+Introducing the binomial formula
+Let's imagine ourselves at the insurance agency where 70% of individuals do not exceed their
+deductible. The probability of success (not exceeding the deductible) is p = 0.7.
+EXAMPLE 2.65
+Suppose the insurance agency is considering a random sample of four individuals they insure. What
+is the chance exactly one of them will exceed the deductible and the other three will not? Let's call
+the four people Ariana (A), Brittany (B), Carlton (C), and Damian (D) for convenience.
+Let's consider a scenario where one person exceeds the deductible:
+P(A = exceed, B = not, C = not, D = not)
+= P(A = exceed) P(B = not) P(C = not) P(D = not)
+= (0.3)(0.7)(0.7)(0.7)
+= (0.7)3(0.3)1
+= 0.103
+But there are three other scenarios: Brittany, Carlton, or Damian could have been the one to
+exceed the deductible. In each of these cases, the probability is again (0.7)3(0.3)1. These four
+scenarios exhaust all the possible ways that exactly one of these four people could have exceeded
+the deductible, so the total probability is 4 × (0.7)3(0.3)1 = 0.412.
+GUIDED PRACTICE 2.66
+Verify that the scenario where Brittany is the only one to exceed the deductible has probability
+(0.7)3(0.3)1. 48
+In Example 2.65, there were four individuals who could have been the one to exceed the de-
+ductible, and each of these four scenarios had the same probability p of 0.7. We use n to represent
+the number of trials, in this case 4 and we use x to represent the desired number of successes, in this
+case 1. This leads us to a more general approach to find probabilities involving exactly x successes
+in n trials, where the probability in each trial of a success is p.
+We can write the probability as
+[# of scenarios] × P(single scenario)
+The first component of this equation is the number of ways to arrange the x = 3 successes among the
+n = 4 trials. The second component is the probability of any of the four (equally probable) scenarios.
+Consider P(single scenario) under the general case of x successes and n -x failures in the n
+trials. In any such scenario, we apply the Multiplication Rule for independent events:
+px(1 -p)n-x
+This is our general formula for P(single scenario).
+48 P(A = not, B = exceed, C = not, D = not) = (0.7)(0.3)(0.7)(0.7) = (0.7)3(0.3)1.
+
+
+### 2.5. BINOMIAL DISTRIBUTIONS
+147
+Secondly, we introduce the binomial coeﬃcient, which gives the number of ways to choose x
+successes in n trials, i.e. arrange x successes and n -x failures:
+(n
+x) =
+n!
+x!(n -x)!
+The quantity (n
+x) is read n choose x.49 The exclamation point notation (e.g. n!) denotes a
+factorial expression.
+0! = 1
+1! = 1
+2! = 2 × 1 = 2
+3! = 3 × 2 × 1 = 6
+4! = 4 × 3 × 2 × 1 = 24
+⋮
+n! = n × (n -1) × ... × 3 × 2 × 1
+Using the formula, we can compute the number of ways to choose x = 3 successes in n = 4 trials:
+(4
+3) =
+4!
+3!(4 -3)! = 4!
+3!1! = 4 × 3 × 2 × 1
+(3 × 2 × 1)(1) = 4
+This result is exactly what we found by carefully thinking of each possible scenario in Example 2.65.
+Substituting n choose x for the number of scenarios and px(1 -p)n-x for the single scenario
+probability yields the binomial formula.
+BINOMIAL FORMULA
+Suppose the probability of a single trial being a success is p. Then the probability of observing
+exactly x successes in n independent trials is given by:
+P(X = x) = (n
+x)px(1 -p)n-x =
+n!
+x!(n -x)!px(1 -p)n-x
+where x = 0,1,2,3...,n.
+2.5.3
+When and how to apply the binomial formula
+IS IT BINOMIAL? FOUR CONDITIONS TO CHECK.
+Informally, we can say that the binomial formula is used in questions concerned with
+"how many successes out of n". To be binomial the following four conditions must be met.
+(1) Each trial outcome is binary (can be classified as a success or failure).
+(2) The trials are independent.
+(3) The number of trials, n, is fixed.
+(4) There is the same probability of success, p, for each trial.
+A useful acronym to remember these conditions is BINS: binary, independent, n fixed, and same p.
+49Other notations for n choose x includes nCx, Cx
+n, and C(n, x).
+
+
+148
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+EXAMPLE 2.67
+Say we would like to find the probability that 5 of 8 randomly selected individuals from the insurance
+agency will not exceed the deductible. Can we use the binomial formula?
+We are interested in 5 out of 8, which sounds like a "how many successes out of n" scenario. To
+verify we can use the binomial formula we check the following conditions.
+1. Each trial outcome is binary (not exceed the insurance deductible or exceed the insurance
+deductible).
+2. The sample is random, but it is not with replacement, so the observations are not entirely
+independent. However, as we saw in the Section 2.3.6 (Sampling without replacement), when
+the sample size is very small compared to the population size, we can treat the observations as
+if they were with replacement, since the composition of the population changes very little with
+each additional person sampled. Since we have a random sample of a very small percent of all
+individuals from the insurance company, we will consider the independence condition met.
+3. The number of trials is fixed (n = 8).
+4. There is the same probability of a success for each trial. (p = 0.70)
+SAMPLING WITHOUT REPLACEMENT
+When randomly sampling without replacement, if the sample size is small relative to the pop-
+ulation size (rule of thumb: sample size less than 1/10 of the population size), we will consider
+the observations to be independent.
+EXAMPLE 2.68
+Find the probability that 5 of 8 randomly selected individuals from the insurance agency will not
+exceed the deductible, i.e. that 3 of them will. Recall that 70% of individuals will not exceed the
+deductible.
+Here a success is not exceeding the deductible and the probability of a success is p = 0.7. We want
+to find the probability of x = 5 successes in n = 8 trials. We previous verified that this scenario
+is binomial, so we will use the binomial formula. The probability that 5 of 8 will not exceed the
+deductible and 3 will exceed the deductible is given by
+(8
+5)(0.7)5(1 -0.7)8-5 =
+8!
+5!(8 -5)!(0.7)5(1 -0.7)8-5
+= 8!
+5!3!(0.7)5(0.3)3
+Dealing with the factorial part:
+8!
+5!3! = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1
+(5 × 4 × 3 × 2 × 1)(3 × 2 × 1) = 8 × 7 × 6
+3 × 2 × 1 = 56
+Using (0.7)5(0.3)3 ≈0.00454, the final probability is about 56 × 0.00454 ≈0.254.
+Evaluating the binomial formula by hand can be tedious. See Section 2.5.7 for ways to evaluate
+the binomial formula using technology.
+COMPUTING BINOMIAL PROBABILITIES
+The first step in using the binomial model is to check that the model is appropriate. The second
+step is to identify n, p, and x. Finally, apply the binomial formula to determine the probability
+and interpret the results.
+
+
+### 2.5. BINOMIAL DISTRIBUTIONS
+149
+EXAMPLE 2.69
+Approximately 35% of a population has blood type O+. Suppose four people show up at a hospital
+and we want to find the probability that exactly one of them has blood type O+. Can we use the
+binomial formula?
+To check if the binomial model is appropriate, we must verify the conditions.
+1. Each outcome is binary (blood type O+ or not blood type O+).
+2. We will suppose that these 4 people comprise a random sample. This seems reasonable, since
+one person with a particular blood type showing up at a hospital seems unlikely to aﬀect the
+chance that other people with that blood type would show up at the hospital. Though this
+scenario is without replacement, 4 should be less than 1/10th of all people that show up at
+the hospital. Therefore, we can treat the random sample as if it were with replacement and
+consider the independence condition met.
+3. We have a fixed number of trials (n = 4).
+4. The probability of a success is the same for each trial (p = 0.35 if we say a "success" is someone
+having blood type O+).
+EXAMPLE 2.70
+Given that 35% of a population has blood type O+, what is the probabilty that in a random sample
+of 4 people:
+(a) none of them have blood type O+?
+(b) exactly one will have blood type O+?
+(c) no more than one will have blood type O+?
+(a) P(X = 0) = (4
+0)(0.35)0(0.65)4 = 1 × 1 × 0.654 = 0.654 = 0.179
+Note that we could have answered this question without the binomial formula, using methods
+from the previous section.
+(b) P(X = 1) = (4
+1)(0.35)1(0.65)3 = 0.384.
+(c) We want to find P(X ≤1). This can be computed as the sum of parts (a) and (b):
+P(X ≤1) = P(X = 0) + P(X = 1) = 0.179 + 0.384 = 0.563.
+There is about a 56.3% chance that no more than one of them will have blood type O+.
+GUIDED PRACTICE 2.71
+What is the probability that at least 3 of 4 people in a random sample will have blood type O+ if
+35% of the population has blood type O+?50
+GUIDED PRACTICE 2.72
+The probability that a random smoker will develop a severe lung condition in her lifetime is about
+0.3. If you have 4 friends who smoke and you want to find the probability that 1 of them will develop
+a severe lung condition in her lifetime, can you apply the binomial formula?51
+50P(at least 3 of 4 have blood type O+) = P(X = 3)+P(X = 4) = (4
+3)(0.35)3(0.65)1+(0.35)4 = 0.111+0.015 = 0.126
+51While the binary and fixed n conditions are met, most likely the friends know each other, so the independence
+assumption is probably not satisfied. For example, acquaintances may have similar smoking habits, or those friends
+might make a pact to quit together. The same p condition is also not satisfied since this is not a random sample of
+people.
+
+
+150
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.5.4
+An example of a binomial distribution
+In Guided Practice 2.70, we asked various probability questions regarding the number of people
+out of 4 with blood type O+. We verified that the scenario was binomial and that each problem
+could be solved using the binomial formula. Instead of looking at it piecewise, we could describe the
+entire distribution of possible values and their corresponding probabilities. Since there are 4 people,
+the possible outcomes for the number who will have blood type O+ are: 0, 1, 2, 3, 4. In Figure 2.30,
+we make a distribution table and a histogram showing the probability of each of these outcomes.
+Recall that the probability of a randomly sampled person being blood type O+ is about 0.35.
+xi
+P(xi)
+0
+(4
+0)(0.35)0(0.65)4 = 0.179
+1
+(4
+1)(0.35)1(0.65)3 = 0.384
+2
+(4
+2)(0.35)2(0.65)2 = 0.311
+3
+(4
+3)(0.35)3(0.65)1 = 0.111
+4
+(4
+4)(0.35)4(0.65)0 = 0.015
+0
+1
+2
+3
+4
+0.0
+0.1
+0.2
+0.3
+0.4
+Probability
+Number With Blood Type O+ in a Random Sample of Size 4
+Figure 2.30: Probability distribution for the number with blood type O+ in a
+random sample of 4 people. This is a binomial distribution. Correcting for rounding
+error, the probabilities add up to 1, as they must for any probability distribution.
+A binomial distribution is used to describe the number of successes in a fixed number of
+independent trials. A binomial distribution has two parameters: n and p, where n is the number of
+trials and p is the probability of a success. The example in Figure 2.30 shows a binomial distribution
+with n = 4 and p = 0.35.
+To find the probability that a binomial random variable X has exactly x successes, apply the
+binomial formula as follows:
+P(X = x) = (n
+x)px(1 -p)n-x, where x = 0,1,2,3...,n.
+2.5.5
+The mean and standard deviation of a binomial distribution
+We can find the mean and standard deviation of the probability distribution in Figure 2.30 using
+the formulas for the mean and standard deviation of a discrete random variable from Section 2.4.
+Those formulas require a lot of calculations, so it is fortunate that there is an easier way to compute
+the mean and standard deviation for a binomial random variable.
+MEAN AND STANDARD DEVIATION OF THE BINOMIAL DISTRIBUTION
+For a binomial distribution with parameters n and p, where n is the number of trials and p is the
+probability of a success, the mean and standard deviation of the number of observed successes
+are
+µX = np
+σX =
+√
+np(1 -p)
+
+
+### 2.5. BINOMIAL DISTRIBUTIONS
+151
+EXAMPLE 2.73
+The probability that a person has blood type O+ is 0.35. Let X be the number of people with blood
+type O+ in a random sample of 40 people. Calculate and interpret the mean and standard deviation
+of X.
+In Example 2.69 we confirmed that the binary, independence, n fixed, and same p conditions were
+met. Therefore we can say that X is Binomial with n = 40 and p = 0.35.
+µX = np = 40(0.35) = 14
+If we were to take many, many random samples of size 40, we would expect to get about 14 people
+with blood type O+, on average.
+σX =
+√
+np(1 -p) =
+√
+40(0.35)(0.65) = 3.0
+If we were to take many, many random samples of size 40, the number of people in our sample with
+blood type O+ would typically vary from the mean of 14 people by about 3 people.
+The distribution of the number of people with blood type O+ in a random sample of size 40 is
+shown in Figure 3.2. It is binomial distribution with n = 40 and p = 0.35, and it has a mean of 14
+and a standard deviation of 3.0.
+Number With Blood Type O+ in a Random Sample of Size 40
+Probability
+8
+11
+14
+17
+20
+0.00
+0.05
+0.10
+Figure 2.31: Distribution for the number of people with blood type O+ in a random
+sample of size 40, where p = 0.35. The distribution is binomial and is centered on 14
+with a standard deviation of 3.
+2.5.6
+Binomial probabilities for intervals of values
+EXAMPLE 2.74
+Find the probability of getting between 15 and 17 people, inclusive, with blood type O+ in a random
+sample of 40 people. The probability of a randomly sampled person being blood type O+ is 0.35.
+X is the number of people with blood type O+. X has a binomial distribution with n = 40 and
+p = 0.35. We want to find P(15 ≤X ≤17). Because the binomial distribution is discrete, we can find
+this by calculating P(X = 15) + P(X = 16) + P(X = 17) as follows:
+P(15 ≤X ≤17) = P(X = 15) + P(X = 16) + P(X = 17)
+= (40
+15)(0.35)15(0.65)25 + (40
+16)(0.35)16(0.65)24 + (40
+17)(0.35)17(0.65)23
+= 0.123 + 0.103 + 0.078
+= 0.304
+The probability of getting between 15 and 17 people, inclusive, with blood type O+ in a random
+sample of 40 people is 0.304, or 30.4%.
+
+
+152
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+EXAMPLE 2.75
+Find the probability that at least 18 people have blood type O+ in a random sample of 40 people.
+The probability of a randomly sampled person being blood type O+ is 0.35.
+X is the number of people with blood type O+. Here, we want to find the probability that X ≥18.
+P(X ≥18) = P(X = 18) + P(X = 19) + P(X = 20) + ...P(X = 40).
+Evaluating this with the binomial formula would involve applying the binomial formula 23 times!
+Fortunately, we can use technology to help us. We first identify the distribution and its parameters.
+Here X is Binomial with n = 50 and p = 0.35. We sometimes write this as X is Binomial(n = 40,
+p = 0.35). Then we can use a technology option from Section 2.5.7 to find that P(X ≥18) = 0.124.
+There is about a 12.4% probability of at least 18 people with blood type O+ in a random sample of
+size 40.
+When using technology to find binomial probabilities, make sure to identify the distribution
+being used and its parameters, then write a clear probability statement communicating what is being
+evaluated. A graph, such as the one shown below in Figure 2.32, helps to visualize the distribution
+and the individual probabilities used in the calculation.
+Figure 2.32: A Desmos graph illustrating a Binomial distribution with n = 40 and
+p = 0.35. Values greater than or equal to 18 are highlighted.
+GUIDED PRACTICE 2.76
+What is the probability that at most 12 people in a random sample of 40 will have blood type O+
+if 35% of the population has blood type O+? 52
+52X is the number of people with blood type O+. X is Binomial(n = 40, p = 0.35). P(X ≤12) = 0.314. There is a
+31.4% probability that at most 12 people in a random sample of size 40 will have blood type O+.
+
+
+### 2.5. BINOMIAL DISTRIBUTIONS
+153
+2.5.7
+Technology: binomial probabilities
+A spinner has four equally likely options: red, green, blue, yellow. If you spin the spinner 6 times,
+what is the probability you get:
+a) Exactly 2 red?
+b) Less than 2 red?
+c) At least 3 red?
+This scenario describes a binomial distribution with n = 6 and p = 0.25.
+Desmos: Use binomialdist(n, p), replacing n and p with appropriate values.
+1. Type binomialdist(6, 0.25).
+2. Click the triangle next to Cumulative Probability.
+3. Select Inner, Outer, Left, or Right as illustrated below.
+4. Enter the appropriate boundary value(s) for x as illustrated below.
+5. Click the magnifying glass to Zoom Fit the graphing window.
+a) P(Exactly 2 red): P(x = 2).
+b) P(Less than 2 red): P(x < 2) = P(x ≤1).
+c) P(At least 3 red): P(x ≥3).
+
+
+154
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+R: Given a binomial distribution with n = 6 and p = 0.25, calculate the following probabilities.
+a) P(X = 2). Use dbinom(x, size, prob) for the probability of exactly x.
+Note that "size =" and "prob =" can be omitted, but the labels are often included for clarity.
+> dbinom(2, size = 6, prob = 0.25)
+or
+> dbinom(2, 6, 0.25)
+[1] 0.2966309
+b) P(X ≤1). Use pbinom(q, size, prob) for the probability of ≤q as shown.
+> pbinom(1, size = 6, prob = 0.25)
+[1] 0.5339355
+c) P(X ≥3).
+> 1 -pbinom(2, size = 6, prob = 0.25)
+[1] 0.1694336
+or
+> pbinom(2, size = 6, prob = 0.25, lower.tail = FALSE)
+[1] 0.1694336
+Calculator: NumWorks calculator instructions and example output are included. For the TI-83/84
+and Casio calculators, general instructions are provided, and worked example videos can be accessed
+via the
+icon or at openintro.org/ti and openintro.org/casio.
+NUMWORKS: BINOMIAL CALCULATIONS
+Use OK or EXE to make a selection.
+1. From the home screen, select Distributions then select Binomial. If a list of distribu-
+tions does not appear, hit the 2 button (next to OK) as many times as needed.
+2. Enter the values of n and p then choose Next. If the screen shows a graph rather than
+asking for n and p, hit the 2 button.
+3. Hit the left arrow to highlight the graph. Hit the down arrow to choose whether you
+want left, inner, right, or exactly, then hit OK. Hit the right arrow and enter the boundary
+value(s) followed by EXE.
+
+
+### 2.5. BINOMIAL DISTRIBUTIONS
+155
+TI-84: COMPUTING THE BINOMIAL FORMULA, P(X = x) = (n
+x)px(1 -p)n-x
+P(X = x) = (n
+x)px(1 -p)n-x
+P(X = x) = (n
+x)px(1 -p)n-x
+Use 2ND VARS, binompdf to evaluate the probability of exactly x occurrences out of n indepen-
+dent trials of an event with probability p.
+1. Select 2ND VARS (i.e. DISTR)
+2. Choose A:binompdf (use the down arrow to scroll down).
+3. Let trials be n.
+### 4. Let p be p
+5. Let x value be x.
+6. Select Paste and hit ENTER.
+TI-83: Do step 1, choose 0:binompdf, then enter n, p, and x separated by commas:
+binompdf(n, p, x). Then hit ENTER.
+TI-84: COMPUTING P(X ≤x) = (n
+0)p0(1 -p)n-0 + ... + (n
+x)px(1 -p)n-x
+P(X ≤x) = (n
+0)p0(1 -p)n-0 + ... + (n
+x)px(1 -p)n-x
+P(X ≤x) = (n
+0)p0(1 -p)n-0 + ... + (n
+x)px(1 -p)n-x
+Use 2ND VARS, binomcdf to evaluate the cumulative probability of at most x occurrences out of
+n independent trials of an event with probability p.
+1. Select 2ND VARS (i.e. DISTR)
+2. Choose B:binomcdf (use the down arrow).
+3. Let trials be n.
+### 4. Let p be p
+5. Let x value be x.
+6. Select Paste and hit ENTER.
+TI-83: Do steps 1-2, then enter the values for n, p, and x separated by commas as follows:
+binomcdf(n, p, x). Then hit ENTER.
+CASIO FX-9750GII: BINOMIAL CALCULATIONS
+1. Navigate to STAT (MENU, then hit 2).
+2. Select DIST (F5), and then BINM (F5).
+3. Choose whether to calculate the binomial distribution for a specific number of successes,
+P(X = k), or for a range P(X ≤k) of values (0 successes, 1 success, ..., x successes).
+• For a specific number of successes, choose Bpd (F1).
+• To consider the range 0, 1, ..., x successes, choose Bcd(F1).
+4. If needed, set Data to Variable (Var option, which is F2).
+5. Enter the value for x (x), Numtrial (n), and p (probability of a success).
+6. Hit EXE.
+
+
+156
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+Section summary
+• A binomial random variable, X, is a discrete random variable that counts the number of
+successes in n repeated independent trials that have only two possible outcomes (success or
+failure), with a fixed probability of success p and probability of failure 1 -p for each trial.
+• If X follows a binomial distribution with parameters n and p, then:
+- The mean is given by µX = np.
+(center)
+- The standard deviation is given by σX =
+√
+np(1 -p).
+(spread)
+• The mean of a binomial distribution tells us about how many successes we expect, on average,
+across many, many samples of size n from the same population.
+• The standard deviation of a binomial distribution tells us the typical variation of values from
+the mean across many, many samples of size n from the same population.
+• The mean and standard deviation should always be interpreted in context.
+• A probability distribution can be constructed using the rules of probability or estimated with
+a simulation.
+• The probability that a binomial random variable, X, has exactly x successes among n inde-
+pendent trials, when the probability of success is p, is calculated as:
+P(X = x) = (n
+x)px(1 -p)n-x, where x = 0,1,2,3...,n.
+
+

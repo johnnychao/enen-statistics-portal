@@ -1,0 +1,54 @@
+---
+title: "1.5.1 Investigative question & conclusions"
+---
+
+### 1.4. NUMERICAL SUMMARIES AND BOX PLOTS
+59
+1.23
+Histograms vs. box plots. Compare the two plots below. What characteristics of the distribution
+are apparent in the histogram and not in the box plot? What characteristics are apparent in the box plot
+but not in the histogram?
+5
+10
+15
+20
+25
+0
+50
+100
+150
+200
+5
+10
+15
+20
+25
+1.24
+Facebook friends. Facebook data indicate that 50% of Facebook users have 100 or more friends,
+and that the average friend count of users is 190. What do these findings suggest about the shape of the
+distribution of number of friends of Facebook users?43
+1.25
+Distributions and appropriate statistics, Part I. For each of the following, state whether you expect
+the distribution to be symmetric, right skewed, or left skewed. Also specify whether the mean or median
+would best represent a typical observation in the data, and whether the variability of observations would be
+best represented using the standard deviation or IQR. Explain your reasoning.
+(a) Number of pets per household.
+(b) Distance to work, i.e. number of miles between work and home.
+(c) Heights of adult males.
+1.26
+Distributions and appropriate statistics, Part II. For each of the following, state whether you expect
+the distribution to be symmetric, right skewed, or left skewed. Also specify whether the mean or median
+would best represent a typical observation in the data, and whether the variability of observations would be
+best represented using the standard deviation or IQR. Explain your reasoning.
+(a) Housing prices in a country where 25% of the houses cost below $350,000, 50% of the houses cost below
+$450,000, 75% of the houses cost below $1,000,000 and there are a meaningful number of houses that
+cost more than $6,000,000.
+(b) Housing prices in a country where 25% of the houses cost below $300,000, 50% of the houses cost below
+$600,000, 75% of the houses cost below $900,000 and very few houses that cost more than $1,200,000.
+(c) Number of alcoholic drinks consumed by college students in a given week. Assume that most of these
+students don't drink since they are under 21 years old, and only a few drink excessively.
+(d) Annual salaries of the employees at a Fortune 500 company where only a few high level executives earn
+much higher salaries than all the other employees.
+43Lars Backstrom. "Anatomy of Facebook". In: Facebook Data Team's Notes (2011).
+
+

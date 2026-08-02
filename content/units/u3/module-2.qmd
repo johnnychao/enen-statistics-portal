@@ -1,0 +1,97 @@
+---
+title: "1.5.2 Anecdotal evidence"
+---
+
+60
+CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
+1.27
+Income at the coffee shop. The first histogram below shows the distribution of the yearly incomes of
+40 patrons at a college coﬀee shop. Suppose two new people walk into the coﬀee shop: one making $225,000
+and the other $250,000. The second histogram shows the new income distribution. Summary statistics are
+also provided.
+(1)
+$60k
+$62.5k
+$65k
+$67.5k
+$70k
+0
+4
+8
+12
+(2)
+$60k
+$110k
+$160k
+$210k
+$260k
+0
+4
+8
+12
+(1)
+(2)
+n
+40
+42
+Min.
+60,680
+60,680
+1st Qu.
+63,620
+63,710
+Median
+65,240
+65,350
+Mean
+65,090
+73,300
+3rd Qu.
+66,160
+66,540
+Max.
+69,890
+250,000
+SD
+2,122
+37,321
+(a) Would the mean or the median best represent what we might think of as a typical income for the 42
+patrons at this coﬀee shop? What does this say about the robustness of the two measures?
+(b) Would the standard deviation or the IQR best represent the amount of variability in the incomes of the
+42 patrons at this coﬀee shop? What does this say about the robustness of the two measures?
+1.28
+Midrange. The midrange of a distribution is defined as the average of the maximum and the minimum
+of that distribution. Is this statistic robust to outliers and extreme skew? Explain your reasoning
+1.29
+Commute times. The US census collects data on time it takes Americans to commute to work, among
+many other variables. The histogram below shows the distribution of average commute times in 3,144 US
+counties in 2023. Describe the numerical distribution for commute times.
+Mean work travel (in min)
+10
+20
+30
+40
+0
+100
+1.30
+Hispanic/Latine population. The US census collects data on race and ethnicity of Americans, among
+many other variables. The histogram below shows the distribution of the percentage of the population that
+is Hispanic/Latine in 3,144 counties in the US in 2023.
+(a) Describe the shape of the distribution.
+(b) Is the mean of this distribution greater than or less than the median?
+(c) Provide a range for the median percentage of the population that is Hispanic/Latine for counties in the
+US.
+Hispanic/Latine %
+0
+20
+40
+60
+80
+100
+0
+500
+1000
+1500
+2000
+
+

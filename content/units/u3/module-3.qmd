@@ -1,0 +1,55 @@
+---
+title: "1.5.3 Explanatory and response variables"
+---
+
+### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
+61
+1.5
+Overview of data collection principles
+How do researchers collect data? Why are the results of some studies more reliable than others?
+The way a researcher collects data depends upon the research goals. In this section, we look at
+diﬀerent methods of collecting data and consider the types of conclusions that can be drawn from
+those methods.
+Learning objectives
+1. Identify the main types of data collection: census, experiment, and observation study, and
+determine which one is appropriate for a given investigative question.
+2. Classify a study as observational or experimental, and determine when a study's results can
+be generalized to the population and when a causal relationship can be drawn.
+3. Identify and explain possible confounding factors within a study.
+1.5.1
+The investigative question and types of conclusions
+In Section 1.1, we saw that the first step of the investigative process is to identify a research
+question. An investigative question for a specific study should have a defined purpose. There are
+two types of conclusions that can be drawn from statistical studies. The first is a causal conclusion
+about the eﬀect of a treatment and the second is a generalization or inference from a sample to a
+larger population.
+If the purpose of the study is to draw a causal conclusion, an experiment with random assign-
+ment of treatments should be implemented. For example, if researchers want to see if a certain drug
+causes a reduction of blood pressure, they would carry out an experiment and randomly assign some
+people to take the drug and others to take a placebo (fake treatment).
+If, on the other hand, the purpose is to generalize the results of a sample to a larger population,
+an observational study with random sampling should be used. For example, researchers often want
+to estimate a parameter or quantity about a population, such as the average household size or
+proportion of registered voters that will vote for a certain candidate for mayor. Here, it is not an
+experiment that is needed, but rather a random sample from the target population, in this case
+registered voters in the city. Taking a random sample from the population will allow the researcher
+to generalize and say that the estimate from the sample (the statistic) is a reasonable estimate for
+the population parameter.
+Sometimes we want to draw a causal conclusion and generalize that causal conclusion to a larger
+population. To be able to draw both types of conclusions, we need a random sample of individuals
+and then a randomized experiment implemented on those individuals.
+Here we contrasted the
+primary goal of a random sample with the primary goal of an experiment. We explore sampling
+techniques and experimental design more thoroughly later in this chapter.
+The second step of the investigative process is data collection.
+The nature of the research
+question will determine whether an experiment or observational study is appropriate. The third
+step of the statistical process is analysis. A researcher should have a well-define variable of interest
+and a clearly stated parameter of interest.
+We will consider two main types of analysis in this
+textbook: confidence intervals and hypothesis tests, both of which will be introduced in Chapter 3.
+With confidence intervals, we seek to estimate the parameter within a range of reasonable values.
+With hypothesis tests, we seek to determine how much evidence there is that the parameter is greater
+than, less than, or diﬀerent from a certain hypothesized value.
+
+

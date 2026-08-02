@@ -1,0 +1,2022 @@
+---
+title: "2.7 Sampling distributions and CLT"
+---
+
+172
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+Exercises
+2.39
+Area under the curve, Part I. What percent of a standard normal distribution N(µ = 0, σ = 1) is
+found in each region? Be sure to draw a graph.
+(a) Z < -1.35
+(b) Z > 1.48
+(c) -0.4 < Z < 1.5
+(d) ∣Z∣> 2
+2.40
+Area under the curve, Part II. What percent of a standard normal distribution N(µ = 0, σ = 1) is
+found in each region? Be sure to draw a graph.
+(a) Z > -1.13
+(b) Z < 0.18
+(c) Z > 8
+(d) ∣Z∣< 0.5
+2.41
+GRE scores, Part I. Sophia who took the Graduate Record Examination (GRE) scored 160 on
+the Verbal Reasoning section and 157 on the Quantitative Reasoning section. The mean score for Verbal
+Reasoning section for all test takers was 151 with a standard deviation of 7, and the mean score for the
+Quantitative Reasoning was 153 with a standard deviation of 7.67. Suppose that both distributions are
+nearly normal.
+(a) What is Sophia's Z-score on the Verbal Reasoning section? On the Quantitative Reasoning section?
+Draw a standard normal distribution curve and mark these two Z-scores.
+(b) What do these Z-scores tell you?
+(c) Relative to others, which section did she do better on?
+(d) Find her percentile scores for the two exams.
+(e) What percent of the test takers did better than her on the Verbal Reasoning section? On the Quantitative
+Reasoning section?
+(f) Explain why simply comparing raw scores from the two sections could lead to an incorrect conclusion
+as to which section a student did better on.
+(g) If the distributions of the scores on these exams are not nearly normal, would your answers to parts (b)
+- (e) change? Explain your reasoning.
+2.42
+Triathlon times, Part I. In triathlons, it is common for racers to be placed into age and gender groups.
+Friends Leo and Mary both completed the Hermosa Beach Triathlon, where Leo competed in the Men, Ages
+30 - 34 group while Mary competed in the Women, Ages 25 - 29 group. Leo completed the race in 1:22:28
+(4948 seconds), while Mary completed the race in 1:31:53 (5513 seconds). Obviously Leo finished faster,
+but they are curious about how they did within their respective groups. Can you help them? Here is some
+information on the performance of their groups:
+• The finishing times of the Men, Ages 30 - 34 group has a mean of 4313 seconds with a standard
+deviation of 583 seconds.
+• The finishing times of the Women, Ages 25 - 29 group has a mean of 5261 seconds with a standard
+deviation of 807 seconds.
+• The distributions of finishing times for both groups are approximately Normal.
+Remember: a better performance corresponds to a faster finish.
+(a) What are the Z-scores for Leo's and Mary's finishing times? What do these Z-scores tell you?
+(b) Did Leo or Mary rank better in their respective groups? Explain your reasoning.
+(c) What percent of the triathletes did Leo finish faster than in his group?
+(d) What percent of the triathletes did Mary finish faster than in her group?
+(e) If the distributions of finishing times are not nearly normal, would your answers to parts (a) - (d)
+change? Explain your reasoning.
+2.43
+GRE scores, Part II. In Exercise 2.41 we saw two distributions for GRE scores: N(µ = 151, σ = 7)
+for the verbal part of the exam and N(µ = 153, σ = 7.67) for the quantitative part. Use this information to
+compute each of the following:
+(a) The score of a student who scored in the 80th percentile on the Quantitative Reasoning section.
+(b) The score of a student who scored worse than 70% of the test takers in the Verbal Reasoning section.
+
+
+### 2.6. NORMAL DISTRIBUTIONS
+173
+2.44
+Triathlon times, Part II. In Exercise 2.42 we saw two distributions for triathlon times: N(µ = 4313, σ =
+583) for Men, Ages 30 - 34 and N(µ = 5261, σ = 807) for the Women, Ages 25 - 29 group. Times are listed
+in seconds. Use this information to compute each of the following:
+(a) The cutoﬀtime for the fastest 5% of athletes in the men's group, i.e. those who took the shortest 5%
+of time to finish.
+(b) The cutoﬀtime for the slowest 10% of athletes in the women's group.
+2.45
+LA weather, Part I.
+The average daily high temperature in June in LA is 77○F with a standard
+deviation of 5○F. Suppose that the temperatures in June closely follow a normal distribution.
+(a) What is the probability of observing an 83○F temperature or higher in LA during a randomly chosen
+day in June?
+(b) How cool are the coldest 10% of the days (days with lowest high temperature) during June in LA?
+2.46
+CAPM. The Capital Asset Pricing Model (CAPM) is a financial model that assumes returns on a
+portfolio are normally distributed.
+Suppose a portfolio has an average annual return of 14.7% (i.e.
+an
+average gain of 14.7%) with a standard deviation of 33%. A return of 0% means the value of the portfolio
+doesn't change, a negative return means that the portfolio loses money, and a positive return means that
+the portfolio gains money.
+(a) What percent of years does this portfolio lose money, i.e. have a return less than 0%?
+(b) What is the cutoﬀfor the highest 15% of annual returns with this portfolio?
+2.47
+Scores on stats final, Part I. Below are final exam scores of 20 Introductory Statistics students.
+1
+57,
+2
+66,
+3
+69,
+4
+71,
+5
+72,
+6
+73,
+7
+74,
+8
+77,
+9
+78,
+10
+78,
+11
+79,
+12
+79,
+13
+81,
+14
+81,
+15
+82,
+16
+83,
+17
+83,
+18
+88,
+19
+89,
+20
+94
+The mean score is 77.7 points. with a standard deviation of 8.44 points. Use this information to determine
+if the scores approximately follow the 68-95-99.7% Rule.
+2.48
+Heights of female college students, Part I. Below are heights of 25 female college students.
+1
+54,
+2
+55,
+3
+56,
+4
+56,
+5
+57,
+6
+58,
+7
+58,
+8
+59,
+9
+60,
+10
+60,
+11
+60,
+12
+61,
+13
+61,
+14
+62,
+15
+62,
+16
+63,
+17
+63,
+18
+63,
+19
+64,
+20
+65,
+21
+65,
+22
+67,
+23
+67,
+24
+69,
+25
+73
+The mean height is 61.52 inches with a standard deviation of 4.58 inches. Use this information to determine
+if the heights approximately follow the 68-95-99.7% Rule.
+
+
+174
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.7
+Sampling distributions and the CLT
+How unlikely is it to get a sample proportion a certain distance from the population proportion
+based on a random sample of a certain size? In an experiment, how large does an observed diﬀerence
+need to be for it to provide convincing evidence that one treatment is more eﬀective than another
+treatment? Formally answering these question requires the tools that we will encounter in the next
+two chapters. However, we take a first look at them here using simulation methods.
+Learning objectives
+1. Explain the concept of a sampling distribution and a randomization distribution.
+2. Describe sampling distributions with simulations.
+3. Explain the central limit theorem and its importance.
+2.7.1
+Visualizing a sampling distribution through simulation
+Suppose the proportion of American adults who support the expansion of solar energy is 0.88.59.
+We consider this our parameter of interest and label it p. If we were to take a poll of 1000 American
+adults on this topic, the estimate would not be perfect, but how close might we expect the sample
+proportion in the poll would be to 88%? We want to understand, how does the sample proportion
+behave when the true population proportion is 0.88. Let's find out! We can simulate responses we
+would get from a simple random sample of 1000 American adults, which is only possible because
+we know the actual support expanding solar energy to be 0.88. Here's how we might go about
+constructing such a simulation:
+1. There were about 250 million American adults in 2018. On 250 million pieces of paper, write
+"support" on 88% of them and "not" on the other 12%.
+2. Mix up the pieces of paper and pull out 1000 pieces to represent our sample of 1000 American
+adults.
+3. Compute the fraction of the sample that say "support".
+Any volunteers to conduct this simulation? Probably not. While this physical simulation is totally
+impractical, we can simulate it thousands, even millions, of times using computer code.
+We've
+written a short computer simulation and run it 10,000 times. The results are show in Figure 2.39 in
+case you are curious what the computer code looks like. We use ˆp to represent a sample proportion.
+In this simulation, the sample proportion was ˆp1 = 0.894. We know the population proportion for
+the simulation was p = 0.88, so we know the estimate had an error of 0.894 -0.88 = +0.014.
+One simulation isn't enough to get a great sense of the distribution of estimates we might expect
+in the simulation, so we should run more simulations. In a second simulation, we get ˆp2 = 0.885,
+which has an error of +0.005. In another, ˆp3 = 0.878 for an error of -0.002. And in another, an
+estimate of ˆp4 = 0.859 with an error of -0.021. With the help of a computer, we've run the simulation
+10,000 times and created a histogram of the results from all 10,000 simulations in Figure 2.40. This
+graph of many, many values of the sample statistic ˆp approximates what is called the sampling
+distribution of the statistic. The sampling distribution of a sample statistic is the distribution of
+values of the statistic for all possible random samples of a given size from a given population.
+59We haven't actually conducted a census to measure this value perfectly.
+However, a very large sample has
+suggested the actual level of support is about 88%.
+
+
+### 2.7. SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM
+175
+# 1. Create a set of 250 million entries, where 88% of them are "support"
+#
+and 12% are "not".
+pop size <- 250000000
+possible entries <- c(rep("support", 0.88 * pop size), rep("not", 0.12 * pop size))
+# 2. Sample 1000 entries without replacement.
+sampled entries <- sample(possible entries, size = 1000)
+# 3. Compute p-hat: count the number that are "support", then divide by
+#
+the sample size.
+sum(sampled entries == "support") / 1000
+Figure 2.39: This is code for a single ˆp simulation using the statistical software
+called R. Each line that starts with # is a code comment, which is used to
+describe in regular language what the code is doing. We've provided software labs
+in R at openintro.org/book/statlabs for anyone interested in learning more.
+Sample Proportions
+0.84
+0.86
+0.88
+0.90
+0.92
+0
+250
+500
+750
+Frequency
+Figure 2.40: A histogram of 10,000 sample proportions sampled from a population
+where the population proportion is 0.88 and the sample size is n = 1000.
+THE SAMPLING DISTRIBUTION OF A SAMPLE STATISTIC
+The sampling distribution of a sample statistic is the distribution of values of the statistic for
+all possible random samples of a given size from a given population.
+It is useful to think of sample statistics as coming from the theoretical sampling distribution.
+EXAMPLE 2.85
+Based on the simulated sampling distribution in Figure 2.40 above, what would be your estimate
+for the typical variability among sample proportions for random samples of size n=1000 from this
+population?
+The typical variability is given by the standard deviation. Because the distribution appears approx-
+imately normal, we can use the empirical rule. About 68% of the sample proportions lie between
+0.87 and 0.89 and about 95% of the sample proportions lie between 0.86 and 0.90. Therefore, we
+estimate the standard deviation of the sample proportions as 0.01.
+GUIDED PRACTICE 2.86
+Assuming the true population proportion is 0.88 as it was in our simulation, would you be surprised
+to get a sample proportion as large as 0.92 in a random sample of size n = 1000? Explain your
+reasoning.60
+60Yes, this would be surprising, because when the true population proportion is 0.88, we almost never got a value
+as large as 0.92 among our simulated sample proportions.
+
+
+176
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.7.2
+Randomization distributions
+We consider a study on a new malaria vaccine called PfSPZ. In this study, volunteer patients
+were randomized into one of two experiment groups: 14 patients received an experimental vaccine
+or 6 patients received a placebo vaccine. Nineteen weeks later, all 20 patients were exposed to a
+drug-sensitive malaria parasite strain; the motivation of using a drug-sensitive strain of parasite
+here is for ethical considerations, allowing any infections to be treated eﬀectively. The results are
+summarized in Figure 2.41, where 9 of the 14 treatment patients remained free of signs of infection
+while all of the 6 patients in the control group patients showed some baseline signs of infection.
+outcome
+infection
+no infection
+Total
+vaccine
+5
+9
+14
+treatment
+placebo
+6
+0
+6
+Total
+11
+9
+20
+Figure 2.41: Summary results for the malaria vaccine experiment.
+However, the sample is very small, and it is unclear whether the diﬀerence provides convincing
+evidence that the vaccine is eﬀective.
+EXAMPLE 2.87
+How do the proportions that developed an infection compare between those in the vaccine group
+and those in the placebo group?
+In this study, a smaller proportion of patients who received the vaccine showed signs of an infection:
+5
+14 = 35.7% for those that received the vaccine versus 6
+6= 100% for those that received the placebo.
+The observed infection rates (35.7% for the treatment group versus 100% for the placebo group)
+suggest the vaccine may be eﬀective at preventing infection. However, we cannot be sure if the
+observed diﬀerence represents the vaccine's eﬃcacy or is just from random chance. Generally there
+is a little bit of fluctuation in sample data, and we wouldn't expect the sample proportions to be
+exactly equal, even if the truth was that the vaccine did not work. Additionally, with such small
+samples, perhaps it's common to observe such large diﬀerences when we randomly split a group due
+to chance alone!
+How much variation would we expect between the infection rates of the two groups if the
+vaccine had no eﬀect? To answer this, we implement a simulation, where we will pretend we know
+that the malaria vaccine being tested does not work. Ultimately, we want to understand if the large
+diﬀerence we observed is common or uncommon in these simulations. If it is common, then maybe
+the diﬀerence we observed was purely due to chance. If it is very uncommon, then the claim that
+the vaccine was helpful seems more plausible.
+Figure 2.41 shows that in this overall study, 11 patients developed infections and 9 did not.
+For our simulation, we will suppose the vaccine does not work and that we are able to rewind back
+to when the researchers randomized the patients in the study. If we happened to randomize the
+patients diﬀerently, we may get a diﬀerent result in this hypothetical world where the vaccine doesn't
+influence the infection. Let's perform another randomization to treatment groups using a simulation.
+To simulate this scenario, we take 20 notecards to represent the 20 patients, where we write
+down "infection" on 11 cards and "no infection" on 9 cards. In this hypothetical world, we believe
+each patient that got an infection was going to get it regardless of which group they were in, so let's
+see what happens if we randomly assign the patients to the treatment and control groups again. We
+thoroughly shuﬄe the notecards and deal 14 into a vaccine pile and 6 into a placebo pile. Finally,
+we tabulate the results, which are shown in Figure 2.42.
+
+
+### 2.7. SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM
+177
+outcome
+infection
+no infection
+Total
+treatment
+vaccine
+7
+7
+14
+(simulated)
+placebo
+4
+2
+6
+Total
+11
+9
+20
+Figure 2.42: Simulation results, assuming the vaccine does not work and that any
+diﬀerence in infection rates is due to chance.
+GUIDED PRACTICE 2.88
+What is the diﬀerence in infection rates between the two simulated groups in Figure 2.42? How does
+this compare to the observed 64.3% diﬀerence (35.7% -100%) in the actual data?61
+We computed one possible diﬀerence under the assumption that the vaccine does not work in
+Guided Practice 2.88, which represents one diﬀerence due to chance. While in this first simulation,
+we physically dealt out notecards to represent the patients, it is more eﬃcient to perform this
+simulation using a computer. Repeating the simulation on a computer, we get another diﬀerence
+due to chance:
+2
+6 -9
+14 = -0.310
+And another:
+3
+6 -8
+14 = -0.071
+And so on until we repeat the simulation enough times that we have a good idea of what represents
+the distribution of diﬀerences from chance alone.
+Figure 2.43 shows a stacked dot plot of the
+diﬀerences found from 100 simulations, where each dot represents a simulated diﬀerence between
+the infection rates (control rate minus treatment rate).
+This distribution represents a randomization distribution, which is analogous to a sampling
+distribution in the context of experiments.
+A randomization distribution of a statistic, for
+example the diﬀerence in infection rates between two treatment groups, is the distribution of a
+statistic generated by a simulation that repeatedly reassigns response values to treatment groups
+and recalculates the resulting statistic. The resulting distribution of the statistic approximates the
+sampling distribution of the statistic and provides a range of expected values assuming no diﬀerence
+in the treatments.
+The distribution of these simulated diﬀerences is centered around 0. We simulated these dif-
+ferences assuming that the vaccine did not work, and under this condition, we expect the diﬀerence
+to be near zero with random fluctuation. The fluctuation is pretty large here because the treatment
+group sizes are so small in this study.
+EXAMPLE 2.89
+Given the results of the simulation shown in Figure 2.43, about how often would you expect to
+observe a result as large as 64.3% if the vaccine does not work?
+Because a result this large happened 2 times out the 100 simulations, we would expect such a large
+value only 2% of the time if the vaccine does not work.
+Based on our simulation, we might be led to believe that the vaccine works, because assuming
+that it doesn't work, there is only about a 2% chance of getting a diﬀerence as big as we got in our
+study. In the next chapter, we will see how to calculate this conditional probability, known as the
+p-value, using a normal model when certain conditions are met.
+614/6 -7/14 = 0.167 or about 16.7% in favor of the vaccine. This diﬀerence due to chance is much smaller than the
+diﬀerence observed in the actual groups.
+
+
+178
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+Difference in Infection Rates
+-0.6
+-0.4
+-0.2
+0.0
+0.2
+0.4
+0.6
+0.8
+Figure 2.43: A stacked dot plot of diﬀerences from 100 simulated values produced
+under the assumption that the vaccine does not work.
+2.7.3
+The Central Limit Theorem
+We can characterize the sampling distribution in Figure 2.40 as symmetric and bell-shaped,
+and it resembles a normal distribution. The randomization distribution shown in Figure 2.43 also
+looks somewhat normal in shape. This is not an accident; it is the result of a general principle called
+the Central Limit Theorem. The Central Limit Theorem tells us that the sampling distribution
+of certain statistics, specifically the sample proportion and sample mean, become more normal in
+shape as the sample size increases.
+CENTRAL LIMIT THEOREM (CLT)
+For any population with a fixed mean and standard deviation, the shape of the sampling dis-
+tribution of the proportion and of the mean of a random sample becomes more normal as the
+sample size n gets larger.
+The Central Limit Theorem is fundamental to statistics and will form the foundation for working
+with sampling distributions and inference procedures encountered in the next two chapters. In any
+sample or experiment, we would like to know if the result we observe is significant or if the result is
+within the realm of expected variation. Sampling distributions and randomization distributions help
+us visualize and understand the likelihood of getting a result as extreme as we got, assuming the
+distribution is centered on a certain value. The Central Limit Theorem will enable us to calculate
+this likelihood using a normal model.
+
+
+### 2.7. SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM
+179
+Section summary
+• A sampling distribution of a statistic is the distribution of values of the statistic for all
+possible random samples of a given size from a given population.
+• The sampling distribution of a statistic can be simulated by repeatedly generating a large
+number of random samples from the population assuming known value(s) for the parameter(s).
+The value of the statistic is determined and recorded for each sample. The resulting distribution
+of the sample statistic values approximates the sampling distribution of the statistic.
+• A randomization distribution is the distribution of a statistic generated by simulation from
+repeatedly randomly reallocating, or reassigning, the response values to treatment groups. The
+value of the statistic is determined and recorded for each reallocation, or reassignment. The
+resulting distribution of the statistic values approximates the sampling distribution of the
+statistic.
+• The Central Limit Theorem (CLT) states that the sampling distribution of a sample pro-
+portion and a sample mean become more normal in shape as the sample size increases.
+
+
+180
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+Exercises
+2.49
+Side effects of Avandia. Rosiglitazone is the active ingredient in the controversial type 2 diabetes
+medicine Avandia and has been linked to an increased risk of serious cardiovascular problems such as stroke,
+heart failure, and death. A common alternative treatment is pioglitazone, the active ingredient in a diabetes
+medicine called Actos. In a nationwide retrospective observational study of 227,571 Medicare beneficiaries
+aged 65 years or older, it was found that 2,593 of the 67,593 patients using rosiglitazone and 5,386 of
+the 159,978 using pioglitazone had serious cardiovascular problems.
+These data are summarized in the
+contingency table below.62
+Cardiovascular problems
+Yes
+No
+Total
+Treatment
+Rosiglitazone
+2,593
+65,000
+67,593
+Pioglitazone
+5,386
+154,592
+159,978
+Total
+7,979
+219,592
+227,571
+(a) Determine if each of the following statements is true or false. If false, explain why. Be careful: The
+reasoning may be wrong even if the statement's conclusion is correct.
+In such cases, the statement
+should be considered false.
+i. Since more patients on pioglitazone had cardiovascular problems (5,386 vs. 2,593), we can conclude
+that the rate of cardiovascular problems for those on a pioglitazone treatment is higher.
+ii. The data suggest that diabetic patients who are taking rosiglitazone are more likely to have cardio-
+vascular problems since the rate of incidence was (2,593 / 67,593 = 0.038) 3.8% for patients on this
+treatment, while it was only (5,386 / 159,978 = 0.034) 3.4% for patients on pioglitazone.
+iii. The fact that the rate of incidence is higher for the rosiglitazone group proves that rosiglitazone
+causes serious cardiovascular problems.
+iv. Based on the information provided so far, we cannot tell if the diﬀerence between the rates of
+incidences is due to a relationship between the two variables or due to chance.
+(b) What proportion of all patients had cardiovascular problems?
+(c) If the type of treatment and having cardiovascular problems were independent, about how many patients
+in the rosiglitazone group would we expect to have had cardiovascular problems?
+(d) We can investigate the relationship between outcome and treatment in this study using a randomization
+technique. While in reality we would carry out the simulations required for randomization using statisti-
+cal software, suppose we actually simulate using index cards. In order to simulate from the independence
+model, which states that the outcomes were independent of the treatment, we write whether or not each
+patient had a cardiovascular problem on cards, shuﬄed all the cards together, then deal them into two
+groups of size 67,593 and 159,978. We repeat this simulation 1,000 times and each time record the num-
+ber of people in the rosiglitazone group who had cardiovascular problems. Use the relative frequency
+histogram of these counts to answer (i)-(iii).
+i. What are the claims being tested?
+ii. Compared to the number calculated in part (c),
+which would provide more support for the alterna-
+tive hypothesis, more or fewer patients with car-
+diovascular problems in the rosiglitazone group?
+iii. What do the simulation results suggest about the
+relationship between taking rosiglitazone and hav-
+ing cardiovascular problems in diabetic patients?
+Simulated rosiglitazone cardiovascular events
+2250
+2350
+2450
+0
+0.1
+0.2
+62D.J. Graham et al. "Risk of acute myocardial infarction, stroke, heart failure, and death in elderly Medicare
+patients treated with rosiglitazone or pioglitazone". In: JAMA 304.4 (2010), p. 411. issn: 0098-7484.
+
+
+### 2.7. SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM
+181
+2.50
+Heart transplants. The Stanford University Heart Transplant Study was conducted to determine
+whether an experimental heart transplant program increased lifespan. Each patient entering the program
+was designated an oﬃcial heart transplant candidate, meaning that he was gravely ill and would most likely
+benefit from a new heart. Some patients got a transplant and some did not. The variable transplant
+indicates which group the patients were in; patients in the treatment group got a transplant and those in the
+control group did not. Of the 34 patients in the control group, 30 died. Of the 69 people in the treatment
+group, 45 died. Another variable called survived was used to indicate whether or not the patient was alive
+at the end of the study.63
+control
+treatment
+alive
+dead
+Survival Time (days)
+control
+treatment
+0
+500
+1000
+1500
+(a) Based on the mosaic plot, is survival independent of whether or not the patient got a transplant? Explain
+your reasoning.
+(b) What do the box plots below suggest about the eﬃcacy (eﬀectiveness) of the heart transplant treatment.
+(c) What proportion of patients in the treatment group and what proportion of patients in the control group
+died?
+(d) One approach for investigating whether or not the treatment is eﬀective is to use a randomization
+technique.
+i. What are the claims being tested?
+ii. The paragraph below describes the set up for such approach, if we were to do it without using
+statistical software. Fill in the blanks with a number or phrase, whichever is appropriate.
+We write alive on
+cards representing patients who were alive at the end of
+the study, and dead on
+cards representing patients who were not. Then,
+we shuﬄe these cards and split them into two groups: one group of size
+representing treatment, and another group of size
+representing control. We
+calculate the diﬀerence between the proportion of dead cards in the treatment and control
+groups (treatment - control) and record this value. We repeat this 100 times to build a
+distribution centered at
+. Lastly, we calculate the fraction of simulations
+where the simulated diﬀerences in proportions are
+. If this fraction is low,
+we conclude that it is unlikely to have observed such an outcome by chance and that the
+null hypothesis should be rejected in favor of the alternative.
+iii. What do the simulation results shown below suggest about the eﬀectiveness of the transplant pro-
+gram?
+simulated differences in proportions
+-0.25
+-0.15
+-0.05
+0.05
+0.15
+0.25
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+63B. Turnbull et al. "Survivorship of Heart Transplant Data". In: Journal of the American Statistical Association
+69 (1974), pp. 74-80.
+
+

@@ -1,0 +1,585 @@
+---
+title: "2.4 Discrete random variables"
+---
+
+134
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.16
+Health coverage, relative frequencies. The Behavioral Risk Factor Surveillance System (BRFSS)
+is an annual telephone survey designed to identify risk factors in the adult population and report emerging
+health trends. The following table displays the distribution of health status of respondents to this survey
+(excellent, very good, good, fair, poor) and whether or not they have health insurance.
+Health Status
+Excellent
+Very good
+Good
+Fair
+Poor
+Total
+Health
+No
+0.0230
+0.0364
+0.0427
+0.0192
+0.0050
+0.1262
+Coverage
+Yes
+0.2099
+0.3123
+0.2410
+0.0817
+0.0289
+0.8738
+Total
+0.2329
+0.3486
+0.2838
+0.1009
+0.0338
+1.0000
+(a) Are being in excellent health and having health coverage mutually exclusive?
+(b) What is the probability that a randomly chosen individual has excellent health?
+(c) What is the probability that a randomly chosen individual has excellent health given that he has health
+coverage?
+(d) What is the probability that a randomly chosen individual has excellent health given that he doesn't
+have health coverage?
+(e) Do having excellent health and having health coverage appear to be independent?
+2.17
+Swing voters.
+A Pew Research survey asked 2,373 randomly sampled registered voters their
+political aﬃliation (Republican, Democrat, or Independent) and whether or not they identify as swing voters.
+35% of respondents identified as Independent, 23% identified as swing voters, and 11% identified as both.44
+(a) Are being Independent and being a swing voter disjoint, i.e. mutually exclusive?
+(b) Draw a Venn diagram summarizing the variables and their associated probabilities.
+(c) What percent of voters are Independent but not swing voters?
+(d) What percent of voters are Independent or swing voters?
+(e) What percent of voters are neither Independent nor swing voters?
+(f) Is the event that someone is a swing voter independent of the event that someone is a political Indepen-
+dent?
+2.18
+Poverty and language. The American Community Survey is an ongoing survey that provides data
+every year to give communities the current information they need to plan investments and services. The
+2010 American Community Survey estimates that 14.6% of Americans live below the poverty line, 20.7%
+speak a language other than English (foreign language) at home, and 4.2% fall into both categories.45
+(a) Are living below the poverty line and speaking a foreign language at home disjoint?
+(b) Draw a Venn diagram summarizing the variables and their associated probabilities.
+(c) What percent of Americans live below the poverty line and only speak English at home?
+(d) What percent of Americans live below the poverty line or speak a foreign language at home?
+(e) What percent of Americans live above the poverty line and only speak English at home?
+(f) Is the event that someone lives below the poverty line independent of the event that the person speaks
+a foreign language at home?
+2.19
+Marbles in an urn. Imagine you have an urn containing 5 red, 3 blue, and 2 orange marbles in it.
+(a) What is the probability that the first marble you draw is blue?
+(b) Suppose you drew a blue marble in the first draw. If drawing with replacement, what is the probability
+of drawing a blue marble in the second draw?
+(c) Suppose you instead drew an orange marble in the first draw. If drawing with replacement, what is the
+probability of drawing a blue marble in the second draw?
+(d) If drawing with replacement, what is the probability of drawing two blue marbles in a row?
+(e) When drawing with replacement, are the draws independent? Explain.
+44Pew Research Center, With Voters Focused on Economy, Obama Lead Narrows, data collected between April
+4-15, 2012.
+45U.S. Census Bureau, 2010 American Community Survey 1-Year Estimates, Characteristics of People by Language
+Spoken at Home.
+
+
+2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
+135
+2.20
+Socks in a drawer. In your sock drawer you have 4 blue, 5 gray, and 3 black socks. Half asleep one
+morning you grab 2 socks at random and put them on. Find the probability you end up wearing
+(a) 2 blue socks
+(b) no gray socks
+(c) at least 1 black sock
+(d) a green sock
+(e) matching socks
+2.21
+Chips in a bag. Imagine you have a bag containing 5 red, 3 blue, and 2 orange chips.
+(a) Suppose you draw a chip and it is blue. If drawing without replacement, what is the probability the
+next is also blue?
+(b) Suppose you draw a chip and it is orange, and then you draw a second chip without replacement. What
+is the probability this second chip is blue?
+(c) If drawing without replacement, what is the probability of drawing two blue chips in a row?
+(d) When drawing without replacement, are the draws independent? Explain.
+2.22
+Books on a bookshelf. The table below shows the distribution of books on a bookcase based on
+whether they are nonfiction or fiction and hardcover or paperback.
+Format
+Hardcover
+Paperback
+Total
+Type
+Fiction
+13
+59
+72
+Nonfiction
+15
+8
+23
+Total
+28
+67
+95
+(a) Find the probability of drawing a hardcover book first then a paperback fiction book second when
+drawing without replacement.
+(b) Determine the probability of drawing a fiction book first and then a hardcover book second, when
+drawing without replacement.
+(c) Calculate the probability of the scenario in part (b), except this time complete the calculations under
+the scenario where the first book is placed back on the bookcase before randomly drawing the second
+book.
+(d) The final answers to parts (b) and (c) are very similar. Explain why this is the case.
+2.23
+It's never lupus.
+Lupus is a medical phenomenon where antibodies that are supposed to attack
+foreign cells to prevent infections instead see plasma proteins as foreign bodies, leading to a high risk of
+blood clotting. It is believed that 2% of the population suﬀer from this disease. The test is 98% accurate
+if a person actually has the disease. The test is 74% accurate if a person does not have the disease. There
+is a line from the Fox television show House that is often used after a patient tests positive for lupus: "It's
+never lupus." Do you think there is truth to this statement? Use appropriate probabilities to support your
+answer.
+2.24
+Predisposition for thrombosis. A genetic test is used to determine if people have a predisposition
+for thrombosis, which is the formation of a blood clot inside a blood vessel that obstructs the flow of blood
+through the circulatory system. It is believed that 3% of people actually have this predisposition. The
+genetic test is 99% accurate if a person actually has the predisposition, meaning that the probability of a
+positive test result when a person actually has the predisposition is 0.99. The test is 98% accurate if a
+person does not have the predisposition. What is the probability that a randomly selected person who tests
+positive for the predisposition by the test actually has the predisposition?
+
+
+136
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.4
+Discrete random variables
+We can consider the number of textbooks that a student a particular university will purchase to
+be a random variable. What does the distribution look like? How can we calculate the expected
+number of textbooks purchased and the typical variation in that number? If we know the average
+cost per textbook, how can we calculate the expected amount of money a student at this university
+will spend on textbooks and the typical variation in that amount? In this section, we define and
+summarize random variables such as these, and we look at some of their properties.
+Learning objectives
+1. Construct a probability distribution for a discrete random variable.
+2. Calculate mean and standard deviation for a discrete random variable
+3. Interpret the mean and standard deviation for a discrete random variable.
+2.4.1
+Probability distributions
+The sum of the roll of two dice can vary from roll to roll. We call a variable or process such as
+this a random variable, and we usually represent a random variable with a capital letter such as
+X, Y , or Z.
+RANDOM VARIABLE
+A random process or variable with a numerical outcome.
+A probability distribution for a discrete random variable shows the probability associated
+with every possible value of the random variable. Figure 2.23 shows the probability distribution for
+the sum of two dice.
+Dice sum
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Probability
+1
+36
+2
+36
+3
+36
+4
+36
+5
+36
+6
+36
+5
+36
+4
+36
+3
+36
+2
+36
+1
+36
+Figure 2.23: Probability distribution for the sum of two dice.
+In order for a distribution to represent a valid probability distribution, it must satisfy certain
+rules.
+RULES FOR PROBABILITY DISTRIBUTIONS
+A probability distribution is a list of the possible outcomes with corresponding probabilities
+that satisfies three rules:
+1. The outcomes listed must be disjoint.
+2. Each probability must be between 0 and 1.
+3. The probabilities must total 1.
+
+
+### 2.4. DISCRETE RANDOM VARIABLES
+137
+EXAMPLE 2.57
+Based on the probability distribution table shown in Figure 2.23, what is the probability of getting
+a dice sum of greater than 10?
+To be greater than 10 means to be 11 or 12. So the probability of the dice sum being greater than
+10 is
+2
+36 + 1
+36 =
+3
+36.
+It is common to want to know the probability of getting less than or equal to a certain value.
+In this case, a cumulative probability distribution can be used.
+Instead of identifying the
+probability of each value, we record the probability of being less than or equal to each value as
+shown in the figure below.
+Dice sum
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Cumulative probability (≤dice sum)
+1
+36
+3
+36
+6
+36
+10
+36
+15
+36
+21
+36
+26
+36
+30
+36
+33
+36
+35
+36
+36
+36
+Figure 2.24: Cumulative probability distribution for the sum of two dice.
+EXAMPLE 2.58
+Based on the cumulative probability distribution table shown in Figure 2.24, what is the probability
+of getting a dice sum less than or equal to 4? Greater than 4?
+Because this distribution is a cumulative distribution, we do not need to add up terms. The prob-
+ability of being less than or equal to 4 is given in the cumulative distribution as
+6
+### 36. To be greater
+than 4 is the complement of being less than or equal to 4, so the probability of a dice sum greater
+than 4 can be found as 1 -6
+36 = 30
+36.
+Chapter 1 emphasized the importance of plotting data to provide quick summaries. Probability
+distributions can also be summarized in a histogram or bar plot. The probability distribution for
+the sum of two dice is shown in Figure 2.23 and its histogram is plotted in Figure 2.25.
+Dice sum
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0.00
+0.05
+0.10
+0.15
+Probability
+Figure 2.25: A histogram for the probability distribution of the sum of two dice.
+In these bar plots, the bar heights represent the probabilities of outcomes. If the outcomes are
+numerical and discrete, it is usually (visually) convenient to make a histogram, as in the case of
+the sum of two dice. Another example of plotting the bars at their respective locations is shown in
+Figure 2.26.
+
+
+138
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+2.4.2
+Introduction to expectation
+EXAMPLE 2.59
+Two books are assigned for a statistics class: a textbook and its corresponding study guide. The
+university bookstore determined 20% of enrolled students do not buy either book, 55% buy the
+textbook only, and 25% buy both books, and these percentages are relatively constant from one
+term to another. If there are 100 students enrolled, how many books should the bookstore expect
+to sell to this class?
+Around 20 students will not buy either book (0 books total), about 55 will buy one book (55 books
+total), and approximately 25 will buy two books (totaling 50 books for these 25 students). The
+bookstore should expect to sell about 105 books for this class.
+GUIDED PRACTICE 2.60
+Would you be surprised if the bookstore sold slightly more or less than 105 books?46
+EXAMPLE 2.61
+The textbook costs $137 and the study guide $33. How much revenue should the bookstore expect
+from this class of 100 students?
+About 55 students will just buy a textbook, providing revenue of
+$137 × 55 = $7,535
+The roughly 25 students who buy both the textbook and the study guide would pay a total of
+($137 + $33) × 25 = $170 × 25 = $4,250
+Thus, the bookstore should expect to generate about $7,535 + $4,250 = $11,785 from these 100
+students for this one class. However, there might be some sampling variability so the actual amount
+may diﬀer by a little bit.
+EXAMPLE 2.62
+What is the average revenue per student for this course?
+The expected total revenue is $11,785, and there are 100 students. Therefore the expected revenue
+per student is $11,785/100 = $117.85.
+46If they sell a little more or a little less, this should not be a surprise. Hopefully it is now clear that there is
+natural variability in observed data. For example, if we would flip a coin 100 times, it will not usually come up heads
+exactly half the time, but it will probably be close.
+
+
+### 2.4. DISCRETE RANDOM VARIABLES
+139
+cost (dollars)
+0
+137
+170
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+probability
+Figure 2.26: Probability distribution for the bookstore's revenue from one student.
+The triangle represents the average revenue per student.
+2.4.3
+Expected value
+The amount of money a single student will spend on her statistics books is a random variable,
+and we represent it by X. The possible outcomes of X are labeled with a corresponding lower case
+letter x and subscripts. For example, we write x1 = $0, x2 = $137, and x3 = $170, which occur
+with probabilities 0.20, 0.55, and 0.25. The distribution of X is summarized in Figure 2.26 and
+Figure 2.27.
+i
+1
+2
+3
+Total
+xi
+$0
+$137
+$170
+-
+P(xi)
+0.20
+0.55
+0.25
+1.00
+Figure 2.27: The probability distribution for the random variable X, representing
+the bookstore's revenue from a single student.
+We use P(xi) to represent the
+probability of xi.
+We computed the average outcome of X as $117.85 in Example 2.62. We call this average the
+expected value of X, denoted by E(X). The expected value of a random variable is computed by
+adding each outcome weighted by its probability:
+E(X) = 0 ⋅P(0) + 137 ⋅P(137) + 170 ⋅P(170)
+= 0 ⋅0.20 + 137 ⋅0.55 + 170 ⋅0.25 = 117.85
+EXPECTED VALUE OF A DISCRETE RANDOM VARIABLE
+If X takes outcomes x1, x2, ..., xn with probabilities P(x1), P(x2), ..., P(xn), the mean, or
+expected value, of X is the sum of each outcome multiplied by its corresponding probability:
+µX = E(X) =
+n
+∑
+i=1
+xi ⋅P(xi)
+= x1 ⋅P(x1) + x2 ⋅P(x2) + ⋯+ xn ⋅P(xn)
+The expected value for a random variable represents the average outcome. For example, E(X) =
+117.85 represents the average amount the bookstore expects to make across all students, which we
+could also write as µ = 117.85. While the bookstore will make more than this on some students and
+less than this on other students, in the long run, the average will be $117.85.
+
+
+140
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+INTERPRETING THE MEAN OR EXPECTED VALUE OF A RANDOM VARIABLE
+The mean or expected value of a random variable can be interpreted as the long-run average
+outcome of the random variable.
+In physics, the expectation holds the same meaning as the center of gravity. The distribution
+can be represented by a series of weights at each outcome, and the mean represents the balancing
+point. This is represented in Figures 2.26 and 2.28. The idea of a center of gravity also expands
+to continuous probability distributions.
+Figure 2.29 shows a continuous probability distribution
+balanced atop a wedge placed at the mean.
+0
+137
+170
+117.85
+Figure 2.28: A weight system representing the probability distribution for X. The
+string holds the distribution at the mean to keep the system balanced.
+µ
+Figure 2.29: A continuous distribution can also be balanced at its mean.
+
+
+### 2.4. DISCRETE RANDOM VARIABLES
+141
+2.4.4
+Variability in random variables
+Suppose you ran the university bookstore. Besides how much revenue you expect to generate,
+you might also want to know the volatility (variability) in your revenue.
+The variance and standard deviation can be used to describe the variability of a random variable.
+Section 1.4.2 introduced a method for finding the variance and standard deviation for a data set. We
+first computed deviations from the mean (xi -µ), squared those deviations, and took an average to
+get the variance. In the case of a random variable, we again compute squared deviations. However,
+we take their sum weighted by their corresponding probabilities, just like we did for the expectation.
+This weighted sum of squared deviations equals the variance, and we calculate the standard deviation
+by taking the square root of the variance, just as we did in Section 1.4.2.
+VARIANCE AND STANDARD DEVIATION OF A DISCRETE RANDOM VARIABLE
+If X takes outcomes x1, x2, ..., xn with probabilities P(x1), P(x2), ..., P(xn) and expected
+value µX = E(X), then to find the standard deviation of X, we first find the variance and then
+take its square root.
+V ar(X) = σ2
+X =
+n
+∑
+i=1
+(xi -µX)2 ⋅P(xi)
+= (x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
+SD(X) = σX =
+¿
+Á
+Á
+À
+n
+∑
+i=1
+(xi -µX)2 ⋅P(xi)
+=
+√
+(x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
+EXAMPLE 2.63
+Compute the expected value, variance, and standard deviation of X, the revenue of a single statistics
+student for the bookstore.
+It is useful to construct a table that holds computations for each outcome separately, then add up
+the results.
+i
+1
+2
+3
+Total
+xi
+$0
+$137
+$170
+P(xi)
+0.20
+0.55
+0.25
+xi ⋅P(xi)
+0
+75.35
+42.50
+117.85
+Thus, the expected value is µX = $117.85, which we computed earlier. The variance can be con-
+structed using a similar table:
+i
+1
+2
+3
+Total
+xi
+$0
+$137
+$170
+P(xi)
+0.20
+0.55
+0.25
+xi -µX
+-117.85
+19.15
+52.15
+(xi -µX)2
+13888.62
+366.72
+2719.62
+(xi -µX)2 ⋅P(xi)
+2777.7
+201.7
+679.9
+3659.3
+The variance of X is σ2
+X = 3659.3, which means the standard deviation is σX =
+√
+3659.3 = $60.49.
+The standard deviation of X, the revenue of a statistics student for the bookstore, is $60.49.
+We interpret this by saying that the typical deviation of revenue of a statistics student from the
+mean revenue of $117.85 over the long run is $60.49.
+
+
+142
+CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
+INTERPRETING THE STANDARD DEVIATION OF A RANDOM VARIABLE
+The standard deviation of a random variable can be interpreted as the typical deviation of the
+values of a random variable from the mean value of the random variable over the long-run.
+GUIDED PRACTICE 2.64
+The bookstore also oﬀers a chemistry textbook for $159 and a book supplement for $41. From past
+experience, they know about 25% of chemistry students just buy the textbook while 60% buy both
+the textbook and supplement.47
+(a) What proportion of students don't buy either book? Assume no students buy the supplement
+without the textbook.
+(b) Let Y represent the revenue from a single student. Write out the probability distribution of
+Y , i.e. a table for each outcome and its associated probability.
+(c) Compute the expected revenue from a single chemistry student.
+(d) Find the standard deviation to describe the variability associated with the revenue from a
+single student.
+(e) Interpret the mean and the standard deviation in the context of the problem.
+47(a) 100% - 25% - 60% = 15% of students do not buy any books for the class.
+(b) is represented by the first three lines in the table below.
+(c) is given as the total on the line yi ⋅P(yi), which is $159.75.
+(d) is the square-root of the variance listed on in the total on the last line: σY =
+√
+V ar(Y ) =
+√
+4800 = 69.28.
+i (scenario)
+1 (noBook)
+2 (textbook)
+3 (both)
+Total
+yi
+0.00
+159.00
+200.00
+P(yi)
+0.15
+0.25
+0.60
+yi ⋅P(yi)
+0.00
+39.75
+120.00
+E(Y ) = 159.75
+yi -µY
+-159.75
+-0.75
+40.25
+(yi -µY)2
+25520.06
+0.56
+1620.06
+(yi -µY)2 ⋅P(yi)
+3828.0
+0.1
+972.0
+V ar(Y ) ≈4800
+(e) In the long run, the average revenue from a chemistry student is $159.75 and the typical deviation in that revenue
+from the mean of $159.75 is $69.28.
+
+

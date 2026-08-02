@@ -1,0 +1,998 @@
+---
+title: "5.2 Line fitting and residuals"
+---
+
+410
+CHAPTER 5. REGRESSION ANALYSIS
+5.6
+Spouses, Part I. The Great Britain Oﬃce of Population Census and Surveys once collected data on a
+random sample of 170 married women in Britain, recording the age (in years) and heights (converted here to
+inches) of the women and their spouses.9 The scatterplot on the left shows the spouse's age plotted against
+the woman's age, and the plot on the right shows spouse's height plotted against the woman's height.
+Woman's age (in years)
+Spouse's age (in years)
+20
+40
+60
+20
+40
+60
+Woman's height (in inches)
+Spouse's height (in inches)
+60
+65
+70
+75
+55
+60
+65
+70
+(a) Describe the relationship between the ages of women in the sample and their spouses' ages.
+(b) Describe the relationship between the heights of women in the sample and their spouses' heights.
+(c) Which plot shows a stronger correlation? Explain your reasoning.
+(d) Data on heights were originally collected in centimeters, and then converted to inches. Does this con-
+version aﬀect the correlation between heights of women in the sample and their spouses' heights?
+5.7
+Match the correlation, Part I. Match each correlation to the corresponding scatterplot.
+(a) r = -0.7
+(b) r = 0.45
+(c) r = 0.06
+(d) r = 0.92
+(1)
+(2)
+(3)
+(4)
+5.8
+Match the correlation, Part II. Match each correlation to the corresponding scatterplot.
+(a) r = 0.49
+(b) r = -0.48
+(c) r = -0.03
+(d) r = -0.85
+(1)
+(2)
+(3)
+(4)
+5.9
+Speed and height.
+1,302 UCLA students were asked to fill out a survey where they were asked
+about their height, fastest speed they have ever driven, and gender. The scatterplot on the left displays the
+relationship between height and fastest speed, and the scatterplot on the right displays the breakdown by
+gender in this relationship.
+Height (in inches)
+Fastest speed (in mph)
+60
+70
+80
+0
+50
+100
+150
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+G
+G
+G
+G G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+G
+G
+G
+G
+GG
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G G
+Height (in inches)
+Fastest speed (in mph)
+60
+70
+80
+0
+50
+100
+150
+G
+female
+male
+(a) Describe the relationship between height and fastest speed.
+(b) Why do you think these variables are positively associated?
+(c) What role does gender play in the relationship between height and fastest driving speed?
+9D.J. Hand. A handbook of small data sets. Chapman & Hall/CRC, 1994.
+
+
+### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
+411
+5.10
+Guess the correlation. Eduardo and Rosie are both collecting data on number of rainy days in a
+year and the total rainfall for the year. Eduardo records rainfall in inches and Rosie in centimeters. How
+will their correlation coeﬃcients compare?
+5.11
+The Coast Starlight, Part I. The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The
+scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel
+from one stop to another (in minutes).
+(a) Describe the relationship between
+distance and travel time.
+(b) How would the relationship change if
+travel time was instead measured in
+hours, and distance was instead
+measured in kilometers?
+(c) The correlation between travel time
+(in minutes) and distance (in miles) is
+r = 0.636. What are the units for the
+correlation in this context?
+(d) Suppose we had instead measured
+travel time in hours and measured
+distance in kilometers (km). What
+would be the correlation in these
+diﬀerent units?
+(e) How would the correlation change if
+the x and y variables were swapped?
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+Distance (miles)
+Travel Time (minutes)
+0
+100
+200
+300
+60
+120
+180
+240
+300
+360
+5.12
+Crawling babies. A study conducted at the University of Denver investigated whether babies take
+longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement,
+than in warmer months.10 Infants born during the study year were split into twelve groups, one for each birth
+month. We consider the average crawling age of babies in each group against the average temperature when
+the babies are six months old (that's when babies often begin trying to crawl). Temperature is measured in
+degrees Fahrenheit (○F) and age is measured in weeks.
+(a) Describe the relationship between
+temperature and crawling age.
+(b) How would the relationship change if
+temperature was measured in degrees
+Celsius (○C) and age was measured in
+months?
+(c) What are
+(d) The correlation between temperature
+in ○F and age in weeks was r = -0.70.
+What are the units for the correlation
+in this context?
+(e) If we converted the temperature to ○C
+and age to months, what would the
+correlation be?
+(f) How would the correlation change if
+the x and y variables were swapped?
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+30
+40
+50
+60
+70
+29
+30
+31
+32
+33
+34
+Temperature (F)
+Avg. crawling age (weeks)
+10J.B. Benson. "Season of birth and onset of locomotion: Theoretical and methodological implications". In: Infant
+behavior and development 16.1 (1993), pp. 69-81. issn: 0163-6383.
+
+
+412
+CHAPTER 5. REGRESSION ANALYSIS
+5.2
+Line fitting and residuals
+How can we use information about one variable to estimate or predict another variable? How do we
+determine when these predictions will be reasonable or unreasonable? In this section we continue
+our investigation of the relationship between bivariate, numerical data. We introduce the linear
+regression model and the concept of residuals as error between an actual y-value and a predicted
+y-value.
+Learning objectives
+1. Calculate a predicted response value using a linear regression model.
+2. Calculate the diﬀerences between the observed and predicted values.
+3. Interpret the diﬀerences between the observed and predicted values.
+4. Describe the form of association of bivariate data using residual plots.
+5.2.1
+Fitting a line to data
+Requests from twelve separate buyers were simultaneously placed with a trading company to
+purchase Target Corporation stock (ticker TGT, April 26th, 2012). We let x be the number of stocks
+to purchase and y be the total cost. Because the cost is computed using a linear formula, the linear
+fit is perfect, and the equation for the line is: y = 5 + 57.49x. If we know the number of stocks
+purchased, we can determine the cost based on this linear equation with no error. Additionally,
+we can say that each additional share of the stock cost $57.49 and that there was a $5 fee for the
+transaction.
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+0
+5
+10
+15
+20
+25
+30
+0
+500
+1000
+1500
+Number of Target Corporation stocks to purchase
+0
+10
+20
+30
+0
+500
+1000
+1500
+Total cost of the shares (dollars)
+Figure 5.10: Requests from twelve separate buyers were simultaneously placed with
+a trading company to purchase Target Corporation stock (ticker TGT, December
+28th, 2018), and the total cost of the shares were reported. Because the cost is
+computed using a linear formula, the linear fit is perfect.
+
+
+### 5.2. LINE FITTING AND RESIDUALS
+413
+Perfect linear relationships are unrealistic in almost any natural process. For example, if we
+took family income (x), this value would provide some useful information about how much financial
+support a college may oﬀer a prospective student (y). However, the prediction would be far from
+perfect, because other factors play a role in financial support beyond a family's income.
+It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for
+data to appear as a cloud of points, such as those shown in Figure 5.11. In each case, the data fall
+around a straight line, even if none of the observations fall exactly on the line. The first plot shows
+a relatively strong downward linear trend, where the remaining variability in the data around the
+line is minor relative to the strength of the relationship between x and y. The second plot shows
+an upward trend that, while evident, is not as strong as the first. The last plot shows a very weak
+downward trend in the data, so slight we can hardly notice it.
+In each of these examples, we can consider how to draw a "best fit line". For instance, we
+might wonder, should we move the line up or down a little, or should we tilt it more or less? As we
+move forward in this chapter, we will learn diﬀerent criteria for line-fitting, and we will also learn
+about the uncertainty associated with estimates of model parameters.
+-50
+0
+50
+-50
+0
+50
+500
+1000
+1500
+0
+10000
+20000
+0
+20
+40
+-200
+0
+200
+400
+Figure 5.11: Three data sets where a linear model may be useful even though the
+data do not all fall exactly on the line.
+There are also cases where fitting a straight line to the data, even if there is a clear relationship
+between the variables, is not helpful. One such case is shown in Figure 5.12 where there is a very
+clear relationship between the variables even though the trend is not linear.
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+Angle of Incline (Degrees)
+Distance Traveled (m)
+0
+5
+10
+15
+0
+30
+60
+90
+Best fitting line is flat (!)
+Figure 5.12: A linear model is not useful in this nonlinear case. These data are
+from an introductory physics experiment.
+
+
+414
+CHAPTER 5. REGRESSION ANALYSIS
+5.2.2
+Using linear regression to make predictions
+Brushtail possums are a marsupial that lives in Australia. A photo of one is shown in Fig-
+ure 5.13. Researchers captured 104 of these animals and took body measurements before releasing
+the animals back into the wild. We consider two of these measurements: the total length of each
+possum, from head to tail, and the length of each possum's head.
+Figure 5.13: The common brushtail possum of Australia.
+------------------------
+Photo by Peter Firminger on Flickr: http://flic.kr/p/6aPTn CC BY 2.0 license.
+Figure 5.14 shows a scatterplot for the head length and total length of the 104 possums. Each
+point represents a single case (possum) from the data.
+Total length (cm)
+Head length (mm)
+75
+80
+85
+90
+95
+85
+90
+95
+100
+G
+Figure 5.14: A scatterplot showing head length against total length for 104 brush-
+tail possums. A point representing a possum with head length 94.1 mm and total
+length 89 cm is highlighted.
+
+
+### 5.2. LINE FITTING AND RESIDUALS
+415
+The head and total length variables are associated: possums with an above average total length
+also tend to have above average head lengths. While the relationship is not perfectly linear, it could
+be helpful to partially explain the connection between these variables with a straight line. We will
+use the total length, x, to explain or predict a possum's head length, y. When we use x to predict
+y, we usually call x the explanatory variable or predictor variable, and we call y the response
+variable. We could fit the linear relationship by eye, as in Figure 5.15. We call this the regression
+line and write it in the form ˆy = a + bx, where a is the y-intercept of the line and b is the slope of
+the line. The equation for this regression line that was fit by eye is
+ˆy = 41 + 0.59x
+A "hat" on y is used to signify that this is a predicted value, not an observed value. We can use
+this line to discuss properties of possums. For instance, the equation predicts a possum with a total
+length of 80 cm will have a head length (in mm) of
+ˆy = 41 + 0.59(80)
+= 88.2
+The value ˆy may be viewed as an average: the equation predicts that possums with a total length of
+80 cm will have an average head length of 88.2 mm. The value ˆy is also a prediction: absent further
+information about an 80 cm possum, this is our best prediction for a the head length of a single
+80 cm possum.
+5.2.3
+Extrapolation is treacherous
+When those blizzards hit the East Coast this winter, it proved to my satisfaction that global warming
+was a fraud. That snow was freezing cold. But in an alarming trend, temperatures this spring have risen.
+Consider this: On February 6th it was 10 degrees. Today it hit almost 80. At this rate, by August it will be
+220 degrees. So clearly folks the climate debate rages on.
+Stephen Colbert
+April 6th, 2010 11
+Linear models can be used to approximate the relationship between two variables. However,
+these models have real limitations. Linear regression is simply a modeling framework. The truth
+is almost always much more complex than our simple line. For example, we do not know how the
+data outside of our limited window will behave. In general, interpolation, which is predicting a
+response value using an x-value that is within the range of the x-values in the data set, is safer than
+extrapolation, which is predicting a response value using an x-value that is outside the range of
+the x-values in the data set.
+5.2.4
+Residuals
+Residuals are the leftover variation in the response variable after fitting a model. Each obser-
+vation will have a residual, and three of the residuals for the linear model we fit for the possum data
+are shown in Figure 5.15. If an observation is above the regression line, then its residual, the vertical
+distance from the observation to the line, is positive. Observations below the line have negative
+residuals. One goal in picking the right linear model is for these residuals to be as small as possible.
+Let's look closer at the three residuals featured in Figure 5.15. The observation marked by an
+"×" has a small, negative residual of about -1; the observation marked by "+" has a large residual
+of about +7; and the observation marked by "△" has a moderate residual of about -4. The size of
+a residual is usually discussed in terms of its absolute value. For example, the residual for "△" is
+larger than that of "×" because ∣-4∣is larger than ∣-1∣.
+11The Colbert Report on April 6th, 2010.
+
+
+416
+CHAPTER 5. REGRESSION ANALYSIS
+Total Length (cm)
+Head Length (mm)
+75
+80
+85
+90
+95
+85
+90
+95
+100
+Figure 5.15: A reasonable linear model was fit to represent the relationship between
+head length and total length.
+RESIDUAL: DIFFERENCE BETWEEN OBSERVED AND EXPECTED
+The residual for a particular observation (x, y) is the diﬀerence between the observed response
+and the response we would predict based on the model:
+residual = observed y -predicted y
+= y -ˆy
+We typically identify ˆy by plugging x into the model.
+EXAMPLE 5.11
+The linear fit shown in Figure 5.15 is given as ˆy = 41 + 0.59x. Based on this line, compute and
+interpret the residual of the observation (77.0, 85.3). This observation is denoted by "×" on the
+plot. Recall that x is the total length measured in cm and y is head length measured in mm.
+We first compute the predicted value based on the model:
+ˆy = 41 + 0.59x
+= 41 + 0.59(77.0)
+= 86.4
+Next we compute the diﬀerence of the actual head length and the predicted head length:
+residual = y -ˆy
+= 85.3 -86.4
+= -1.1
+The residual for this point is -1.1 mm, which is very close to the visual estimate of -1 mm. For this
+particular possum with total length of 77 cm, the model's prediction for its head length was 1.1 mm
+too high.
+GUIDED PRACTICE 5.12
+If a model underestimates an observation, will the residual be positive or negative? What about if
+it overestimates the observation?12
+
+
+### 5.2. LINE FITTING AND RESIDUALS
+417
+GUIDED PRACTICE 5.13
+Compute the residual for the observation (95.5,94.0), denoted by "△" in the figure, using the linear
+model: ˆy = 41 + 0.59x.13
+Residuals are helpful in evaluating how well a linear model fits a data set. We often display the
+residuals in a residual plot such as the one shown in Figure 5.16. Here, the residuals are calculated
+for each x value, and plotted versus x. For instance, the point (85.0,98.6) had a residual of 7.45,
+so in the residual plot it is placed at (85.0,7.45). Creating a residual plot is sort of like tipping the
+scatterplot over so the regression line is horizontal.
+From the residual plot, we can better estimate the standard deviation of the residuals,
+often denoted by the letter s. The standard deviation of the residuals tells us typical size of the
+residuals. As such, it is a measure of the typical deviation between the y values and the model
+predictions. In other words, it tells us the typical prediction error using the model.14
+EXAMPLE 5.14
+Estimate the standard deviation of the residuals for predicting head length from total length using
+the line: ˆy = 41 + 0.59x using Figure 5.16. Also, interpret the quantity in context.
+To estimate this graphically, we use the residual plot. The approximate 68, 95 rule for standard
+deviations applies. Approximately 2/3 of the points are within ± 2.5 and approximately 95% of the
+points are within ± 5, so 2.5 is a good estimate for the standard deviation of the residuals. The
+typical error when predicting head length using this model is about 2.5 mm.
+Total Length (cm)
+Head Length (mm)
+75
+80
+85
+90
+95
+85
+90
+95
+100
+75
+80
+85
+90
+95
+-5
+0
+5
+Total Length (cm)
+Residuals
+75
+80
+85
+90
+95
+-5
+0
+5
+Figure 5.16: Left: Scatterplot of head length versus total length for 104 brushtail
+possums. Three particular points have been highlighted. Right: Residual plot for
+the model shown in left panel.
+12If a model underestimates an observation, then the model estimate is below the actual. The residual, which is
+the actual observation value minus the model estimate, must then be positive. The opposite is true when the model
+overestimates the observation: the residual is negative.
+13First compute the predicted value based on the model, then compute the residual.
+ˆy = 41 + 0.59x = 41 + 0.59(95.50) = 97.3
+residual = y -ˆy = 94.0 -97.3 = -3.3
+The residual is -3.3, so the model overpredicted the head length for this possum by 3.3 mm.
+14The standard deviation of the residuals is calculated as: s =
+√
+∑(yi-ˆy)2
+n-2
+.
+
+
+418
+CHAPTER 5. REGRESSION ANALYSIS
+EXAMPLE 5.15
+One purpose of residual plots is to identify characteristics or patterns still apparent in data after
+fitting a model. Figure 5.17 shows three scatterplots with linear models in the first row and residual
+plots in the second row. Can you identify any patterns remaining in the residuals?
+In the first data set (first column), the residuals show no obvious patterns. The residuals appear to
+be scattered randomly around the dashed line that represents 0.
+The second data set shows a pattern in the residuals. There is some curvature in the scatterplot,
+which is more obvious in the residual plot. We should not use a straight line to model these data.
+Instead, a more advanced technique should be used.
+The last plot shows very little upwards trend, and the residuals also show no obvious patterns.
+It is reasonable to try to fit a linear model to the data. However, it is unclear whether there is
+statistically significant evidence that the slope parameter is diﬀerent from zero. The slope of the
+sample regression line is not zero, but we might wonder if this could be due to random variation.
+Figure 5.17: Sample data with their best fitting lines (top row) and their corre-
+sponding residual plots (bottom row).
+
+
+### 5.2. LINE FITTING AND RESIDUALS
+419
+Section summary
+• If the form of the relationship between x and y appears linear, we can approximate the rela-
+tionship between x and y using a linear regression model, which is a linear equation that
+uses an explanatory variable, x, to predict the response variable, y. Linear models should not
+be used if the trend between the variables is curved.
+• In a linear regression model, the predicted response value, denoted by ˆy, is calculated as
+ˆy = a + bx, where a is the y-intercept, b is the slope of the regression line, and x is the
+explanatory variable.
+• Extrapolation is predicting a response value using a value for the explanatory variable that
+is beyond the interval of x-values used to determine the regression line. The predicted value
+is less reliable the further the estimate is extrapolated.
+• Interpolation is predicting a response value using a value for the explanatory variable that
+is within the interval of x-values used to determine the regression line.
+• A residual is the diﬀerence between the observed response value and the predicted response
+value for the given value of the explanatory variable: residual = y -ˆy or (residual = observed
+y -predicted y).
+• If the residual is positive, the model underpredicts (underestimates) the value of the response
+variable. If the residual is negative, the model overpredicts (overestimates) the value of the
+response variable.
+• A residual plot is a scatterplot of the residuals versus the predicted response values (or the
+explanatory variable values).
+• Residual plots can be used to investigate the appropriateness of the linear regression model
+for the observed data.
+• The linear regression model should only be fit to the data if the data exhibit a linear trend.
+Apparent randomness in a residual plot for a linear regression model is confirmation of a
+linear form in the association between the two variables and indicates that the simple linear
+regression model is an appropriate model for the data.
+• Curvature in the residual plot for a linear regression model suggests that the linear model is
+not the most appropriate model for the data.
+
+
