@@ -288,6 +288,12 @@ function renderCurrentView() {
   if (!unit) return;
 
   // Render Hero Banner
+  const unitBanner = document.getElementById("unitBanner");
+  if (unitBanner) {
+    unitBanner.classList.remove("fade-in-up");
+    void unitBanner.offsetWidth; // trigger reflow
+    unitBanner.classList.add("fade-in-up");
+  }
   document.getElementById("unitBadgeTag").textContent = unit.code;
   document.getElementById("unitBadgeTag").style.background = unit.badgeColor;
   document.getElementById("unitBadgeTag").style.color = "#000";
@@ -349,6 +355,11 @@ function renderActiveModule() {
   const unit = COURSE_DATA.units.find(u => u.id === activeUnitId);
   const mod = unit.modules.find(m => m.id === activeModuleId);
   const article = document.getElementById("moduleArticle");
+
+  // Re-trigger CSS animation
+  article.classList.remove("fade-in-up");
+  void article.offsetWidth; // trigger reflow
+  article.classList.add("fade-in-up");
 
   if (!mod) {
     article.innerHTML = "<p>找不到模組內容</p>";
