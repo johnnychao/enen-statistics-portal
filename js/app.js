@@ -251,7 +251,7 @@ function initUnitTabs() {
     const hasAccess = checkUnitAccess(unit.id);
     const lockBadge = hasAccess ? '' : ' <span class="lock-icon">🔒</span>';
 
-    btn.innerHTML = `<span style="color:${unit.badgeColor}; font-weight:700;">${unit.code}</span> ${unit.title.split('&')[0]}${lockBadge}`;
+    btn.innerHTML = `<span style="color:var(--text-primary); font-weight:700;">${unit.code}</span> ${unit.title.split('&')[0]}${lockBadge}`;
     btn.onclick = () => selectUnit(unit.id);
     ribbon.appendChild(btn);
   });
@@ -295,8 +295,8 @@ function renderCurrentView() {
     unitBanner.classList.add("fade-in-up");
   }
   document.getElementById("unitBadgeTag").textContent = unit.code;
-  document.getElementById("unitBadgeTag").style.background = unit.badgeColor;
-  document.getElementById("unitBadgeTag").style.color = "#000";
+  document.getElementById("unitBadgeTag").style.background = "#121212";
+  document.getElementById("unitBadgeTag").style.color = "#ffffff";
   document.getElementById("unitMainTitle").textContent = unit.title;
   document.getElementById("unitSubtitleText").textContent = unit.subtitle;
   document.getElementById("currentUnitTitle").textContent = `${unit.code} 課程地圖`;
