@@ -77,12 +77,27 @@ function buildCourseData() {
   if (GENERATED_COURSE_DATA.units) {
     for (const [unitId, unitData] of Object.entries(GENERATED_COURSE_DATA.units)) {
       const indexPage = unitData['index'] || { metadata: {}, html: "" };
+      // Define unit specific editorial story images and captions
+      const storyImageMap = {
+        u0: { img: "assets/images/unit0_story.jpg", caption: "Figure 0. 全站學習地圖 — 串聯 AP Statistics 5大單元推論框架" },
+        u1: { img: "assets/images/unit1_story.jpg", caption: "Figure 1. 單變數資料 — 探索分佈特徵、箱型圖與離群值檢定" },
+        u2: { img: "assets/images/unit2_story.jpg", caption: "Figure 2. 雙變數資料 — 相關係數、最小平方法與迴歸直線預測" },
+        u3: { img: "assets/images/unit3_story.jpg", caption: "Figure 3. 收集資料 — 隨機抽樣、實驗設計與雙盲對照" },
+        u4: { img: "assets/images/unit4_story.jpg", caption: "Figure 4. 機率與隨機變數 — 條件機率、貝氏定理與常態分配" },
+        u5: { img: "assets/images/unit5_story.jpg", caption: "Figure 5. 抽樣分配 — 中央極限定理 (CLT) 統計推論核心" },
+        exam: { img: "assets/images/exam_center_story.jpg", caption: "Figure 6. 應試中心 — AP 統計學 5分達標與答題策略" }
+      };
+
+      const storyData = storyImageMap[unitId] || storyImageMap.u0;
+
       const unitObj = {
         id: unitId,
-        code: `Unit ${indexPage.metadata['ap-unit'] || unitId.replace('u', '')}`,
-        badgeColor: "#00f2fe", // Default color
+        code: unitId === 'u0' ? 'Syllabus' : `Unit ${indexPage.metadata['ap-unit'] || unitId.replace('u', '')}`,
+        badgeColor: "#991b1b", // NYT Editorial Crimson Accent
         title: indexPage.metadata.title || "Unit Title",
-        subtitle: "AP Statistics Official Unit",
+        subtitle: indexPage.metadata.subtitle || "AP Statistics Official Unit",
+        heroImage: storyData.img,
+        caption: storyData.caption,
         description: indexPage.html,
         modules: []
       };
@@ -287,18 +302,33 @@ function renderCurrentView() {
   const unit = COURSE_DATA.units.find(u => u.id === activeUnitId);
   if (!unit) return;
 
-  // Render Hero Banner
+  // Render Hero Banner and dynamic story illustration
   const unitBanner = document.getElementById("unitBanner");
   if (unitBanner) {
     unitBanner.classList.remove("fade-in-up");
     void unitBanner.offsetWidth; // trigger reflow
     unitBanner.classList.add("fade-in-up");
+
+    const heroImg = unitBanner.querySelector(".editorial-hero img");
+    const heroCaption = unitBanner.querySelector(".editorial-hero figcaption");
+    if (heroImg && unit.heroImage) {
+      heroImg.src = unit.heroImage;
+      heroImg.alt = unit.title;
+    }
+    if (heroCaption && unit.caption) {
+      heroCaption.textContent = unit.caption;
+    }
   }
-  document.getElementById("unitBadgeTag").textContent = unit.code;
-  document.getElementById("unitBadgeTag").style.background = "#121212";
-  document.getElementById("unitBadgeTag").style.color = "#ffffff";
+
+  const badgeElem = document.getElementById("unitBadgeTag");
+  if (badgeElem) {
+    badgeElem.textContent = unit.code;
+    badgeElem.style.background = "#991b1b"; // NYT Crimson accent
+    badgeElem.style.color = "#ffffff";
+  }
+  
   document.getElementById("unitMainTitle").textContent = unit.title;
-  document.getElementById("unitSubtitleText").textContent = unit.subtitle;
+  document.getElementById("unitSubtitleText").textContent = unit.subtitle || "AP Statistics 2026-27 Framework";
   document.getElementById("currentUnitTitle").textContent = `${unit.code} 課程地圖`;
 
   // Render Left Sidebar Modules List
