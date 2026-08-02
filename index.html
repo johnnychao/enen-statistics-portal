@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>恩恩統計家教 Enen Statistics - 2026–27 AP® Statistics 雙語教學入口網</title>
+  <title>恩恩統計家教 Enen Statistics - 2026–27 AP® Statistics 雙語互動教學門戶</title>
 
-  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <!-- Google Fonts: Outfit, Inter & JetBrains Mono for Distill Data Viz style -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- MathJax LaTeX Engine -->
   <script>
@@ -31,13 +31,16 @@
   <div class="ai-bg-layer"></div>
   <div class="ai-grid-layer"></div>
 
-  <!-- Top Navbar Header -->
+  <!-- Top Distill Navbar Header -->
   <header class="navbar">
     <a href="#" class="brand-container">
       <img src="assets/images/logo.png" alt="恩恩統計家教" class="brand-logo" onerror="this.src='assets/images/mascot.jpg'">
       <div>
         <div class="brand-title">恩恩統計家教 Enen Statistics</div>
-        <div class="brand-subtitle"><span class="ai-badge">🚀 2026-27 AP Statistics Next-Gen</span></div>
+        <div class="brand-subtitle">
+          <span class="data-chip indigo">📊 AP Statistics 2026-27</span>
+          <span class="data-chip teal">⚡ Explorable Data Viz</span>
+        </div>
       </div>
     </a>
 
@@ -68,7 +71,7 @@
       <div class="sidebar-header-box">
         <div class="sidebar-title">
           <span>📖</span>
-          <span id="currentUnitTitle">Unit 1 課程地圖</span>
+          <span id="currentUnitTitle">Unit 1 探索地圖</span>
         </div>
       </div>
 
@@ -81,17 +84,18 @@
 
     <!-- Center Main Content Reader -->
     <main class="main-content">
-      <!-- Active Unit Hero Banner -->
-      <section id="unitBanner" class="editorial-header">
-        <figure class="editorial-hero">
-          <img src="assets/images/nyt_hero.jpg" alt="Statistics and Probability Illustration" />
-          <figcaption>Illustration exploring the foundational concepts of data science and statistics.</figcaption>
-        </figure>
-        <div class="editorial-title-group">
+      <!-- Distill Interactive Hero Banner -->
+      <section id="unitBanner" class="distill-hero">
+        <div class="distill-hero-header">
           <span id="unitBadgeTag" class="unit-badge-tag">Unit 1</span>
           <h1 id="unitMainTitle" class="unit-main-title">Exploring One-Variable Data & Data Collection</h1>
+          <p id="unitSubtitleText" class="unit-subtitle-text">單變數資料分析、統計圖表、常態分布與抽樣實驗設計</p>
         </div>
-        <p id="unitSubtitleText" class="unit-subtitle-text">敘述統計與實驗設計</p>
+
+        <figure class="editorial-hero">
+          <img src="assets/images/unit1_story.jpg" alt="Statistics Story Illustration" />
+          <figcaption>Figure 1. 互動數據故事 — 探索單變數資料集與統計分佈特徵。</figcaption>
+        </figure>
       </section>
 
       <!-- Active Module Article (or Locked Overlay) -->
@@ -100,75 +104,75 @@
       </article>
     </main>
 
-    <!-- Right Sidebar: Interactive Tutor Toolkit -->
+    <!-- Right Sidebar: Interactive Observable Notebook Toolkit -->
     <aside class="sidebar-right">
 
       <!-- Interactive Z-Score Calculator Card -->
-      <div class="toolkit-card">
+      <div class="toolkit-card notebook-card">
         <div class="toolkit-header">
           <span>🧮</span>
-          <span>Z-Score & 常態分布動態繪圖</span>
+          <span>Z-Score 即時數據繪圖器</span>
         </div>
 
         <div class="calc-input-group">
           <div class="calc-input-row">
-            <span>標準化 Z 分數:</span>
+            <span>標準化 Z 分數 ($z$):</span>
             <input type="number" id="zValInput" value="1.0" step="0.1" min="-3.5" max="3.5" oninput="updateZCalculator()">
           </div>
         </div>
 
         <canvas id="normalCanvas"></canvas>
 
-        <div style="margin-top:0.75rem; padding:0.6rem; background:#080c14; border-radius:6px; font-size:0.8rem; border:1px solid var(--border-color);">
-          <div style="display:flex; justify-space-between; margin-bottom:0.2rem;">
-            <span style="color:var(--text-secondary);">累積機率 P(Z &lt; z):</span>
-            <strong id="zProbResult" style="color:var(--accent-cyan); font-family:var(--font-mono);">0.8413</strong>
+        <div class="calc-result-box">
+          <div class="calc-result-item">
+            <span>累積機率 $P(Z < z)$:</span>
+            <strong id="zProbResult">0.8413</strong>
           </div>
-          <div style="display:flex; justify-content:space-between;">
-            <span style="color:var(--text-secondary);">百分位數 (Percentile):</span>
-            <strong id="zPctResult" style="color:var(--accent-gold); font-family:var(--font-mono);">84.1%</strong>
+          <div class="calc-result-item">
+            <span>百分位數 (Percentile):</span>
+            <strong id="zPctResult">84.1%</strong>
           </div>
         </div>
       </div>
 
       <!-- Interactive t-Distribution Calculator Card -->
-      <div class="toolkit-card">
+      <div class="toolkit-card notebook-card">
         <div class="toolkit-header">
           <span>📈</span>
-          <span>t-Distribution & p-Value 計算器</span>
+          <span>$t$-Distribution 即時檢定器</span>
         </div>
 
         <div class="calc-input-group">
           <div class="calc-input-row">
-            <span>t 統計量 (t-stat):</span>
+            <span>$t$ 統計量 ($t$-stat):</span>
             <input type="number" id="tValInput" value="2.1" step="0.1" oninput="updateTCalculator()">
           </div>
           <div class="calc-input-row">
-            <span>自由度 (df):</span>
+            <span>自由度 ($df$):</span>
             <input type="number" id="tDfInput" value="15" step="1" min="1" max="100" oninput="updateTCalculator()">
           </div>
         </div>
 
-        <div style="padding:0.6rem; background:#080c14; border-radius:6px; font-size:0.8rem; border:1px solid var(--border-color);">
-          <div style="display:flex; justify-content:space-between; margin-bottom:0.2rem;">
-            <span style="color:var(--text-secondary);">雙尾 p-value (Two-tailed):</span>
-            <strong id="tTwoTailResult" style="color:var(--accent-purple); font-family:var(--font-mono);">0.0530</strong>
+        <div class="calc-result-box">
+          <div class="calc-result-item">
+            <span>雙尾 $p$-value:</span>
+            <strong id="tTwoTailResult">0.0530</strong>
           </div>
-          <div style="display:flex; justify-content:space-between;">
-            <span style="color:var(--text-secondary);">右單尾 p-value (Right-tailed):</span>
-            <strong id="tRightTailResult" style="color:var(--accent-green); font-family:var(--font-mono);">0.0265</strong>
+          <div class="calc-result-item">
+            <span>右單尾 $p$-value:</span>
+            <strong id="tRightTailResult">0.0265</strong>
           </div>
         </div>
       </div>
 
       <!-- Python Labs (Colab) Quick Card -->
-      <div class="toolkit-card">
+      <div class="toolkit-card notebook-card">
         <div class="toolkit-header">
           <span>🔬</span>
-          <span>Python 互動實驗室 (Colab)</span>
+          <span>Python 雲端數據實驗室</span>
         </div>
-        <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:0.5rem;">搭配課程進度的雲端資料分析實作</p>
-        <div id="colabLabsContainer" style="display:flex; flex-direction:column; gap:0.4rem;">
+        <p class="toolkit-desc">搭配單元劇情的數據實作 Colab 筆記本</p>
+        <div id="colabLabsContainer" class="colab-labs-container">
           <!-- Injected Colab Links -->
         </div>
       </div>

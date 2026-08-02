@@ -266,7 +266,7 @@ function initUnitTabs() {
     const hasAccess = checkUnitAccess(unit.id);
     const lockBadge = hasAccess ? '' : ' <span class="lock-icon">🔒</span>';
 
-    btn.innerHTML = `<span style="color:var(--text-primary); font-weight:700;">${unit.code}</span> ${unit.title.split('&')[0]}${lockBadge}`;
+    btn.innerHTML = `<span style="font-weight:700;">${unit.code}</span> ${unit.title.split('&')[0].replace('Unit ', '')}${lockBadge}`;
     btn.onclick = () => selectUnit(unit.id);
     ribbon.appendChild(btn);
   });
@@ -323,8 +323,6 @@ function renderCurrentView() {
   const badgeElem = document.getElementById("unitBadgeTag");
   if (badgeElem) {
     badgeElem.textContent = unit.code;
-    badgeElem.style.background = "#991b1b"; // NYT Crimson accent
-    badgeElem.style.color = "#ffffff";
   }
   
   document.getElementById("unitMainTitle").textContent = unit.title;
