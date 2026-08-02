@@ -1,0 +1,94 @@
+---
+title: "Unit 1 統整任務｜雙語資料建議書"
+content-id: "u1-assessment-memo"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11", "1.12", "1.13"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u1-assessment"
+periods: 2
+last-reviewed: "2026-07"
+---
+
+## 任務
+
+你是晨光高中的學生資料顧問。校務團隊需要決定：
+
+> 是否值得試辦 15 分鐘 morning_planning 晨間規劃活動？若要作決定，還需要如何改善資料收集與研究設計？
+
+請使用本單元的兩份**原創合成資料**、你在六份 Lab 產生的圖表，以及 Unit 1 的抽樣與實驗設計概念，提出一份證據導向的建議。不得加入任何真實同學姓名、學號、班級名單、Email 或可辨識紀錄。
+
+## 交付格式
+
+- 中文主文：500–700 個中文字，供校務團隊快速決策。
+- English executive summary：120–180 words，供國際課程團隊閱讀。
+- 圖表：2 張；至少一張類別資料圖與一張數值分布或組間比較圖。
+- 附註：資料來源與限制 3–5 點。
+- 檔名：`u1_data_memo_你的課堂代碼`；不要在公開 GitHub 使用真實姓名或學號。
+
+## 必須回答的六個問題
+
+1. **Decision question**：學校要作什麼決策？你用哪些變數提供證據？
+2. **Categorical evidence**：一張類別圖表顯示什麼主要模式？分母是什麼？
+3. **Quantitative evidence**：通勤、睡眠或準備度的 shape、center、variability 與 unusual features 是什麼？
+4. **Comparison**：至少比較兩組，使用一個中心與一個變異量數，並加入情境與單位。
+5. **Study quality**：現有問卷可能有什麼 sampling / nonresponse / response bias？因此哪些結論不能作？
+6. **Next step**：提出一個可執行的抽樣改善或 random experiment，並界定 generalization 與 causation。
+
+## 建議書結構
+
+### 1. 決策摘要（中文）
+
+用 2–3 句先寫建議，不要把結論藏到最後。若證據不足以支持全面實施，可以建議「有限試辦＋改善研究設計」，並說明判斷條件。
+
+### 2. 證據（中文）
+
+每一個主張都至少搭配一個表格、比例、摘要量數或圖形特徵。避免只說「看起來有差」。
+
+可用架構：
+
+> **主張 Claim → 證據 Evidence → 情境 Context → 限制 Limitation → 行動 Action**
+
+### 3. English Executive Summary
+
+請使用自己的英文，包含下列功能句，但不要機械逐句翻譯中文：
+
+- **Purpose:** This memo evaluates whether ...
+- **Evidence:** In the synthetic sample, ...
+- **Limitation:** Because the survey used ..., the results cannot ...
+- **Recommendation:** The school should ... while ...
+
+### 4. 資料與方法附註
+
+列出：
+
+- 資料為 synthetic，不是真實學生紀錄。
+- observational unit 與主要變數。
+- 圖表與摘要量數的選擇理由。
+- 缺失值或異常值如何處理；不得為了得到漂亮結論而任意刪除。
+- 結論可適用的範圍。
+
+## 圖表最低要求
+
+- 標題直接說明變數、群組與合成資料情境。
+- 軸標籤包含單位；類別圖標出人數或比例。
+- 使用可辨識的顏色對比，不以顏色作唯一訊息來源。
+- 每張圖下方寫 1–2 句 alt text，描述讀者需要知道的主要模式。
+- 不使用 3D 效果、截斷軸或裝飾圖示誇大差異。
+
+## 繳交前自評
+
+- [ ] 我先說明決策與建議，再提供證據。
+- [ ] 我使用至少一個比例、一個中心與一個變異量數。
+- [ ] 我直接比較群組，而非各自描述後停止。
+- [ ] 我沒有從問卷資料宣稱因果。
+- [ ] 我說明抽樣偏誤可能如何影響結果。
+- [ ] 我的後續實驗包含 random assignment、control 與 replication。
+- [ ] 我的英文摘要包含 evidence 與 limitation。
+- [ ] 所有內容均為合成、去識別或原創資料，沒有真實個資。
+
+::: {.callout-warning title="公開／私人界線"}
+這個學生頁只提供任務與自評條件，不提供範例成品、標準答案或評分規準。教師會依私人教師材料評分。
+:::
+
+[返回 Unit 1 地圖](../units/u1/index.qmd) ｜ [回顧分層練習](../practice/index.qmd)

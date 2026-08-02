@@ -1,0 +1,37 @@
+---
+title: "Unit 1 Colab Labs"
+subtitle: "從資料問題到實驗設計｜Zero-beginner Python"
+content-id: "u1-labs-index"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11", "1.12", "1.13"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u1-labs"
+periods: 6
+last-reviewed: "2026-07"
+page-layout: full
+---
+
+這六份 Notebook 使用原創合成資料，學生只需依序執行、修改標示參數並解釋輸出；課程不評量 Python 語法。首次使用請選擇 **Open in Colab**，登入 Google 帳號後另存副本至自己的雲端硬碟。
+
+::: {.callout-note title="資料與執行方式"}
+Notebook 會先尋找本機 `data/public/`，找不到時才讀取 GitHub raw URL。若網站尚未發布，請由教師提供 repo ZIP 或等待 `main` branch 上線。兩份資料均為固定 seed 的虛構教學資料，不含真實學生資訊。
+:::
+
+| Lab | 用途與主要產出 | 使用資料 | 開啟 |
+|---|---|---|---|
+| 01 · Data Questions | 辨認觀察單位、變數型態與可回答的探究問題 | 晨間作息問卷 | [檢視 Notebook](colab/lab-01-data-questions.ipynb){.btn .btn-outline-primary} [Open in Colab](https://colab.research.google.com/github/johnnychao/statistics-in-context-bilingual/blob/main/labs/colab/lab-01-data-questions.ipynb){.btn .btn-primary target="_blank"} |
+| 02 · Categorical Data | 建立次數、比例與有情境的長條圖 | 晨間作息問卷 | [檢視 Notebook](colab/lab-02-categorical-data.ipynb){.btn .btn-outline-primary} [Open in Colab](https://colab.research.google.com/github/johnnychao/statistics-in-context-bilingual/blob/main/labs/colab/lab-02-categorical-data.ipynb){.btn .btn-primary target="_blank"} |
+| 03 · Distributions | 描述 shape、center、variability 與 unusual features | 晨間作息問卷 | [檢視 Notebook](colab/lab-03-distributions.ipynb){.btn .btn-outline-primary} [Open in Colab](https://colab.research.google.com/github/johnnychao/statistics-in-context-bilingual/blob/main/labs/colab/lab-03-distributions.ipynb){.btn .btn-primary target="_blank"} |
+| 04 · Summary & Comparisons | 比較 mean／median、SD／IQR 與群組箱形圖 | 晨間作息問卷 | [檢視 Notebook](colab/lab-04-summary-comparisons.ipynb){.btn .btn-outline-primary} [Open in Colab](https://colab.research.google.com/github/johnnychao/statistics-in-context-bilingual/blob/main/labs/colab/lab-04-summary-comparisons.ipynb){.btn .btn-primary target="_blank"} |
+| 05 · Sampling Bias | 比較 SRS、分層抽樣與自願回覆偏誤 | 晨間作息問卷 | [檢視 Notebook](colab/lab-05-sampling-bias.ipynb){.btn .btn-outline-primary} [Open in Colab](https://colab.research.google.com/github/johnnychao/statistics-in-context-bilingual/blob/main/labs/colab/lab-05-sampling-bias.ipynb){.btn .btn-primary target="_blank"} |
+| 06 · Experimental Design | 辨認隨機分派、控制、重複與區集，界定因果結論 | 晨間介入試驗 | [檢視 Notebook](colab/lab-06-experimental-design.ipynb){.btn .btn-outline-primary} [Open in Colab](https://colab.research.google.com/github/johnnychao/statistics-in-context-bilingual/blob/main/labs/colab/lab-06-experimental-design.ipynb){.btn .btn-primary target="_blank"} |
+
+## 每份 Lab 的完成證據
+
+1. 執行所有儲存格且通過綠色 `Checks passed`。
+2. 完成至少一項「✏️ 修改任務」，保留修改後的輸出。
+3. 依 AP English Response frame 撰寫統計情境解釋。
+4. 回答課堂 Lab 檢核題；不要只繳交程式畫面。
+
+> 本教材為獨立製作的課程伴讀資源，未獲 College Board 認可或背書。AP® 為 College Board 的註冊商標。

@@ -1,0 +1,136 @@
+---
+title: "Unit 1 單元評量｜12 題選擇題"
+content-id: "u1-assessment-mcq"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11", "1.12", "1.13"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u1-assessment"
+periods: 1
+last-reviewed: "2026-07"
+---
+
+**建議時間：18 分鐘。** 每題選出最適當的答案。這是原創題組；網站不提供答案，完成後依教師指定方式繳交。
+
+## 1｜觀察單位
+
+一份合成晨間問卷的每列包含年級、通勤方式、睡眠時數與準備度。此資料的 observational unit 是：
+
+A. 一個年級  
+B. 一位虛構受訪學生  
+C. 一個問卷變數  
+D. 全校學生的平均準備度
+
+## 2｜變數類型
+
+下列哪一項分類最合理？
+
+A. `commute_mode` 與 `commute_minutes` 都是 quantitative  
+B. `commute_mode` 與 `commute_minutes` 都是 categorical  
+C. `commute_mode` 是 categorical；`commute_minutes` 是 quantitative  
+D. `commute_mode` 是 quantitative；`commute_minutes` 是 categorical
+
+## 3｜相對次數
+
+180 份有效問卷中，54 位學生主要步行或騎車到校。該類別的 relative frequency 是：
+
+A. 0.24  
+B. 0.30  
+C. 0.54  
+D. 3.33
+
+## 4｜條件比例
+
+下表為兩個年級的合成通勤資料：
+
+| 年級 | Public transit | Walk | Family car | Total |
+|---|---:|---:|---:|---:|
+| 9 | 20 | 16 | 14 | 50 |
+| 12 | 12 | 14 | 14 | 40 |
+
+下列哪個比較正確？
+
+A. 九年級搭公車比例為 20%，十二年級為 12%  
+B. 九年級搭公車比例為 40%，比十二年級的 30% 高 10 個百分點  
+C. 九年級搭公車比例為 50%，比十二年級的 40% 高 10%  
+D. 兩年級搭公車比例不能比較，因人數不同
+
+## 5｜分布形狀
+
+某通勤時間 histogram 的多數資料位於 10–30 分鐘，少數值延伸至 70 分鐘。哪一項描述最合理？
+
+A. 分布左偏，mean 通常小於 median  
+B. 分布大致對稱，mean 必定等於 median  
+C. 分布右偏，mean 可能被較長通勤值向上拉  
+D. 分布有兩個峰，因此不能計算 center
+
+## 6｜極端值的影響
+
+資料 10、12、13、15、16 加入一個值 75。下列哪一項最可能發生？
+
+A. Mean 與 median 都下降相同幅度  
+B. Median 的增加通常比 mean 更大  
+C. Mean 的增加通常比 median 更大  
+D. Mean 與 median 都完全不變
+
+## 7｜Standard deviation
+
+甲、乙兩組 readiness score 的 mean 都是 65 分；甲組 SD = 7 分，乙組 SD = 23 分。下列哪一項解釋最適當？
+
+A. 乙組分數通常比甲組更分散  
+B. 乙組 mean 必定比甲組高  
+C. 甲組一定有較多學生  
+D. 甲組分數範圍一定正好是 7 分
+
+## 8｜Boxplot 與 IQR
+
+一組通勤時間的 $Q_1=18$、median = 24、$Q_3=31$ 分鐘，圖上另有一點位於 62 分鐘。下列哪一項正確？
+
+A. IQR 是 6 分鐘，62 不可能是 unusual value  
+B. 中間 50% 的資料介於 24 與 62 分鐘  
+C. IQR 是 13 分鐘，62 超過上方 $1.5(IQR)$ fence  
+D. 因為有 potential outlier，整份資料必須刪除
+
+## 9｜Simple random sample
+
+學校想從完整的 1,200 人名冊選 80 人。哪一個程序最符合 SRS？
+
+A. 在圖書館門口訪問前 80 位學生  
+B. 請班導師挑選最願意回答的 80 人  
+C. 在公開連結收到 80 份後停止  
+D. 為 1,200 人編唯一號碼，以亂數不重複選出 80 個號碼
+
+## 10｜Stratified random sample
+
+研究者擔心四個年級的晨間作息不同，希望每個年級都有代表。哪一個設計最適當？
+
+A. 只選人數最多的年級  
+B. 依年級分層，從每個年級名冊分別隨機抽人  
+C. 隨機選一個年級並調查全體學生  
+D. 讓各年級學生自行決定是否填寫公開問卷
+
+## 11｜Voluntary response bias
+
+學校發布公開問卷，且準備度最低、對晨間安排最不滿的學生特別有動機回覆。若其他學生較少回覆，哪一項最合理？
+
+A. 樣本 mean readiness 可能高估母體 mean，因為回覆完全隨機  
+B. 樣本 mean readiness 必定等於母體 mean  
+C. 樣本 mean readiness 可能低估母體 mean，且更大樣本不一定消除此偏誤  
+D. 只要畫 histogram 就能修正 voluntary response bias
+
+## 12｜因果與推廣
+
+40 位自願參與者被隨機分派到 morning_planning 或 usual_routine。介入組的平均 readiness change 較高。假設實驗執行良好，最合理的結論是：
+
+A. 結果支持 morning_planning 對這些參與者的因果效果，但未必能推廣到全校  
+B. 因為參與者是自願者，所以完全不能作任何因果比較  
+C. 結果可推廣到全校，但不能作因果結論  
+D. 結果證明每一位全校學生都會因 morning_planning 進步
+
+## 作答紀錄
+
+| 題號 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 選項 |  |  |  |  |  |  |  |  |  |  |  |  |
+
+[返回 Unit 1 地圖](../units/u1/index.qmd) ｜ [繼續 10 分 FRQ](frq.qmd)

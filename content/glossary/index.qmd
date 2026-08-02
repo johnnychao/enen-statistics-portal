@@ -1,0 +1,101 @@
+---
+title: "Bilingual Glossary｜雙語術語表"
+content-id: "glossary"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11", "1.12", "1.13"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u1-reference"
+periods: 0
+last-reviewed: "2026-07"
+---
+
+先用「中文直覺」確認概念，再用 English cue 組成完整統計句。正式作答時仍要補上變數、群組、數值、單位與研究情境。
+
+## 資料結構與類別整理
+
+| English | 中文規範 | 中文直覺 | English response cue |
+|---|---|---|---|
+| observational unit | 觀察單位 | 一列資料所描述的一個人、物件或案例 | Each observational unit is... |
+| variable | 變數 | 在不同觀察單位間可能改變的特徵 | The variable records... |
+| value | 觀察值 | 某個單位在某變數上的實際紀錄 | This value is... |
+| identifier | 識別碼 | 區分資料列但不代表數量的代碼 | The ID is an identifier rather than... |
+| categorical variable | 類別變數 | 把個體分到名稱或群組 | ...is categorical because... |
+| quantitative variable | 數值變數 | 大小與差距有數量意義 | ...is quantitative because... |
+| frequency | 次數 | 某類別出現的筆數 | The frequency is... |
+| relative frequency | 相對次數 | 類別次數占有效觀測總數的份額 | The relative frequency equals... |
+| proportion | 比例 | 部分占整體的份額 | The sample proportion is... |
+| two-way table | 雙向表 | 同時整理兩個類別變數的組合次數 | The two-way table displays... |
+
+## 圖表、分布與摘要量數
+
+| English | 中文規範 | 中文直覺 | English response cue |
+|---|---|---|---|
+| bar chart | 長條圖 | 以分離長條比較類別次數或比例 | A bar chart is appropriate because... |
+| dotplot | 點圖 | 在數線上保留每一筆值的位置 | The dotplot reveals... |
+| histogram | 直方圖 | 將數值分入連續區間看整體形狀 | The histogram shows... |
+| distribution | 分布 | 資料值的位置、頻率與整體樣貌 | The distribution of... |
+| shape | 分布形狀 | 對稱、偏斜、峰與間隔等整體特徵 | The shape is... |
+| symmetric | 對稱 | 中心左右兩側大致互相對應 | The distribution is approximately symmetric... |
+| skewed right | 右偏 | 少數較大值形成較長右尾 | The distribution is right-skewed because... |
+| skewed left | 左偏 | 少數較小值形成較長左尾 | The distribution is left-skewed because... |
+| potential outlier | 可能的離群值 | 與多數資料相距明顯、需要查核的值 | This observation is a potential outlier... |
+| mean | 平均數 | 所有值平均分配後的平衡點 | The sample mean is... |
+| median | 中位數 | 排序後位於中央的位置 | The median is resistant to... |
+| range | 全距 | 最大值減最小值 | The range equals... |
+| quartile | 四分位數 | 將排序資料切成四部分的位置 | Q1 and Q3 mark... |
+| interquartile range | 四分位距 | 中間 50% 資料的跨度 | The IQR equals... |
+| standard deviation | 標準差 | 資料值與平均數的典型距離尺度 | The standard deviation indicates... |
+| five-number summary | 五數摘要 | minimum、Q1、median、Q3、maximum | The five-number summary... |
+| boxplot | 箱形圖 | 用 median、quartiles 與鬚比較分布 | The side-by-side boxplots compare... |
+
+## 母體、抽樣與偏誤
+
+| English | 中文規範 | 中文直覺 | English response cue |
+|---|---|---|---|
+| population | 母體 | 研究真正想了解的完整群體 | The population of interest is... |
+| sample | 樣本 | 實際提供可用資料的母體子集 | The sample consists of... |
+| parameter | 母體參數 | 描述母體、通常未知的固定數值 | The parameter is the true... |
+| statistic | 樣本統計量 | 由樣本資料計算的數值 | The statistic is calculated from... |
+| sampling frame | 抽樣框 | 實際用來抽樣的名單或集合 | The sampling frame is... |
+| random sampling | 隨機抽樣 | 以機率程序從抽樣框選人 | Random sampling supports... |
+| simple random sample (SRS) | 簡單隨機樣本 | 每個同樣大小樣本有相同被選機會 | Assign numbers and randomly select... |
+| stratified random sample | 分層隨機樣本 | 先分重要子群，再從每層隨機抽樣 | Separate into strata, then... |
+| cluster sample | 集群樣本 | 隨機選部分自然群集再調查其中個體 | Randomly select clusters and... |
+| convenience sample | 便利樣本 | 選最容易接觸的個體 | This is a convenience sample because... |
+| voluntary response sample | 自願回覆樣本 | 由個體自行決定是否加入 | Voluntary response may overrepresent... |
+| bias | 偏誤 | 方法使結果系統性偏離目標真值 | This method may systematically... |
+| undercoverage | 涵蓋不足 | 部分母體成員很難進入抽樣框 | This frame undercovers... |
+| nonresponse bias | 未回覆偏誤 | 已選取但未回覆者系統性不同 | If nonrespondents tend to..., the estimate may... |
+| response bias | 回應偏誤 | 語氣、記憶或期待使回答不準確 | A leading question may cause... |
+
+## 研究設計與結論邊界
+
+| English | 中文規範 | 中文直覺 | English response cue |
+|---|---|---|---|
+| observational study | 觀察研究 | 觀察既有條件，不主動分派處理 | This is observational because... |
+| experiment | 實驗 | 分派處理並比較反應 | This is an experiment because... |
+| experimental unit | 實驗單位 | 接受處理分派的最小單位 | Each experimental unit is... |
+| explanatory variable | 解釋變數 | 用來解釋或比較反應差異的變數 | The explanatory variable is... |
+| response variable | 反應變數 | 要測量、解釋或比較的結果 | The response variable is... |
+| treatment | 處理 | 施加於實驗單位的特定條件 | The treatment is... |
+| control group | 對照組 | 提供比較基準的組別 | The control group receives... |
+| random assignment | 隨機分派 | 以隨機方式分配處理 | Random assignment helps... |
+| replication | 重複 | 每種處理包含足夠多實驗單位 | Replication reduces... |
+| blocking | 區集設計 | 先按重要特徵分組，再於區集內分派 | Block by..., then randomly assign... |
+| confounding | 混淆 | 解釋變數效果與其他因素交織 | ...may confound the association because... |
+| association | 關聯 | 兩個變數呈現系統性共同變動 | The sample shows an association... |
+| generalization | 推廣 | 把樣本結果延伸到所代表的母體 | The result may be generalized to... |
+| causation | 因果關係 | 改變解釋變數造成反應改變 | The design supports a causal conclusion because... |
+| sampling variability | 抽樣變異 | 不同隨機樣本會產生不同統計量 | Statistics vary across random samples because... |
+
+## 使用原則
+
+- 中文規範以 [`terms.yml`](terms.yml) 為唯一來源；教材若需新增譯名，先更新 YAML。
+- `response_en` 是句型起點，不是可脫離題目直接貼上的答案。
+- 描述資料時要補上變數、群組、數值與單位；評論研究時要補上抽樣或分派程序。
+- `random sampling` 支持推廣，`random assignment` 支持適當範圍內的因果比較，兩者不可互換。
+
+::: {.callout-note title="原創教材"}
+本術語表以通用統計概念與本課合成情境編寫，不收錄或改寫任何受限制題目。
+:::

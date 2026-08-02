@@ -1,0 +1,186 @@
+---
+title: "模組 1｜從問題到資料"
+content-id: "u1-m01"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.1", "1.2"]
+practices: ["1.A", "2.A", "4.A"]
+module: "u1-m01"
+periods: 4
+last-reviewed: "2026-07"
+---
+
+![](../../assets/images/generated/module-1-question-to-data.png){.module-banner fig-alt="手工微縮資料研究桌上，放大鏡、資料格線與不同材質卡片呈現從研究問題辨認觀察單位與變數的過程。"}
+
+## 情境與決策
+
+校長問：「學生早上看起來沒精神，我們是不是應該改變晨間安排？」這句話值得研究，但還不能直接告訴我們要收集哪些資料。你的第一個任務，是把模糊的擔心變成可由資料回答的問題。
+
+本模組使用合成的 `morning_routine_survey.csv`。每一列代表一位虛構受訪學生；`student_id` 只是無意義代碼，不含姓名、學號或聯絡資訊。
+
+## Topic 1.1｜從決策問題到研究問題（第 1–2 節）
+
+### Investigative Question
+
+> **中文：** 九至十二年級學生的睡眠、通勤與早餐習慣，如何和他們自評的晨間學習準備度一起變動？  
+> **English:** How are sleep, commuting, and breakfast habits associated with self-reported morning readiness among students in grades 9–12?
+
+### 先預測，再看資料
+
+不計算，先在學習單寫下：
+
+1. 你預期睡眠時數與準備度是正向、負向，還是沒有明顯關聯？
+2. 哪一項變數可能最受主觀測量影響？
+3. 即使兩個變數一起變動，我們能否立刻說其中一個「造成」另一個？
+
+### 概念：好問題決定好資料
+
+可由資料研究的問題通常會指出：
+
+- **誰（who）**：目標群體或觀察單位。
+- **測量什麼（what）**：至少一個變數。
+- **想知道什麼（purpose）**：描述、比較或探討關聯。
+- **結論邊界（scope）**：是否談推廣或因果。
+
+這份問卷是觀察性資料。它可以描述與比較，也可以探索 association；但沒有隨機分派，不能只靠問卷建立 causal claim。
+
+### 問題類型快速辨識
+
+| 問題 | 類型 | 可直接回答的結論 |
+|---|---|---|
+| 各通勤方式的學生比例是多少？ | 描述 | 樣本中的分布 |
+| 不同年級的準備度是否不同？ | 比較 | 樣本組別差異 |
+| 睡眠時數較長者是否有較高準備度？ | 關聯 | 樣本中的 association |
+| 增加睡眠是否會造成準備度提高？ | 因果 | 問卷本身不足以回答 |
+
+::: {.callout-tip collapse="true" title="AP English Response｜把問題寫得可研究"}
+可使用：
+
+> We want to investigate whether **[explanatory variable]** is associated with **[response variable]** among **[population]**.
+
+本情境示例：
+
+> We want to investigate whether sleep duration is associated with morning readiness among students in grades 9–12.
+:::
+
+### 常見迷思
+
+- **迷思：** 題目出現「影響」就能直接分析因果。  
+  **修正：** 因果取決於研究設計，不取決於動詞。
+- **迷思：** 收集越多欄位，問題就越好。  
+  **修正：** 每個欄位都應對應研究目的，避免不必要的敏感資料。
+- **迷思：** `student_id` 是數字，所以是 quantitative variable。  
+  **修正：** 它只作識別，不代表可計算的數量。
+
+### A／B／C 分層練習
+
+**A｜辨識**　把下列問題分成「描述、比較、關聯、因果」：  
+「搭公車者的通勤時間分布為何？」、「有吃早餐與沒吃早餐者的準備度是否不同？」、「降低晚間螢幕時間會不會提高準備度？」
+
+**B｜改寫**　把「大家早上是不是太累？」改成包含對象、變數與研究目的的問題。
+
+**C｜挑戰**　寫出兩個看似相關、但可能由第三個變數解釋的變數，並指出一個可能的 lurking variable。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：依序為描述、比較、因果。
+- B 應明確指出學生群體、疲勞或準備度的操作性測量，以及描述／比較／關聯目的。
+- C 例：睡眠時數與準備度可能同時受到課外活動負荷影響。合理答案不只一種。
+:::
+
+### Exit Ticket 1.1
+
+用一句中文與一句英文寫出本單元的 investigative question；在英文句中圈出 population、explanatory variable 與 response variable。
+
+---
+
+## Topic 1.2｜觀察單位、變數與資料字典（第 3–4 節）
+
+### Investigative Question
+
+> **中文：** 這份資料的每一列與每一欄分別代表什麼，哪些運算才有意義？  
+> **English:** What does each row and column represent, and which summaries are meaningful for each variable?
+
+### 資料來源與變數
+
+合成問卷包含下列欄位：
+
+| 欄位 | 中文意義 | 類型 | 單位／可能值 |
+|---|---|---|---|
+| `student_id` | 虛構學生代碼 | identifier | 代碼，不做算術 |
+| `grade` | 年級 | categorical, ordinal | 9、10、11、12 |
+| `commute_mode` | 主要通勤方式 | categorical | walk、bicycle、public_transit、family_car、school_shuttle |
+| `commute_minutes` | 單程通勤時間 | quantitative | 分鐘 |
+| `sleep_hours` | 前一晚睡眠時數 | quantitative | 小時 |
+| `screen_minutes_after_9pm` | 晚上九點後螢幕時間 | quantitative | 分鐘 |
+| `ate_breakfast` | 是否吃早餐 | categorical | yes／no |
+| `arrival_status` | 到校狀態 | categorical | early／on_time／late |
+| `readiness_score` | 自評準備度 | quantitative, discrete | 0–100 分量尺 |
+| `response_source` | 問卷回覆來源 | categorical | homeroom／newsletter_link |
+
+### 先預測，再驗證
+
+1. 哪些欄位的平均數沒有實質意義？
+2. `grade` 應視為 categorical 還是 quantitative？說明你的目的。
+3. 若 `sleep_hours` 有空白，空白是否等於 0 小時？
+
+### 概念：資料表不是只有數字
+
+- **Observational unit**：資料中被觀察的個體或案例；本資料是一位虛構學生。
+- **Variable**：每個觀察單位被記錄的特徵；通常是一欄。
+- **Value**：某個觀察單位在某變數上的紀錄；通常是一格。
+- **Categorical variable**：把個體放入群組或標籤。
+- **Quantitative variable**：數值大小與差距具有量的意義。
+
+資料字典應說明名稱、定義、型態、單位、允許值與遺漏規則。空白代表「未觀測」，不能自動當成 0。
+
+::: {.callout-tip collapse="true" title="AP English Response｜界定資料"}
+> Each observational unit is one synthetic student response. `commute_minutes` is a quantitative variable measured in minutes, while `commute_mode` is categorical because its values label travel modes.
+
+若變數角色依分析目的改變，要寫明理由：
+
+> Although grade is stored as a number, we treat it as categorical when comparing the four grade-level groups.
+:::
+
+### 常見迷思
+
+- **迷思：** 所有數字欄位都能算平均數。  
+  **修正：** 代碼的數字只用來辨識。
+- **迷思：** 類別一定用文字儲存。  
+  **修正：** 9、10、11、12 可以代表有順序的群組。
+- **迷思：** 缺失值就是 0。  
+  **修正：** 0 是已觀測的值；missing 是沒有可用觀測。
+
+### A／B／C 分層練習
+
+**A｜辨識**　從資料字典各找出兩個 categorical 與 quantitative variables。
+
+**B｜解釋**　為什麼 `readiness_score` 雖只有 11 個可能值，仍可在本課視為 quantitative variable？
+
+**C｜稽核**　若有人把 `student_id` 算出平均數 1057.4，請用兩句話說明錯誤並提出正確用途。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：類別例為 `commute_mode`、`ate_breakfast`；數值例為 `commute_minutes`、`sleep_hours`。
+- B：分數大小與差距用來代表較高／較低的自評準備度，可進行量的比較；仍應說明這是自評尺度。
+- C：代碼間的距離沒有情境意義，只能用來辨識列或檢查重複紀錄。
+:::
+
+### Exit Ticket 1.2
+
+選一個問卷欄位，寫出：變數名稱、中文定義、類型、單位或允許值，以及遺漏值不應如何解讀。
+
+## Lab 1｜用 pandas 認識資料
+
+開啟 [Lab 1：Data Questions and Variables](../../labs/colab/lab-01-data-questions.ipynb)。你只需依指示 **Run all**、閱讀表格，並修改指定的欄位名稱；本課不評量 Python 語法。
+
+完成證據：
+
+- 寫出資料列數與欄數。
+- 指出 observational unit。
+- 將至少六個欄位正確分類。
+- 找出缺失值或不合理值，說明「為何需要查核」，不要自行猜測。
+
+## 模組小結
+
+在進入圖表前，先問四件事：**問題是否可研究、每列是誰、每欄是什麼、設計允許什麼結論。**
+
+[返回 Unit 1 地圖](index.qmd) ｜ [前往模組 2](module-2.qmd)

@@ -691,3 +691,61 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(16px);
 }
+
+/* Premium Badge Banner */
+.premium-badge-banner {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.2), rgba(0, 0, 0, 0));
+  border-left: 4px solid var(--accent-gold);
+  color: var(--accent-gold);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Quarto Callout support (maps to concept-box, etc) */
+.callout-title {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.concept-box .callout-title { color: var(--accent-cyan); }
+.ti84-box .callout-title { color: var(--accent-gold); }
+.warning-box .callout-title { color: var(--accent-red); }
+
+.callout-body {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Markdown Table Styling */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+article th {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+article td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+article tr:last-child td {
+  border-bottom: none;
+}
+article tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}

@@ -1,0 +1,207 @@
+---
+title: "模組 5｜問卷能代表全校嗎"
+content-id: "u1-m05"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.10", "1.11", "1.12"]
+practices: ["1.A", "3.A", "4.A"]
+module: "u1-m05"
+periods: 5
+last-reviewed: "2026-07"
+---
+
+![](../../assets/images/generated/module-5-sampling-representation.png){.module-banner fig-alt="全校學生微縮群體被抽樣框分層，部分小人由隨機方式選出，另一側聚集的便利樣本呈現代表性差異。"}
+
+## 情境與決策
+
+分析做得精美，不代表樣本能代表全校。如果問卷只在早自習教室與公開連結收集，常遲到、沒有看到連結或不想回覆的學生可能被忽略。這一模組把焦點從「資料裡有什麼」移到「資料怎麼來」。
+
+合成問卷中的 `response_source` 記錄 homeroom 或 newsletter_link，用於模擬抽樣來源差異；它不代表任何真實平台或學生。
+
+## Topic 1.10｜母體、抽樣框與隨機樣本（第 18–19 節）
+
+### Investigative Question
+
+> **中文：** 要了解全校九至十二年級學生，應從誰之中、用什麼程序抽樣？  
+> **English:** From whom and by what procedure should we sample to learn about all students in grades 9–12 at the school?
+
+### 先界定，再抽樣
+
+先回答四個問題：
+
+1. **Population**：希望結論涵蓋誰？
+2. **Sampling frame**：實際可供抽取的名單包含誰？
+3. **Sample**：最後收集到哪些人的資料？
+4. **Parameter / statistic**：想知道的母體特徵，以及用樣本算出的估計值各是什麼？
+
+本情境的合理目標母體可定為「本學期在校的所有九至十二年級學生」。抽樣框若只包含有早自習課的班級，就可能漏掉某些學生。
+
+### Simple random sample（SRS）
+
+一個清楚、可重現的 SRS 程序：
+
+1. 從完整抽樣框為每位學生配置唯一編號。
+2. 使用亂數產生器，在不重複下選出所需的 $n$ 個編號。
+3. 邀請對應學生，不以方便或研究者判斷替換。
+4. 記錄未回覆情形，但不要偷偷換成願意回答的同學。
+
+SRS 的核心是由機率機制選擇，而不是「隨便找人」。隨機選出的特定樣本仍可能偶然不平衡；random sampling 降低系統性選擇偏差，並不保證每次都完美縮小成母體。
+
+::: {.callout-tip collapse="true" title="AP English Response｜描述 SRS"}
+> Assign a unique number to every student on the complete school roster. Use a random-number generator to select **n** distinct numbers without replacement, and survey the corresponding students.
+
+必須說清楚從何名單、如何產生亂數、選幾人，以及是否不重複。
+:::
+
+### 常見迷思
+
+- **迷思：** Random sample 就是隨意找人。  
+  **修正：** 必須有可說明的機率選取程序。
+- **迷思：** 樣本越大，就能修正所有偏誤。  
+  **修正：** 大型 convenience sample 仍可能穩定地估錯。
+- **迷思：** Random sampling 與 random assignment 是同一件事。  
+  **修正：** 前者處理代表性，後者處理 treatment groups 的可比性。
+
+### A／B／C 分層練習
+
+**A｜界定**　若研究問題是「本校高中部學生平均睡眠時數」，寫出 population 與一個可能的 sampling frame。
+
+**B｜程序**　把「隨機選 80 人」改寫成可由另一位同學完全重現的四步驟程序。
+
+**C｜評估**　從完整名單隨機抽 200 人，但只有 70 人回覆。說明 random sampling 已解決什麼、尚未解決什麼。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：population 是本校高中部全體學生；sampling frame 可為本學期正式在籍名冊，並需確認是否完整。
+- B 應包含唯一編號、亂數工具、選取數量、不重複與不自行替換。
+- C：最初選取降低 selection bias，但低回覆仍可能造成 nonresponse bias。
+:::
+
+### Exit Ticket 1.10
+
+用一個學校研究問題，分別寫出 population、sampling frame、sample，並說明三者不能混用的原因。
+
+---
+
+## Topic 1.11｜選擇合適的抽樣方法（第 20–21 節）
+
+### Investigative Question
+
+> **中文：** 如果不同年級的晨間生活可能不同，哪種抽樣設計能確保各年級都有代表？  
+> **English:** Which sampling design can ensure representation from every grade level when morning routines may differ by grade?
+
+### 先預測，再模擬
+
+全校四個年級人數不同。先預測：
+
+- 一次 SRS 是否「可能」漏掉人數最少的某年級？
+- Stratified sample 如何直接確保各年級都被抽到？
+- 只抽兩個方便聯絡的班級屬於哪種風險？
+
+### 三種機率抽樣
+
+| 方法 | 核心程序 | 適合時機 | 注意事項 |
+|---|---|---|---|
+| SRS | 從完整名單直接隨機抽個體 | 母體相對同質、名單完整 | 小群體可能偶然抽得少 |
+| Stratified random sample | 依與研究相關的特徵分層，再從每層 SRS | 希望每個重要 subgroup 都有代表 | 層內抽樣率與加權要記錄 |
+| Cluster sample | 隨機抽取自然群集，再調查被選群集中的個體 | 個體名單難取得、群集名單可得 | 同群集個體可能很相似 |
+
+以年級分層時，從 9、10、11、12 年級各自抽取 SRS，再合併。Strata 應是層內較相似、層間可能不同的群組；cluster 則希望每個群集像母體的縮影。
+
+**Convenience sample** 不是機率抽樣：選取容易接觸者，例如午休時在圖書館門口攔訪。快速不等於可代表全校。
+
+::: {.callout-tip collapse="true" title="AP English Response｜選擇分層抽樣"}
+> Separate the roster into four strata by grade level. Within each grade, use a random-number generator to select students. Combine the four selected groups into one sample. This design guarantees representation from every grade and may reduce sampling variability if readiness differs by grade.
+:::
+
+### 常見迷思
+
+- **迷思：** Stratified sample 是先選幾個年級，再調查那些年級所有人。  
+  **修正：** 那比較像 cluster；分層抽樣會從每一層抽人。
+- **迷思：** 各年級一定要抽相同人數。  
+  **修正：** 可等額或按母體比例，目的與分析方式要寫清楚。
+- **迷思：** 班級是自然群集，所以隨便選兩班就是 cluster sample。  
+  **修正：** 群集也必須隨機選取。
+
+### A／B／C 分層練習
+
+**A｜分類**　從每個年級各隨機抽 25 人，是 SRS、stratified 還是 convenience sample？
+
+**B｜選擇**　若各年級睡眠習慣可能不同，解釋 stratification 如何幫助本研究。
+
+**C｜設計**　提出一個以班級為 cluster 的可執行抽樣程序，並說明班級間差異很大時的風險。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：stratified random sample。
+- B：確保四個年級都有代表，並可能降低因年級組成偶然不平衡造成的變異。
+- C：列出所有班級、隨機選若干班並調查選中班級學生；若班級差異大，少數被選群集可能不代表全校。
+:::
+
+### Exit Ticket 1.11
+
+用一句話區分 strata 與 clusters，並為晨間問卷選一種抽樣方法及理由。
+
+---
+
+## Topic 1.12｜抽樣與問卷偏誤（第 22 節）
+
+### Investigative Question
+
+> **中文：** 即使會計算正確比例，問卷結果仍可能在哪些地方系統性偏離母體？  
+> **English:** How could the survey results systematically differ from the population even when the calculations are correct?
+
+### 資料來源與偏誤診斷
+
+`response_source` 可用來比較 homeroom 與 newsletter_link 回覆，但這種比較只能發現可能線索，不能證明沒有偏誤。偏誤往往來自沒有出現在資料中的人。
+
+### 常見偏誤
+
+| 類型 | 本情境例子 | 改善方式 |
+|---|---|---|
+| Undercoverage | 名單漏掉沒有固定早自習班的學生 | 使用完整在籍名冊並檢查涵蓋範圍 |
+| Nonresponse | 通勤最久者較少完成早晨問卷 | 多時段提醒、簡短問卷、追蹤回覆率 |
+| Voluntary response | 只有對作息議題很有意見者點公開連結 | 由機率樣本主動邀請，不以公開自願連結代替 |
+| Response bias | 學生怕被責備而少報晚間螢幕時間 | 匿名、非評價性語句、清楚保密界線 |
+| Wording effect | 「你是否也認為浪費時間滑手機導致沒精神？」 | 使用中性、單一概念的問題 |
+
+Bias 是方法造成的系統性偏離，不只是「樣本和母體剛好不同」。沒有任何單一圖表或大樣本可以自動消除偏誤。
+
+::: {.callout-tip collapse="true" title="AP English Response｜偏誤、方向、結果"}
+> Students with the longest commutes may be less likely to complete a morning survey. If these students tend to report lower readiness, nonresponse could cause the sample mean readiness score to overestimate the population mean.
+
+高品質回答包含：誰較可能缺席、該群體可能有何不同、統計結果可能往哪個方向偏。
+:::
+
+### 常見迷思
+
+- **迷思：** 匿名問卷就沒有任何 bias。  
+  **修正：** 匿名可降低部分 response bias，卻不修正 undercoverage 或 nonresponse。
+- **迷思：** 偏誤一定能知道方向。  
+  **修正：** 若不知道缺席者如何不同，應誠實說方向不確定。
+- **迷思：** 把有偏樣本加權就一定正確。  
+  **修正：** 加權需要可信的母體資訊，且無法修正所有未測量差異。
+
+### A／B／C 分層練習
+
+**A｜分類**　只在第一節準時到校的學生中發問卷，主要涉及哪一種 coverage 問題？
+
+**B｜方向**　若晚到學生的準備度通常較低，而他們很少被納入，樣本平均準備度可能往哪個方向偏？
+
+**C｜修訂**　將「你是否因為不負責任地熬夜而上課沒精神？」改成較中性的兩個單一問題。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：undercoverage，因晚到或缺席者難以進入抽樣來源。
+- B：可能偏高。
+- C 例：「你昨晚約睡幾小時？」與「你今天早上的學習準備度為 0–100 中的幾分？」
+:::
+
+### Exit Ticket 1.12
+
+選一種偏誤，用三段鏈條作答：**產生機制 → 被影響群體 → 統計結果可能方向**。若方向無法判定，要說明缺少什麼資訊。
+
+## Lab 5｜抽樣與偏誤模擬
+
+開啟 [Lab 5：Sampling and Bias](../../labs/colab/lab-05-sampling-bias.ipynb)。比較多次 SRS、分層樣本與 convenience sample 對母體平均準備度的估計。
+
+完成證據：清楚的抽樣步驟、至少 100 次重複結果、一段 sampling variability 與 bias 不混用的解釋，以及一項可行改善。
+
+[返回 Unit 1 地圖](index.qmd) ｜ [前往模組 6](module-6.qmd)

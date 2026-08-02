@@ -1,0 +1,161 @@
+---
+title: "模組 2｜學生如何到校"
+content-id: "u1-m02"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.3", "1.4"]
+practices: ["2.A", "3.A", "4.A"]
+module: "u1-m02"
+periods: 3
+last-reviewed: "2026-07"
+---
+
+![](../../assets/images/generated/module-2-commute-categories.png){.module-banner fig-alt="校園入口微縮模型中，公車、單車與步行學生分流到校，旁邊的彩色積木長條呈現各通勤方式的類別比較。"}
+
+## 情境與決策
+
+學校若要改變晨間安排，必須先知道學生如何到校。通勤方式是類別變數；這次我們不算「平均通勤方式」，而是比較各類別出現的次數與比例。
+
+本模組使用合成問卷的 `commute_mode`、`grade`、`ate_breakfast` 與 `arrival_status`。每筆紀錄皆為虛構資料。
+
+## Topic 1.3｜以次數與比例整理類別資料（第 5–6 節）
+
+### Investigative Question
+
+> **中文：** 在受訪樣本中，各種主要通勤方式占多少比例？  
+> **English:** What proportion of surveyed students uses each primary commute mode?
+
+### 先預測，再看資料
+
+1. 先將 walk、bicycle、public_transit、family_car、school_shuttle 依預期比例排序。
+2. 你預期「人數最多」與「比例最高」會是同一類嗎？在什麼情況下比較兩班時不一定？
+3. 哪種圖形可以讓各類別共享同一個零基準線？
+
+### 概念：frequency 與 relative frequency
+
+- **Frequency（次數）**：某類別出現幾次。
+- **Relative frequency（相對次數）**：該類別次數除以有效觀測總數。
+- **Proportion（比例）**：相對次數的另一種表達，介於 0 與 1；乘以 100% 可寫成百分比。
+
+$$
+\text{relative frequency}=\frac{\text{category frequency}}{\text{number of valid responses}}
+$$
+
+當資料有缺失時，分母必須說清楚：是全部受訪者，還是只有對該題提供有效答案者？
+
+### 圖表：長條圖是比較，不是裝飾
+
+適當的 bar chart 應包含：
+
+- 有情境的標題，例如「合成晨間問卷中各通勤方式的學生比例」。
+- 清楚的水平軸類別與垂直軸單位（人數或百分比）。
+- 一致的零基準線與未失真的尺度。
+- 必要時註明有效樣本數與缺失值處理。
+
+類別長條之間留有空隙；不要用直方圖的連續區間呈現類別名稱。
+
+::: {.callout-tip collapse="true" title="AP English Response｜描述類別分布"}
+> In the synthetic survey, **[category]** is the most common commute mode, accounting for approximately **[percentage]%** of valid responses.
+
+回答時包含 category、比較方向、數值與 context；不要只寫「A 比 B 大」。
+:::
+
+### 常見迷思
+
+- **迷思：** 圓餅圖一定比長條圖好。  
+  **修正：** 長條圖通常更容易精確比較高度；選圖應服務問題。
+- **迷思：** 類別依字母順序排列永遠最好。  
+  **修正：** 可依次數排序，也可保留有意義的自然順序，但要一致。
+- **迷思：** 缺失答案也算一種通勤方式。  
+  **修正：** 除非研究目的要分析未回覆，否則應分開報告 missing。
+
+### A／B／C 分層練習
+
+**A｜計算**　一個 40 人班級有 18 人搭公車、12 人步行或騎車、8 人由家人接送、2 人使用其他方式。求各類別相對次數。
+
+**B｜選圖**　若要比較九、十、十一、十二年級的通勤方式組成，你會用分組長條圖還是只畫一張總體長條圖？說明理由。
+
+**C｜稽核**　一張圖的 y 軸從 45% 起跳，使 52% 看起來約為 48% 的三倍。指出圖形如何誤導並提出修正。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：45%、30%、20%、5%。
+- B：分組或百分比長條圖能保留年級資訊；總體圖無法回答年級間比較。
+- C：截斷基準線誇大差異；改由 0 開始並清楚標示百分比。
+:::
+
+### Exit Ticket 1.3
+
+若 180 份有效回覆中有 63 人搭公車，寫出 frequency、relative frequency 與一個完整的情境句。
+
+---
+
+## Topic 1.4｜比較類別分布（第 7 節）
+
+### Investigative Question
+
+> **中文：** 不同年級的通勤方式分布是否相似？  
+> **English:** How does the distribution of commute mode differ across grade levels?
+
+### 資料來源與比較基準
+
+本題使用 `grade` 與 `commute_mode` 的雙向表。因各年級回覆人數可能不同，主要比較**每個年級內的條件比例**，而不是只比較原始人數。
+
+### 先預測，再計算
+
+假設九年級 60 人中有 24 人搭公車，十二年級 30 人中有 15 人搭公車：
+
+- 哪個年級搭公車人數較多？
+- 哪個年級搭公車比例較高？
+- 兩個答案為何可以不同？
+
+### 概念：分母決定問題
+
+比較「各年級中通勤方式的分布」時，每個比例的分母是該年級有效回覆總數。比較「各通勤方式中年級的組成」時，分母則是該通勤方式的總數。先用語句確認條件，再計算。
+
+好的比較至少包含：
+
+1. 明確指出比較的群組。
+2. 使用同一基準的比例。
+3. 指出最大差異或共同模式。
+4. 不把樣本差異誇大成母體或因果結論。
+
+::: {.callout-tip collapse="true" title="AP English Response｜比較條件比例"}
+> The proportion who use public transit is **[x]%** among grade 9 respondents and **[y]%** among grade 12 respondents, a difference of **[x−y] percentage points** in this sample.
+
+請寫 percentage points，不要把兩個百分比直接說成 percent increase，除非真的計算相對增加率。
+:::
+
+### 常見迷思
+
+- **迷思：** 人數較多就代表比例較高。  
+  **修正：** 群組大小不同時必須看共同分母下的比例。
+- **迷思：** 樣本中的差異證明所有年級都不同。  
+  **修正：** 目前只能描述這份樣本，推廣取決於抽樣方法。
+- **迷思：** 52% 與 47% 相差 5%。  
+  **修正：** 更精確的說法是相差 5 個百分點。
+
+### A／B／C 分層練習
+
+**A｜分母**　九年級 50 人中 20 人步行或騎車；十二年級 40 人中 12 人步行或騎車。計算兩個年級內的比例。
+
+**B｜比較**　用一個完整句比較上述比例，包含差異方向與 percentage points。
+
+**C｜質疑**　如果回覆連結主要由騎自行車社團轉傳，這會如何影響通勤方式分布？可以用圖表修正嗎？
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：40% 與 30%。
+- B：九年級樣本的步行／騎車比例較十二年級高 10 個百分點。
+- C：可能過度代表步行／騎車者；換圖不能修正有偏的資料來源，需要改善抽樣。
+:::
+
+### Exit Ticket 1.4
+
+寫出一個「人數比較」會誤導、但「群組內比例比較」較公平的學校情境，並標出兩個比例的分母。
+
+## Lab 2｜類別資料與長條圖
+
+開啟 [Lab 2：Categorical Data](../../labs/colab/lab-02-categorical-data.ipynb)。依序 Run all，完成次數表、相對次數表與分組長條圖，最後填寫一段 AP English Response。
+
+完成證據：一張標示完整的圖、一個正確分母的條件比例，以及一句不超出樣本範圍的結論。
+
+[返回 Unit 1 地圖](index.qmd) ｜ [前往模組 3](module-3.qmd)

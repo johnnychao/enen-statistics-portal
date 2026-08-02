@@ -1,14 +1,33 @@
 /* 恩恩統計家教 Enen Statistics - Application Logic Engine */
 
+const DEFAULT_PAID_STUDENTS = [
+  {
+    email: "demo.student@gmail.com",
+    name: "張小明 (Demo Student)",
+    allowedUnits: ["u1", "u2", "u3"],
+    joinedDate: "2026-07-01",
+    note: "已繳費 Unit 1~3 課程"
+  },
+  {
+    email: "enen.vip@gmail.com",
+    name: "李大華 (VIP 全修生)",
+    allowedUnits: ["u1", "u2", "u3", "u4", "u5", "exam"],
+    joinedDate: "2026-06-15",
+    note: "AP 5分全修保證班"
+  }
+];
+
 // Global State
+let COURSE_DATA = { units: [] };
 let currentUser = null;
 let paidStudents = [];
 let activeUnitId = "u1";
-let activeModuleId = "u1-m1";
+let activeModuleId = "u1-index";
 let isTeacherUnlocked = false;
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
+  buildCourseData();
   loadStudentDatabase();
   checkUserAuth();
   initUnitTabs();
@@ -16,6 +35,85 @@ document.addEventListener("DOMContentLoaded", () => {
   updateZCalculator();
   updateTCalculator();
 });
+
+function buildCourseData() {
+  if (typeof GENERATED_COURSE_DATA === 'undefined') return;
+
+  const newCourseData = { units: [] };
+  
+  // Convert units
+  if (GENERATED_COURSE_DATA.units) {
+    for (const [unitId, unitData] of Object.entries(GENERATED_COURSE_DATA.units)) {
+      const indexPage = unitData['index'] || { metadata: {}, html: "" };
+      const unitObj = {
+        id: unitId,
+        code: `Unit ${indexPage.metadata['ap-unit'] || unitId.replace('u', '')}`,
+        badgeColor: "#00f2fe", // Default color
+        title: indexPage.metadata.title || "Unit Title",
+        subtitle: "AP Statistics Official Unit",
+        description: indexPage.html,
+        modules: []
+      };
+
+      // Add modules (exclude index)
+      for (const [modId, modData] of Object.entries(unitData)) {
+        if (modId !== 'index') {
+          unitObj.modules.push({
+            id: `${unitId}-${modId}`,
+            code: modId.replace('module-', 'Topic '),
+            title: modData.metadata.title || modId,
+            summary: "",
+            studentContent: modData.html,
+            teacherContent: "" // Handle via premium content rendering later
+          });
+        }
+      }
+      // Add a default index module
+      unitObj.modules.unshift({
+        id: `${unitId}-index`,
+        code: "Overview",
+        title: unitObj.title,
+        summary: "單元介紹與課程地圖",
+        studentContent: indexPage.html,
+        teacherContent: ""
+      });
+
+      // Add Premium Assessments and Practice if they exist for this unit
+      if (GENERATED_COURSE_DATA.practice) {
+        for (const [pracId, pracData] of Object.entries(GENERATED_COURSE_DATA.practice)) {
+           unitObj.modules.push({
+             id: `practice-${pracId}`,
+             code: `Practice 🏆`,
+             title: pracData.metadata.title || pracId,
+             summary: "進階練習",
+             studentContent: `<div class="premium-badge-banner">🏆 此為付費專屬練習模組</div>` + pracData.html,
+             teacherContent: ""
+           });
+        }
+      }
+      
+      if (GENERATED_COURSE_DATA.assessment) {
+        for (const [assmtId, assmtData] of Object.entries(GENERATED_COURSE_DATA.assessment)) {
+           unitObj.modules.push({
+             id: `assessment-${assmtId}`,
+             code: `Exam 🏆`,
+             title: assmtData.metadata.title || assmtId,
+             summary: "單元評量與測驗",
+             studentContent: `<div class="premium-badge-banner">🏆 此為付費專屬評量模組</div>` + assmtData.html,
+             teacherContent: ""
+           });
+        }
+      }
+
+      newCourseData.units.push(unitObj);
+    }
+  }
+  
+  // Sort units
+  newCourseData.units.sort((a, b) => a.id.localeCompare(b.id));
+
+  COURSE_DATA = newCourseData;
+}
 
 /* --- 1. Authentication & Student Database --- */
 function loadStudentDatabase() {

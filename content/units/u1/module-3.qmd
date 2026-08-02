@@ -1,0 +1,150 @@
+---
+title: "模組 3｜通勤時間的分布"
+content-id: "u1-m03"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.5", "1.6"]
+practices: ["2.A", "3.A", "4.A"]
+module: "u1-m03"
+periods: 4
+last-reviewed: "2026-07"
+---
+
+![](../../assets/images/generated/module-3-commute-distribution.png){.module-banner fig-alt="通勤時間微縮模型以小時鐘、圓點列與透明直方盒呈現分布形狀，遠端單獨圓點暗示可能的異常值。"}
+
+## 情境與決策
+
+「平均通勤 24 分鐘」聽起來簡單，卻藏住許多資訊：多數人都接近 24 分鐘嗎？有沒有少數學生通勤特別久？學校若只看平均數，可能忽略真正承受負擔的學生。
+
+本模組使用合成問卷中的 `commute_minutes`，單位是單程分鐘數。
+
+## Topic 1.5｜呈現數值變數（第 8–9 節）
+
+### Investigative Question
+
+> **中文：** 受訪學生的單程通勤時間如何分布？  
+> **English:** What does the distribution of one-way commute time look like for surveyed students?
+
+### 先預測，再看資料
+
+1. 畫出你預期的通勤時間分布草圖。
+2. 你預期分布對稱、左偏或右偏？為什麼？
+3. 若有一位學生通勤 75 分鐘，他在 dotplot 與 histogram 中會如何出現？
+
+### 圖表一：dotplot 看見個別值
+
+Dotplot 在數線上為每一筆觀測放置一個點，適合中小型資料集。它能保留重複值、間隔與可能的異常值。每個點代表一位虛構受訪者，不代表真實個人。
+
+### 圖表二：histogram 看見整體形狀
+
+Histogram 將數值分入連續區間。長條相接，因為相鄰區間代表連續數值範圍。讀圖時先確認：
+
+- bin width（組距）與區間邊界。
+- y 軸是 frequency、relative frequency 或 density。
+- 標題、單位與資料情境。
+
+改變組距不會改變原始資料，但可能讓局部形狀看起來不同。應嘗試幾個合理組距，確認主要特徵是否穩定，而不是挑選最戲劇化的版本。
+
+::: {.callout-tip collapse="true" title="AP English Response｜選擇圖形"}
+> A histogram is appropriate because commute time is quantitative. It groups nearby values into intervals and reveals the overall shape of the distribution.
+
+若資料量較小且希望看到個別值：
+
+> A dotplot preserves individual observations, making gaps and unusual values easier to identify.
+:::
+
+### 常見迷思
+
+- **迷思：** Histogram 的長條可任意交換位置。  
+  **修正：** 區間有固定數值順序。
+- **迷思：** 最高的長條就是平均數。  
+  **修正：** 它只表示該區間的頻率最高。
+- **迷思：** 組距越小越客觀。  
+  **修正：** 太小會顯得零碎；應依問題與樣本量選擇合理尺度。
+
+### A／B／C 分層練習
+
+**A｜選圖**　對 25 位學生的精確通勤分鐘數，你若想找出重複值與間隔，會先用 dotplot 還是 pie chart？
+
+**B｜組距**　同一資料分別用 5 分鐘與 20 分鐘組距。寫出兩種選擇各可能保留或隱藏什麼。
+
+**C｜稽核**　一張 histogram 的區間標為 0–10、10–30、30–40，卻用相同長條寬度。說明讀者可能被如何誤導。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：dotplot；pie chart 不適合顯示每個數值位置。
+- B：5 分鐘組距呈現較多局部細節，20 分鐘組距較容易看整體但可能掩蓋群聚或間隔。
+- C：數值區間寬度不同卻畫成同寬，視覺面積不能公平代表頻率。
+:::
+
+### Exit Ticket 1.5
+
+用兩句話比較 dotplot 與 histogram：哪一種較能看見個別值？哪一種較適合快速看大型資料的整體形狀？
+
+---
+
+## Topic 1.6｜完整描述一個分布（第 10–11 節）
+
+### Investigative Question
+
+> **中文：** 通勤時間分布的形狀、典型位置、變異與不尋常特徵是什麼？  
+> **English:** What are the shape, center, variability, and unusual features of the commute-time distribution?
+
+### 資料來源與閱讀順序
+
+使用 Lab 3 產生的 dotplot 與 histogram。先讀軸與單位，再依 **shape → center → variability → unusual features → context** 的順序組織描述。
+
+### 概念：描述必須完整且有情境
+
+**Shape** 常見語言：
+
+- roughly symmetric：左右大致相似。
+- skewed right：右側尾巴較長。
+- skewed left：左側尾巴較長。
+- unimodal／bimodal：一個／兩個明顯峰。
+
+**Center** 是典型位置的概略描述；精確選擇 mean 或 median 將在模組 4 處理。
+
+**Variability** 說明數值散布範圍與彼此差異程度，不是只報最大值。
+
+**Unusual features** 包含 gaps、clusters 與 potential outliers。圖形上孤立的點值得查核，但不能只憑「看起來遠」就斷定輸入錯誤。
+
+::: {.callout-tip collapse="true" title="AP English Response｜描述分布"}
+> The distribution of one-way commute time is **[shape]**, centered at about **[value] minutes**, with most observations ranging from approximately **[low] to [high] minutes**. A possible unusual value near **[value] minutes** may represent a student with a substantially longer commute.
+
+避免只列形容詞。每個特徵都要連回 commute time 與 minutes。
+:::
+
+### 常見迷思
+
+- **迷思：** skewed right 表示大多數資料在右邊。  
+  **修正：** 名稱由較長的尾巴方向決定。
+- **迷思：** 發現 outlier 就直接刪除。  
+  **修正：** 先查核原因；它可能是真實且重要的案例。
+- **迷思：** 描述「很分散」就足夠。  
+  **修正：** 要提供大致範圍、比較基準或稍後使用的數值量數。
+
+### A／B／C 分層練習
+
+**A｜詞彙**　一個分布多數值落在 10–25 分鐘，少數延伸到 70 分鐘。較可能是左偏或右偏？
+
+**B｜修訂**　把「圖往右，平均是 25」改成包含變數、單位與正確形狀用語的句子。
+
+**C｜解釋**　如果 histogram 出現 0–5 分鐘與 35–50 分鐘兩個群聚，提出一個可查核的情境解釋，並指出需要哪個額外變數驗證。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：右偏，因較長尾巴朝較大的分鐘數延伸。
+- B 例：受訪學生的單程通勤時間呈右偏，典型位置約在 25 分鐘附近。
+- C 例：不同通勤方式可能形成群聚，可用 `commute_mode` 分組檢查；這只是可查核假設，不是已證實原因。
+:::
+
+### Exit Ticket 1.6
+
+依「shape、center、variability、unusual feature、context」寫一段三句描述。若圖上沒有明顯異常特徵，也要明確說明。
+
+## Lab 3｜通勤時間分布
+
+開啟 [Lab 3：Distributions](../../labs/colab/lab-03-distributions.ipynb)。依提示修改一個組距參數，比較兩張 histogram，並完成一段不超出資料範圍的英文描述。
+
+完成證據：dotplot、兩種合理組距的 histogram、選圖理由，以及完整的分布描述。
+
+[返回 Unit 1 地圖](index.qmd) ｜ [前往模組 4](module-4.qmd)

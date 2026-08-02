@@ -1,0 +1,64 @@
+---
+title: "Unit 1 數位 FRQ｜通勤與晨間準備度"
+content-id: "u1-assessment-frq"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.2", "1.6", "1.7", "1.8", "1.9", "1.10", "1.12", "1.13"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u1-assessment"
+periods: 1
+last-reviewed: "2026-07"
+---
+
+**建議時間：25 分鐘。** 直接以完整句輸入答案。每個結論都要使用變數名稱、單位與情境。這是原創題目；公開頁面不提供答案或評分規準。
+
+## 情境
+
+晨光高中想了解通勤負擔與晨間學習準備度。研究團隊在兩個第一節課班級發放問卷，共取得 180 份完整回覆。每位受訪者記錄主要通勤方式、單程通勤分鐘數，以及 0–100 分的自評晨間準備度。
+
+研究團隊得到下列通勤時間摘要：
+
+| 主要通勤方式 | $n$ | Mean（分鐘） | SD（分鐘） | Median（分鐘） | IQR（分鐘） |
+|---|---:|---:|---:|---:|---:|
+| Walk | 54 | 12.8 | 5.4 | 12 | 7 |
+| Family car | 58 | 20.7 | 10.6 | 18 | 11 |
+| Public transit | 68 | 32.5 | 15.2 | 29 | 14 |
+
+Public transit 組的 histogram 呈右偏，並有少數 60 分鐘以上的通勤時間；walk 組大致單峰且較接近對稱。
+
+## 作答題
+
+### (a) 資料結構（2 分）
+
+指出本研究的 observational unit，並分別判斷 `commute_mode` 與 `commute_minutes` 是 categorical 或 quantitative。每一項都要以情境說明。
+
+### (b) 比較分布（2 分）
+
+使用至少一個 center 與一個 variability 的數值證據，比較 public transit 與 walk 兩組的通勤時間分布。答案須包含分鐘單位。
+
+### (c) 關聯與因果（2 分）
+
+一位學生說：「摘要顯示搭公車造成通勤時間變長。」評估這個說法。說明研究設計為何不足以支持該因果結論，並提出一個合理的 confounding variable。
+
+### (d) 推廣限制（1 分）
+
+問卷只來自兩個第一節課班級。說明此選樣方式如何限制把結果推廣到全校學生。
+
+### (e) 實驗設計（2 分）
+
+學校另招募 60 位願意參與的學生，想測試 15 分鐘 morning_planning 是否提高 `readiness_score`。設計一個包含 random assignment、control group 與明確 response variable 的比較實驗。程序必須讓另一位研究者可以照做。
+
+### (f) 結論邊界（1 分）
+
+假設 (e) 的實驗執行良好且 morning_planning 組平均改善較多，說明可以作出的因果結論，以及為何仍不能自動推廣到全校。
+
+## 送出前檢核
+
+- [ ] 每一段都回答題目所問，而不是抄寫題幹。
+- [ ] 所有統計量都有變數、群組與單位。
+- [ ] 比較使用 than / compared with 等直接語言。
+- [ ] 我沒有把 observational association 寫成 causation。
+- [ ] 我分清 random assignment 與 random sampling。
+- [ ] 結論範圍與研究設計一致。
+
+[返回選擇題](unit1-assessment.qmd) ｜ [繼續雙語資料建議書](data-memo.qmd)

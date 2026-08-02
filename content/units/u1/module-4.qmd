@@ -1,0 +1,222 @@
+---
+title: "模組 4｜什麼是典型學生"
+content-id: "u1-m04"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.7", "1.8", "1.9"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u1-m04"
+periods: 6
+last-reviewed: "2026-07"
+---
+
+![](../../assets/images/generated/module-4-typical-student.png){.module-banner fig-alt="統計教室微縮模型以天平、兩組小人與立體箱形圖比較平均數、中位數、變異及群組分布。"}
+
+## 情境與決策
+
+校務會議想用一個數字代表「典型學生的通勤時間」。有人主張報平均數，有人認為中位數更公平。你的任務不是選一個熟悉的公式，而是依分布形狀與決策目的選擇適當量數，並誠實呈現學生之間的差異。
+
+本模組使用合成問卷的 `commute_minutes`、`sleep_hours`、`readiness_score`、`commute_mode` 與 `ate_breakfast`。
+
+## Topic 1.7｜中心：mean 與 median（第 12–13 節）
+
+### Investigative Question
+
+> **中文：** 哪一個中心量數能較誠實地代表受訪學生的典型通勤時間？  
+> **English:** Which measure of center more appropriately represents a typical commute time for the surveyed students?
+
+### 先預測，再計算
+
+考慮資料：12、15、18、20、75 分鐘。
+
+1. 不計算，先判斷 mean 與 median 哪一個較大。
+2. 若把 75 改為 35，哪一個中心量數改變較多？
+3. 哪一個數字更接近多數學生的經驗？這不代表另一個量數「錯」在哪裡？
+
+### 概念：兩種典型位置
+
+樣本平均數：
+
+$$
+\bar{x}=\frac{\sum x_i}{n}
+$$
+
+**Mean** 使用每一個值，因此能反映總量平衡點，也會受極端值與偏態影響。**Median** 是排序後的中間位置，較 resistant；單一極端值通常不會大幅改變它。
+
+選擇原則：
+
+- 分布大致對稱、沒有強烈異常值時，mean 與 median 通常接近。
+- 分布明顯偏斜或含有極端值時，median 常較能代表「典型個體」。
+- 若決策關心總時間或總成本，mean 仍可能重要；報告時要說明其敏感性。
+
+::: {.callout-tip collapse="true" title="AP English Response｜選擇中心量數"}
+> The median is a more appropriate measure of a typical commute because the distribution is right-skewed and includes a possible high outlier. Unlike the mean, the median is resistant to unusually long commute times.
+
+若選 mean，也要以分布特徵支持，不可只說「比較準」。
+:::
+
+### 常見迷思
+
+- **迷思：** Mean 永遠比 median 正確。  
+  **修正：** 適切性取決於分布與問題。
+- **迷思：** Median 代表資料的一半等於它。  
+  **修正：** 它把排序位置大致分成上下兩半，不要求很多值相同。
+- **迷思：** Mean 大於 median 就證明每筆資料都在右側。  
+  **修正：** 這只是右偏分布常見現象，仍要查看圖形。
+
+### A／B／C 分層練習
+
+**A｜計算**　對 5、6、7、8、24 計算 mean 與 median。
+
+**B｜解釋**　若一筆錯誤的 24 修正為 9，預測兩個量數如何改變，再驗算。
+
+**C｜決策**　交通組需要估計 200 位學生的「通勤總分鐘數」，輔導組要描述「典型學生的負擔」。兩組是否可能合理地使用不同中心量數？解釋。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：mean = 10，median = 7。
+- B：修正後 mean = 7，median 仍為 7；mean 改變較多。
+- C：可以。總量規劃可使用 mean 估計總分鐘數；偏斜時描述典型個體可用 median，兩者回答不同問題。
+:::
+
+### Exit Ticket 1.7
+
+寫出「量數選擇＋分布證據＋情境」三部分：你會用 mean 還是 median 向校長描述典型通勤時間？
+
+---
+
+## Topic 1.8｜變異、五數摘要與 boxplot（第 14–15 節）
+
+### Investigative Question
+
+> **中文：** 即使兩組學生的中心相同，他們的通勤負擔是否可能非常不同？  
+> **English:** Can two groups with the same center have meaningfully different variability in commute time?
+
+### 資料來源與預測
+
+比較兩組虛構分鐘數：
+
+- A 組：18、19、20、21、22
+- B 組：5、10、20、30、35
+
+兩組 median 都是 20。先圈出哪一組較一致，再用量數驗證。
+
+### 概念：中心不等於全貌
+
+- **Range** = maximum − minimum，容易受極端值影響。
+- **Interquartile range**：$IQR=Q_3-Q_1$，描述中間 50% 資料的跨度，較 resistant。
+- **Standard deviation**：資料與 mean 的典型距離尺度；值越大代表相對於 mean 的散布通常越大。其單位與原變數相同。
+
+Standard deviation 不會是負數；所有值都相同時為 0。它受極端值影響，因此常與 mean 一起使用；IQR 常與 median 一起使用。
+
+### Five-number summary 與可能異常值
+
+五數摘要為 minimum、$Q_1$、median、$Q_3$、maximum。常用的 potential outlier 判準：
+
+$$
+x<Q_1-1.5(IQR) \quad\text{或}\quad x>Q_3+1.5(IQR)
+$$
+
+Boxplot 以箱體呈現中間 50%，中線表示 median；鬚與個別點的畫法應依使用的軟體規則解讀。被標示為 potential outlier 不等於錯誤，也不代表可以自動刪除。
+
+::: {.callout-tip collapse="true" title="AP English Response｜解釋變異"}
+> The standard deviation of commute time is **[s] minutes**, meaning that commute times typically differ from the sample mean by about **[s] minutes**.
+
+> The middle 50% of commute times spans **[IQR] minutes**, from **[Q1]** to **[Q3]** minutes.
+
+務必寫單位與變數，不要只說「spread 是 8」。
+:::
+
+### 常見迷思
+
+- **迷思：** Standard deviation 是最大值減最小值。  
+  **修正：** 那是 range；SD 使用每筆資料相對於 mean 的距離資訊。
+- **迷思：** IQR 包含全部資料的 50%。  
+  **修正：** 它描述排序後中間約 50% 的跨度。
+- **迷思：** Boxplot 的箱子越長代表人數越多。  
+  **修正：** 每個四分位區段約含四分之一資料；長度代表數值跨度。
+
+### A／B／C 分層練習
+
+**A｜判讀**　若 $Q_1=12$、$Q_3=28$，求 IQR 與上下 fence。
+
+**B｜比較**　A、B 兩組 median 同為 20，哪組 IQR 與 SD 應較大？用資料結構解釋，不必手算 SD。
+
+**C｜稽核**　分析者看到 70 分鐘被 boxplot 標成 potential outlier，立即刪除。提出兩個刪除前要做的查核。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A：IQR = 16；下 fence = −12，上 fence = 52。
+- B：B 組較大，因其值離中心 20 的距離明顯較大。
+- C：確認原始紀錄／單位是否輸入錯誤；確認長通勤是否為真實且對決策重要的觀測。也可做保留與排除的敏感度比較。
+:::
+
+### Exit Ticket 1.8
+
+若兩組 readiness mean 都是 65 分，但 SD 分別為 8 與 24 分，寫一句不涉及因果的情境解釋。
+
+---
+
+## Topic 1.9｜比較多組分布（第 16–17 節）
+
+### Investigative Question
+
+> **中文：** 不同通勤方式學生的通勤時間分布有何實質差異？  
+> **English:** How do commute-time distributions differ across commute-mode groups?
+
+### 先預測，再比較
+
+在看 side-by-side boxplots 前，預測 public_transit、walk 與 family_car 三組的 center、variability 與可能偏態。寫下你預測所依據的生活機制，但把它標示為「假設」，不是資料結論。
+
+### 比較框架
+
+一段完整組間比較應：
+
+1. 以同一變數與單位比較。
+2. 說明 shape（若圖形提供）、center、variability 與 unusual features。
+3. 使用比較詞，例如 higher、more variable、more right-skewed。
+4. 至少提供一個數值證據。
+5. 限定在觀測樣本，不把 group difference 寫成 causal effect。
+
+不要分別描述三組後就停止；必須直接說明**哪組比哪組如何不同**。
+
+::: {.callout-tip collapse="true" title="AP English Response｜組間比較"}
+> Students in the public-transit group have a higher median commute time than students in the walk group (**[x]** versus **[y] minutes**). Public-transit commute times are also more variable, with an IQR of **[a] minutes** compared with **[b] minutes**. These results describe an association in the surveyed sample and do not show that the travel mode itself causes a longer commute.
+:::
+
+### 常見迷思
+
+- **迷思：** Boxplot 沒顯示 mean，所以不能比較中心。  
+  **修正：** 可比較 median；要先說清楚使用哪個中心量數。
+- **迷思：** 箱體沒有重疊就證明母體不同。  
+  **修正：** 描述圖形不能自動取代抽樣推廣與推論程序。
+- **迷思：** 搭公車組 median 較高，所以公車造成通勤時間增加。  
+  **修正：** 距離、路線與居住地可能同時影響通勤方式與時間。
+
+### A／B／C 分層練習
+
+**A｜句型**　用 higher/lower 與 more/less variable 各寫一句組間比較。
+
+**B｜證據**　A 組 median 18、IQR 9；B 組 median 27、IQR 16。寫出兩句含數值與單位的比較。
+
+**C｜限制**　提出一個可能同時與通勤方式和通勤時間相關的變數，說明它為何使因果結論不合理。
+
+::: {.callout-note collapse="true" title="低風險練習自我檢核"}
+- A 合格答案必須直接比較同一量數並指出群組。
+- B：B 組 median 高 9 分鐘，且中間 50% 的跨度多 7 分鐘。
+- C 例：住家到校距離可能影響選擇哪種通勤方式，也直接影響通勤時間。
+:::
+
+### Exit Ticket 1.9
+
+使用 Claim–Evidence–Context–Limitation 四句框架，比較任兩個通勤方式的通勤時間分布；至少包含一個中心與一個變異量數。
+
+## Lab 4｜摘要量數與組間比較
+
+開啟 [Lab 4：Summary Comparisons](../../labs/colab/lab-04-summary-comparisons.ipynb)。Run all 後選擇兩個通勤群組，完成 side-by-side boxplot、摘要表與數位作答段落。
+
+完成證據：合理選擇 mean/SD 或 median/IQR、直接組間比較、至少兩個數值證據，以及非因果限制句。
+
+::: {.callout-important title="數位 FRQ 排練"}
+先在 12 分鐘內、不看筆記完成 [Unit 1 數位 FRQ](../../assessment/frq.qmd) 的 (a)–(c)。此階段只練描述性部分；完成模組 5–6 後再回答研究設計部分。
+:::
+
+[返回 Unit 1 地圖](index.qmd) ｜ [前往模組 5](module-5.qmd)

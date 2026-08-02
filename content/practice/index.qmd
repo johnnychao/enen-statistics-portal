@@ -1,0 +1,89 @@
+---
+title: "Unit 1 分層練習中心"
+content-id: "u1-practice-index"
+framework-version: "2026-27"
+ap-unit: 1
+ap-topics: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11", "1.12", "1.13"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u1-practice"
+periods: 2
+last-reviewed: "2026-07"
+---
+
+每個模組頁都有 A（辨識與計算）、B（解釋與應用）、C（評估與設計）三層練習。先做和自己診斷結果相符的層級，不必從最難開始。
+
+| Topic | 我需要能做到 | 練習入口 |
+|---:|---|---|
+| 1.1–1.2 | 寫研究問題；辨識觀察單位與變數 | [模組 1](../units/u1/module-1.qmd) |
+| 1.3–1.4 | 建立比例；比較類別分布 | [模組 2](../units/u1/module-2.qmd) |
+| 1.5–1.6 | 選圖並完整描述分布 | [模組 3](../units/u1/module-3.qmd) |
+| 1.7–1.9 | 選擇摘要量數；比較多組分布 | [模組 4](../units/u1/module-4.qmd) |
+| 1.10–1.12 | 設計樣本；診斷偏誤 | [模組 5](../units/u1/module-5.qmd) |
+| 1.13 | 設計實驗；界定因果與推廣 | [模組 6](../units/u1/module-6.qmd) |
+
+## Station 1｜快速分類（6 分鐘）
+
+將每一句分到最適合的標籤：**categorical / quantitative / sampling / assignment / association / causation**。每個標籤使用一次。
+
+1. `arrival_status` 的值為 early、on_time、late。
+2. `commute_minutes` 記錄單程分鐘數。
+3. 從完整名單以亂數選 100 人。
+4. 將參與者以亂數分到 morning_planning 或 usual_routine。
+5. 問卷顯示較長睡眠者通常有較高準備度。
+6. 隨機實驗顯示介入造成參與者平均 change score 改變。
+
+::: {.callout-note collapse="true" title="Station 1 自我檢核"}
+依序為 categorical、quantitative、sampling、assignment、association、causation。第 6 句仍須假設實驗執行良好並限定適當結論範圍。
+:::
+
+## Station 2｜把不完整回答升級（10 分鐘）
+
+把下列三句各改成包含**變數、群組、數值或設計理由、情境、限制**的完整回答：
+
+1. 「公車比較高。」
+2. 「中位數比較好。」
+3. 「這個樣本是 random，所以證明活動有效。」
+
+::: {.callout-tip collapse="true" title="可用的 AP English 骨架"}
+> **Claim:** Group A has a higher median than Group B.  
+> **Evidence:** The medians are ___ and ___ minutes.  
+> **Context:** This comparison concerns one-way commute time in the surveyed sample.  
+> **Limitation:** Because the data are observational, the difference does not establish causation.
+:::
+
+::: {.callout-note collapse="true" title="Station 2 自我檢核原則"}
+1. 「高」必須指出哪個量數、和誰比較、單位與數值。
+2. Median 的選擇需要偏態或異常值證據；若決策關心總量，mean 也可能合理。
+3. 要分清 random sampling 與 random assignment；前者關乎推廣，後者關乎因果。
+:::
+
+## Station 3｜研究設計決策（12 分鐘）
+
+學校有完整的四個年級名冊，想估計全校準備度平均數，並測試 morning_planning 活動。
+
+1. 寫出一個按年級分層的抽樣程序。
+2. 說明如何從所招募且同意參與者中進行區集後隨機分派。
+3. 指定一個 treatment、一個 control 與一個 response variable。
+4. 分別寫出結果可推廣與可談因果所需的設計條件。
+5. 提出一項倫理或實施注意事項。
+
+::: {.callout-note collapse="true" title="Station 3 自我檢核原則"}
+- 每年級都要以亂數選樣，不能只選方便班級。
+- Blocking 是先按年級分組，再於每個 block 內 random assignment。
+- Treatment 與 response 必須事先清楚定義；兩組測量條件一致。
+- 機率抽樣支持推廣；隨機分派支持參與者範圍內的因果。
+- 參與須有適當同意、風險合理、資料去識別化，且不可把缺席者悄悄刪除。
+:::
+
+## 考前 60 秒檢核
+
+在送出任何統計回答前，確認：
+
+- [ ] 我有寫變數與情境，而非只報數字。
+- [ ] 比較群組時，我使用相同的分母或量數。
+- [ ] 圖表描述包含 shape、center、variability 與 unusual features。
+- [ ] 我沒有把 association 寫成 causation。
+- [ ] 我分清 random sampling 與 random assignment。
+- [ ] 我有界定結論適用的樣本或母體。
+
+[回到章前診斷](diagnostic.qmd) ｜ [進入單元評量](../assessment/unit1-assessment.qmd) ｜ [返回 Unit 1 地圖](../units/u1/index.qmd)
