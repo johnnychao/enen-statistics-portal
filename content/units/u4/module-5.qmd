@@ -1,620 +1,391 @@
 ---
-title: "2.5 Binomial distributions"
+title: "2.5 二項分配 (Binomial Distributions)"
 ---
 
-### 2.4. DISCRETE RANDOM VARIABLES
-143
-Section summary
-• A random variable is a variable whose values have numerical outcomes that result from a
-random phenomenon.
-• A probability distribution for a discrete random variable shows the probability associated
-with every possible value of the random variable. The sum of the probabilities over all possible
-values of a discrete random variable is 1.
-• A discrete probability distribution can be determined using the rules of probability or estimated
-with a simulation.
-• A discrete probability distribution can be represented as a graph, table, or function showing
-the probabilities associated with values of a random variable.
-• A cumulative probability distribution can be represented as a table or function and shows the
-probability of being less than or equal to each value of the discrete random variable.
-• A numerical value measuring a characteristic of a probability distribution of a random variable,
-or a population, is a parameter. The value of a parameter is a single, fixed value. The mean
-and standard deviation are parameters of a probability distribution.
-• The mean (expected value) and standard deviation of a discrete random variable X can
-be found using the following formulas, where xi is a value of the random variable and P(xi)
-is the probability of that value:
-E(X) = µX = ∑xi ⋅P(xi)
-= x1 ⋅P(x1) + x2 ⋅P(x2) + ⋯+ xn ⋅P(xn)
-V ar(X) = σ2
-X = ∑(xi -µX)2 ⋅P(xi)
-= (x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
-SD(X) = σX =
-√
-∑(xi -µX)2 ⋅P(xi)
-=
-√
-(x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
-We can think of P(xi) as the weight, and each term is weighted its appropriate amount.
-• The square of the standard deviation of a random variable is called the variance of the random
-variable and is denoted as σ2
-X.
-• The mean or expected value can be interpreted as the long-run average outcome of the random
-variable, that is the average after many, many repetitions of the random process. The mean
-of a probability distribution does not need to be a value in the distribution.
-• The standard deviation can be interpreted as the typical deviation of the values of the random
-variable from the mean value over the long run, that is after many, many repetitions of the
-random process.
-• The parameters mean and standard deviation for the probability distribution of a discrete
-random variable should be interpreted in the context of a specific population.
+### 2.4 離散隨機變數 (Discrete Random Variables) 總結
 
+- **隨機變數 (Random variable)** 是一個變數，其數值結果來自隨機現象。
+- 離散隨機變數的**機率分配 (Probability distribution)** 顯示了隨機變數每個可能數值所對應的機率。離散隨機變數所有可能數值的機率總和為 1。
+- 離散機率分配可以使用機率規則來確定，或透過**模擬 (Simulation)** 來估計。
+- 離散機率分配可以用圖表、表格或函數來表示，顯示隨機變數數值相關的機率。
+- **累積機率分配 (Cumulative probability distribution)** 可以用表格或函數表示，顯示小於或等於離散隨機變數每個數值的機率。
+- 衡量隨機變數或母體機率分配特徵的數值稱為**參數 (Parameter)**。參數的值是單一且固定的數值。平均數和標準差是機率分配的參數。
+- 離散隨機變數 $X$ 的**平均數 (期望值, Expected value)** 和**標準差 (Standard deviation)** 可以使用下列公式求得，其中 $x_i$ 是隨機變數的值，而 $P(x_i)$ 是該值的機率：
 
-144
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-Exercises
-2.25
-Patreon contributions.
-The distribution of monthly contributions made to a particular Patreon
-creator is given as follows:
-Monthly Contribution
-$3
-$5
-$10
-$25
-Proportion
-0.50
-0.30
-0.15
-0.05
-(a) Compute the average monthly contribution made to this creator.
-(b) Compute the standard deviation of the monthly contributions made to this creator.
-2.26
-Experiment launch impact. An online shopping website develops new features and iterates on its
-product recommendations on a regular basis. The team also uses an experiment when launching each new
-feature to assess the impact of the change on the total sales. Below is a summary table of the impacts that
-the team observes:
-Number of Sales From Launch
--200
-0
-+200
-+500
-Proportion of Launches
-0.1
-0.5
-0.3
-0.1
-(a) Compute the average impact for the experiments.
-(b) Compute the standard deviation of the impact from these experiments.
-2.27
-Hearts win. In a new card game, you start with a well-shuﬄed full deck and draw 3 cards without
-replacement. If you draw 3 hearts, you win $50. If you draw 3 black cards, you win $25. For any other
-draws, you win nothing.
-(a) Create a probability model for the amount you win at this game, and find the expected winnings. Also
-compute the standard deviation of this distribution.
-(b) If the game costs $5 to play, what would be the expected value and standard deviation of the net profit
-(or loss)? (Hint: profit = winnings -cost; X -5)
-(c) If the game costs $5 to play, should you play this game? Explain.
-2.28
-Ace of clubs wins. Consider the following card game with a well-shuﬄed deck of cards. If you draw
-a red card, you win nothing. If you get a spade, you win $5. For any club, you win $10 plus an extra $20
-for the ace of clubs.
-(a) Create a probability model for the amount you win at this game. Also, find the expected winnings for
-a single game and the standard deviation of the winnings.
-(b) What is the maximum amount you would be willing to pay to play this game? Explain your reasoning.
-2.29
-Portfolio return. A portfolio's value increases by 18% during a financial boom and by 9% during
-normal times. It decreases by 12% during a recession. What is the expected return on this portfolio if each
-scenario is equally likely?
-2.30
-Baggage fees. An airline charges the following baggage fees: $25 for the first bag and $35 for the
-second. Suppose 54% of passengers have no checked luggage, 34% have one piece of checked luggage and
-12% have two pieces. We suppose a negligible portion of people check more than two bags.
-(a) Build a probability model, compute the average revenue per passenger, and compute the corresponding
-standard deviation.
-(b) About how much revenue should the airline expect for a flight of 120 passengers? With what standard
-deviation? Note any assumptions you make and if you think they are justified.
+$$ E(X) = \mu_X = \sum x_i \cdot P(x_i) $$
+$$ = x_1 \cdot P(x_1) + x_2 \cdot P(x_2) + \dots + x_n \cdot P(x_n) $$
 
+$$ Var(X) = \sigma_X^2 = \sum (x_i - \mu_X)^2 \cdot P(x_i) $$
+$$ = (x_1 - \mu_X)^2 \cdot P(x_1) + (x_2 - \mu_X)^2 \cdot P(x_2) + \dots + (x_n - \mu_X)^2 \cdot P(x_n) $$
 
-### 2.5. BINOMIAL DISTRIBUTIONS
-145
-2.5
-Binomial distributions
-What is the probability of exactly 50 heads in 100 coin tosses? If 12 people are randomly selected for
-a jury, what is the probability that more than 9 of them identify as male? Given that the probability
-of a defective part is 1%, how many defective items would we expect in a random shipment of 200 of
-those parts? We can model these scenarios and answer these questions using a binomial distribution.
-Learning objectives
-1. Justify why a random variable is or is not a binomial random variable.
-2. Calculate the mean and standard deviation for a binomial distribution.
-3. Interpret the mean, standard deviation, and probabilities for a binomial distribution.
-4. Estimate probabilities of binomial random variables using data from a simulation.
-5. Calculate probabilities for a binomial distribution.
-2.5.1
-Binary variables
-Many health insurance plans in the United States have a deductible, where the insured individ-
-ual is responsible for costs up to the deductible, and then the costs above the deductible are shared
-between the individual and insurance company for the remainder of the year.
-Suppose a health insurance company found that 70% of the people they insure stay below their
-deductible in any given year. Each of these people can be thought of as a trial. We label a person a
-success if her healthcare costs do not exceed the deductible. We label a person a failure if she does
-exceed her deductible in the year. Because 70% of the individuals will not exceed their deductible,
-we denote the probability of a success as p = 0.7. The probability of a failure is 1 -p, which
-would be 0.3 for the insurance example.
-When an individual trial only has two possible outcomes, often labeled as success or failure,
-it is called a Bernoulli random variable, or more simply, a binary variable or yes/no variable.
-We chose to label a person who does not exceed her deductible as a "success" and all others as
-"failures". However, we could just as easily have reversed these labels. The mathematical framework
-we will build does not depend on which outcome is labeled a success and which a failure, as long as
-we are consistent.
-Binary variables are often denoted as 1 for a success and 0 for a failure. In addition to being
-convenient in entering data, it is also mathematically handy. Suppose we observe ten trials:
+$$ SD(X) = \sigma_X = \sqrt{\sum (x_i - \mu_X)^2 \cdot P(x_i)} $$
+$$ = \sqrt{(x_1 - \mu_X)^2 \cdot P(x_1) + (x_2 - \mu_X)^2 \cdot P(x_2) + \dots + (x_n - \mu_X)^2 \cdot P(x_n)} $$
+
+我們可以將 $P(x_i)$ 視為權重，每一項都根據其適當的權重進行加權。
+
+- 隨機變數標準差的平方稱為隨機變數的**變異數 (Variance)**，記為 $\sigma_X^2$。
+- 平均數或期望值可以解釋為隨機變數的**長期平均結果**，也就是經過非常多次隨機過程重複後的平均值。機率分配的平均數不一定要是分配中實際存在的數值。
+- 標準差可以解釋為經過非常多次隨機過程重複後，隨機變數值偏離平均值的**典型偏差 (Typical deviation)**。
+- 離散隨機變數機率分配的參數（平均數和標準差）應在特定母體的背景下進行解釋。
+
+---
+
+### 練習題 (Exercises)
+
+**2.25 Patreon 贊助。** 某位特定 Patreon 創作者每月獲得的贊助金分配如下：
+
+| 每月贊助金 | $3 | $5 | $10 | $25 |
+|:---|:---|:---|:---|:---|
+| **比例** | 0.50 | 0.30 | 0.15 | 0.05 |
+
+(a) 計算該創作者獲得的平均每月贊助金。
+(b) 計算該創作者獲得的每月贊助金標準差。
+
+**2.26 實驗推出影響。** 一家線上購物網站定期開發新功能並迭代其產品推薦。團隊在推出每項新功能時也會使用**實驗設計 (Experiment)** 來評估變更對總銷售額的影響。以下是團隊觀察到的影響總結表：
+
+| 推出後帶來的銷售數量 | -200 | 0 | +200 | +500 |
+|:---|:---|:---|:---|:---|
+| **推出比例** | 0.1 | 0.5 | 0.3 | 0.1 |
+
+(a) 計算這些實驗的平均影響。
+(b) 計算這些實驗影響的標準差。
+
+**2.27 紅心勝利。** 在一個新的撲克牌遊戲中，你從一副洗好的完整撲克牌開始，以抽出不放回的方式抽取 3 張牌。如果你抽出 3 張紅心，你贏得 $50。如果你抽出 3 張黑牌，你贏得 $25。對於任何其他抽取結果，你什麼都贏不到。
+(a) 為你在這個遊戲中贏得的金額建立一個機率模型，並找出期望的獎金。同時計算這個分配的標準差。
+(b) 如果玩這個遊戲需要花費 $5，淨利潤（或損失）的期望值和標準差是多少？（提示：利潤 = 獎金 - 成本；$X - 5$）
+(c) 如果玩這個遊戲需要花費 $5，你應該玩這個遊戲嗎？請解釋。
+
+**2.28 梅花 A 勝利。** 考慮以下使用一副洗好撲克牌的遊戲。如果你抽到紅牌，你什麼都贏不到。如果你抽到黑桃，你贏得 $5。對於任何梅花，你贏得 $10，如果抽到梅花 A，則額外贏得 $20。
+(a) 為你在這個遊戲中贏得的金額建立一個機率模型。同時找出單次遊戲的期望獎金和獎金的標準差。
+(b) 為了玩這個遊戲，你願意支付的最高金額是多少？請解釋你的推理。
+
+**2.29 投資組合回報。** 一個投資組合的價值在金融繁榮期增加 18%，在正常時期增加 9%。在經濟衰退期則減少 12%。如果這三種情境發生的可能性相等，這個投資組合的期望回報是多少？
+
+**2.30 行李費用。** 一家航空公司收取以下行李費用：第一件行李 $25，第二件 $35。假設有 54% 的乘客沒有托運行李，34% 有一件托運行李，12% 有兩件。我們假設託運超過兩件行李的人數比例可以忽略不計。
+(a) 建立一個機率模型，計算每位乘客的平均收入，並計算相應的標準差。
+(b) 對於一架有 120 名乘客的航班，航空公司大約可以預期多少收入？標準差是多少？請註明你所做的任何假設，並說明你認為這些假設是否合理。
+
+---
+
+### 2.5 二項分配 (Binomial Distributions)
+
+在 100 次擲硬幣中，恰好出現 50 次正面的機率是多少？如果隨機選擇 12 人組成陪審團，其中超過 9 人自我認同為男性的機率是多少？已知不良零件的機率為 1%，在隨機運送的 200 個這類零件中，我們預期會有多少個不良品？我們可以使用**二項分配 (Binomial distribution)** 來建立這些情境的模型並回答這些問題。
+
+::: {.concept-box title="概念：學習目標 (Learning Objectives)"}
+1. 判斷並說明一個隨機變數是否為二項隨機變數。
+2. 計算二項分配的平均數和標準差。
+3. 解釋二項分配的平均數、標準差和機率。
+4. 使用模擬資料估計二項隨機變數的機率。
+5. 計算二項分配的機率。
+:::
+
+#### 2.5.1 二元變數 (Binary Variables)
+
+美國的許多健康保險計劃都有**自負額 (Deductible)**，被保險人必須自行負擔達到自負額之前的費用，然後在該年度剩餘時間內，超出自負額的費用由個人與保險公司共同分擔。
+
+假設一家健康保險公司發現，在任何給定年份，他們承保的客戶中有 70% 的人未達到自負額。這些人中的每一個都可以被視為一次「試驗 (Trial)」。如果個人的醫療費用沒有超過自負額，我們將這個人標記為「成功 (Success)」。如果她在這一年中超過了自負額，我們將她標記為「失敗 (Failure)」。因為 70% 的個人不會超過自負額，我們將成功的機率表示為 $p = 0.7$。失敗的機率是 $1 - p$，在保險的例子中為 0.3。
+
+當單次試驗只有兩個可能的結果時（通常標記為成功或失敗），它被稱為**伯努利隨機變數 (Bernoulli random variable)**，或者更簡單地說，**二元變數 (Binary variable)** 或「是/否」變數。我們選擇將未超過自負額的人標記為「成功」，而將所有其他人標記為「失敗」。然而，只要我們保持一致，我們也可以同樣容易地反轉這些標籤。我們將建立的數學框架並不取決於哪個結果被標記為成功，哪個被標記為失敗。
+
+二元變數通常被表示為：1 代表成功，0 代表失敗。除了在輸入資料時很方便之外，它在數學上也很實用。假設我們觀察到十次試驗：
 1 1 1 0 1 0 0 1 1 0
-Then the sample proportion, ˆp, is the sample mean of these observations:
-ˆp = # of successes
-# of trials
-= 1 + 1 + 1 + 0 + 1 + 0 + 0 + 1 + 1 + 0
-10
-= 0.6
-In general, it is useful to think about a binary random variable as a random process with only
-two outcomes: a success or failure. Then we build our mathematical framework using the numerical
-labels 1 and 0 for successes and failures, respectively.
+那麼**樣本比例 (Sample proportion)** $\hat{p}$ 就是這些觀察值的樣本平均數：
 
+$$ \hat{p} = \frac{\text{成功次數}}{\text{試驗次數}} = \frac{1 + 1 + 1 + 0 + 1 + 0 + 0 + 1 + 1 + 0}{10} = 0.6 $$
 
-146
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.5.2
-Introducing the binomial formula
-Let's imagine ourselves at the insurance agency where 70% of individuals do not exceed their
-deductible. The probability of success (not exceeding the deductible) is p = 0.7.
-EXAMPLE 2.65
-Suppose the insurance agency is considering a random sample of four individuals they insure. What
-is the chance exactly one of them will exceed the deductible and the other three will not? Let's call
-the four people Ariana (A), Brittany (B), Carlton (C), and Damian (D) for convenience.
-Let's consider a scenario where one person exceeds the deductible:
-P(A = exceed, B = not, C = not, D = not)
-= P(A = exceed) P(B = not) P(C = not) P(D = not)
-= (0.3)(0.7)(0.7)(0.7)
-= (0.7)3(0.3)1
-= 0.103
-But there are three other scenarios: Brittany, Carlton, or Damian could have been the one to
-exceed the deductible. In each of these cases, the probability is again (0.7)3(0.3)1. These four
-scenarios exhaust all the possible ways that exactly one of these four people could have exceeded
-the deductible, so the total probability is 4 × (0.7)3(0.3)1 = 0.412.
-GUIDED PRACTICE 2.66
-Verify that the scenario where Brittany is the only one to exceed the deductible has probability
-(0.7)3(0.3)1. 48
-In Example 2.65, there were four individuals who could have been the one to exceed the de-
-ductible, and each of these four scenarios had the same probability p of 0.7. We use n to represent
-the number of trials, in this case 4 and we use x to represent the desired number of successes, in this
-case 1. This leads us to a more general approach to find probabilities involving exactly x successes
-in n trials, where the probability in each trial of a success is p.
-We can write the probability as
-[# of scenarios] × P(single scenario)
-The first component of this equation is the number of ways to arrange the x = 3 successes among the
-n = 4 trials. The second component is the probability of any of the four (equally probable) scenarios.
-Consider P(single scenario) under the general case of x successes and n -x failures in the n
-trials. In any such scenario, we apply the Multiplication Rule for independent events:
-px(1 -p)n-x
-This is our general formula for P(single scenario).
-48 P(A = not, B = exceed, C = not, D = not) = (0.7)(0.3)(0.7)(0.7) = (0.7)3(0.3)1.
+一般來說，將二元隨機變數視為只有兩種結果（成功或失敗）的隨機過程是有用的。然後，我們使用數字標籤 1 和 0（分別代表成功和失敗）來建立我們的數學框架。
 
+#### 2.5.2 介紹二項式公式 (Introducing the binomial formula)
 
-### 2.5. BINOMIAL DISTRIBUTIONS
-147
-Secondly, we introduce the binomial coeﬃcient, which gives the number of ways to choose x
-successes in n trials, i.e. arrange x successes and n -x failures:
-(n
-x) =
-n!
-x!(n -x)!
-The quantity (n
-x) is read n choose x.49 The exclamation point notation (e.g. n!) denotes a
-factorial expression.
-0! = 1
-1! = 1
-2! = 2 × 1 = 2
-3! = 3 × 2 × 1 = 6
-4! = 4 × 3 × 2 × 1 = 24
-⋮
-n! = n × (n -1) × ... × 3 × 2 × 1
-Using the formula, we can compute the number of ways to choose x = 3 successes in n = 4 trials:
-(4
-3) =
-4!
-3!(4 -3)! = 4!
-3!1! = 4 × 3 × 2 × 1
-(3 × 2 × 1)(1) = 4
-This result is exactly what we found by carefully thinking of each possible scenario in Example 2.65.
-Substituting n choose x for the number of scenarios and px(1 -p)n-x for the single scenario
-probability yields the binomial formula.
-BINOMIAL FORMULA
-Suppose the probability of a single trial being a success is p. Then the probability of observing
-exactly x successes in n independent trials is given by:
-P(X = x) = (n
-x)px(1 -p)n-x =
-n!
-x!(n -x)!px(1 -p)n-x
-where x = 0,1,2,3...,n.
-2.5.3
-When and how to apply the binomial formula
-IS IT BINOMIAL? FOUR CONDITIONS TO CHECK.
-Informally, we can say that the binomial formula is used in questions concerned with
-"how many successes out of n". To be binomial the following four conditions must be met.
-(1) Each trial outcome is binary (can be classified as a success or failure).
-(2) The trials are independent.
-(3) The number of trials, n, is fixed.
-(4) There is the same probability of success, p, for each trial.
-A useful acronym to remember these conditions is BINS: binary, independent, n fixed, and same p.
-49Other notations for n choose x includes nCx, Cx
-n, and C(n, x).
+讓我們想像一下自己在保險公司，那裡有 70% 的個人沒有超過自負額。成功（未超過自負額）的機率是 $p = 0.7$。
 
+**範例 2.65**
+假設保險機構正在考慮他們承保的四個人的隨機樣本。這其中恰好有一人超過自負額，而其他三人沒有的機率是多少？為了方便，我們把這四個人稱為 Ariana (A)、Brittany (B)、Carlton (C) 和 Damian (D)。
 
-148
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-EXAMPLE 2.67
-Say we would like to find the probability that 5 of 8 randomly selected individuals from the insurance
-agency will not exceed the deductible. Can we use the binomial formula?
-We are interested in 5 out of 8, which sounds like a "how many successes out of n" scenario. To
-verify we can use the binomial formula we check the following conditions.
-1. Each trial outcome is binary (not exceed the insurance deductible or exceed the insurance
-deductible).
-2. The sample is random, but it is not with replacement, so the observations are not entirely
-independent. However, as we saw in the Section 2.3.6 (Sampling without replacement), when
-the sample size is very small compared to the population size, we can treat the observations as
-if they were with replacement, since the composition of the population changes very little with
-each additional person sampled. Since we have a random sample of a very small percent of all
-individuals from the insurance company, we will consider the independence condition met.
-3. The number of trials is fixed (n = 8).
-4. There is the same probability of a success for each trial. (p = 0.70)
-SAMPLING WITHOUT REPLACEMENT
-When randomly sampling without replacement, if the sample size is small relative to the pop-
-ulation size (rule of thumb: sample size less than 1/10 of the population size), we will consider
-the observations to be independent.
-EXAMPLE 2.68
-Find the probability that 5 of 8 randomly selected individuals from the insurance agency will not
-exceed the deductible, i.e. that 3 of them will. Recall that 70% of individuals will not exceed the
-deductible.
-Here a success is not exceeding the deductible and the probability of a success is p = 0.7. We want
-to find the probability of x = 5 successes in n = 8 trials. We previous verified that this scenario
-is binomial, so we will use the binomial formula. The probability that 5 of 8 will not exceed the
-deductible and 3 will exceed the deductible is given by
-(8
-5)(0.7)5(1 -0.7)8-5 =
-8!
-5!(8 -5)!(0.7)5(1 -0.7)8-5
-= 8!
-5!3!(0.7)5(0.3)3
-Dealing with the factorial part:
-8!
-5!3! = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1
-(5 × 4 × 3 × 2 × 1)(3 × 2 × 1) = 8 × 7 × 6
-3 × 2 × 1 = 56
-Using (0.7)5(0.3)3 ≈0.00454, the final probability is about 56 × 0.00454 ≈0.254.
-Evaluating the binomial formula by hand can be tedious. See Section 2.5.7 for ways to evaluate
-the binomial formula using technology.
-COMPUTING BINOMIAL PROBABILITIES
-The first step in using the binomial model is to check that the model is appropriate. The second
-step is to identify n, p, and x. Finally, apply the binomial formula to determine the probability
-and interpret the results.
+讓我們考慮只有一個人超過自負額的情境：
+$$ P(A = 超過, B = 未超過, C = 未超過, D = 未超過) $$
+$$ = P(A = 超過) \cdot P(B = 未超過) \cdot P(C = 未超過) \cdot P(D = 未超過) $$
+$$ = (0.3)(0.7)(0.7)(0.7) $$
+$$ = (0.7)^3 (0.3)^1 $$
+$$ = 0.103 $$
 
+但還有其他三種情況：可能是 Brittany、Carlton 或 Damian 超過自負額。在每一種情況下，機率也都是 $(0.7)^3(0.3)^1$。這四種情況窮盡了這四個人中恰好有一人超過自負額的所有可能方式，因此總機率為 $4 \times (0.7)^3(0.3)^1 = 0.412$。
 
-### 2.5. BINOMIAL DISTRIBUTIONS
-149
-EXAMPLE 2.69
-Approximately 35% of a population has blood type O+. Suppose four people show up at a hospital
-and we want to find the probability that exactly one of them has blood type O+. Can we use the
-binomial formula?
-To check if the binomial model is appropriate, we must verify the conditions.
-1. Each outcome is binary (blood type O+ or not blood type O+).
-2. We will suppose that these 4 people comprise a random sample. This seems reasonable, since
-one person with a particular blood type showing up at a hospital seems unlikely to aﬀect the
-chance that other people with that blood type would show up at the hospital. Though this
-scenario is without replacement, 4 should be less than 1/10th of all people that show up at
-the hospital. Therefore, we can treat the random sample as if it were with replacement and
-consider the independence condition met.
-3. We have a fixed number of trials (n = 4).
-4. The probability of a success is the same for each trial (p = 0.35 if we say a "success" is someone
-having blood type O+).
-EXAMPLE 2.70
-Given that 35% of a population has blood type O+, what is the probabilty that in a random sample
-of 4 people:
-(a) none of them have blood type O+?
-(b) exactly one will have blood type O+?
-(c) no more than one will have blood type O+?
-(a) P(X = 0) = (4
-0)(0.35)0(0.65)4 = 1 × 1 × 0.654 = 0.654 = 0.179
-Note that we could have answered this question without the binomial formula, using methods
-from the previous section.
-(b) P(X = 1) = (4
-1)(0.35)1(0.65)3 = 0.384.
-(c) We want to find P(X ≤1). This can be computed as the sum of parts (a) and (b):
-P(X ≤1) = P(X = 0) + P(X = 1) = 0.179 + 0.384 = 0.563.
-There is about a 56.3% chance that no more than one of them will have blood type O+.
-GUIDED PRACTICE 2.71
-What is the probability that at least 3 of 4 people in a random sample will have blood type O+ if
-35% of the population has blood type O+?50
-GUIDED PRACTICE 2.72
-The probability that a random smoker will develop a severe lung condition in her lifetime is about
-0.3. If you have 4 friends who smoke and you want to find the probability that 1 of them will develop
-a severe lung condition in her lifetime, can you apply the binomial formula?51
-50P(at least 3 of 4 have blood type O+) = P(X = 3)+P(X = 4) = (4
-3)(0.35)3(0.65)1+(0.35)4 = 0.111+0.015 = 0.126
-51While the binary and fixed n conditions are met, most likely the friends know each other, so the independence
-assumption is probably not satisfied. For example, acquaintances may have similar smoking habits, or those friends
-might make a pact to quit together. The same p condition is also not satisfied since this is not a random sample of
-people.
+::: {.callout-tip title="AP English Response｜引導練習 2.66" collapse="true"}
+驗證 Brittany 是唯一超過自負額的情境的機率為 $(0.7)^3(0.3)^1$。
 
+**解答**：$P(A = 未超過, B = 超過, C = 未超過, D = 未超過) = (0.7)(0.3)(0.7)(0.7) = (0.7)^3(0.3)^1$。
+:::
 
-150
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.5.4
-An example of a binomial distribution
-In Guided Practice 2.70, we asked various probability questions regarding the number of people
-out of 4 with blood type O+. We verified that the scenario was binomial and that each problem
-could be solved using the binomial formula. Instead of looking at it piecewise, we could describe the
-entire distribution of possible values and their corresponding probabilities. Since there are 4 people,
-the possible outcomes for the number who will have blood type O+ are: 0, 1, 2, 3, 4. In Figure 2.30,
-we make a distribution table and a histogram showing the probability of each of these outcomes.
-Recall that the probability of a randomly sampled person being blood type O+ is about 0.35.
-xi
-P(xi)
-0
-(4
-0)(0.35)0(0.65)4 = 0.179
-1
-(4
-1)(0.35)1(0.65)3 = 0.384
-2
-(4
-2)(0.35)2(0.65)2 = 0.311
-3
-(4
-3)(0.35)3(0.65)1 = 0.111
-4
-(4
-4)(0.35)4(0.65)0 = 0.015
-0
-1
-2
-3
-4
-0.0
-0.1
-0.2
-0.3
-0.4
-Probability
-Number With Blood Type O+ in a Random Sample of Size 4
-Figure 2.30: Probability distribution for the number with blood type O+ in a
-random sample of 4 people. This is a binomial distribution. Correcting for rounding
-error, the probabilities add up to 1, as they must for any probability distribution.
-A binomial distribution is used to describe the number of successes in a fixed number of
-independent trials. A binomial distribution has two parameters: n and p, where n is the number of
-trials and p is the probability of a success. The example in Figure 2.30 shows a binomial distribution
-with n = 4 and p = 0.35.
-To find the probability that a binomial random variable X has exactly x successes, apply the
-binomial formula as follows:
-P(X = x) = (n
-x)px(1 -p)n-x, where x = 0,1,2,3...,n.
-2.5.5
-The mean and standard deviation of a binomial distribution
-We can find the mean and standard deviation of the probability distribution in Figure 2.30 using
-the formulas for the mean and standard deviation of a discrete random variable from Section 2.4.
-Those formulas require a lot of calculations, so it is fortunate that there is an easier way to compute
-the mean and standard deviation for a binomial random variable.
-MEAN AND STANDARD DEVIATION OF THE BINOMIAL DISTRIBUTION
-For a binomial distribution with parameters n and p, where n is the number of trials and p is the
-probability of a success, the mean and standard deviation of the number of observed successes
-are
-µX = np
-σX =
-√
-np(1 -p)
+在範例 2.65 中，有四個人可能是超過自負額的那個人，而這四種情況中的每種情況都有相同的機率，即 0.7。我們用 $n$ 代表試驗的次數（在這種情況下為 4），並用 $x$ 代表我們想要的成功次數（在這種情況下為 1）。這引導我們採用更一般的方法來尋找在每次試驗成功機率為 $p$ 的 $n$ 次試驗中，恰好包含 $x$ 次成功的機率問題。
 
+我們可以將機率寫成：
+$$ [\text{情境的數量}] \times P(\text{單一情境}) $$
 
-### 2.5. BINOMIAL DISTRIBUTIONS
-151
-EXAMPLE 2.73
-The probability that a person has blood type O+ is 0.35. Let X be the number of people with blood
-type O+ in a random sample of 40 people. Calculate and interpret the mean and standard deviation
-of X.
-In Example 2.69 we confirmed that the binary, independence, n fixed, and same p conditions were
-met. Therefore we can say that X is Binomial with n = 40 and p = 0.35.
-µX = np = 40(0.35) = 14
-If we were to take many, many random samples of size 40, we would expect to get about 14 people
-with blood type O+, on average.
-σX =
-√
-np(1 -p) =
-√
-40(0.35)(0.65) = 3.0
-If we were to take many, many random samples of size 40, the number of people in our sample with
-blood type O+ would typically vary from the mean of 14 people by about 3 people.
-The distribution of the number of people with blood type O+ in a random sample of size 40 is
-shown in Figure 3.2. It is binomial distribution with n = 40 and p = 0.35, and it has a mean of 14
-and a standard deviation of 3.0.
-Number With Blood Type O+ in a Random Sample of Size 40
-Probability
-8
-11
-14
-17
-20
-0.00
-0.05
-0.10
-Figure 2.31: Distribution for the number of people with blood type O+ in a random
-sample of size 40, where p = 0.35. The distribution is binomial and is centered on 14
-with a standard deviation of 3.
-2.5.6
-Binomial probabilities for intervals of values
-EXAMPLE 2.74
-Find the probability of getting between 15 and 17 people, inclusive, with blood type O+ in a random
-sample of 40 people. The probability of a randomly sampled person being blood type O+ is 0.35.
-X is the number of people with blood type O+. X has a binomial distribution with n = 40 and
-p = 0.35. We want to find P(15 ≤X ≤17). Because the binomial distribution is discrete, we can find
-this by calculating P(X = 15) + P(X = 16) + P(X = 17) as follows:
-P(15 ≤X ≤17) = P(X = 15) + P(X = 16) + P(X = 17)
-= (40
-15)(0.35)15(0.65)25 + (40
-16)(0.35)16(0.65)24 + (40
-17)(0.35)17(0.65)23
-= 0.123 + 0.103 + 0.078
-= 0.304
-The probability of getting between 15 and 17 people, inclusive, with blood type O+ in a random
-sample of 40 people is 0.304, or 30.4%.
+這個方程式的第一部分是在 $n = 4$ 次試驗中排列 $x = 3$ 次成功的方法數 (註: 這裡以未超過自負額為成功，所以有 3 次成功，1次失敗)。第二部分是這四個（等機率）情境中任何一個的機率。
 
+考慮在 $n$ 次試驗中發生 $x$ 次成功和 $n - x$ 次失敗的一般情況下的 $P(\text{單一情境})$。在任何這種情境下，我們針對獨立事件應用乘法規則：
+$$ p^x(1 - p)^{n-x} $$
+這是我們計算 $P(\text{單一情境})$ 的通用公式。
 
-152
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-EXAMPLE 2.75
-Find the probability that at least 18 people have blood type O+ in a random sample of 40 people.
-The probability of a randomly sampled person being blood type O+ is 0.35.
-X is the number of people with blood type O+. Here, we want to find the probability that X ≥18.
-P(X ≥18) = P(X = 18) + P(X = 19) + P(X = 20) + ...P(X = 40).
-Evaluating this with the binomial formula would involve applying the binomial formula 23 times!
-Fortunately, we can use technology to help us. We first identify the distribution and its parameters.
-Here X is Binomial with n = 50 and p = 0.35. We sometimes write this as X is Binomial(n = 40,
-p = 0.35). Then we can use a technology option from Section 2.5.7 to find that P(X ≥18) = 0.124.
-There is about a 12.4% probability of at least 18 people with blood type O+ in a random sample of
-size 40.
-When using technology to find binomial probabilities, make sure to identify the distribution
-being used and its parameters, then write a clear probability statement communicating what is being
-evaluated. A graph, such as the one shown below in Figure 2.32, helps to visualize the distribution
-and the individual probabilities used in the calculation.
-Figure 2.32: A Desmos graph illustrating a Binomial distribution with n = 40 and
-p = 0.35. Values greater than or equal to 18 are highlighted.
-GUIDED PRACTICE 2.76
-What is the probability that at most 12 people in a random sample of 40 will have blood type O+
-if 35% of the population has blood type O+? 52
-52X is the number of people with blood type O+. X is Binomial(n = 40, p = 0.35). P(X ≤12) = 0.314. There is a
-31.4% probability that at most 12 people in a random sample of size 40 will have blood type O+.
+其次，我們引入**二項式係數 (Binomial coefficient)**，它給出了在 $n$ 次試驗中選擇 $x$ 次成功（即排列 $x$ 次成功和 $n-x$ 次失敗）的方法數：
+$$ \binom{n}{x} = \frac{n!}{x!(n - x)!} $$
 
+數量 $\binom{n}{x}$ 讀作 **$n$ 取 $x$ (n choose x)**。（其他表示 $n$ 取 $x$ 的符號包括 $_nC_x$、$C_n^x$ 和 $C(n, x)$。）驚嘆號符號（例如 $n!$）表示**階乘 (Factorial)** 運算。
+$$ 0! = 1 $$
+$$ 1! = 1 $$
+$$ 2! = 2 \times 1 = 2 $$
+$$ 3! = 3 \times 2 \times 1 = 6 $$
+$$ 4! = 4 \times 3 \times 2 \times 1 = 24 $$
+$$ \dots $$
+$$ n! = n \times (n - 1) \times \dots \times 3 \times 2 \times 1 $$
 
-### 2.5. BINOMIAL DISTRIBUTIONS
-153
-2.5.7
-Technology: binomial probabilities
-A spinner has four equally likely options: red, green, blue, yellow. If you spin the spinner 6 times,
-what is the probability you get:
-a) Exactly 2 red?
-b) Less than 2 red?
-c) At least 3 red?
-This scenario describes a binomial distribution with n = 6 and p = 0.25.
-Desmos: Use binomialdist(n, p), replacing n and p with appropriate values.
-1. Type binomialdist(6, 0.25).
-2. Click the triangle next to Cumulative Probability.
-3. Select Inner, Outer, Left, or Right as illustrated below.
-4. Enter the appropriate boundary value(s) for x as illustrated below.
-5. Click the magnifying glass to Zoom Fit the graphing window.
-a) P(Exactly 2 red): P(x = 2).
-b) P(Less than 2 red): P(x < 2) = P(x ≤1).
-c) P(At least 3 red): P(x ≥3).
+使用公式，我們可以計算在 $n = 4$ 次試驗中選擇 $x = 3$ 次成功的方法數：
+$$ \binom{4}{3} = \frac{4!}{3!(4 - 3)!} = \frac{4!}{3!1!} = \frac{4 \times 3 \times 2 \times 1}{(3 \times 2 \times 1)(1)} = 4 $$
+這個結果正是我們在範例 2.65 中仔細思考每一種可能情境時所發現的。
 
+將「$n$ 取 $x$」替換為情境數量，並將 $p^x(1 - p)^{n-x}$ 替換為單一情境機率，就會得到**二項式公式 (Binomial formula)**。
 
-154
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-R: Given a binomial distribution with n = 6 and p = 0.25, calculate the following probabilities.
-a) P(X = 2). Use dbinom(x, size, prob) for the probability of exactly x.
-Note that "size =" and "prob =" can be omitted, but the labels are often included for clarity.
+::: {.concept-box title="概念：二項式公式 (Binomial Formula)"}
+假設單次試驗成功的機率為 $p$。那麼在 $n$ 次獨立試驗中觀察到恰好 $x$ 次成功的機率公式為：
+
+$$ P(X = x) = \binom{n}{x} p^x (1 - p)^{n-x} = \frac{n!}{x!(n - x)!} p^x (1 - p)^{n-x} $$
+
+其中 $x = 0, 1, 2, 3 \dots, n$。
+:::
+
+#### 2.5.3 何時及如何應用二項式公式 (When and how to apply the binomial formula)
+
+::: {.warning-box title="常見迷思：是否為二項分配？檢查四個條件 (BINS)"}
+通俗地說，我們可以用二項式公式來處理「$n$ 次中有多少次成功」的問題。要成為二項分配，必須滿足以下四個條件：
+1. **B**inary：每次試驗的結果是二元的（可分類為成功或失敗）。
+2. **I**ndependent：各次試驗必須是獨立的。
+3. **N** fixed：試驗的次數 $n$ 是固定的。
+4. **S**ame $p$：每次試驗成功的機率 $p$ 皆相同。
+
+記住這些條件的一個有用縮寫是 **BINS**。如果不滿足這四個條件，就不能使用二項式公式！
+:::
+
+**範例 2.67**
+假設我們想求從保險機構隨機挑選的 8 個人中，有 5 個人不會超過自負額的機率。我們可以使用二項式公式嗎？
+
+我們對「8 個中的 5 個」感興趣，這聽起來像是一個「$n$ 次中有多少次成功」的情境。為確認我們能使用二項式公式，我們檢查以下條件：
+1. 每次試驗結果是二元的（未超過保險自負額，或超過保險自負額）。
+2. 樣本是隨機的，但它不是放回抽樣，因此觀察結果並不完全獨立。然而，正如我們在前面（抽出不放回抽樣）所見，當樣本量與母體量相比非常小的時候，我們可以將觀察結果視為「好像是放回抽樣」，因為隨著抽出每增加一個人，母體的組成改變極微。由於我們擁有的是從該保險公司所有個人中隨機抽取的極小比例樣本，因此我們將認為獨立性條件已滿足。
+3. 試驗次數是固定的（$n = 8$）。
+4. 每次試驗成功的機率都相同（$p = 0.70$）。
+
+::: {.concept-box title="概念：抽出不放回的抽樣 (Sampling without replacement)"}
+當進行抽出不放回的隨機抽樣時，如果樣本量相對於母體量很小（經驗法則：樣本量小於母體量的 1/10），我們將把觀察結果視為獨立。
+:::
+
+**範例 2.68**
+求從保險機構隨機選出的 8 人中，有 5 人不會超過自負額（即有 3 人會超過）的機率。回想一下，有 70% 的人不會超過自負額。
+
+這裡的「成功」是指沒有超過自負額，成功的機率是 $p = 0.7$。我們想要求出在 $n = 8$ 次試驗中出現 $x = 5$ 次成功的機率。我們之前已驗證過此情境為二項分配，所以我們將使用二項式公式。8 人中有 5 人不會超過自負額且 3 人會超過自負額的機率由下式給出：
+$$ \binom{8}{5} (0.7)^5 (1 - 0.7)^{8-5} = \frac{8!}{5!(8 - 5)!} (0.7)^5 (1 - 0.7)^{8-5} $$
+$$ = \frac{8!}{5!3!} (0.7)^5 (0.3)^3 $$
+處理階乘部分：
+$$ \frac{8!}{5!3!} = \frac{8 \times 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1}{(5 \times 4 \times 3 \times 2 \times 1)(3 \times 2 \times 1)} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56 $$
+
+使用 $(0.7)^5 (0.3)^3 \approx 0.00454$，最終機率約為 $56 \times 0.00454 \approx 0.254$。
+（手算評估二項式公式可能會很繁瑣。請參閱 2.5.7 節中運用科技計算二項式公式的方法。）
+
+::: {.concept-box title="概念：計算二項機率 (Computing binomial probabilities)"}
+使用二項模型的第一步是檢查模型是否適用。第二步是識別 $n$、$p$ 和 $x$。最後，應用二項式公式來確定機率並解釋結果。
+:::
+
+**範例 2.69**
+大約有 35% 的母體為 O+ 血型。假設有四個人來到醫院，我們想求恰好有一人為 O+ 血型的機率。我們可以使用二項式公式嗎？
+
+要檢查二項模型是否適用，我們必須驗證條件：
+1. 每個結果都是二元的（是 O+ 血型或不是 O+ 血型）。
+2. 我們假設這 4 人組成一個隨機樣本。這似乎是合理的，因為某個具有特定血型的人出現在醫院似乎不太可能影響具有該血型的其他人出現在醫院的機率。雖然這種情況是抽出不放回的，但 4 應該小於出現在醫院的所有人的 1/10。因此，我們可以將隨機樣本當作是放回抽樣來對待，並認為獨立性條件已滿足。
+3. 我們有固定的試驗次數（$n = 4$）。
+4. 每次試驗成功的機率相同（如果我們說「成功」是某人具有 O+ 血型，則 $p = 0.35$）。
+
+**範例 2.70**
+已知母體中有 35% 為 O+ 血型，那麼在 4 人的隨機樣本中，以下情況的機率是多少：
+(a) 他們都不是 O+ 血型？
+(b) 恰好有一人為 O+ 血型？
+(c) 至多有一人為 O+ 血型？
+
+**解答**：
+(a) $P(X = 0) = \binom{4}{0} (0.35)^0 (0.65)^4 = 1 \times 1 \times 0.65^4 = 0.179$
+請注意，我們也可以不使用二項式公式回答這個問題，使用前一節的方法即可。
+(b) $P(X = 1) = \binom{4}{1} (0.35)^1 (0.65)^3 = 0.384$
+(c) 我們想要求 $P(X \le 1)$。這可以計算為 (a) 和 (b) 兩部分的總和：
+$P(X \le 1) = P(X = 0) + P(X = 1) = 0.179 + 0.384 = 0.563$。
+有大約 56.3% 的機率，他們中至多有一人為 O+ 血型。
+
+::: {.callout-tip title="AP English Response｜引導練習 2.71" collapse="true"}
+如果 35% 的母體是 O+ 血型，那麼隨機抽樣 4 人中至少有 3 人是 O+ 血型的機率是多少？
+
+**解答**：$P(\text{至少 3 人是 O+ 血型}) = P(X = 3) + P(X = 4) = \binom{4}{3}(0.35)^3(0.65)^1 + \binom{4}{4}(0.35)^4(0.65)^0 = 0.111 + 0.015 = 0.126$
+:::
+
+::: {.callout-tip title="AP English Response｜引導練習 2.72" collapse="true"}
+隨機吸菸者在其一生中發展出嚴重肺部疾病的機率約為 0.3。如果你有 4 個吸菸的朋友，你想求他們中會有 1 人在其一生中發展出嚴重肺部疾病的機率，你可以應用二項式公式嗎？
+
+**解答**：雖然二元與固定 $n$ 的條件都已滿足，但由於朋友們彼此認識，所以獨立性假設可能不滿足。例如，熟人可能有相似的吸菸習慣，或者那些朋友可能約好要一起戒菸。相同 $p$ 的條件也沒有被滿足，因為這不是一個人的隨機樣本。
+:::
+
+#### 2.5.4 二項分配的例子 (An example of a binomial distribution)
+
+在範例 2.70 中，我們詢問了關於 4 人中有 O+ 血型人數的各種機率問題。我們驗證了情況為二項分配，並且每個問題都能使用二項式公式解決。與其逐項看待，我們不如描述可能數值的整個分配及其相應機率。因為有 4 人，O+ 血型人數的可能結果是：0、1、2、3、4。在下表中，我們製作了一個分配表，顯示這些結果中每一個的機率。（隨機抽樣者為 O+ 血型的機率約為 0.35）。
+
+| $x_i$ | $P(x_i)$ |
+|:---|:---|
+| 0 | $\binom{4}{0}(0.35)^0(0.65)^4 = 0.179$ |
+| 1 | $\binom{4}{1}(0.35)^1(0.65)^3 = 0.384$ |
+| 2 | $\binom{4}{2}(0.35)^2(0.65)^2 = 0.311$ |
+| 3 | $\binom{4}{3}(0.35)^3(0.65)^1 = 0.111$ |
+| 4 | $\binom{4}{4}(0.35)^4(0.65)^0 = 0.015$ |
+
+*(備註：機率相加為 1，在進行四捨五入修正後。)*
+
+二項分配用於描述在固定次數的獨立試驗中的成功次數。二項分配有兩個參數：$n$ 和 $p$，其中 $n$ 是試驗次數，$p$ 是成功的機率。上述表格顯示了 $n = 4$ 且 $p = 0.35$ 的二項分配。
+
+要求出二項隨機變數 $X$ 恰好有 $x$ 次成功的機率，可如下應用二項式公式：
+$$ P(X = x) = \binom{n}{x} p^x (1 - p)^{n-x}, \text{ 其中 } x = 0, 1, 2, 3 \dots, n $$
+
+#### 2.5.5 二項分配的平均數與標準差 (The mean and standard deviation of a binomial distribution)
+
+我們可以使用第 2.4 節中離散隨機變數的平均數和標準差公式，找到前一節機率分配的平均數和標準差。不過，這些公式需要大量的計算，幸運的是，有一種更簡單的方法可以計算二項隨機變數的平均數和標準差。
+
+::: {.concept-box title="概念：二項分配的平均數與標準差 (Mean and Standard Deviation of the Binomial Distribution)"}
+對於具有參數 $n$ 和 $p$ 的二項分配（其中 $n$ 是試驗次數，$p$ 是成功機率），觀察到的成功次數的平均數和標準差為：
+
+$$ \mu_X = np $$
+$$ \sigma_X = \sqrt{np(1 - p)} $$
+:::
+
+**範例 2.73**
+一個人是 O+ 血型的機率是 0.35。設 $X$ 為 40 人的隨機樣本中 O+ 血型的人數。計算並解釋 $X$ 的平均數和標準差。
+
+在先前的範例中，我們確認了滿足二元、獨立性、固定 $n$ 以及相同 $p$ 的條件。因此，我們可以說 $X$ 是服從 $n = 40$ 和 $p = 0.35$ 的二項分配。
+
+$$ \mu_X = np = 40(0.35) = 14 $$
+如果我們進行非常多次大小為 40 的隨機抽樣，我們預期平均會有大約 14 人是 O+ 血型。
+
+$$ \sigma_X = \sqrt{np(1 - p)} = \sqrt{40(0.35)(0.65)} \approx 3.0 $$
+如果我們進行非常多次大小為 40 的隨機抽樣，我們樣本中 O+ 血型的人數，通常會從平均數 14 人，偏差大約 3 人。
+
+#### 2.5.6 二項機率區間 (Binomial probabilities for intervals of values)
+
+**範例 2.74**
+在 40 人的隨機樣本中，求 O+ 血型人數介於 15 到 17 人之間（含 15 和 17）的機率。隨機抽取的人是 O+ 血型的機率是 0.35。
+
+$X$ 是 O+ 血型的人數。$X$ 服從 $n = 40$、$p = 0.35$ 的二項分配。我們想要求 $P(15 \le X \le 17)$。因為二項分配是離散的，我們可以透過計算 $P(X = 15) + P(X = 16) + P(X = 17)$ 來求得：
+$$ P(15 \le X \le 17) = P(X = 15) + P(X = 16) + P(X = 17) $$
+$$ = \binom{40}{15}(0.35)^{15}(0.65)^{25} + \binom{40}{16}(0.35)^{16}(0.65)^{24} + \binom{40}{17}(0.35)^{17}(0.65)^{23} $$
+$$ = 0.123 + 0.103 + 0.078 = 0.304 $$
+在 40 人的隨機樣本中，有 15 到 17 人（含）是 O+ 血型的機率是 0.304，或 30.4%。
+
+**範例 2.75**
+在 40 人的隨機樣本中，求至少有 18 人是 O+ 血型的機率。隨機抽取的人是 O+ 血型的機率是 0.35。
+
+$X$ 是 O+ 血型的人數。在這裡，我們想要求出 $P(X \ge 18)$。
+$$ P(X \ge 18) = P(X = 18) + P(X = 19) + P(X = 20) + \dots + P(X = 40) $$
+使用二項式公式評估這個結果將需要應用二項式公式 23 次！幸好，我們可以使用科技工具來幫忙。我們首先識別分配及其參數。這裡 $X$ 是 Binomial($n=40, p=0.35$)。然後我們可以使用 2.5.7 節中的科技選項發現 $P(X \ge 18) = 0.124$。在大小為 40 的隨機樣本中，至少有 18 人是 O+ 血型的機率約為 12.4%。
+
+在使用科技工具尋求二項機率時，請務必先確定所使用的分配及其參數，然後寫出清晰的機率陳述以傳達正在評估的內容。圖表（如直方圖）有助於視覺化分配及計算中使用的各別機率。
+
+::: {.callout-tip title="AP English Response｜引導練習 2.76" collapse="true"}
+如果 35% 的母體是 O+ 血型，那麼在 40 人的隨機樣本中，至多 12 人是 O+ 血型的機率是多少？
+
+**解答**：$X$ 是具有 O+ 血型的人數。$X \sim \text{Binomial}(n = 40, p = 0.35)$。$P(X \le 12) = 0.314$。在大小為 40 的隨機樣本中，至多 12 人擁有 O+ 血型的機率是 31.4%。
+:::
+
+#### 2.5.7 科技工具：二項機率 (Technology: binomial probabilities)
+
+一個轉盤有四個等機率的選項：紅、綠、藍、黃。如果你轉動轉盤 6 次，你得到以下結果的機率是多少：
+a) 恰好 2 次紅色？
+b) 少於 2 次紅色？
+c) 至少 3 次紅色？
+
+這個情境描述了一個 $n = 6$ 和 $p = 0.25$ 的二項分配。
+
+**Desmos**
+使用 `binomialdist(n, p)`，用適當的值替換 $n$ 和 $p$。
+1. 輸入 `binomialdist(6, 0.25)`。
+2. 點擊累積機率 (Cumulative Probability) 旁邊的三角形。
+3. 選擇內部 (Inner)、外部 (Outer)、左側 (Left) 或右側 (Right)。
+4. 輸入 $x$ 的適當邊界值。
+5. 點擊放大鏡圖示來調整圖表視窗 (Zoom Fit)。
+
+a) $P(\text{恰好 2 次紅}) : P(x = 2)$。
+b) $P(\text{少於 2 次紅}) : P(x < 2) = P(x \le 1)$。
+c) $P(\text{至少 3 次紅}) : P(x \ge 3)$。
+
+**R**
+已知二項分配 $n = 6$ 和 $p = 0.25$，計算以下機率。
+a) $P(X = 2)$。使用 `dbinom(x, size, prob)` 取得恰好 $x$ 次的機率。
+注意，`size =` 和 `prob =` 可以省略，但為了清楚起見，通常會加上這些標籤。
+```r
 > dbinom(2, size = 6, prob = 0.25)
-or
+# 或
 > dbinom(2, 6, 0.25)
 [1] 0.2966309
-b) P(X ≤1). Use pbinom(q, size, prob) for the probability of ≤q as shown.
+```
+b) $P(X \le 1)$。使用 `pbinom(q, size, prob)` 取得 $\le q$ 的機率。
+```r
 > pbinom(1, size = 6, prob = 0.25)
 [1] 0.5339355
-c) P(X ≥3).
-> 1 -pbinom(2, size = 6, prob = 0.25)
+```
+c) $P(X \ge 3)$。
+```r
+> 1 - pbinom(2, size = 6, prob = 0.25)
 [1] 0.1694336
-or
+# 或
 > pbinom(2, size = 6, prob = 0.25, lower.tail = FALSE)
 [1] 0.1694336
-Calculator: NumWorks calculator instructions and example output are included. For the TI-83/84
-and Casio calculators, general instructions are provided, and worked example videos can be accessed
-via the
-icon or at openintro.org/ti and openintro.org/casio.
-NUMWORKS: BINOMIAL CALCULATIONS
-Use OK or EXE to make a selection.
-1. From the home screen, select Distributions then select Binomial. If a list of distribu-
-tions does not appear, hit the 2 button (next to OK) as many times as needed.
-2. Enter the values of n and p then choose Next. If the screen shows a graph rather than
-asking for n and p, hit the 2 button.
-3. Hit the left arrow to highlight the graph. Hit the down arrow to choose whether you
-want left, inner, right, or exactly, then hit OK. Hit the right arrow and enter the boundary
-value(s) followed by EXE.
+```
 
+**TI-84 / TI-83 計算機**
+**計算二項式公式 $P(X = x)$：**
+使用 `2ND VARS`，`binompdf` 來計算事件發生機率為 $p$ 的 $n$ 次獨立試驗中，恰好發生 $x$ 次的機率。
+1. 選擇 `2ND VARS` (亦即 `DISTR`)
+2. 選擇 `A:binompdf` (使用向下箭頭捲動)。
+3. 令 `trials` 為 $n$。
+4. 令 `p` 為 $p$。
+5. 令 `x value` 為 $x$。
+6. 選擇 `Paste` 並按下 `ENTER`。
 
-### 2.5. BINOMIAL DISTRIBUTIONS
-155
-TI-84: COMPUTING THE BINOMIAL FORMULA, P(X = x) = (n
-x)px(1 -p)n-x
-P(X = x) = (n
-x)px(1 -p)n-x
-P(X = x) = (n
-x)px(1 -p)n-x
-Use 2ND VARS, binompdf to evaluate the probability of exactly x occurrences out of n indepen-
-dent trials of an event with probability p.
-1. Select 2ND VARS (i.e. DISTR)
-2. Choose A:binompdf (use the down arrow to scroll down).
-3. Let trials be n.
-### 4. Let p be p
-5. Let x value be x.
-6. Select Paste and hit ENTER.
-TI-83: Do step 1, choose 0:binompdf, then enter n, p, and x separated by commas:
-binompdf(n, p, x). Then hit ENTER.
-TI-84: COMPUTING P(X ≤x) = (n
-0)p0(1 -p)n-0 + ... + (n
-x)px(1 -p)n-x
-P(X ≤x) = (n
-0)p0(1 -p)n-0 + ... + (n
-x)px(1 -p)n-x
-P(X ≤x) = (n
-0)p0(1 -p)n-0 + ... + (n
-x)px(1 -p)n-x
-Use 2ND VARS, binomcdf to evaluate the cumulative probability of at most x occurrences out of
-n independent trials of an event with probability p.
-1. Select 2ND VARS (i.e. DISTR)
-2. Choose B:binomcdf (use the down arrow).
-3. Let trials be n.
-### 4. Let p be p
-5. Let x value be x.
-6. Select Paste and hit ENTER.
-TI-83: Do steps 1-2, then enter the values for n, p, and x separated by commas as follows:
-binomcdf(n, p, x). Then hit ENTER.
-CASIO FX-9750GII: BINOMIAL CALCULATIONS
-1. Navigate to STAT (MENU, then hit 2).
-2. Select DIST (F5), and then BINM (F5).
-3. Choose whether to calculate the binomial distribution for a specific number of successes,
-P(X = k), or for a range P(X ≤k) of values (0 successes, 1 success, ..., x successes).
-• For a specific number of successes, choose Bpd (F1).
-• To consider the range 0, 1, ..., x successes, choose Bcd(F1).
-4. If needed, set Data to Variable (Var option, which is F2).
-5. Enter the value for x (x), Numtrial (n), and p (probability of a success).
-6. Hit EXE.
+對於 **TI-83**：執行步驟 1，選擇 `0:binompdf`，然後輸入由逗號分隔的 $n$、$p$ 和 $x$：`binompdf(n, p, x)`。接著按下 `ENTER`。
 
+**計算 $P(X \le x)$：**
+使用 `2ND VARS`，`binomcdf` 來評估事件發生機率為 $p$ 的 $n$ 次獨立試驗中，至多發生 $x$ 次的累積機率。
+1. 選擇 `2ND VARS` (亦即 `DISTR`)
+2. 選擇 `B:binomcdf` (使用向下箭頭)。
+3. 令 `trials` 為 $n$。
+4. 令 `p` 為 $p$。
+5. 令 `x value` 為 $x$。
+6. 選擇 `Paste` 並按下 `ENTER`。
 
-156
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-Section summary
-• A binomial random variable, X, is a discrete random variable that counts the number of
-successes in n repeated independent trials that have only two possible outcomes (success or
-failure), with a fixed probability of success p and probability of failure 1 -p for each trial.
-• If X follows a binomial distribution with parameters n and p, then:
-- The mean is given by µX = np.
-(center)
-- The standard deviation is given by σX =
-√
-np(1 -p).
-(spread)
-• The mean of a binomial distribution tells us about how many successes we expect, on average,
-across many, many samples of size n from the same population.
-• The standard deviation of a binomial distribution tells us the typical variation of values from
-the mean across many, many samples of size n from the same population.
-• The mean and standard deviation should always be interpreted in context.
-• A probability distribution can be constructed using the rules of probability or estimated with
-a simulation.
-• The probability that a binomial random variable, X, has exactly x successes among n inde-
-pendent trials, when the probability of success is p, is calculated as:
-P(X = x) = (n
-x)px(1 -p)n-x, where x = 0,1,2,3...,n.
+對於 **TI-83**：執行步驟 1-2，然後如下輸入由逗號分隔的 $n$、$p$ 和 $x$ 值：`binomcdf(n, p, x)`。接著按下 `ENTER`。
 
+**CASIO FX-9750GII 計算機**
+1. 導覽至 `STAT` (`MENU`，然後按 2)。
+2. 選擇 `DIST` (`F5`)，然後選擇 `BINM` (`F5`)。
+3. 選擇是要計算特定成功次數的二項分配 $P(X = k)$，還是數值範圍 $P(X \le k)$（0 次成功、1 次成功... $x$ 次成功）。
+   - 對於特定成功次數，選擇 `Bpd` (`F1`)。
+   - 要考慮範圍 0, 1, ..., $x$ 次成功，選擇 `Bcd` (`F1`)。
+4. 如果需要，將 `Data` 設定為 `Variable` (`Var` 選項，即 `F2`)。
+5. 輸入 $x$ 值 (`x`)、`Numtrial` ($n$)，以及 $p$ (成功機率)。
+6. 按下 `EXE`。
 
+---
+
+### 本節總結 (Section Summary)
+
+- **二項隨機變數 (Binomial random variable)** $X$ 是一個離散隨機變數，它計算在 $n$ 次重複的獨立試驗中的成功次數。這些試驗只有兩種可能的結果（成功或失敗），每次試驗成功的固定機率為 $p$，失敗機率為 $1 - p$。
+- 如果 $X$ 服從具有參數 $n$ 和 $p$ 的二項分配，則：
+  - **平均數 (中心, Center)** 由 $\mu_X = np$ 給出。
+  - **標準差 (離散程度, Spread)** 由 $\sigma_X = \sqrt{np(1 - p)}$ 給出。
+- 二項分配的平均數告訴我們，從同一母體進行許多次大小為 $n$ 的抽樣中，我們平均預期有多少次成功。
+- 二項分配的標準差告訴我們，從同一母體進行許多次大小為 $n$ 的抽樣中，數值偏離平均數的典型變異 (Typical variation)。
+- 平均數和標準差應始終**結合背景脈絡**進行解釋。
+- 機率分配可以使用機率規則建構，或透過模擬進行估計。
+- 當成功的機率為 $p$ 時，二項隨機變數 $X$ 在 $n$ 次獨立試驗中具有恰好 $x$ 次成功的機率計算如下：
+$$ P(X = x) = \binom{n}{x} p^x (1 - p)^{n-x}, \text{ 其中 } x = 0, 1, 2, 3 \dots, n $$

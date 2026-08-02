@@ -1,998 +1,200 @@
 ---
-title: "5.2 Line fitting and residuals"
+title: "5.2 直線配適與殘差 (Line fitting and residuals)"
 ---
 
-410
-CHAPTER 5. REGRESSION ANALYSIS
-5.6
-Spouses, Part I. The Great Britain Oﬃce of Population Census and Surveys once collected data on a
-random sample of 170 married women in Britain, recording the age (in years) and heights (converted here to
-inches) of the women and their spouses.9 The scatterplot on the left shows the spouse's age plotted against
-the woman's age, and the plot on the right shows spouse's height plotted against the woman's height.
-Woman's age (in years)
-Spouse's age (in years)
-20
-40
-60
-20
-40
-60
-Woman's height (in inches)
-Spouse's height (in inches)
-60
-65
-70
-75
-55
-60
-65
-70
-(a) Describe the relationship between the ages of women in the sample and their spouses' ages.
-(b) Describe the relationship between the heights of women in the sample and their spouses' heights.
-(c) Which plot shows a stronger correlation? Explain your reasoning.
-(d) Data on heights were originally collected in centimeters, and then converted to inches. Does this con-
-version aﬀect the correlation between heights of women in the sample and their spouses' heights?
-5.7
-Match the correlation, Part I. Match each correlation to the corresponding scatterplot.
-(a) r = -0.7
-(b) r = 0.45
-(c) r = 0.06
-(d) r = 0.92
-(1)
-(2)
-(3)
-(4)
-5.8
-Match the correlation, Part II. Match each correlation to the corresponding scatterplot.
-(a) r = 0.49
-(b) r = -0.48
-(c) r = -0.03
-(d) r = -0.85
-(1)
-(2)
-(3)
-(4)
-5.9
-Speed and height.
-1,302 UCLA students were asked to fill out a survey where they were asked
-about their height, fastest speed they have ever driven, and gender. The scatterplot on the left displays the
-relationship between height and fastest speed, and the scatterplot on the right displays the breakdown by
-gender in this relationship.
-Height (in inches)
-Fastest speed (in mph)
-60
-70
-80
-0
-50
-100
-150
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-G
-G
-G
-G G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-Height (in inches)
-Fastest speed (in mph)
-60
-70
-80
-0
-50
-100
-150
-G
-female
-male
-(a) Describe the relationship between height and fastest speed.
-(b) Why do you think these variables are positively associated?
-(c) What role does gender play in the relationship between height and fastest driving speed?
-9D.J. Hand. A handbook of small data sets. Chapman & Hall/CRC, 1994.
+### 5.1 二元數值數據摘要 (Summarizing Bivariate Numerical Data) 練習題
 
+**5.6 伴侶，第一部分**
+英國人口普查與調查辦公室 (Great Britain Office of Population Census and Surveys) 曾收集了英國 170 名已婚女性的隨機樣本 (random sample) 數據，記錄了這些女性及其伴侶的年齡（以年為單位）與身高（此處轉換為英吋）。左側的散佈圖 (scatterplot) 顯示了伴侶的年齡與女性年齡的關係，右側的圖則顯示了伴侶的身高與女性身高的關係。
 
-### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
-411
-5.10
-Guess the correlation. Eduardo and Rosie are both collecting data on number of rainy days in a
-year and the total rainfall for the year. Eduardo records rainfall in inches and Rosie in centimeters. How
-will their correlation coeﬃcients compare?
-5.11
-The Coast Starlight, Part I. The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The
-scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel
-from one stop to another (in minutes).
-(a) Describe the relationship between
-distance and travel time.
-(b) How would the relationship change if
-travel time was instead measured in
-hours, and distance was instead
-measured in kilometers?
-(c) The correlation between travel time
-(in minutes) and distance (in miles) is
-r = 0.636. What are the units for the
-correlation in this context?
-(d) Suppose we had instead measured
-travel time in hours and measured
-distance in kilometers (km). What
-would be the correlation in these
-diﬀerent units?
-(e) How would the correlation change if
-the x and y variables were swapped?
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-Distance (miles)
-Travel Time (minutes)
-0
-100
-200
-300
-60
-120
-180
-240
-300
-360
-5.12
-Crawling babies. A study conducted at the University of Denver investigated whether babies take
-longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement,
-than in warmer months.10 Infants born during the study year were split into twelve groups, one for each birth
-month. We consider the average crawling age of babies in each group against the average temperature when
-the babies are six months old (that's when babies often begin trying to crawl). Temperature is measured in
-degrees Fahrenheit (○F) and age is measured in weeks.
-(a) Describe the relationship between
-temperature and crawling age.
-(b) How would the relationship change if
-temperature was measured in degrees
-Celsius (○C) and age was measured in
-months?
-(c) What are
-(d) The correlation between temperature
-in ○F and age in weeks was r = -0.70.
-What are the units for the correlation
-in this context?
-(e) If we converted the temperature to ○C
-and age to months, what would the
-correlation be?
-(f) How would the correlation change if
-the x and y variables were swapped?
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-30
-40
-50
-60
-70
-29
-30
-31
-32
-33
-34
-Temperature (F)
-Avg. crawling age (weeks)
-10J.B. Benson. "Season of birth and onset of locomotion: Theoretical and methodological implications". In: Infant
-behavior and development 16.1 (1993), pp. 69-81. issn: 0163-6383.
+- (a) 描述樣本中女性年齡與其伴侶年齡之間的關係。
+- (b) 描述樣本中女性身高與其伴侶身高之間的關係。
+- (c) 哪一個圖顯示出更強的相關性 (correlation)？解釋你的推論。
+- (d) 身高的數據原本是以公分收集，後來轉換為英吋。這個轉換會影響樣本中女性身高與其伴侶身高之間的相關性嗎？
 
+**5.7 配對相關性，第一部分**
+將每個相關係數配對到對應的散佈圖：
+- (a) $r = -0.7$
+- (b) $r = 0.45$
+- (c) $r = 0.06$
+- (d) $r = 0.92$
 
-412
-CHAPTER 5. REGRESSION ANALYSIS
-5.2
-Line fitting and residuals
-How can we use information about one variable to estimate or predict another variable? How do we
-determine when these predictions will be reasonable or unreasonable? In this section we continue
-our investigation of the relationship between bivariate, numerical data. We introduce the linear
-regression model and the concept of residuals as error between an actual y-value and a predicted
-y-value.
-Learning objectives
-1. Calculate a predicted response value using a linear regression model.
-2. Calculate the diﬀerences between the observed and predicted values.
-3. Interpret the diﬀerences between the observed and predicted values.
-4. Describe the form of association of bivariate data using residual plots.
-5.2.1
-Fitting a line to data
-Requests from twelve separate buyers were simultaneously placed with a trading company to
-purchase Target Corporation stock (ticker TGT, April 26th, 2012). We let x be the number of stocks
-to purchase and y be the total cost. Because the cost is computed using a linear formula, the linear
-fit is perfect, and the equation for the line is: y = 5 + 57.49x. If we know the number of stocks
-purchased, we can determine the cost based on this linear equation with no error. Additionally,
-we can say that each additional share of the stock cost $57.49 and that there was a $5 fee for the
-transaction.
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-0
-5
-10
-15
-20
-25
-30
-0
-500
-1000
-1500
-Number of Target Corporation stocks to purchase
-0
-10
-20
-30
-0
-500
-1000
-1500
-Total cost of the shares (dollars)
-Figure 5.10: Requests from twelve separate buyers were simultaneously placed with
-a trading company to purchase Target Corporation stock (ticker TGT, December
-28th, 2018), and the total cost of the shares were reported. Because the cost is
-computed using a linear formula, the linear fit is perfect.
+**5.8 配對相關性，第二部分**
+將每個相關係數配對到對應的散佈圖：
+- (a) $r = 0.49$
+- (b) $r = -0.48$
+- (c) $r = -0.03$
+- (d) $r = -0.85$
 
+**5.9 速度與身高**
+1,302 名 UCLA 的學生被要求填寫一份問卷，調查他們的身高、曾經開過最快的車速以及性別。左側的散佈圖顯示了身高與最快速度之間的關係，右側的散佈圖則顯示了在此關係中按性別分類的情況。
 
-### 5.2. LINE FITTING AND RESIDUALS
-413
-Perfect linear relationships are unrealistic in almost any natural process. For example, if we
-took family income (x), this value would provide some useful information about how much financial
-support a college may oﬀer a prospective student (y). However, the prediction would be far from
-perfect, because other factors play a role in financial support beyond a family's income.
-It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for
-data to appear as a cloud of points, such as those shown in Figure 5.11. In each case, the data fall
-around a straight line, even if none of the observations fall exactly on the line. The first plot shows
-a relatively strong downward linear trend, where the remaining variability in the data around the
-line is minor relative to the strength of the relationship between x and y. The second plot shows
-an upward trend that, while evident, is not as strong as the first. The last plot shows a very weak
-downward trend in the data, so slight we can hardly notice it.
-In each of these examples, we can consider how to draw a "best fit line". For instance, we
-might wonder, should we move the line up or down a little, or should we tilt it more or less? As we
-move forward in this chapter, we will learn diﬀerent criteria for line-fitting, and we will also learn
-about the uncertainty associated with estimates of model parameters.
--50
-0
-50
--50
-0
-50
-500
-1000
-1500
-0
-10000
-20000
-0
-20
-40
--200
-0
-200
-400
-Figure 5.11: Three data sets where a linear model may be useful even though the
-data do not all fall exactly on the line.
-There are also cases where fitting a straight line to the data, even if there is a clear relationship
-between the variables, is not helpful. One such case is shown in Figure 5.12 where there is a very
-clear relationship between the variables even though the trend is not linear.
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-Angle of Incline (Degrees)
-Distance Traveled (m)
-0
-5
-10
-15
-0
-30
-60
-90
-Best fitting line is flat (!)
-Figure 5.12: A linear model is not useful in this nonlinear case. These data are
-from an introductory physics experiment.
+- (a) 描述身高與最快車速之間的關係。
+- (b) 你認為為什麼這些變數會呈現正向關聯 (positively associated)？
+- (c) 在身高與最快車速的關係中，性別扮演了什麼角色？
 
+**5.10 猜測相關性**
+Eduardo 和 Rosie 都在收集一年中下雨的天數以及該年總降雨量的數據。Eduardo 以英吋記錄降雨量，而 Rosie 則以公分記錄。他們的相關係數比較起來會如何？
 
-414
-CHAPTER 5. REGRESSION ANALYSIS
-5.2.2
-Using linear regression to make predictions
-Brushtail possums are a marsupial that lives in Australia. A photo of one is shown in Fig-
-ure 5.13. Researchers captured 104 of these animals and took body measurements before releasing
-the animals back into the wild. We consider two of these measurements: the total length of each
-possum, from head to tail, and the length of each possum's head.
-Figure 5.13: The common brushtail possum of Australia.
-------------------------
-Photo by Peter Firminger on Flickr: http://flic.kr/p/6aPTn CC BY 2.0 license.
-Figure 5.14 shows a scatterplot for the head length and total length of the 104 possums. Each
-point represents a single case (possum) from the data.
-Total length (cm)
-Head length (mm)
-75
-80
-85
-90
-95
-85
-90
-95
-100
-G
-Figure 5.14: A scatterplot showing head length against total length for 104 brush-
-tail possums. A point representing a possum with head length 94.1 mm and total
-length 89 cm is highlighted.
+**5.11 海岸星光號，第一部分**
+美國國鐵 (Amtrak) 的海岸星光號 (Coast Starlight) 列車從西雅圖行駛至洛杉磯。散佈圖顯示了每個停靠站之間的距離（以英里為單位）以及從一站行駛到另一站所需的時間（以分鐘為單位）。
 
+- (a) 描述距離與行駛時間之間的關係。
+- (b) 如果行駛時間改以小時測量，且距離改以公里測量，這種關係會如何改變？
+- (c) 行駛時間（分鐘）與距離（英里）之間的相關係數為 $r = 0.636$。在此情境下，相關係數的單位是什麼？
+- (d) 假設我們改以小時測量行駛時間，並以公里 (km) 測量距離。在這些不同的單位下，相關係數會是多少？
+- (e) 如果將 x 和 y 變數互換，相關係數會如何改變？
 
-### 5.2. LINE FITTING AND RESIDUALS
-415
-The head and total length variables are associated: possums with an above average total length
-also tend to have above average head lengths. While the relationship is not perfectly linear, it could
-be helpful to partially explain the connection between these variables with a straight line. We will
-use the total length, x, to explain or predict a possum's head length, y. When we use x to predict
-y, we usually call x the explanatory variable or predictor variable, and we call y the response
-variable. We could fit the linear relationship by eye, as in Figure 5.15. We call this the regression
-line and write it in the form ˆy = a + bx, where a is the y-intercept of the line and b is the slope of
-the line. The equation for this regression line that was fit by eye is
-ˆy = 41 + 0.59x
-A "hat" on y is used to signify that this is a predicted value, not an observed value. We can use
-this line to discuss properties of possums. For instance, the equation predicts a possum with a total
-length of 80 cm will have a head length (in mm) of
-ˆy = 41 + 0.59(80)
-= 88.2
-The value ˆy may be viewed as an average: the equation predicts that possums with a total length of
-80 cm will have an average head length of 88.2 mm. The value ˆy is also a prediction: absent further
-information about an 80 cm possum, this is our best prediction for a the head length of a single
-80 cm possum.
-5.2.3
-Extrapolation is treacherous
-When those blizzards hit the East Coast this winter, it proved to my satisfaction that global warming
-was a fraud. That snow was freezing cold. But in an alarming trend, temperatures this spring have risen.
-Consider this: On February 6th it was 10 degrees. Today it hit almost 80. At this rate, by August it will be
-220 degrees. So clearly folks the climate debate rages on.
-Stephen Colbert
-April 6th, 2010 11
-Linear models can be used to approximate the relationship between two variables. However,
-these models have real limitations. Linear regression is simply a modeling framework. The truth
-is almost always much more complex than our simple line. For example, we do not know how the
-data outside of our limited window will behave. In general, interpolation, which is predicting a
-response value using an x-value that is within the range of the x-values in the data set, is safer than
-extrapolation, which is predicting a response value using an x-value that is outside the range of
-the x-values in the data set.
-5.2.4
-Residuals
-Residuals are the leftover variation in the response variable after fitting a model. Each obser-
-vation will have a residual, and three of the residuals for the linear model we fit for the possum data
-are shown in Figure 5.15. If an observation is above the regression line, then its residual, the vertical
-distance from the observation to the line, is positive. Observations below the line have negative
-residuals. One goal in picking the right linear model is for these residuals to be as small as possible.
-Let's look closer at the three residuals featured in Figure 5.15. The observation marked by an
-"×" has a small, negative residual of about -1; the observation marked by "+" has a large residual
-of about +7; and the observation marked by "△" has a moderate residual of about -4. The size of
-a residual is usually discussed in terms of its absolute value. For example, the residual for "△" is
-larger than that of "×" because ∣-4∣is larger than ∣-1∣.
-11The Colbert Report on April 6th, 2010.
+**5.12 爬行的嬰兒**
+丹佛大學 (University of Denver) 進行了一項研究，調查嬰兒在寒冷的月份（此時他們通常被包在限制活動的衣服裡）學習爬行的時間，是否比在溫暖的月份需要更長的時間。參與研究的嬰兒根據出生月份被分為十二組。我們探討每組嬰兒的平均爬行年齡與嬰兒六個月大時的平均氣溫（這通常是嬰兒開始嘗試爬行的時候）之間的關係。氣溫以華氏度數 (ºF) 測量，年齡以週為單位測量。
 
+- (a) 描述氣溫與爬行年齡之間的關係。
+- (b) 如果氣溫改以攝氏度數 (ºC) 測量，且年齡改以月為單位測量，這種關係會如何改變？
+- (c) 氣溫 (ºF) 與年齡（週）之間的相關係數為 $r = -0.70$。在此情境下，相關係數的單位是什麼？
+- (d) 如果我們將氣溫轉換為 ºC，將年齡轉換為月，相關係數會是多少？
+- (e) 如果將 x 和 y 變數互換，相關係數會如何改變？
 
-416
-CHAPTER 5. REGRESSION ANALYSIS
-Total Length (cm)
-Head Length (mm)
-75
-80
-85
-90
-95
-85
-90
-95
-100
-Figure 5.15: A reasonable linear model was fit to represent the relationship between
-head length and total length.
-RESIDUAL: DIFFERENCE BETWEEN OBSERVED AND EXPECTED
-The residual for a particular observation (x, y) is the diﬀerence between the observed response
-and the response we would predict based on the model:
-residual = observed y -predicted y
-= y -ˆy
-We typically identify ˆy by plugging x into the model.
-EXAMPLE 5.11
-The linear fit shown in Figure 5.15 is given as ˆy = 41 + 0.59x. Based on this line, compute and
-interpret the residual of the observation (77.0, 85.3). This observation is denoted by "×" on the
-plot. Recall that x is the total length measured in cm and y is head length measured in mm.
-We first compute the predicted value based on the model:
-ˆy = 41 + 0.59x
-= 41 + 0.59(77.0)
-= 86.4
-Next we compute the diﬀerence of the actual head length and the predicted head length:
-residual = y -ˆy
-= 85.3 -86.4
-= -1.1
-The residual for this point is -1.1 mm, which is very close to the visual estimate of -1 mm. For this
-particular possum with total length of 77 cm, the model's prediction for its head length was 1.1 mm
-too high.
-GUIDED PRACTICE 5.12
-If a model underestimates an observation, will the residual be positive or negative? What about if
-it overestimates the observation?12
+---
 
+### 5.2 直線配適與殘差 (Line fitting and residuals)
 
-### 5.2. LINE FITTING AND RESIDUALS
-417
-GUIDED PRACTICE 5.13
-Compute the residual for the observation (95.5,94.0), denoted by "△" in the figure, using the linear
-model: ˆy = 41 + 0.59x.13
-Residuals are helpful in evaluating how well a linear model fits a data set. We often display the
-residuals in a residual plot such as the one shown in Figure 5.16. Here, the residuals are calculated
-for each x value, and plotted versus x. For instance, the point (85.0,98.6) had a residual of 7.45,
-so in the residual plot it is placed at (85.0,7.45). Creating a residual plot is sort of like tipping the
-scatterplot over so the regression line is horizontal.
-From the residual plot, we can better estimate the standard deviation of the residuals,
-often denoted by the letter s. The standard deviation of the residuals tells us typical size of the
-residuals. As such, it is a measure of the typical deviation between the y values and the model
-predictions. In other words, it tells us the typical prediction error using the model.14
-EXAMPLE 5.14
-Estimate the standard deviation of the residuals for predicting head length from total length using
-the line: ˆy = 41 + 0.59x using Figure 5.16. Also, interpret the quantity in context.
-To estimate this graphically, we use the residual plot. The approximate 68, 95 rule for standard
-deviations applies. Approximately 2/3 of the points are within ± 2.5 and approximately 95% of the
-points are within ± 5, so 2.5 is a good estimate for the standard deviation of the residuals. The
-typical error when predicting head length using this model is about 2.5 mm.
-Total Length (cm)
-Head Length (mm)
-75
-80
-85
-90
-95
-85
-90
-95
-100
-75
-80
-85
-90
-95
--5
-0
-5
-Total Length (cm)
-Residuals
-75
-80
-85
-90
-95
--5
-0
-5
-Figure 5.16: Left: Scatterplot of head length versus total length for 104 brushtail
-possums. Three particular points have been highlighted. Right: Residual plot for
-the model shown in left panel.
-12If a model underestimates an observation, then the model estimate is below the actual. The residual, which is
-the actual observation value minus the model estimate, must then be positive. The opposite is true when the model
-overestimates the observation: the residual is negative.
-13First compute the predicted value based on the model, then compute the residual.
-ˆy = 41 + 0.59x = 41 + 0.59(95.50) = 97.3
-residual = y -ˆy = 94.0 -97.3 = -3.3
-The residual is -3.3, so the model overpredicted the head length for this possum by 3.3 mm.
-14The standard deviation of the residuals is calculated as: s =
-√
-∑(yi-ˆy)2
-n-2
-.
+我們如何利用一個變數的資訊來估計或預測另一個變數？我們如何決定這些預測何時合理或不合理？在本節中，我們將繼續探討二元數值數據 (bivariate numerical data) 之間的關係。我們將介紹線性迴歸模型 (linear regression model)，以及作為實際 y 值與預測 y 值之間誤差的殘差 (residuals) 概念。
 
+::: {.concept-box title="學習目標"}
+1. 使用線性迴歸模型計算預測的反應值 (predicted response value)。
+2. 計算觀察值 (observed values) 與預測值 (predicted values) 之間的差異。
+3. 解釋觀察值與預測值之間差異的意義。
+4. 使用殘差圖 (residual plots) 描述二元數據的關聯形式。
+:::
 
-418
-CHAPTER 5. REGRESSION ANALYSIS
-EXAMPLE 5.15
-One purpose of residual plots is to identify characteristics or patterns still apparent in data after
-fitting a model. Figure 5.17 shows three scatterplots with linear models in the first row and residual
-plots in the second row. Can you identify any patterns remaining in the residuals?
-In the first data set (first column), the residuals show no obvious patterns. The residuals appear to
-be scattered randomly around the dashed line that represents 0.
-The second data set shows a pattern in the residuals. There is some curvature in the scatterplot,
-which is more obvious in the residual plot. We should not use a straight line to model these data.
-Instead, a more advanced technique should be used.
-The last plot shows very little upwards trend, and the residuals also show no obvious patterns.
-It is reasonable to try to fit a linear model to the data. However, it is unclear whether there is
-statistically significant evidence that the slope parameter is diﬀerent from zero. The slope of the
-sample regression line is not zero, but we might wonder if this could be due to random variation.
-Figure 5.17: Sample data with their best fitting lines (top row) and their corre-
-sponding residual plots (bottom row).
+#### 5.2.1 將數據配適成一條直線 (Fitting a line to data)
 
+十二位獨立買家同時向一家貿易公司發出請求，購買 Target Corporation 的股票 (代號 TGT，2012 年 4 月 26 日)。我們令 $x$ 為購買的股票數量，$y$ 為總成本。因為成本是使用線性公式計算的，所以線性配適 (linear fit) 是完美的，這條直線的方程式為：$y = 5 + 57.49x$。如果我們知道購買的股票數量，我們就可以根據這個線性方程式確定成本，完全沒有誤差。此外，我們可以說股票每增加一股，成本就增加 $57.49，並且這筆交易有 $5 的手續費。
 
-### 5.2. LINE FITTING AND RESIDUALS
-419
-Section summary
-• If the form of the relationship between x and y appears linear, we can approximate the rela-
-tionship between x and y using a linear regression model, which is a linear equation that
-uses an explanatory variable, x, to predict the response variable, y. Linear models should not
-be used if the trend between the variables is curved.
-• In a linear regression model, the predicted response value, denoted by ˆy, is calculated as
-ˆy = a + bx, where a is the y-intercept, b is the slope of the regression line, and x is the
-explanatory variable.
-• Extrapolation is predicting a response value using a value for the explanatory variable that
-is beyond the interval of x-values used to determine the regression line. The predicted value
-is less reliable the further the estimate is extrapolated.
-• Interpolation is predicting a response value using a value for the explanatory variable that
-is within the interval of x-values used to determine the regression line.
-• A residual is the diﬀerence between the observed response value and the predicted response
-value for the given value of the explanatory variable: residual = y -ˆy or (residual = observed
-y -predicted y).
-• If the residual is positive, the model underpredicts (underestimates) the value of the response
-variable. If the residual is negative, the model overpredicts (overestimates) the value of the
-response variable.
-• A residual plot is a scatterplot of the residuals versus the predicted response values (or the
-explanatory variable values).
-• Residual plots can be used to investigate the appropriateness of the linear regression model
-for the observed data.
-• The linear regression model should only be fit to the data if the data exhibit a linear trend.
-Apparent randomness in a residual plot for a linear regression model is confirmation of a
-linear form in the association between the two variables and indicates that the simple linear
-regression model is an appropriate model for the data.
-• Curvature in the residual plot for a linear regression model suggests that the linear model is
-not the most appropriate model for the data.
+> **圖 5.10**：十二位獨立買家同時向貿易公司下單購買股票的總成本報告。因為成本是按線性公式計算，所以呈完美的線性關係。
 
+在幾乎任何自然過程中，完美的線性關係是不切實際的。例如，如果我們考慮家庭收入 ($x$)，這個值可以提供一些有用的資訊，以預測大學可能會提供給未來學生的財務補助金額 ($y$)。然而，這種預測遠非完美，因為除了家庭收入之外，還有其他因素會影響財務補助。
 
+數據很少會完美地落在一直線上。相反地，數據通常呈現為一團點雲，如圖 5.11 所示。在每一個情況中，數據都圍繞著一條直線分佈，即使沒有任何一個觀察值剛好落在這條線上。第一張圖顯示了相對較強的向下線性趨勢，相對於 $x$ 和 $y$ 之間關係的強度，數據在直線周圍的殘餘變異 (remaining variability) 是微小的。第二張圖顯示了向上的趨勢，雖然明顯，但不如第一張強烈。最後一張圖顯示數據中存在非常微弱的向下趨勢，微弱到我們幾乎注意不到。
+
+在這些例子中，我們可以思考如何畫出一條「最佳配適線」(best fit line)。例如，我們可能會想，我們應該把線稍微往上還是往下移，或者讓它傾斜多一點還是少一點？在我們繼續本章的過程中，我們將學習不同配適直線的準則，並且也會學習到與模型參數估計相關的不確定性。
+
+> **圖 5.11**：三個數據集的範例，即使數據沒有完美落在一條直線上，線性模型仍可能很有用。
+
+也有一些情況下，即使變數之間有明顯的關係，用一條直線來配適數據也沒有幫助。圖 5.12 顯示了一個這樣的例子：儘管變數之間有非常明顯的關係，但趨勢並非線性的。
+
+> **圖 5.12**：在這個非線性的案例中，線性模型並不適用。此數據來自於一個基礎物理實驗（最佳配適線竟然是水平的！）。
+
+#### 5.2.2 使用線性迴歸進行預測 (Using linear regression to make predictions)
+
+刷尾負鼠 (Brushtail possums) 是一種生活在澳洲的有袋類動物（照片如圖 5.13 所示）。研究人員捕捉了 104 隻這種動物，並在將牠們放回野外前進行了身體測量。我們考慮其中的兩項測量值：每隻負鼠從頭到尾的總長度 (total length)，以及每隻負鼠的頭部萇度 (head length)。
+
+圖 5.14 顯示了 104 隻負鼠的頭部長度與總長度的散佈圖。每個點代表數據中的一個個案（一隻負鼠）。
+
+> **圖 5.14**：104 隻刷尾負鼠頭部長度與總長度的散佈圖。其中特別標示了一個點，代表一隻頭部長度為 94.1 毫米，總長度為 89 公分的負鼠。
+
+頭部長度與總長度變數具有關聯性：總長度高於平均的負鼠，其頭部長度也傾向於高於平均。雖然這個關係不是完美的線性，但用一條直線來部分解釋這些變數之間的關聯是很有幫助的。我們將使用總長度 $x$ 來解釋或預測負鼠的頭部長度 $y$。當我們使用 $x$ 來預測 $y$ 時，我們通常稱 $x$ 為**解釋變數 (explanatory variable)** 或**預測變數 (predictor variable)**，並稱 $y$ 為**反應變數 (response variable)**。
+
+我們可以透過目測來配適這個線性關係，如圖 5.15 所示。我們稱這為**迴歸線 (regression line)**，並將其寫成 $\hat{y} = a + bx$ 的形式，其中 $a$ 是直線的 y 截距，$b$ 是直線的斜率。這條透過目測配適的迴歸線方程式為：
+
+$$ \hat{y} = 41 + 0.59x $$
+
+$y$ 上方的「帽子 (hat)」用來表示這是一個預測值，而非觀察值。我們可以使用這條線來討論負鼠的特徵。例如，這個方程式預測一隻總長度為 80 公分的負鼠，其頭部長度（單位：毫米）將為：
+
+$$ \hat{y} = 41 + 0.59(80) = 88.2 $$
+
+數值 $\hat{y}$ 可以被視為一個平均值：方程式預測總長度為 80 公分的負鼠們，其平均頭部長度為 88.2 毫米。數值 $\hat{y}$ 也是一個預測值：在沒有關於這隻 80 公分負鼠的進一步資訊下，這是我們對單一隻 80 公分負鼠頭部長度的最佳預測。
+
+#### 5.2.3 外插是危險的 (Extrapolation is treacherous)
+
+> "當那些暴風雪今年冬天襲擊東海岸時，它讓我確信全球暖化是一場騙局。那雪可是冰冷刺骨的。但在一個令人擔憂的趨勢中，今年春天的氣溫卻上升了。你想想看：2月6日氣溫是10度，今天卻幾乎達到80度。照這個速度，到八月氣溫將達到220度。所以很顯然地，各位，氣候辯論仍在激烈進行。"  
+> —— Stephen Colbert (2010年4月6日)
+
+線性模型可以用來近似兩個變數之間的關係。然而，這些模型有其實際的限制。線性迴歸只是一個建模框架，而真實情況幾乎總是比我們簡單的直線還要複雜得多。例如，我們不知道超出我們有限觀察範圍的數據會如何表現。一般來說，**內插 (interpolation)**（使用數據集中 $x$ 值範圍內的 $x$ 值來預測反應值）會比**外插 (extrapolation)**（使用超出數據集中 $x$ 值範圍的 $x$ 值來預測反應值）來得安全。
+
+::: {.callout-tip title="AP English Response｜Extrapolation (外插)" collapse="true"}
+When asked why predicting a value far outside the range of data is dangerous, you can respond:
+"Predicting a response value using an x-value that is outside the range of the x-values in the data set is called extrapolation. Extrapolation is dangerous because the linear trend observed within the data may not continue outside of the observed range."
+:::
+
+#### 5.2.4 殘差 (Residuals)
+
+殘差 (Residuals) 是在配適模型後，反應變數中剩餘的變異 (leftover variation)。每個觀察值都會有一個殘差，圖 5.15 中顯示了我們為負鼠數據配適的線性模型的三個殘差。如果一個觀察值在迴歸線之上，那麼它的殘差（觀察值到直線的垂直距離）為正。在直線下方的觀察值則具有負殘差。選擇正確線性模型的一個目標，就是讓這些殘差盡可能地小。
+
+讓我們仔細觀察圖 5.15 中標示的三個殘差。標記為「×」的觀察值有一個約為 -1 的小負殘差；標記為「+」的觀察值有一個約為 +7 的大殘差；而標記為「△」的觀察值有一個約為 -4 的中等殘差。殘差的大小通常以其絕對值來討論。例如，「△」的殘差比「×」大，因為 |-4| 大於 |-1|。
+
+::: {.concept-box title="概念：殘差（觀察值與預期值之間的差異）"}
+特定觀察值 $(x, y)$ 的殘差是觀察到的反應值與我們基於模型所預測的反應值之間的差異：
+
+$$ \text{residual} = \text{observed } y - \text{predicted } y = y - \hat{y} $$
+
+我們通常透過將 $x$ 代入模型來求得 $\hat{y}$。
+:::
+
+**範例 5.11**
+圖 5.15 中顯示的線性配適方程式為 $\hat{y} = 41 + 0.59x$。基於這條直線，計算並解釋觀察值 $(77.0, 85.3)$ 的殘差。此觀察值在圖上以「×」表示。回想一下，$x$ 是以公分測量的總長度，而 $y$ 是以毫米測量的頭部長度。
+
+*解答：*
+首先，我們計算基於模型的預測值：
+$$ \hat{y} = 41 + 0.59(77.0) = 86.4 $$
+
+接著，我們計算實際頭部長度與預測頭部長度之間的差異：
+$$ \text{residual} = y - \hat{y} = 85.3 - 86.4 = -1.1 $$
+
+這個數據點的殘差為 -1.1 毫米，與我們視覺上估計的 -1 毫米非常接近。這表示，對於這隻總長度為 77 公分的特定負鼠，模型預測其頭部長度的結果過高了 (too high) 1.1 毫米。
+
+**引導練習 5.12**
+如果一個模型低估 (underestimates) 了一個觀察值，殘差會是正的還是負的？如果它高估 (overestimates) 了觀察值呢？
+
+::: {.callout-tip title="解答" collapse="true"}
+如果一個模型低估了觀察值，那麼模型估計值將低於實際值。殘差（實際觀察值減去模型估計值）必然為正。當模型高估觀察值時則相反：殘差為負。
+:::
+
+**引導練習 5.13**
+使用線性模型：$\hat{y} = 41 + 0.59x$，為圖中以「△」表示的觀察值 $(95.5, 94.0)$ 計算殘差。
+
+::: {.callout-tip title="解答" collapse="true"}
+首先計算預測值，然後計算殘差。
+$$ \hat{y} = 41 + 0.59(95.50) = 97.3 $$
+$$ \text{residual} = y - \hat{y} = 94.0 - 97.3 = -3.3 $$
+殘差為 -3.3，因此模型對這隻負鼠的頭部長度高估了 3.3 毫米。
+:::
+
+殘差有助於評估線性模型對數據集的配適程度。我們經常將殘差顯示在如圖 5.16 所示的**殘差圖 (residual plot)** 中。在這裡，針對每個 $x$ 值計算出殘差，並繪製對應的 $x$ 值。例如，點 $(85.0, 98.6)$ 的殘差為 7.45，所以在殘差圖中它被放置在 $(85.0, 7.45)$。建立殘差圖有點像是將散佈圖翻轉過來，使得迴歸線變成水平的。
+
+從殘差圖中，我們可以更準確地估計**殘差的標準差 (standard deviation of the residuals)**，通常以字母 $s$ 表示。殘差的標準差告訴我們殘差的典型大小。因此，它是衡量 $y$ 值與模型預測值之間典型偏差的一種指標。換句話說，它告訴我們使用這個模型進行預測的典型誤差。
+
+**範例 5.14**
+利用圖 5.16，估計使用直線 $\hat{y} = 41 + 0.59x$ 根據總長度預測頭部長度的殘差標準差。並且，在情境中解釋這個數值。
+
+*解答：*
+為了以圖形方式估計，我們使用殘差圖。大致的 68-95-99.7 法則（標準差法則）在這裡適用。大約三分之二 (68%) 的點位於 $\pm 2.5$ 之間，大約 95% 的點位於 $\pm 5$ 之間，所以 2.5 是殘差標準差的一個良好估計。使用這個模型預測頭部長度時，典型誤差大約為 2.5 毫米。
+
+> **圖 5.16**：左：104 隻刷尾負鼠頭部長度對總長度的散佈圖。其中標出了三個特定點。右：左方面板所顯示模型的殘差圖。
+
+**範例 5.15**
+殘差圖的其中一個目的是識別在配適模型後數據中仍然明顯存在的特徵或模式。圖 5.17 的第一行顯示了三個帶有線性模型的散佈圖，第二行顯示了對應的殘差圖。你能找出殘差中殘留的任何模式嗎？
+
+*解答：*
+- 在第一組數據中（第一欄），殘差沒有顯示出明顯的模式。殘差似乎隨機散佈在代表 0 的虛線周圍。
+- 第二組數據顯示殘差存在模式。散佈圖中有一些彎曲 (curvature)，這在殘差圖中更為明顯。我們不應該使用直線來配適這些數據。相反地，應該使用更進階的技術。
+- 最後一個圖顯示極少的向上趨勢，且殘差也沒有顯示出明顯的模式。嘗試用線性模型配適這組數據是合理的。然而，目前尚不清楚是否有統計上顯著的證據表明斜率參數不同於零。樣本迴歸線的斜率不是零，但我們可能會想知道這是否可能只是因為隨機變異造成的。
+
+> **圖 5.17**：樣本數據及其最佳配適線（上排）和其對應的殘差圖（下排）。
+
+::: {.warning-box title="常見迷思"}
+許多學生會認為如果在散佈圖上看不出明顯的曲線，線性模型就一定是對的。實際上，如果殘差圖中呈現出明顯的 U 型或倒 U 型模式（彎曲），即使原始散佈圖看起來像直線，線性模型 (linear model) 也是不適當的 (not appropriate)。
+:::
+
+#### 節末重點摘要 (Section Summary)
+
+- 如果 $x$ 和 $y$ 之間的關係形式看起來是線性的，我們可以使用**線性迴歸模型 (linear regression model)** 來近似 $x$ 和 $y$ 之間的關係，這是一個使用解釋變數 $x$ 來預測反應變數 $y$ 的線性方程式。如果變數之間的趨勢是彎曲的，則不應使用線性模型。
+- 在線性迴歸模型中，預測的反應值（記為 $\hat{y}$）計算公式為 $\hat{y} = a + bx$，其中 $a$ 是 y 截距，$b$ 是迴歸線的斜率，$x$ 是解釋變數。
+- **外插 (Extrapolation)** 是指使用超出用於決定迴歸線的 $x$ 值區間的解釋變數值來預測反應值。預測值距離觀測區間越遠，就越不可靠。
+- **內插 (Interpolation)** 是指使用在用於決定迴歸線的 $x$ 值區間內的解釋變數值來預測反應值。
+- **殘差 (Residual)** 是在給定的解釋變數值下，觀察到的反應值與預測的反應值之間的差異：$\text{residual} = y - \hat{y}$ 或（殘差 = 觀察的 $y$ 值 - 預測的 $y$ 值）。
+- 如果殘差為正，則模型對反應變數的值**預測不足 (underpredicts/underestimates)**。如果殘差為負，則模型對反應變數的值**過度預測 (overpredicts/overestimates)**。
+- **殘差圖 (Residual plot)** 是殘差對應於預測反應值（或解釋變數值）的散佈圖。
+- 殘差圖可用於探討線性迴歸模型對於觀察數據的適當性 (appropriateness)。
+- 只有當數據呈現線性趨勢時，才應將線性迴歸模型配適到數據上。線性迴歸模型的殘差圖若呈現明顯的隨機性 (apparent randomness)，這證實了兩個變數之間的關聯呈現線性形式，並表示簡單線性迴歸模型是適合該數據的模型。
+- 如果線性迴歸模型的殘差圖呈現出**彎曲 (Curvature)**，則表示線性模型不是該數據最合適的模型。

@@ -1,1052 +1,457 @@
 ---
-title: "2.3 Conditional probability"
+title: "2.3 條件機率 (Conditional probability)"
 ---
 
-114
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-Section summary
-• A random process generates results that are determined by chance.
-• An outcome is the result of one trial of a random process.
-• An event is a collection of outcomes.
-• Simulation is a way to model random events such that the simulated outcomes closely match
-real-world outcomes. All possible outcomes are associated with a value to be determined by
-chance. Record the counts of simulated outcomes and the count total.
-• The probability of an outcome or event is its long-run relative frequency-- that is, its relative
-frequency over a large number of trials.
-• The relative frequency of an outcome or event determined from empirical data can be used
-to estimate the actual, or true, probability of that outcome or event.
-• The law of large numbers states that for independent trials, as the number of trials increases,
-the long-run relative frequency of the outcome or event gets closer and closer to a single value.
-• The probability of an event is always between 0 and 1, inclusive.
-• The sample space of a random process is the set of all possible nonoverlapping outcomes.
-The probability of the sample space is 1.
-• If all outcomes in the sample space are equally likely, then the theoretical probability an event
-E will occur can be found by dividing the number of outcomes in event E by the total number
-of outcomes in the sample space.
-• The probability of the complement of an event E, which can written as "not E" or Ec, is
-equal to 1-P(E), i.e. P(Ec) = 1-P(E). This can also be applied as P(E) = 1-P(Ec).
-• The probability that events A and B both will occur, that is the joint probability of A and
-B, is the probability of the intersection of A and B.
-• Two events A and B are mutually exclusive, or disjoint, if they cannot happen together.
-In this case, the events do not overlap and P(A and B) = 0.
-• In the special case where A and B are disjoint events: P(A or B) = P(A) + P(B).
-• When considering only two events, the probability that one or the other happens is equal to
-the probability that at least one of the two events happens.
-• To find the probability that at least one of several events occurs, use a special case of the rule
-of complements: P(at least one) = 1 -P(none).
-• Two events are independent when the occurrence of one does not change the likelihood of
-the other. Outcomes of coin tosses or rolls of a dice are classic examples of independent events.
-• In the special case where A and B are independent: P(A and B) = P(A) × P(B).
+### 2.2 機率基礎 (Probability Basics) 總結與習題
 
+::: {.concept-box title="章節總結 (Section Summary)"}
+- **隨機過程 (Random process)** 會產生由機率決定的結果。
+- **結果 (Outcome)** 是隨機過程一次試驗的結果。
+- **事件 (Event)** 是結果的集合。
+- **模擬 (Simulation)** 是一種對隨機事件進行建模的方法，使得模擬結果與現實世界的結果高度吻合。所有可能結果都與機率決定的數值相關聯。記錄模擬結果的次數與總次數。
+- 一個結果或事件的**機率 (Probability)** 是它的長期相對次數 (long-run relative frequency)——即在大量試驗下的相對次數。
+- 由經驗數據得出的結果或事件的相對次數可用來估計其真實的機率。
+- **大數法則 (Law of large numbers)** 指出，對於獨立的試驗，隨著試驗次數的增加，結果或事件的長期相對次數會越來越接近一個單一數值。
+- 事件的機率始終介於 0 與 1 之間（含）。
+- 隨機過程的**樣本空間 (Sample space)** 是所有可能且互不重疊的結果的集合。樣本空間的機率為 1。
+- 如果樣本空間中所有結果的發生可能性皆相等，那麼事件 E 發生之**理論機率 (Theoretical probability)** 可以透過將事件 E 中的結果數量除以樣本空間中的總結果數量來求得。
+- 事件 E 的**補集機率 (Probability of the complement)**，可記為「非 E (not E)」或 $E^c$，等於 $1 - P(E)$，也就是 $P(E^c) = 1 - P(E)$。此規則也可寫為 $P(E) = 1 - P(E^c)$。
+- 事件 A 與事件 B 同時發生的機率，即 A 與 B 的**聯合機率 (Joint probability)**，也就是 A 與 B 交集的機率。
+- 如果兩個事件 A 與 B 無法同時發生，稱它們為**互斥 (Mutually exclusive)** 或**不相交 (Disjoint)**。在這種情況下，事件不重疊，且 $P(A \text{ and } B) = 0$。
+- 在 A 與 B 為互斥事件的特殊情況下：$P(A \text{ or } B) = P(A) + P(B)$。
+- 當只考慮兩個事件時，其中一個或另一個發生的機率等於這兩個事件中至少有一個發生的機率。
+- 為了計算幾個事件中至少有一個發生的機率，可以使用補集規則的特例：$P(\text{至少一個}) = 1 - P(\text{全無})$。
+- 當一個事件的發生不會改變另一個事件發生的可能性時，這兩個事件是**獨立的 (Independent)**。擲硬幣或擲骰子的結果是獨立事件的經典例子。
+- 在 A 與 B 獨立的特殊情況下：$P(A \text{ and } B) = P(A) \times P(B)$。
+:::
 
-### 2.2. PROBABILITY BASICS
-115
-Exercises
-2.7
-True or false. Determine if the statements below are true or false, and explain your reasoning.
-(a) If a fair coin is tossed many times and the last eight tosses are all heads, then the chance that the next
-toss will be heads is somewhat less than 50%.
-(b) Drawing a face card (jack, queen, or king) and drawing a red card from a full deck of playing cards are
-mutually exclusive events.
-(c) Drawing a face card and drawing an ace from a full deck of playing cards are mutually exclusive events.
-2.8
-Roulette wheel. The game of roulette involves spinning a wheel with 38 slots: 18 red, 18 black, and 2
-green. A ball is spun onto the wheel and will eventually land in a slot, where each slot has an equal chance
-of capturing the ball.
-(a) You watch a roulette wheel spin 3 consecutive times and the ball
-lands on a red slot each time. What is the probability that the
-ball will land on a red slot on the next spin?
-(b) You watch a roulette wheel spin 300 consecutive times and the
-ball lands on a red slot each time. What is the probability that
-the ball will land on a red slot on the next spin?
-(c) Are you equally confident of your answers to parts (a) and (b)?
-Why or why not?
-Photo by H˚akan Dahlstr¨om
-(http://flic.kr/p/93fEzp)
-CC BY 2.0 license
-2.9
-Four games, one winner.
-Below are four versions of the same game. Your archnemesis gets to
-pick the version of the game, and then you get to choose how many times to flip a coin: 10 times or 100
-times. Identify how many coin flips you should choose for each version of the game. It costs $1 to play each
-game. Explain your reasoning.
-(a) If the proportion of heads is larger than 0.60, you win $1.
-(b) If the proportion of heads is larger than 0.40, you win $1.
-(c) If the proportion of heads is between 0.40 and 0.60, you win $1.
-(d) If the proportion of heads is smaller than 0.30, you win $1.
-2.10
-Backgammon. Backgammon is a board game for two players in which the playing pieces are moved
-according to the roll of two dice. Players win by removing all of their pieces from the board, so it is usually
-good to roll high numbers. You are playing backgammon with a friend and you roll two 6s in your first
-roll and two 6s in your second roll. Your friend rolls two 3s in his first roll and again in his second row.
-Your friend claims that you are cheating, because rolling double 6s twice in a row is very unlikely. Using
-probability, show that your rolls were just as likely as his.
-2.11
-Coin flips. If you flip a fair coin 10 times, what is the probability of
-(a) getting all tails?
-(b) getting all heads?
-(c) getting at least one tails?
-2.12
-Dice rolls. If you roll a pair of fair dice, what is the probability of
-(a) getting a sum of 1?
-(b) getting a sum of 5?
-(c) getting a sum of 12?
+#### 習題 (Exercises)
 
+**2.7 是非題 (True or false)**。判斷以下陳述是正確還是錯誤，並解釋你的理由。
+(a) 如果多次投擲一枚公正的硬幣，並且最後八次投擲都是正面，那麼下一次投擲出現正面的機率會略低於 50%。
+(b) 從一副完整的撲克牌中抽出一張人頭牌（J、Q 或 K）與抽出一張紅牌是互斥事件。
+(c) 從一副完整的撲克牌中抽出一張人頭牌與抽出一張 A (Ace) 是互斥事件。
 
-116
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.3 Conditional probability, intersections, and unions
-What is the likelihood that a machine learning algorithm will misclassify a photo as being about
-fashion if it is not actually about fashion? How does the probability of surviving smallpox given
-being vaccinated compare to the probability of being vaccinated given having survived smallpox? To
-answer these questions, we investigate conditional probabilities. We also develop a general formula
-for "and" probabilities and a general formula for "or" probabilities.
-Learning objectives
-1. Calculate probabilities using two-way tables and Venn diagrams.
-2. Calculate and interpret conditional probabilities.
-3. Use a tree diagram along with the conditional probability rule to solve "inverted" conditional
-probabilities.
-4. Calculate the probability of joint events whether or not the events are independent.
-5. Calculate the probability of the union of two events, whether or not the events are mutually
-exclusive.
-6. Determine whether two events are independent and whether they are mutually exclusive.
-2.3.1
-Exploring probabilities with a two-way table
-The photo classify data set represents a sample of 1822 photos from a photo sharing website.
-Data scientists have been working to improve a classifier for whether the photo is about fashion or
-not, and these 659 photos represent a test for their classifier. Each photo gets two classifications:
-the first is called mach learn and gives a classification from a machine learning (ML) system of
-either pred fashion or pred not. Each of these 1822 photos have also been classified carefully by
-a team of people, which we take to be the source of truth; this variable is called truth and takes
-values fashion and not. Figure 2.13 summarizes the results.
-truth
-fashion
-not
-Total
-pred fashion
-197
-22
-219
-mach learn
-pred not
-112
-1491
-1603
-Total
-309
-1513
-1822
-Figure 2.13: two-way table summarizing the photo classify data set.
-EXAMPLE 2.25
-If a photo is actually about fashion, what is the chance the ML classifier correctly identified the
-photo as being about fashion?
-We can estimate this probability using the data. Of the 309 fashion photos, the ML algorithm
-correctly classified 197 of the photos:
-P(mach learn is pred fashion given truth is fashion) = 197
-309 = 0.638
+**2.8 輪盤遊戲 (Roulette wheel)**。輪盤遊戲涉及旋轉一個有 38 個槽位的輪盤：18 個紅色、18 個黑色和 2 個綠色。將球投入旋轉的輪盤中，球最終會落入某個槽位，每個槽位捕獲球的機率相等。
+(a) 你觀察輪盤連續旋轉了 3 次，每次球都落在紅色的槽位上。下一次旋轉球落在紅色槽位上的機率是多少？
+(b) 你觀察輪盤連續旋轉了 300 次，每次球都落在紅色的槽位上。下一次旋轉球落在紅色槽位上的機率是多少？
+(c) 你對 (a) 和 (b) 的答案有同樣的信心嗎？為什麼？
 
+**2.9 四種遊戲，一個贏家 (Four games, one winner)**。
+以下是同一遊戲的四種版本。你的死對頭會選擇遊戲版本，然後你可以選擇投擲硬幣的次數：10 次或 100 次。請針對每個遊戲版本，決定你應該選擇投擲多少次硬幣。每次玩遊戲的成本為 1 美元。請解釋你的理由。
+(a) 如果正面的比例大於 0.60，你贏得 1 美元。
+(b) 如果正面的比例大於 0.40，你贏得 1 美元。
+(c) 如果正面的比例介於 0.40 和 0.60 之間，你贏得 1 美元。
+(d) 如果正面的比例小於 0.30，你贏得 1 美元。
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-117
-ML Predicts Fashion
-Fashion Photos
-0.11
-0.01
-0.06
-Neither: 0.82
-Figure 2.14: A Venn diagram using boxes for the photo classify data set.
-EXAMPLE 2.26
-We sample a photo from the data set and learn the ML algorithm predicted this photo was not
-about fashion. What is the probability that it was incorrect and the photo is about fashion?
-If the ML classifier suggests a photo is not about fashion, then it comes from the second row in the
-data set. Of these 1603 photos, 112 were actually about fashion:
-P(truth is fashion given mach learn is pred not) = 112
-1603 = 0.070
-2.3.2
-Marginal and joint probabilities
-Figure 2.13 includes row and column totals for each variable separately in the photo classify
-data set. These totals represent marginal probabilities for the sample, which are the probabilities
-based on a single variable without regard to any other variables. For instance, a probability based
-solely on the mach learn variable is a marginal probability:
-P(mach learn is pred fashion) = 219
-1822 = 0.12
-A probability of outcomes for two or more variables or processes is called a joint probability:
-P(mach learn is pred fashion and truth is fashion) = 197
-1822 = 0.11
-It is common to substitute a comma for "and" in a joint probability, although using either the word
-"and" or a comma is acceptable:
-P(mach learn is pred fashion, truth is fashion)
-means the same thing as
-P(mach learn is pred fashion and truth is fashion)
-MARGINAL AND JOINT PROBABILITIES
-If a probability is based on a single variable, it is a marginal probability. The probability of
-outcomes for two or more variables or processes is called a joint probability.
+**2.10 雙陸棋 (Backgammon)**。雙陸棋是一種雙人棋盤遊戲，玩家根據兩顆骰子的點數移動棋子。玩家透過將自己所有棋子移出棋盤來獲勝，因此擲出大數字通常是有利的。你和朋友在玩雙陸棋，你第一次擲出兩個 6，第二次又擲出兩個 6。你的朋友第一次擲出兩個 3，第二次又擲出兩個 3。你朋友聲稱你作弊，因為連續兩次擲出雙 6 點非常不可能。請運用機率證明你的擲骰結果和他的擲骰結果機率是一樣的。
 
+**2.11 擲硬幣 (Coin flips)**。如果你投擲一枚公正硬幣 10 次，以下情況的機率是多少？
+(a) 全部是反面？
+(b) 全部是正面？
+(c) 至少有一個反面？
 
-118
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-We use table proportions to summarize joint probabilities for the photo classify sample.
-These proportions are computed by dividing each count in Figure 2.13 by the table's total, 1822,
-to obtain the proportions in Figure 2.15. The joint probability distribution of the mach learn and
-truth variables is shown in Figure 2.16.
-truth: fashion
-truth: not
-Total
-mach learn: pred fashion
-0.1081
-0.0121
-0.1202
-mach learn: pred not
-0.0615
-0.8183
-0.8798
-Total
-0.1696
-0.8304
-1.00
-Figure 2.15: Probability table summarizing the photo classify data set.
-Joint outcome
-Probability
-mach learn is pred fashion and truth is fashion
-0.1081
-mach learn is pred fashion and truth is not
-0.0121
-mach learn is pred not and truth is fashion
-0.0615
-mach learn is pred not and truth is not
-0.8183
-Total
-1.0000
-Figure 2.16: Joint probability distribution for the photo classify data set.
-GUIDED PRACTICE 2.27
-Verify Figure 2.16 represents a probability distribution: events are disjoint, all probabilities are
-non-negative, and the probabilities sum to 1.21
-We can compute marginal probabilities using joint probabilities in simple cases. For example,
-the probability that a randomly selected photo from the data set is about fashion is found by
-summing the outcomes in which truth takes value fashion:
-P(truth is fashion) = P(mach learn is pred fashion and truth is fashion)
-+ P(mach learn is pred not and truth is fashion)
-= 0.1081 + 0.0615
-= 0.1696
-2.3.3
-Defining conditional probability
-The ML classifier predicts whether a photo is about fashion, even if it is not perfect. We would
-like to better understand how to use information from a variable like mach learn to improve our
-probability estimation of a second variable, which in this example is truth.
-The probability that a random photo from the data set is about fashion is about 0.17. If we
-knew the machine learning classifier predicted the photo was about fashion, could we get a better
-estimate of the probability the photo is actually about fashion? Absolutely. To do so, we limit our
-view to only those 219 cases where the ML classifier predicted that the photo was about fashion and
-look at the fraction where the photo was actually about fashion:
-P(truth is fashion given mach learn is pred fashion) = 197
-219 = 0.900
-We call this a conditional probability because we computed the probability under a condition:
-the ML classifier prediction said the photo was about fashion.
-21Each of the four outcome combination are disjoint, all probabilities are indeed non-negative, and the sum of the
-probabilities is 0.1081 + 0.0121 + 0.0615 + 0.8183 = 1.00.
+**2.12 擲骰子 (Dice rolls)**。如果你擲一對公正骰子，以下情況的機率是多少？
+(a) 點數總和為 1？
+(b) 點數總和為 5？
+(c) 點數總和為 12？
 
+---
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-119
-There are two parts to a conditional probability, the outcome of interest and the condition.
-It is useful to think of the condition as information we know to be true, and this information usually
-can be described as a known outcome or event. We generally separate the text inside our probability
-notation into the outcome of interest and the condition with a vertical bar:
-P(truth is fashion given mach learn is pred fashion)
-= P(truth is fashion ∣mach learn is pred fashion) = 197
-219 = 0.900
-The vertical bar "∣" is read as given.
-In the last equation, we computed the probability a photo was about fashion based on the
-condition that the ML algorithm predicted it was about fashion as a fraction:
-P(truth is fashion ∣mach learn is pred fashion)
-= # cases where truth is fashion and mach learn is pred fashion
-# cases where mach learn is pred fashion
-= 197
-219 = 0.900
-We considered only those cases that met the condition, mach learn is pred fashion, and then we
-computed the ratio of those cases that satisfied our outcome of interest, photo was actually about
-fashion.
-Frequently, marginal and joint probabilities are provided instead of count data. For example,
-disease rates are commonly listed in percentages rather than in a count format. We would like to
-be able to compute conditional probabilities even when no counts are available, and we use the last
-equation as a template to understand this technique.
-We considered only those cases that satisfied the condition, where the ML algorithm predicted
-fashion. Of these cases, the conditional probability was the fraction representing the outcome of
-interest, that the photo was about fashion.
-Suppose we were provided only the information in
-Figure 2.15, i.e. only probability data. Then if we took a sample of 1000 photos, we would anticipate
-about 12.0% or 0.120 × 1000 = 120 would be predicted to be about fashion (mach learn is pred
-fashion). Similarly, we would expect about 10.8% or 0.108×1000 = 108 to meet both the information
-criteria and represent our outcome of interest. Then the conditional probability can be computed as
-P(truth is fashion ∣mach learn is pred fashion)
-= # (truth is fashion and mach learn is pred fashion)
-# (mach learn is pred fashion)
-= 108
-120 = 0.108
-0.120 = 0.90
-Here we are examining exactly the fraction of two probabilities, 0.108 and 0.120, which we can write
-as
-P(truth is fashion and mach learn is pred fashion)
-and
-P(mach learn is pred fashion).
-The fraction of these probabilities is an example of the general formula for conditional probability.
-CONDITIONAL PROBABILITY
-The conditional probability of the outcome of interest A given condition B is computed as the
-following:
-P(A∣B) = P(A and B)
-P(B)
+### 2.3 條件機率、交集與聯集 (Conditional probability, intersections, and unions)
 
+如果一張照片實際上不是關於時尚的，機器學習演算法將其誤判為時尚的機率有多高？「已知在天花中倖存的前提下，接種過疫苗的機率」與「已知接種過疫苗的前提下，在天花中倖存的機率」相比有何差異？為了解答這些問題，我們將探討條件機率。我們還將推導「交集 (and)」與「聯集 (or)」的通用機率公式。
 
-120
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-GUIDED PRACTICE 2.28
-(a) Write out the following statement in conditional probability notation: "The probability that the
-ML prediction was correct, if the photo was about fashion". Here the condition is now based on the
-photo's truth status, not the ML algorithm.
-(b) Determine the probability from part (a). Figure 2.15 on page 118 may be helpful.22
-GUIDED PRACTICE 2.29
-(a) Determine the probability that the algorithm is incorrect if it is known the photo is about fashion.
-(b) Using the answers from part (a) and Guided Practice 2.28(b), compute
-P(mach learn is pred fashion ∣truth is fashion)
-+ P(mach learn is pred not ∣truth is fashion)
-(c) Provide an intuitive argument to explain why the sum in (b) is 1.23
-The smallpox data set provides a sample of 6,224 individuals from the year 1721 who were
-exposed to smallpox in Boston.24 Doctors at the time believed that inoculation, or vaccination that
-involved exposing a person to the disease in a controlled form, could reduce the likelihood of death.
-Each case represents one person with two variables: inoculated and result. The variable
-inoculated takes two levels: yes or no, indicating whether the person was inoculated or not. The
-variable result has outcomes lived or died. These data are summarized in Tables 2.17 and 2.18.
-inoculated
-yes
-no
-Total
-lived
-238
-5136
-5374
-result
-died
-6
-844
-850
-Total
-244
-5980
-6224
-Figure 2.17: Contingency table for the smallpox data set.
-inoculated
-yes
-no
-Total
-lived
-0.0382
-0.8252
-0.8634
-result
-died
-0.0010
-0.1356
-0.1366
-Total
-0.0392
-0.9608
-1.0000
-Figure 2.18: Table proportions for the smallpox data, computed by dividing each
-count by the table total, 6224.
-GUIDED PRACTICE 2.30
-Write out, in formal notation, the probability a randomly selected person who was not inoculated
-died from smallpox, and find this probability.25
-22(a) If the photo is about fashion and the ML algorithm prediction was correct, then the ML algorithm my
-have a value of pred fashion:
-P(mach learn is pred fashion ∣truth is fashion) (b) The equation for condi-
-tional probability indicates we should first find P(mach learn is pred fashion and truth is fashion) = 0.1081 and
-P(truth is not) = 0.1696. Then the ratio represents the conditional probability: 0.1081/0.1696 = 0.6374.
-23(a) This probability is P (mach learn is pred not, truth is fashion)
-P (truth is fashion)
-= 0.0615
-0.1696 = 0.3626. (b) The total equals 1. (c) Under
-the condition the photo is about fashion, the ML algorithm must have either predicted it was about fashion or
-predicted it was not about fashion. The complement still works for conditional probabilities, provided the probabilities
-are conditioned on the same information.
-24Fenner F. 1988. Smallpox and Its Eradication (History of International Public Health, No. 6). Geneva: World
-Health Organization. ISBN 92-4-156110-6.
-25P(result = died ∣not inoculated) = P (result = died and not inoculated)
-P (not inoculated)
-= 0.1356
-0.9608 = 0.1411.
+#### 學習目標 (Learning objectives)
+1. 使用雙向表 (two-way tables) 和文氏圖 (Venn diagrams) 計算機率。
+2. 計算並解釋條件機率 (conditional probabilities)。
+3. 使用樹狀圖 (tree diagram) 搭配條件機率規則來解決「反向」的條件機率問題。
+4. 計算聯合事件 (joint events) 的機率，無論事件是否獨立。
+5. 計算兩個事件聯集 (union) 的機率，無論事件是否互斥。
+6. 判斷兩個事件是否獨立 (independent)，以及是否互斥 (mutually exclusive)。
 
+#### 2.3.1 使用雙向表探索機率 (Exploring probabilities with a two-way table)
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-121
-GUIDED PRACTICE 2.31
-Determine the probability that an inoculated person died from smallpox.
-How does this result
-compare with the result of Guided Practice 2.30?26
-GUIDED PRACTICE 2.32
-The people of Boston self-selected whether or not to be inoculated. (a) Is this study observational
-or was this an experiment? (b) Can we draw a causal conclusion using these data? (c) What is a
-potential confounding variable that might influence whether someone lived or died and also aﬀect
-whether that person was inoculated?27
-2.3.4
-General multiplication rule for joint probabilities
-When finding joint probabilities, we can use the General Multiplication Rule.
-GENERAL MULTIPLICATION RULE
-If A and B represent two outcomes or events, then to find the joint probability A and B we
-use:
-P(A ∩B) = P(A) × P(B∣A)
-This General Multiplication Rule can also be seen as a rearrangement of the conditional prob-
-ability rule: P(B∣A) = P (A∩B)
-P (A) .
-EXAMPLE 2.33
-Consider the smallpox data set. Suppose we are given only two pieces of information: 96.08%
-of residents were not inoculated, and 85.88% of the residents who were not inoculated ended up
-surviving. How could we compute the probability that a resident was not inoculated and lived?
-We will compute our answer using the General Multiplication Rule and then verify it using Fig-
-ure 2.18. We want to determine
-P(not inoculated and lived)
-and we are given:
-P(not inoculated) = 0.9608
-P(lived ∣not inoculated) = 0.8588
-Among the 96.08% of people who were not inoculated, 85.88% survived, so:
-P(not inoculated and lived) = 0.9608 × 0.8588 = 0.825.
-This is equivalent to the General Multiplication Rule. We can confirm this probability in Figure 2.18
-at the intersection of no and lived (with a small rounding error).
-26P(died ∣inoculated) = P (died and inoculated)
-P (inoculated)
-= 0.0010
-0.0392 = 0.0255. The death rate for individuals who were inocu-
-lated is only about 1 in 40 while the death rate is about 1 in 7 for those who were not inoculated.
-27Brief answers: (a) Observational. (b) No, we cannot draw a causal conclusion from this observational study.
-(However, further research has shown that inoculation is eﬀective at reducing death rates.) (c) Accessibility to the
-latest and best medical care, so income could be a confounding variable. There are other valid answers for part (c).
+`photo classify` 資料集代表了從一個照片分享網站中抽取的 1822 張照片樣本。數據科學家們致力於改進一個用於判斷照片是否關於時尚的分類器，這些 659 張照片代表了對他們分類器的測試。每張照片會獲得兩種分類：第一種稱為 `mach learn`，是機器學習 (ML) 系統給出的分類，結果為 `pred fashion` (預測為時尚) 或 `pred not` (預測為非時尚)。這 1822 張照片也都經過人工團隊仔細分類，我們將此視為真實來源；此變數稱為 `truth`，結果為 `fashion` 或 `not`。下表總結了這些結果。
 
+| | truth: fashion | truth: not | Total |
+|---|---|---|---|
+| **mach learn: pred fashion** | 197 | 22 | 219 |
+| **mach learn: pred not** | 112 | 1491 | 1603 |
+| **Total** | 309 | 1513 | 1822 |
+*圖 2.13: 總結 `photo classify` 資料集的雙向表。*
 
-122
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-GUIDED PRACTICE 2.34
-Use P(inoculated) = 0.0392 and P(lived ∣inoculated) = 0.9754 to determine the probability
-that a person was both inoculated and lived.28
-GUIDED PRACTICE 2.35
-If 97.54% of the inoculated people lived, what proportion of inoculated people must have died?29
-2.3.5
-Tree diagrams and inverted conditional probabilities
-Tree diagrams are a tool to organize outcomes and probabilities around the structure of the
-data. They are most useful when two or more processes occur in a sequence and each process is
-conditioned on its predecessors.
-The smallpox data fit this description.
-We see the population as split by inoculation:
-inoculated and not inoculated. Following this split, survival rates were observed for each group.
-This structure is reflected in the tree diagram shown in Figure 2.19. The first branch for inoculation
-is said to be the primary branch while the other branches are secondary.
-Inoculation
-Result
-inoculated,  0.0392
-lived,  0.9754
-died,  0.0246
-not
-inoculated,  0.9608
-lived,  0.8589
-died,  0.1411
-Figure 2.19: A tree diagram of the smallpox data set.
-Tree diagrams are annotated with probabilities for the primary and secondary branches, as
-shown in Figure 2.19. This tree diagram splits the smallpox data by inoculation into inoculated
-and not inoculated with respective probabilities 0.0392 and 0.9608. The secondary branches are
-conditioned on the first, so we assign conditional probabilities to these branches. For example, the
-top secondary branch in Figure 2.19 is the probability of lived conditioned on inoculated.
-To calculate a joint probability, we use the General Multiplication Rule. For example:
-P(inoculated and lived) = P(inoculated) × P(lived ∣inoculated)
-= 0.0392 × 0.9754
-= 0.0382
-28The answer is 0.0382, which can be verified using Figure 2.18.
-29There were only two possible outcomes: lived or died. This means that 100% - 97.54% = 2.46% of the people
-who were inoculated died.
+**範例 2.25 (EXAMPLE 2.25)**
+如果一張照片實際上是關於時尚的，那麼 ML 分類器正確將其識別為時尚的機率是多少？
+我們可以使用數據來估計這個機率。在 309 張時尚照片中，ML 演算法正確分類了 197 張：
+$$P(\text{mach learn is pred fashion given truth is fashion}) = \frac{197}{309} = 0.638$$
 
+**範例 2.26 (EXAMPLE 2.26)**
+我們從資料集中抽取一張照片，發現 ML 演算法預測該照片不是關於時尚的。分類器出錯且該照片實際上是關於時尚的機率是多少？
+如果 ML 分類器顯示照片不是關於時尚的，那麼它來自資料集的第二列。在這 1603 張照片中，有 112 張實際上是關於時尚的：
+$$P(\text{truth is fashion given mach learn is pred not}) = \frac{112}{1603} = 0.070$$
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-123
-EXAMPLE 2.36
-What is the probability that a randomly selected person lived?
-There are two ways that a person could have lived: be inoculated and lived OR not be inoculated
-and lived. To find this probability, we sum the two disjoint probabilities:
-P(lived) = P(inoculated and lived) + P(not inoculated and lived)
-= 0.0392 × 0.9754 + 0.9608 × 0.8589
-= 0.0382 + 0.8252
-= 0.8634
-EXAMPLE 2.37
-What is the probability that a randomly selected person who was inoculated lived?
-This is equivalent to asking the proportion that lived among those who were inoculated.
-This
-probability can be written as P(lived ∣inoculated) and can be found in the second branch as
-0.9754.
-Now, instead of asking the probability that a randomly selected person who was inoculated lived,
-we might want to know the probability that a randomly selected person who lived was inoculated.
-That is, instead of P(lived ∣inoculated), we want to find P(inoculated ∣lived). This is more
-challenging because it cannot be read directly from the tree diagram. However, we can apply the
-conditional probability rule to find this "inverted" conditional probability.
-P(inoculated ∣lived) = P(inoculated and lived)
-P(lived)
-=
-0.0392 × 0.9754
-0.0392 × 0.9754 + 0.9608 × 0.8589
-= 0.0382
-0.8634
-= 0.0442
-You might be surprised to see that P(inoculated ∣lived) is only 0.0442 while the probability
-P(lived ∣inoculated) is 0.9754.
-While most people who were inoculated lived, it is not true
-that most people who lived were inoculated. These two conditional probabilities are very diﬀerent
-because the subset lived is much larger than the subset inoculated.
-We can also observe that the events "inoculated" and "lived" are dependent. The conditional
-probability that someone was inoculated given that they lived (0.0442) is greater than the uncondi-
-tional probability that someone was inoculated (0.0392).
-GUIDED PRACTICE 2.38
-What is the probability that a random selected person who died was inoculated?30
-30 This is equivalent to P(inoculated ∣died). This conditional probability can be found as P (inoculated and died)
-P (died)
-=
-0.0392×0.0246
-0.0392×0.0246 + 0.9608×0.1411 = 0.00096
-0.13653 = 0.0070. Among those who died, only 0.70% were inoculated.
+#### 2.3.2 邊際機率與聯合機率 (Marginal and joint probabilities)
 
+圖 2.13 包含了 `photo classify` 資料集中各個變數的行列總計。這些總計代表樣本的**邊際機率 (marginal probabilities)**，這是不考慮其他變數，僅基於單一變數算出的機率。例如，僅基於 `mach learn` 變數的機率就是邊際機率：
+$$P(\text{mach learn is pred fashion}) = \frac{219}{1822} = 0.12$$
 
-124
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-EXAMPLE 2.39
-Jose visits campus every Thursday evening. However, some days the parking garage is full, often
-due to college events. There are academic events on 35% of evenings, sporting events on 20% of
-evenings, and no events on 45% of evenings. When there is an academic event, the garage fills up
-about 25% of the time, and it fills up 70% of evenings with sporting events. On evenings when there
-are no events, it only fills up about 5% of the time. If Jose comes to campus and finds the garage
-full, what is the probability that there is a sporting event? Use a tree diagram to solve this problem.
-The tree diagram, with three primary branches, is shown below.
-Event
-Garage full
-Academic,  0.35
-Full,  0.25
-Spaces Available,  0.75
-Sporting,  0.20
-Full,  0.7
-Spaces Available,  0.3
-None,  0.45
-Full,  0.05
-Spaces Available,  0.95
-We want to find the probability that there is a sporting event given that the garage is full.
-P(sporting event ∣garage full) = P(sporting event and garage full)
-P(garage full)
-=
-0.20 × 0.7
-0.35 × 0.25 + 0.20 × 0.7 + 0.45 × 0.05
-=
-0.14
-0.0875 + 0.14 + 0.0225
-= 0.56.
-If the garage is full, there is a 56% probability that there is a sporting event.
-This example oﬀers a way to update our belief about whether there is a sporting event, academic
-event, or no event going on at the school based on the information that the parking lot is full.
-This strategy of updating beliefs is the foundation of an entire theory of statistics called Bayesian
-statistics. While Bayesian statistics has many applications, we will not have time to cover it in this
-book.
+基於兩個或多個變數或過程之結果的機率稱為**聯合機率 (joint probability)**：
+$$P(\text{mach learn is pred fashion and truth is fashion}) = \frac{197}{1822} = 0.11$$
 
+在聯合機率中，通常可以用逗號來代替「and（與）」，儘管使用「and」或逗號都是可接受的：
+$P(\text{mach learn is pred fashion, truth is fashion})$
+等同於
+$P(\text{mach learn is pred fashion and truth is fashion})$
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-125
-2.3.6
-Sampling without replacement
-EXAMPLE 2.40
-Professors sometimes select a student at random to answer a question. If each student has an equal
-chance of being selected and there are 15 people in your class, what is the chance that you will get
-selected for the next question?
-If there are 15 people to ask and none are skipping class, then the probability is 1/15, or about
-0.067.
-EXAMPLE 2.41
-If the professor asks 3 questions, what is the probability that you will not be selected? Assume that
-she will not pick the same person twice in a given lecture.
-For the first question, she will pick someone else with probability 14/15. When she asks the second
-question, she only has 14 people who have not yet been asked. Thus, if you were not picked on the
-first question, the probability you are again not picked is 13/14. Similarly, the probability you are
-again not picked on the third question is 12/13, and the probability of not being picked for any of
-the three questions is
-P(not picked in 3 questions)
-= P(Q1 = not picked and Q2 = not picked and Q3 = not picked.)
-= 14
-15 × 13
-14 × 12
-13 = 0.80
-GUIDED PRACTICE 2.42
-What rule permitted us to multiply the probabilities in Example 2.41?31
-EXAMPLE 2.43
-Suppose the professor randomly picks without regard to who she already selected, i.e. students can
-be picked more than once. What is the probability that you will not be picked for any of the three
-questions?
-Each pick is independent, and the probability of not being picked for any individual question is
-14/15. Thus, we can use the Multiplication Rule for independent processes.
-P(not picked in 3 questions)
-= P(Q1 = not picked and Q2 = not picked and Q3 = not picked.)
-= 14
-15 × 14
-15 × 14
-15 = 0.813
-You have a slightly higher chance of not being picked compared to when she picked a new person
-for each question. However, you now may be picked more than once.
-31We used the General Multiplication Rule to find the product of three probabilities, where the second and third
-are conditional probabilities:
-P(Q1 = not picked) × P(Q2 = not picked ∣Q1 = not picked) × P(Q3 = not picked ∣Q1 = not picked and Q2 = not picked)
+::: {.concept-box title="概念：邊際與聯合機率 (Marginal and joint probabilities)"}
+如果一個機率僅基於單一變數，則為**邊際機率**。基於兩個或多個變數或過程之結果的機率則稱為**聯合機率**。
+:::
 
+我們使用表格比例來總結 `photo classify` 樣本的聯合機率。這些比例是透過將圖 2.13 中的每個計數除以表格總數 1822 來計算的，從而得到圖 2.15 中的比例。圖 2.16 則顯示了 `mach learn` 與 `truth` 變數的聯合機率分配。
 
-126
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-If we sample from a small population without replacement, we no longer have independence
-between our observations. In Example 2.41, the probability of not being picked for the second ques-
-tion was conditioned on the event that you were not picked for the first question. In Example 2.43,
-the professor sampled her students with replacement: she repeatedly sampled the entire class
-without regard to who she already picked.
-GUIDED PRACTICE 2.44
-Continuing Examples 2.41 and 2.43, if the professor asks three questions, what is the probability
-that you will be chosen at least once if she chooses students randomly without replacement (repeats
-not allowed)? What if she chooses randomly with replacement (repeats allowed)? There are 15
-students in the class.32
-GUIDED PRACTICE 2.45
-Now, let's say that you are in a large lecture hall with 150 students. If the professor asks three
-questions, what is the probability that you will be chosen at least once if she chooses students
-randomly without replacement? What if she chooses randomly with replacement?33
-EXAMPLE 2.46
-Compare your answers to Guided Practice 2.44 and to Guided Practice 2.45. What do you notice?
-The probability of being chosen at least once when the professor randomly samples 3 students out
-of 15 without replacement versus with replacement diﬀers by 0.003 (0.20-0.187). The probability
-of being chosen at least once when the professor randomly samples 3 students out of 150 without
-replacement versus with replacement diﬀers by 0.0001 (0.0200-0.0199). When the population size
-is larger relative to the sample size, the diﬀerence between the conditional and the unconditional
-probabilities used in the probability calculations is smaller. Therefore, when the population size is
-large relative to the sample size, the diﬀerence between sampling without replacement and sampling
-with replacement becomes negligible.
-When taking a small sample from a much larger population and sampling without replacement,
-the observations are technically not independent but can be treated as if they were independent for
-calculation purposes. A rule of thumb says that if the sample size is less than 10% of the population
-size, or equivalently if the population size is at least 10 times greater than the sample size, then the
-observations can be treated as if they were independent.
-SAMPLING WITHOUT REPLACEMENT
-When the sample size is only a small fraction of the population (under 10%), observations can
-be considered independent even when sampling without replacement.
-32(a) If you don't get chosen at least once, that means you never get chosen. Therefore, using complements, the
-probability of being chosen at least once is equal to 1 -the probability of never being chosen.
-Without replacement: P(chosen at least once) = 1 -(14/15)(13/14)(12/13) = 1 -0.80 = 0.20.
-(b) With replacement: P(chosen at least once) = 1 -(14/15)3 = 1 -0.813 = 0.187.
-33(a) Without replacement: P(chosen at least once) = 1 -(149/150)(148/149)(147/148) = 1 -0.9800 = 0.0200.
-(b) With replacement: P(chosen at least once) = 1 -(149/150)3 = 1 -0.9801 = 0.0199.
+| | truth: fashion | truth: not | Total |
+|---|---|---|---|
+| **mach learn: pred fashion** | 0.1081 | 0.0121 | 0.1202 |
+| **mach learn: pred not** | 0.0615 | 0.8183 | 0.8798 |
+| **Total** | 0.1696 | 0.8304 | 1.0000 |
+*圖 2.15: 總結 `photo classify` 資料集的機率表。*
 
+| 聯合結果 (Joint outcome) | 機率 (Probability) |
+|---|---|
+| mach learn is pred fashion and truth is fashion | 0.1081 |
+| mach learn is pred fashion and truth is not | 0.0121 |
+| mach learn is pred not and truth is fashion | 0.0615 |
+| mach learn is pred not and truth is not | 0.8183 |
+| **Total** | 1.0000 |
+*圖 2.16: `photo classify` 資料集的聯合機率分配。*
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-127
-2.3.7
-Independence considerations in conditional probability
-If two processes are independent, then knowing the outcome of one should provide no informa-
-tion about the other. We can show this is mathematically true using conditional probabilities.
-GUIDED PRACTICE 2.47
-Let X and Y represent the outcomes of rolling two dice. (a) What is the probability that the first die,
-X, is 1? (b) What is the probability that both X and Y are 1? (c) Use the formula for conditional
-probability to compute P(Y = 1 ∣X = 1), then compare this to P(Y = 1).34
-We can also show that in Guided Practice 2.47(c) the conditioning information has no influence
-by using the Multiplication Rule for independence processes:
-P(Y = 1 ∣X = 1)
-=
-P(Y = 1 and X = 1)
-P(X = 1)
-=
-P(Y = 1) × P(X = 1)
-P(X = 1)
-=
-P(Y = 1)
-GUIDED PRACTICE 2.48
-Ron is watching a roulette table in a casino and notices that the last five outcomes were black. He
-figures that the chances of getting black six times in a row is very small (about 1/64) and puts his
-paycheck on red. What is wrong with his reasoning?35
-2.3.8
-Probabilities when events are not disjoint
-Let's consider calculations for two events that are not disjoint in the context of a regular deck
-of 52 cards, represented in Figure 2.20. If you are unfamiliar with the cards in a regular deck, please
-see the footnote.36
-2♣
-3♣
-4♣
-5♣
-6♣
-7♣
-8♣
-9♣
-10♣
-J♣
-Q♣
-K♣
-A♣
-2♢
-3♢
-4♢
-5♢
-6♢
-7♢
-8♢
-9♢
-10♢
-J♢
-Q♢
-K♢
-A♢
-2♡
-3♡
-4♡
-5♡
-6♡
-7♡
-8♡
-9♡
-10♡
-J♡
-Q♡
-K♡
-A♡
-2♠
-3♠
-4♠
-5♠
-6♠
-7♠
-8♠
-9♠
-10♠
-J♠
-Q♠
-K♠
-A♠
-Figure 2.20: Representations of the 52 unique cards in a deck.
-GUIDED PRACTICE 2.49
-(a) What is the probability that a randomly selected card is a diamond? (b) What is the probability
-that a randomly selected card is a face card?37
-34Brief solutions: (a) 1/6. (b) 1/36. (c) P(Y = 1 ∣X = 1)= P (Y = 1 and X= 1)
-P (X= 1)
-= 1/36
-1/6 = 1/6. This probability is the
-same as P(Y = 1) = 1/6. The probability that Y = 1 was unchanged by knowledge about X, which makes sense as X
-and Y are independent.
-35He has forgotten that the next roulette spin is independent of the previous spins. Casinos do employ this practice;
-they post the last several outcomes of many betting games to trick unsuspecting gamblers into believing the odds are
-in their favor. This is called the gambler's fallacy.
-36The 52 cards are split into four suits: ♣(club), ♢(diamond), ♡(heart), ♠(spade). Each suit has its 13 cards
-labeled: 2, 3, ..., 10, J (jack), Q (queen), K (king), and A (ace). Thus, each card is a unique combination of a suit and
-a label, e.g. 4♡and J♣. The 12 cards represented by the jacks, queens, and kings are called face cards. The cards
-that are ♢or ♡are typically colored red while the other two suits are typically colored black.
-37(a) There are 52 cards and 13 diamonds. If the cards are thoroughly shuﬄed, each card has an equal chance of
-being drawn, so the probability that a randomly selected card is a diamond is P(♢) = 13
-52 = 0.250. (b) Likewise, there
-are 12 face cards, so P(face card) = 12
-52 =
-3
-13 = 0.231.
+**引導練習 2.27 (GUIDED PRACTICE 2.27)**
+驗證圖 2.16 代表一個機率分配：事件是互斥的，所有機率皆非負，且機率總和為 1。
+（四個結果組合均為互斥，機率皆為正值，總和 $0.1081 + 0.0121 + 0.0615 + 0.8183 = 1.00$）
 
+在簡單情況下，我們可以使用聯合機率來計算邊際機率。例如，從資料集中隨機選擇的一張照片為時尚的機率，可以透過將 `truth` 值為 `fashion` 的結果相加來得到：
+$P(\text{truth is fashion}) = P(\text{mach learn is pred fashion and truth is fashion}) + P(\text{mach learn is pred not and truth is fashion})$
+$= 0.1081 + 0.0615 = 0.1696$
 
-128
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-10
-3
-9
-0.1923
-0.0577
-0.1731
-There are also
-30 cards that are
-neither diamonds
-nor face cards
-Diamonds, 0.2500
-Face cards, 0.2308
-Figure 2.21: A Venn diagram for diamonds and face cards.
-Venn diagrams are useful when outcomes can be categorized as "in" or "out" for two or three
-variables, attributes, or random processes. The Venn diagram in Figure 2.21 uses a oval to represent
-diamonds and another to represent face cards. If a card is both a diamond and a face card, it falls
-into the intersection of the ovals. If it is a diamond but not a face card, it will be in part of the left
-oval that is not in the right oval (and so on). The total number of cards that are diamonds is given
-by the total number of cards in the diamonds oval: 10 + 3 = 13. The probabilities are also shown
-(e.g. 10/52 = 0.1923).
-GUIDED PRACTICE 2.50
-Using the Venn diagram, verify P(face card) = 12/52 = 3/13.38
-Let A represent the event that a randomly selected card is a diamond and B represent the
-event that it is a face card. How do we compute P(A or B)? Events A and B are not disjoint - the
-cards J♢, Q♢, and K♢fall into both categories - so we cannot use the Addition Rule for disjoint
-events. Instead we use the Venn diagram. We start by adding the probabilities of the two events:
-P(A) + P(B) = P(♢) + P(face card) = 13/52 + 12/52
-However, the three cards that are in both events were counted twice, once in each probability. We
-must correct this double counting:
-P(A or B)
-=
-P(♢) + P(face card)
-=
-P(♢) + P(face card) -P(♢and face card)
-=
-13/52 + 12/52 -3/52
-=
-22/52 = 11/26
-Equation (2.51) is an example of the General Addition Rule.
-GENERAL ADDITION RULE
-If A and B are any two events, disjoint or not, then the probability that A or B will occur is
-P(A or B) = P(A) + P(B) -P(A and B)
-where P(A and B) is the probability that both events occur.
-38The Venn diagram shows face cards split up into "face card but not ♢" and "face card and ♢". Since these
-correspond to disjoint events, P(face card) is found by adding the two corresponding probabilities:
-3
-52 + 9
-52 = 12
-52 =
-3
-13 .
+#### 2.3.3 定義條件機率 (Defining conditional probability)
 
+ML 分類器會預測照片是否關於時尚，儘管它並不完美。我們想了解如何使用諸如 `mach learn` 變數的資訊，來改善對第二個變數（在這個例子中是 `truth`）的機率估計。
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-129
-SYMBOLIC NOTATION FOR "AND" AND "OR"
-The symbol ∩means intersection and is equivalent to "and".
-The symbol ∪means union and is equivalent to "or".
-It is common to see the General Addition Rule written as
-P(A ∪B) = P(A) + P(B) -P(A ∩B)
-"OR" IS INCLUSIVE
-When we write, "or" in statistics, we mean "and/or" unless we explicitly state otherwise. Thus,
-A or B occurs means A, B, or both A and B occur. This is equivalent to at least one of A or
-B occurring.
-GUIDED PRACTICE 2.51
-(a) If A and B are disjoint, describe why this implies P(A and B) = 0. (b) Using part (a), verify
-that the General Addition Rule simplifies to the simpler Addition Rule for disjoint events if A and
-B are disjoint.39
-GUIDED PRACTICE 2.52
-In the email data set with 3,921 emails, 367 were spam, 2,827 contained some small numbers but
-no big numbers, and 168 had both characteristics. Create a Venn diagram for this setup.40
-GUIDED PRACTICE 2.53
-(a) Use your Venn diagram from Guided Practice 2.52 to determine the probability a randomly drawn
-email from the email data set is spam and had small numbers (but not big numbers). (b) What is
-the probability that the email had either of these attributes?41
-2.3.9
-Checking for independent and mutually exclusive events
-If A and B are independent events, then the probability of B being true is unchanged if A is
-true. Mathematically, this is written as
-P(B∣A) = P(B)
-The General Multiplication Rule states that P(A ∩B) equals P(A) × P(B∣A). If A and B are
-independent events, we can replace P(B∣A) with P(B) and the following multiplication rule applies:
-P(A ∩B) = P(A) × P(B)
-39(a) If A and B are disjoint, A and B can never occur simultaneously. (b) If A and B are disjoint, then the last
-term of Equation (2.51) is 0 (see part (a)) and we are left with the Addition Rule for disjoint events.
-40Both the counts and corresponding probabilities (e.g.
-2659/3921 = 0.678)
-are shown.
-Notice that the number of emails represented in the left oval
-corresponds to 2659 + 168 = 2827, and the number represented in the right
-oval is 168 + 199 = 367.
-small numbers and no big numbers
-spam
-2659
-168
-199
-0.678
-0.043
-0.051
-Other emails: 3921-2659-168-199 = 895 (0.228)
-41(a) The solution is represented by the intersection of the two ovals: 0.043. (b) This is the sum of the three
-disjoint probabilities shown in the ovals: 0.678 + 0.043 + 0.051 = 0.772.
+從資料集中隨機抽出一張照片為時尚照片的機率約為 0.17。如果我們知道機器學習分類器已經預測該照片為時尚，我們能否更準確地估計照片確實是時尚的機率？絕對可以。為此，我們將視角限制在分類器預測照片為時尚的 219 個案例中，並觀察照片實際上是時尚的比例：
+$$P(\text{truth is fashion given mach learn is pred fashion}) = \frac{197}{219} = 0.900$$
 
+我們稱之為**條件機率 (conditional probability)**，因為我們是在一個給定條件下計算的機率：ML 分類器預測照片關於時尚。
 
-130
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-CHECKING WHETHER TWO EVENTS ARE INDEPENDENT
-To determine if two events A and B are independent, check whether one of the following
-equations holds (there is no need to check both equations):
-P(B∣A) = P(B)
-P(A ∩B) = P(A) × P(B)
-If the equation that is checked holds true (the left and right sides are equal), then A and B are
-independent. If the equation does not hold, then A and B are dependent.
-EXAMPLE 2.54
-Are teenager college attendance and parent college degrees independent or dependent? Use infor-
-mation from Figure 2.22, which shows data from a simulated sample.
-We'll check for independence by seeing if the relationship P(B∣A) = P(B) holds. If the teen and
-parents variables are independent, it must be true that
-P(teen college ∣parent degree) = P(teen college)
-Using Figure 2.22, we check whether equality holds in this equation.
-P(teen college ∣parent degree) ?= P(teen college)
-231
-280
-?= 445
-792
-0.83 ≠0.56
-Because the sides are not equal, teenager college attendance and parent degree are dependent. We
-estimate the probability a teenager attended college to be higher if we know that one of the teen's
-parents has a college degree.
-parents
-degree
-not
-Total
-college
-231
-214
-445
-teen
-not
-49
-298
-347
-Total
-280
-512
-792
-Figure 2.22: Contingency table summarizing the family college data set.
-GUIDED PRACTICE 2.55
-Also show that teenager college attendance and parent college degree are dependent by showing that
-P(A ∩B) ≠P(A) × P(B).42
-42We check for equality in the following equation:
-P(teen college ∩parent degree) ?= P(teen college) × P(parent degree)
-231
-792
-?= 445
-792 × 280
-792
-0.292 ≠0.199
-These terms are not equal, which confirms what we learned in Example 2.54: teenager college attendance and parent
-college degrees are dependent.
+條件機率有兩個部分：感興趣的結果與條件。將條件視為我們已知為真的資訊是很有幫助的，這種資訊通常可被描述為一個已知的結果或事件。我們通常在機率符號內使用垂直線來分隔感興趣的結果與條件：
+$$P(\text{truth is fashion given mach learn is pred fashion}) = P(\text{truth is fashion} \mid \text{mach learn is pred fashion}) = \frac{197}{219} = 0.900$$
+垂直線「$\mid$」讀作**在...條件下 (given)**。
 
+在上一個方程式中，我們將基於 ML 演算法預測照片為時尚的條件下，照片確實為時尚的機率計算為一個分數：
+$P(\text{truth is fashion} \mid \text{mach learn is pred fashion}) = \frac{\text{truth is fashion 且 mach learn is pred fashion 的案例數}}{\text{mach learn is pred fashion 的案例數}} = \frac{197}{219} = 0.900$
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-131
-If A and B are mutually exclusive events, then A and B cannot occur at the same time.
-Mathematically, this is written as
-P(A ∩B) = 0
-The General Addition Rule states that P(A ∪B) equals P(A) + P(B) -P(A ∩B). If A and B are
-mutually exclusive events, we can replace P(A and B) with 0 and the following special addition rule
-applies:
-P(A ∪B) = P(A) + P(B)
-CHECKING WHETHER TWO EVENTS ARE MUTUALLY EXCLUSIVE (DISJOINT)
-To determine if events A and B are mutually exclusive, check whether one of the following
-equations holds (there is no need to check both equations):
-P(A ∩B) = 0
-P(A ∪B) = P(A) + P(B)
-If the equation that is checked holds true (the left and right sides are equal), A and B are
-mutually exclusive. If the equation does not hold, then A and B are not mutually exclusive.
-EXAMPLE 2.56
-Are teen college attendance and parent college degree mutually exclusive?
-Looking in the table, we see that there are 231 instances where both the teenager attended college
-and parent has a degree, indicating the probability of both events occurring is greater than 0. Since
-we have found an example where both of these events happen together, these two events are not
-mutually exclusive. We can write this more formally as:
-P(teen college ∩parent degree) = 231
-792 ≠0
-Since this probability is not zero, teenager college attendance and parent college degree are not
-mutually exclusive.
-MUTUALLY EXCLUSIVE AND INDEPENDENT ARE DIFFERENT
-If two events are mutually exclusive, then if one is true, the other cannot be true. This implies
-the two events are in some way connected, meaning they must be dependent.
-If two events are independent, then if one occurs, it is still possible for the other to occur,
-meaning the events are not mutually exclusive.
-DEPENDENT EVENTS NEED NOT BE MUTUALLY EXCLUSIVE.
-If two events are dependent, this does not imply that they are mutually exclusive. For example,
-teenager college attendance and parent college degree are dependent, but these events are not
-mutually exclusive.
+通常會提供邊際機率與聯合機率，而不是計數資料（例如，疾病發病率通常以百分比列出）。我們希望即使在沒有計數資料的情況下，也能計算條件機率。
 
+假設我們僅有圖 2.15 中的機率資料。那麼如果我們抽取 1000 張照片的樣本，我們預期大約有 12.0%（即 $0.120 \times 1000 = 120$）會被預測為時尚。同樣地，我們預期大約 10.8%（即 $0.108 \times 1000 = 108$）既符合資訊條件又代表我們感興趣的結果。於是條件機率可以這樣計算：
+$P(\text{truth is fashion} \mid \text{mach learn is pred fashion}) = \frac{108}{120} = \frac{0.108}{0.120} = 0.90$
 
-132
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-Section summary
-• A conditional probability can be written as P(A∣B) and is read, "Probability of A given B".
-• In a conditional probability of the form P(A∣B), we are given information about B. In an
-unconditional probability of the form P(A), we are not given any information.
-• To find the probability of A given B, use the conditional probability rule P(A∣B) = P (A∩B)
-P (B) .
-• To find the probability of A and B, that is A intersect B, use the General Multiplication
-Rule: P(A∩B) = P(A)×P(B∣A). Equivalently, P(A∩B) can be found using the conditional
-probability rule by multiplying P(A∣B) times P(B).
-• Sometimes, the conditional probability P(B∣A) may be known, but we want to find the "in-
-verted" probability P(A∣B).
-In this case, draw a tree diagram and apply the conditional
-probability rule P(A∣B) = P (A∩B)
-P (B) , where P(B) is computed using multiple pieces of informa-
-tion from the tree diagram.
-• Two events are independent when the outcome of one has no eﬀect on the outcome of the
-other. When A and B are independent, P(B∣A) = P(B) and P(A∣B) = P(A).
-• In the special case where A and B are independent, P(A ∩B) = P(A) × P(B).
-• When sampling with replacement, events are independent. When sampling without replace-
-ment from a very large population, events may be considered as if they were independent, and
-the use of conditional or unconditional probabilities will make little diﬀerence in the answer
-when calculating joint probabilities.
-• When sampling without replacement from a small population, events are dependent and
-one cannot simply multiply unconditional probabilities to find a joint probability.
-• To find the probability of A or B, that is A union B, use the General Addition Rule:
-P(A or B) = P(A)+P(B)-P(A and B), also written as: P(A∪B) = P(A)+P(B)-P(A∩B).
-• When A and B are mutually exclusive (disjoint), P(A ∩B) = 0.
-• In the special case where A and B are mutually exclusive (disjoint), P(A∪B) = P(A)+P(B).
-• If A and B are mutually exclusive, they must be dependent, because the occurrence of
-one of them changes the probability that the other occurs to 0.
+這個比值也就是 $P(\text{truth is fashion and mach learn is pred fashion})$ 與 $P(\text{mach learn is pred fashion})$ 兩個機率的相除。這正是條件機率通用公式的一個範例。
 
+::: {.concept-box title="概念：條件機率 (Conditional probability)"}
+給定條件 B 的情況下，感興趣結果 A 的條件機率計算如下：
+$$P(A \mid B) = \frac{P(A \text{ and } B)}{P(B)}$$
+:::
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-133
-Exercises
-2.13
-Joint and conditional probabilities. P(A) = 0.3, P(B) = 0.7
-(a) Can you compute P(A and B) if you only know P(A) and P(B)?
-(b) Assuming that events A and B arise from independent random processes,
-i. what is P(A and B)?
-ii. what is P(A or B)?
-iii. what is P(A∣B)?
-(c) If we are given that P(A and B) = 0.1, are the random variables giving rise to events A and B indepen-
-dent?
-(d) If we are given that P(A and B) = 0.1, what is P(A∣B)?
-2.14
-PB & J. Suppose 80% of people like peanut butter, 89% like jelly, and 78% like both. Given that a
-randomly sampled person likes peanut butter, what's the probability that he also likes jelly?
-2.15
-Global warming.
-A Pew Research poll asked 1,306 Americans "From what you've read and
-heard, is there solid evidence that the average temperature on earth has been getting warmer over the past
-few decades, or not?". The table below shows the distribution of responses by party and ideology, where
-the counts have been replaced with relative frequencies.43
-Response
-Earth is
-Not
-Don't Know
-warming
-warming
-Refuse
-Total
-Conservative Republican
-0.11
-0.20
-0.02
-0.33
-Party and
-Mod/Lib Republican
-0.06
-0.06
-0.01
-0.13
-Ideology
-Mod/Cons Democrat
-0.25
-0.07
-0.02
-0.34
-Liberal Democrat
-0.18
-0.01
-0.01
-0.20
-Total
-0.60
-0.34
-0.06
-1.00
-(a) Are believing that the earth is warming and being a liberal Democrat mutually exclusive?
-(b) What is the probability that a randomly chosen respondent believes the earth is warming or is a liberal
-Democrat?
-(c) What is the probability that a randomly chosen respondent believes the earth is warming given that he
-is a liberal Democrat?
-(d) What is the probability that a randomly chosen respondent believes the earth is warming given that he
-is a conservative Republican?
-(e) Does it appear that whether or not a respondent believes the earth is warming is independent of their
-party and ideology? Explain your reasoning.
-(f) What is the probability that a randomly chosen respondent is a moderate/liberal Republican given that
-he does not believe that the earth is warming?
-43Pew Research Center, Majority of Republicans No Longer See Evidence of Global Warming, data collected on
-October 27, 2010.
+**引導練習 2.28 (GUIDED PRACTICE 2.28)**
+(a) 將以下陳述寫成條件機率符號：「如果照片是時尚的，ML 預測正確的機率」。這裡的條件是基於照片的真實狀態。
+(b) 根據圖 2.15 決定 (a) 中的機率。
+（解答：(a) $P(\text{mach learn is pred fashion} \mid \text{truth is fashion})$，(b) $0.1081 / 0.1696 = 0.6374$）
 
+**引導練習 2.29 (GUIDED PRACTICE 2.29)**
+(a) 已知照片為時尚，求演算法預測錯誤的機率。
+(b) 使用 (a) 與上題 (b) 的答案，計算 $P(\text{mach learn is pred fashion} \mid \text{truth is fashion}) + P(\text{mach learn is pred not} \mid \text{truth is fashion})$。
+(c) 直觀地解釋為什麼 (b) 中的總和為 1。
+（解答：(a) $0.0615 / 0.1696 = 0.3626$ (b) 總和為 1 (c) 在照片是時尚的條件下，ML 演算法要麼預測為時尚，要麼預測為不時尚。在相同的給定條件下，補集規則仍然適用。）
 
+`smallpox`（天花）資料集提供了 1721 年波士頓 6,224 名接觸過天花的人的樣本。當時的醫生認為，接種（以受控形式讓人接觸疾病）可以降低死亡的可能性。資料集包含兩個變數：`inoculated`（接種與否：yes 或 no）與 `result`（結果：lived 或 died）。這些資料總結於圖 2.17 與圖 2.18。
+
+| | inoculated: yes | inoculated: no | Total |
+|---|---|---|---|
+| **result: lived** | 238 | 5136 | 5374 |
+| **result: died** | 6 | 844 | 850 |
+| **Total** | 244 | 5980 | 6224 |
+*圖 2.17: `smallpox` 資料集的列聯表。*
+
+| | inoculated: yes | inoculated: no | Total |
+|---|---|---|---|
+| **result: lived** | 0.0382 | 0.8252 | 0.8634 |
+| **result: died** | 0.0010 | 0.1356 | 0.1366 |
+| **Total** | 0.0392 | 0.9608 | 1.0000 |
+*圖 2.18: `smallpox` 資料集的表格比例（除以 6224 計算得出）。*
+
+**引導練習 2.30 (GUIDED PRACTICE 2.30)**
+以正式符號寫出隨機抽取一名未接種疫苗者死於天花的機率，並計算該機率。
+（$P(\text{result = died} \mid \text{not inoculated}) = \frac{0.1356}{0.9608} = 0.1411$）
+
+**引導練習 2.31 (GUIDED PRACTICE 2.31)**
+求接種疫苗的人死於天花的機率。與 2.30 比較結果如何？
+（$P(\text{died} \mid \text{inoculated}) = \frac{0.0010}{0.0392} = 0.0255$。未接種的死亡率約 1/7，而接種的死亡率僅約 1/40。）
+
+**引導練習 2.32 (GUIDED PRACTICE 2.32)**
+波士頓的居民自行決定是否接種。(a) 這是觀察性研究還是實驗設計？(b) 我們的資料能得出因果推論嗎？(c) 可能影響生死與是否接種的潛在干擾變數 (confounding variable) 是什麼？
+（(a) 觀察性研究。(b) 不能。(c) 醫療資源的取得能力、收入等。）
+
+#### 2.3.4 聯合機率的通用乘法規則 (General multiplication rule for joint probabilities)
+
+計算聯合機率時，我們可以使用通用乘法規則 (General Multiplication Rule)。
+
+::: {.concept-box title="概念：通用乘法規則 (General Multiplication Rule)"}
+如果 A 與 B 代表兩個結果或事件，那麼要求 A 與 B 的聯合機率（交集），我們使用：
+$$P(A \cap B) = P(A) \times P(B \mid A)$$
+這也可以視為條件機率公式的重組：$P(B \mid A) = \frac{P(A \cap B)}{P(A)}$。
+:::
+
+**範例 2.33 (EXAMPLE 2.33)**
+在 `smallpox` 資料集中，假設我們只知道：96.08% 的居民未接種，而未接種的居民中有 85.88% 倖存。我們該如何計算一名居民既未接種又倖存的機率？
+我們欲計算 $P(\text{not inoculated and lived})$，而已知：
+$P(\text{not inoculated}) = 0.9608$
+$P(\text{lived} \mid \text{not inoculated}) = 0.8588$
+因此：$P(\text{not inoculated and lived}) = 0.9608 \times 0.8588 = 0.825$。
+這等同於通用乘法規則。我們可以在圖 2.18 中 no 與 lived 的交集處驗證此機率。
+
+**引導練習 2.34 (GUIDED PRACTICE 2.34)**
+使用 $P(\text{inoculated}) = 0.0392$ 和 $P(\text{lived} \mid \text{inoculated}) = 0.9754$ 來計算一個人既接種又倖存的機率。
+（$0.0392 \times 0.9754 = 0.0382$）
+
+**引導練習 2.35 (GUIDED PRACTICE 2.35)**
+如果接種的人中有 97.54% 倖存，那麼接種且死亡的比例必為多少？
+（100% - 97.54% = 2.46%）
+
+#### 2.3.5 樹狀圖與反向條件機率 (Tree diagrams and inverted conditional probabilities)
+
+樹狀圖是圍繞資料結構來組織結果與機率的工具。當兩個或多個過程依序發生，且每個過程都以前面的過程為條件時，樹狀圖最為實用。`smallpox` 資料集非常適合這個描述：首先依是否接種分枝（主要分枝），然後再依倖存率分枝（次要分枝）。
+
+*(圖 2.19 樹狀圖結構：)*
+- Inoculation
+  - inoculated, 0.0392
+    - lived, 0.9754 
+    - died, 0.0246 
+  - not inoculated, 0.9608
+    - lived, 0.8589 
+    - died, 0.1411 
+
+要計算聯合機率，我們使用通用乘法規則。例如：
+$P(\text{inoculated and lived}) = P(\text{inoculated}) \times P(\text{lived} \mid \text{inoculated}) = 0.0392 \times 0.9754 = 0.0382$
+
+**範例 2.36 (EXAMPLE 2.36)**
+隨機選擇一人倖存的機率是多少？
+有兩種途徑：(接種 且 倖存) 或 (未接種 且 倖存)。
+$P(\text{lived}) = P(\text{inoculated and lived}) + P(\text{not inoculated and lived})$
+$= 0.0392 \times 0.9754 + 0.9608 \times 0.8589$
+$= 0.0382 + 0.8252 = 0.8634$
+
+**範例 2.37 (EXAMPLE 2.37)**
+已知倖存，求其曾接種疫苗的機率？
+這意味著要求 $P(\text{inoculated} \mid \text{lived})$，這無法直接從樹狀圖讀取。我們可以利用條件機率規則來求這個「反向」機率：
+$$P(\text{inoculated} \mid \text{lived}) = \frac{P(\text{inoculated and lived})}{P(\text{lived})} = \frac{0.0382}{0.8634} = 0.0442$$
+你可能會驚訝，$P(\text{inoculated} \mid \text{lived})$ 只有 0.0442，而 $P(\text{lived} \mid \text{inoculated})$ 是 0.9754。這兩個條件機率差異很大，因為「倖存」的母體遠大於「接種」的母體。
+我們也可以觀察到「接種」和「倖存」事件是相依的。已知倖存者中接種的比例 (0.0442) 大於全體中接種的比例 (0.0392)。
+
+**引導練習 2.38 (GUIDED PRACTICE 2.38)**
+隨機選擇一名死者，其曾接種過疫苗的機率是多少？
+（$P(\text{inoculated} \mid \text{died}) = \frac{0.0392 \times 0.0246}{0.0392 \times 0.0246 + 0.9608 \times 0.1411} = 0.0070$。死者中只有 0.70% 曾接種。）
+
+**範例 2.39 (EXAMPLE 2.39)**
+Jose 每個星期四晚上都會去校園。但有時候停車場會滿（通常是因為學校活動）。有 35% 的晚上有學術活動，20% 有體育活動，45% 沒活動。有學術活動時停車場滿的機率為 25%，體育活動時為 70%，沒活動時為 5%。如果他某天來發現停車場滿了，那麼當晚有體育活動的機率是多少？請用樹狀圖解決。
+$$P(\text{sporting event} \mid \text{garage full}) = \frac{P(\text{sporting event and garage full})}{P(\text{garage full})}$$
+$$= \frac{0.20 \times 0.7}{0.35 \times 0.25 + 0.20 \times 0.7 + 0.45 \times 0.05} = \frac{0.14}{0.14 + 0.0875 + 0.0225} = 0.56$$
+如果停車場滿了，當晚有體育活動的機率為 56%。
+這個範例提供了一種更新機率的方法。這種更新信念的策略是整個貝式統計 (Bayesian statistics) 理論的基礎。
+
+#### 2.3.6 取後不放回抽樣 (Sampling without replacement)
+
+**範例 2.40 (EXAMPLE 2.40)**
+教授有時會隨機點名學生回答問題。如果全班有 15 人且每人被選中的機會相等，你被選中回答下個問題的機率是多少？
+（如果全都在場，機率是 1/15，約 0.067。）
+
+**範例 2.41 (EXAMPLE 2.41)**
+如果教授問 3 個問題，你都沒被選中的機率是多少？（假設她在一堂課中不會重複叫同一個人：取後不放回）。
+$P(\text{not picked in 3}) = \frac{14}{15} \times \frac{13}{14} \times \frac{12}{13} = 0.80$
+
+**引導練習 2.42 (GUIDED PRACTICE 2.42)**
+什麼規則允許我們在範例 2.41 中將機率相乘？
+（我們使用了通用乘法規則來求三個機率的乘積，其中第二與第三個是條件機率。）
+
+**範例 2.43 (EXAMPLE 2.43)**
+假設教授不考慮之前選過誰，隨機抽人（學生可被點到多次：取後放回）。你 3 次都沒被選中的機率是多少？
+$P(\text{not picked in 3}) = \frac{14}{15} \times \frac{14}{15} \times \frac{14}{15} = 0.813$
+與取後不放回相比，沒被點到的機率略高。但現在你也有可能被點到不只一次。
+
+當我們從小母體中進行取後不放回抽樣時，觀察值之間不再獨立。在範例 2.41 中，第二題沒被點到的機率是建立在第一題沒被點到的條件之上。
+
+**引導練習 2.44 (GUIDED PRACTICE 2.44)**
+延續範例 2.41 與 2.43，如果教授問 3 個問題，在 15 人的班級中，取後不放回時你至少被點中一次的機率是多少？取後放回呢？
+（不放回：$1 - 0.80 = 0.20$。放回：$1 - 0.813 = 0.187$）
+
+**引導練習 2.45 (GUIDED PRACTICE 2.45)**
+現在，假設你在一個 150 人的大教室中。如果教授問 3 個問題，取後不放回時你至少被點中一次的機率？取後放回呢？
+（不放回：$1 - (149/150)(148/149)(147/148) = 1 - 0.9800 = 0.0200$。放回：$1 - (149/150)^3 = 1 - 0.9801 = 0.0199$）
+
+**範例 2.46 (EXAMPLE 2.46)**
+比較你在引導練習 2.44 與 2.45 的答案，你發現了什麼？
+15 人時兩者機率差了 0.003。150 人時兩者機率只差了 0.0001。當母體相對於樣本足夠大時，取後放回與取後不放回算出來的機率差異變得微乎其微。
+
+::: {.concept-box title="概念：取後不放回抽樣 (Sampling without replacement)"}
+當樣本大小只占母體的一小部分（低於 10%）時，即使是取後不放回抽樣，觀察結果仍可視為是獨立的。這是一條經驗法則 (rule of thumb)。
+:::
+
+#### 2.3.7 條件機率中的獨立性考量 (Independence considerations in conditional probability)
+
+如果兩個過程是獨立的，那麼知道其中一個結果不會提供關於另一個結果的任何資訊。
+我們可以使用條件機率證明這一點：如果 A 和 B 獨立，$P(B \mid A) = P(B)$。
+
+**引導練習 2.47 (GUIDED PRACTICE 2.47)**
+令 X 和 Y 為擲兩顆骰子的結果。(a) 第一顆 X=1 的機率？(b) 兩者皆為 1 的機率？(c) 計算 $P(Y=1 \mid X=1)$，並與 $P(Y=1)$ 比較。
+（(a) 1/6 (b) 1/36 (c) 1/6。機率不變，因為兩者獨立。）
+
+::: {.warning-box title="常見迷思：賭徒謬誤 (Gambler's fallacy)"}
+**引導練習 2.48 (GUIDED PRACTICE 2.48)**
+Ron 發現輪盤連續五次都是黑色。他覺得連續六次黑色的機率很小，就把錢全押在紅色上。這推論有什麼問題？
+**解答**：他忘記了每一次輪盤旋轉都與先前的旋轉是獨立的。賭場常利用人們這種誤解，這被稱為「賭徒謬誤」。
+:::
+
+#### 2.3.8 當事件非互斥時的機率 (Probabilities when events are not disjoint)
+
+考慮一副有 52 張牌的撲克牌中非互斥事件的計算。
+
+**引導練習 2.49 (GUIDED PRACTICE 2.49)**
+(a) 隨機抽出一張牌是方塊的機率？ (b) 是人頭牌 (J, Q, K) 的機率？
+（(a) 13/52 = 0.250 (b) 12/52 = 0.231）
+
+*(文氏圖概念：如果一張牌既是方塊又是人頭牌，它會落在兩個橢圓的交集。這三個交集牌是 J♢、Q♢、K♢。)*
+
+令 A 代表抽出的牌是方塊，B 代表是人頭牌。如何計算 $P(A \text{ or } B)$？事件 A 和 B 不是互斥的，所以不能直接相加。
+如果直接相加：$13/52 + 12/52$，那三張既是方塊又是人頭牌的卡片被算了兩次。必須修正：
+$P(A \text{ or } B) = P(\text{方塊}) + P(\text{人頭牌}) - P(\text{方塊 and 人頭牌})$
+$= 13/52 + 12/52 - 3/52 = 22/52 = 11/26$
+
+::: {.concept-box title="概念：交集與聯集的數學符號 (Symbolic notation for AND and OR)"}
+符號 $\cap$ 代表交集 (intersection)，等同於「與 (and)」。
+符號 $\cup$ 代表聯集 (union)，等同於「或 (or)」。
+通用加法規則通常寫作：$P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+:::
+
+::: {.warning-box title="常見迷思：「或 (OR)」是包含性的 (Inclusive)"}
+在統計學中，當我們寫「或 (or)」時，除非特別說明，否則我們指的是「and/or（和/或）」。因此，「A 或 B 發生」意味著 A 發生、B 發生，或者 A 和 B 都發生。這等同於「A 或 B 至少有一個發生」。
+:::
+
+::: {.concept-box title="概念：通用加法規則 (General Addition Rule)"}
+如果 A 和 B 是任何兩個事件（無論是否互斥），那麼 A 或 B 發生的機率為：
+$$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$$
+其中 $P(A \text{ and } B)$ 是兩個事件同時發生的機率。
+:::
+
+**引導練習 2.51 (GUIDED PRACTICE 2.51)**
+(a) 如果 A 和 B 是互斥的，為什麼這意味著 $P(A \text{ and } B) = 0$？(b) 驗證通用加法規則在 A 和 B 互斥時，能簡化為互斥事件的加法規則。
+
+**引導練習 2.52 與 2.53 (GUIDED PRACTICE 2.52 & 2.53)**
+在包含 3,921 封郵件的資料集中，367 封是垃圾郵件 (spam)，2,827 封有小數字但沒有大數字，其中 168 封兩者兼具。
+(a) 隨機抽取是一封垃圾郵件且具有小數字的機率是多少？（$168 / 3921 = 0.043$）
+(b) 該郵件具有這兩種屬性之一的機率是多少？（$(367 + 2827 - 168) / 3921 = 0.772$）
+
+#### 2.3.9 檢查事件是否獨立或互斥 (Checking for independent and mutually exclusive events)
+
+如果 A 和 B 是獨立事件，則 $P(B \mid A) = P(B)$。這也推導出 $P(A \cap B) = P(A) \times P(B)$。
+
+::: {.concept-box title="概念：檢查兩個事件是否獨立 (Checking whether two events are independent)"}
+要判斷事件 A 和 B 是否獨立，請檢查以下方程式中是否有**一個**成立（不需要兩個都檢查）：
+1. $P(B \mid A) = P(B)$
+2. $P(A \cap B) = P(A) \times P(B)$
+若等式成立（左右兩邊相等），則 A 與 B 為獨立。否則為相依 (dependent)。
+:::
+
+**範例 2.54 (EXAMPLE 2.54)**
+青少年上大學與父母有大學學位是獨立還是相依的？使用圖 2.22 的資訊。
+
+| | parents degree: college | parents degree: not | Total |
+|---|---|---|---|
+| **teen: college** | 231 | 214 | 445 |
+| **teen: not** | 49 | 298 | 347 |
+| **Total** | 280 | 512 | 792 |
+*圖 2.22: 總結 family college 資料集的列聯表。*
+
+我們將透過檢查 $P(B \mid A) = P(B)$ 的關係是否成立來檢驗獨立性。如果青少年與父母的變數是獨立的，則必須滿足：
+$P(\text{teen college} \mid \text{parent degree}) \overset{?}{=} P(\text{teen college})$
+$\frac{231}{280} \overset{?}{=} \frac{445}{792}$
+$0.83 \neq 0.56$
+因為兩邊不相等，青少年上大學與父母的學位是相依的。
+
+**引導練習 2.55 (GUIDED PRACTICE 2.55)**
+藉由展示 $P(A \cap B) \neq P(A) \times P(B)$，來證明青少年上大學與父母有大學學位是相依的。
+（$P(\text{teen college} \cap \text{parent degree}) = 231 / 792 = 0.292$，而 $P(\text{teen college}) \times P(\text{parent degree}) = (445 / 792) \times (280 / 792) = 0.199$。兩者不相等。）
+
+::: {.concept-box title="概念：檢查兩個事件是否互斥 (Checking whether two events are mutually exclusive / disjoint)"}
+要判斷事件 A 和 B 是否互斥，請檢查以下方程式中是否有**一個**成立：
+1. $P(A \cap B) = 0$
+2. $P(A \cup B) = P(A) + P(B)$
+若等式成立，則 A 與 B 為互斥。否則不互斥。
+:::
+
+**範例 2.56 (EXAMPLE 2.56)**
+青少年上大學與父母有大學學位是互斥的嗎？
+查看表格，我們發現有 231 個案例是青少年上了大學且父母有學位。既然我們找到了一個兩者同時發生的例子，這兩個事件就不是互斥的：
+$P(\text{teen college} \cap \text{parent degree}) = \frac{231}{792} \neq 0$
+
+::: {.warning-box title="常見迷思：互斥與獨立是不同的 (Mutually exclusive and independent are different)"}
+- 如果兩個事件是**互斥**的，那麼如果一個發生，另一個就不能發生。這意味著這兩個事件之間必然有關聯，也就是說它們一定是**相依**的。
+- 如果兩個事件是**獨立**的，那麼如果一個發生，另一個仍有可能發生，意味著它們不是互斥的。
+- **相依事件不一定是互斥的**。例如：青少年上大學與父母有大學學位是相依的，但它們並不是互斥的（兩者可同時發生）。
+:::
+
+---
+
+### 章節總結 (Section summary)
+
+- 條件機率記作 $P(A \mid B)$，讀作「在 B 發生的條件下，A 發生的機率」。
+- 在形式為 $P(A \mid B)$ 的條件機率中，我們已知 B 的資訊。而在形式為 $P(A)$ 的無條件機率中，我們未獲取任何資訊。
+- 計算在 B 發生下 A 發生的機率，使用條件機率規則：$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$。
+- 計算 A 與 B（A 交集 B）的機率，使用**通用乘法規則 (General Multiplication Rule)**：$P(A \cap B) = P(A) \times P(B \mid A)$。它也能藉由將 $P(A \mid B)$ 乘以 $P(B)$ 來求得。
+- 有時我們知道 $P(B \mid A)$，但想求「反向」機率 $P(A \mid B)$。在這種情況下，畫一個樹狀圖，然後應用條件機率規則 $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$，其中分母的 $P(B)$ 是從樹狀圖中的多個資訊計算出來的。
+- 當兩個事件互不影響時，它們是**獨立的 (independent)**。當 A 與 B 獨立時，$P(B \mid A) = P(B)$ 且 $P(A \mid B) = P(A)$。
+- 在 A 與 B 獨立的特殊情況下，$P(A \cap B) = P(A) \times P(B)$。
+- 當取後放回抽樣時，事件是獨立的。當從非常大的母體進行取後不放回抽樣時，事件可以被視作是獨立的，在計算聯合機率時，使用條件機率與無條件機率的答案差異極小。
+- 當從較小的母體進行取後不放回抽樣時，事件是**相依的 (dependent)**，此時不能簡單地將無條件機率相乘來求聯合機率。
+- 欲求 A 或 B（A 聯集 B）的機率，使用**通用加法規則 (General Addition Rule)**：$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$，或記作 $P(A \cup B) = P(A) + P(B) - P(A \cap B)$。
+- 當 A 與 B **互斥 (mutually exclusive / disjoint)** 時，$P(A \cap B) = 0$。
+- 在 A 與 B 互斥的特殊情況下，$P(A \cup B) = P(A) + P(B)$。
+- 如果 A 與 B 互斥，它們一定相依，因為其中一個發生就會讓另一個發生的機率變成 0。
+
+#### 習題 (Exercises)
+
+**2.13 聯合與條件機率 (Joint and conditional probabilities)**。已知 $P(A) = 0.3$，$P(B) = 0.7$
+(a) 如果你只知道 $P(A)$ 和 $P(B)$，你能計算出 $P(A \text{ and } B)$ 嗎？
+(b) 假設事件 A 和 B 來自獨立的隨機過程：
+   i. $P(A \text{ and } B)$ 是多少？
+   ii. $P(A \text{ or } B)$ 是多少？
+   iii. $P(A \mid B)$ 是多少？
+(c) 如果已知 $P(A \text{ and } B) = 0.1$，產生事件 A 和 B 的隨機變數是獨立的嗎？
+(d) 如果已知 $P(A \text{ and } B) = 0.1$，那麼 $P(A \mid B)$ 是多少？
+
+**2.14 花生醬與果醬 (PB & J)**。假設 80% 的人喜歡花生醬，89% 的人喜歡果醬，且 78% 的人兩者都喜歡。已知一個隨機抽樣的人喜歡花生醬，他同時也喜歡果醬的機率是多少？
+
+**2.15 全球暖化 (Global warming)**。皮尤研究中心 (Pew Research) 針對 1,306 名美國人進行了民調問卷，詢問：「根據你所讀到和聽到的資訊，是否有確鑿證據表明地球的平均溫度在過去幾十年中越來越暖？」。下表顯示了按黨派和意識形態劃分的回答分佈，其中計數已被替換為相對次數。
+
+| 黨派與意識形態 (Party and Ideology) | 地球正在變暖 (Earth is warming) | 地球未變暖 (Not warming) | 不知道 / 拒答 (Don't Know / Refuse) | Total |
+|---|---|---|---|---|
+| 保守派共和黨 (Conservative Republican) | 0.11 | 0.20 | 0.02 | 0.33 |
+| 溫和/自由派共和黨 (Mod/Lib Republican) | 0.06 | 0.06 | 0.01 | 0.13 |
+| 溫和/保守派民主黨 (Mod/Cons Democrat) | 0.25 | 0.07 | 0.02 | 0.34 |
+| 自由派民主黨 (Liberal Democrat) | 0.18 | 0.01 | 0.01 | 0.20 |
+| **Total** | 0.60 | 0.34 | 0.06 | 1.00 |
+
+(a) 相信地球變暖與身為自由派民主黨人是互斥的嗎？
+(b) 隨機選出的受訪者相信地球變暖或是自由派民主黨人的機率是多少？
+(c) 已知隨機選出的受訪者是自由派民主黨人，他相信地球變暖的機率是多少？
+(d) 已知隨機選出的受訪者是保守派共和黨人，他相信地球變暖的機率是多少？
+(e) 受訪者是否相信地球變暖，與他們的黨派和意識形態看起來是獨立的嗎？請解釋你的理由。
+(f) 已知受訪者不相信地球變暖，該受訪者是溫和/自由派共和黨人的機率是多少？

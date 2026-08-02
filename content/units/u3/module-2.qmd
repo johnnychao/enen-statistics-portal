@@ -1,97 +1,70 @@
 ---
-title: "1.5.2 Anecdotal evidence"
+title: "1.5.2 軼事證據 (Anecdotal evidence)"
 ---
 
-60
-CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
-1.27
-Income at the coffee shop. The first histogram below shows the distribution of the yearly incomes of
-40 patrons at a college coﬀee shop. Suppose two new people walk into the coﬀee shop: one making $225,000
-and the other $250,000. The second histogram shows the new income distribution. Summary statistics are
-also provided.
-(1)
-$60k
-$62.5k
-$65k
-$67.5k
-$70k
-0
-4
-8
-12
-(2)
-$60k
-$110k
-$160k
-$210k
-$260k
-0
-4
-8
-12
-(1)
-(2)
-n
-40
-42
-Min.
-60,680
-60,680
-1st Qu.
-63,620
-63,710
-Median
-65,240
-65,350
-Mean
-65,090
-73,300
-3rd Qu.
-66,160
-66,540
-Max.
-69,890
-250,000
-SD
-2,122
-37,321
-(a) Would the mean or the median best represent what we might think of as a typical income for the 42
-patrons at this coﬀee shop? What does this say about the robustness of the two measures?
-(b) Would the standard deviation or the IQR best represent the amount of variability in the incomes of the
-42 patrons at this coﬀee shop? What does this say about the robustness of the two measures?
-1.28
-Midrange. The midrange of a distribution is defined as the average of the maximum and the minimum
-of that distribution. Is this statistic robust to outliers and extreme skew? Explain your reasoning
-1.29
-Commute times. The US census collects data on time it takes Americans to commute to work, among
-many other variables. The histogram below shows the distribution of average commute times in 3,144 US
-counties in 2023. Describe the numerical distribution for commute times.
-Mean work travel (in min)
-10
-20
-30
-40
-0
-100
-1.30
-Hispanic/Latine population. The US census collects data on race and ethnicity of Americans, among
-many other variables. The histogram below shows the distribution of the percentage of the population that
-is Hispanic/Latine in 3,144 counties in the US in 2023.
-(a) Describe the shape of the distribution.
-(b) Is the mean of this distribution greater than or less than the median?
-(c) Provide a range for the median percentage of the population that is Hispanic/Latine for counties in the
-US.
-Hispanic/Latine %
-0
-20
-40
-60
-80
-100
-0
-500
-1000
-1500
-2000
+### 1.27 咖啡廳的收入 (Income at the coffee shop)
 
+第一張直方圖顯示了一家大學咖啡廳裡 40 位顧客的年收入分佈。假設有兩位新顧客走進咖啡廳：一位的收入是 \$225,000，另一位是 \$250,000。第二張直方圖則顯示了新的收入分佈。兩種情況的摘要統計量如下表所示：
 
+| 統計量 | (1) 原本 40 位 | (2) 加入新顧客後 42 位 |
+| :--- | :--- | :--- |
+| **樣本數 ($n$)** | 40 | 42 |
+| **最小值 (Min.)** | 60,680 | 60,680 |
+| **第一四分位數 (1st Qu.)** | 63,620 | 63,710 |
+| **中位數 (Median)** | 65,240 | 65,350 |
+| **平均數 (Mean)** | 65,090 | 73,300 |
+| **第三四分位數 (3rd Qu.)** | 66,160 | 66,540 |
+| **最大值 (Max.)** | 69,890 | 250,000 |
+| **標準差 (SD)** | 2,122 | 37,321 |
+
+(a) 哪一個指標（平均數或中位數）最能代表這家咖啡廳 42 位顧客的「典型」收入？這說明了這兩種測量指標的穩健性 (robustness) 有何不同？
+(b) 哪一個指標（標準差或 IQR）最能代表這家咖啡廳 42 位顧客收入的變異程度 (variability)？這說明了這兩種測量指標的穩健性有何不同？
+
+::: {.concept-box title="概念：穩健的統計量 (Robust Statistics)"}
+- **穩健 (Robust)** 指的是統計量不受資料中的極端值（離群值）或分佈形狀（如嚴重偏態）影響的特性。
+- **穩健的指標**：中位數 (Median)、四分位距 (IQR)。這類指標在面對極端值時，數值變化不大。
+- **不穩健的指標**：平均數 (Mean)、標準差 (Standard Deviation)、全距 (Range)。這類指標極易被極端值拉扯而大幅改變。
+:::
+
+---
+
+### 1.28 全距中點 (Midrange)
+
+一個分佈的「全距中點」定義為該分佈最大值 (maximum) 和最小值 (minimum) 的平均。這個統計量對於離群值 (outliers) 和極端偏態 (extreme skew) 是否穩健 (robust)？請解釋你的推理。
+
+::: {.warning-box title="常見迷思"}
+許多學生會將**全距中點 (Midrange)** 與**中位數 (Median)** 搞混。中位數是將資料排序後位在正中間的「位置」；而全距中點僅僅是極大值和極小值相加除以二，非常容易受到極端值影響，因此是**極度不穩健**的指標。
+:::
+
+---
+
+### 1.29 通勤時間 (Commute times)
+
+除了許多其他變數外，美國人口普查局也收集了美國人通勤上班所需時間的資料。直方圖顯示了 2023 年 3,144 個美國郡的平均通勤時間分佈。請描述通勤時間的數值分佈。
+
+::: {.callout-tip title="AP English Response｜描述分佈 (Describing a Distribution)" collapse="true"}
+當題目要求描述分佈 (describe the distribution) 時，請務必包含以下四個元素，並加上**情境 (context)**：
+1. **S**hape (形狀)：對稱 (symmetric)、右偏 (skewed to the right)、左偏 (skewed to the left)、單峰 (unimodal)、雙峰 (bimodal) 或均勻 (uniform)。
+2. **O**utliers / Unusual features (離群值或異常特徵)：是否有明顯的離群值或缺口 (gaps)。
+3. **C**enter (中心)：平均數 (mean) 或中位數 (median)。
+4. **S**pread (離散程度)：全距 (range)、四分位距 (IQR) 或標準差 (standard deviation)。
+
+**作答模板：**
+The distribution of [變數名稱與情境] is [形狀], with a center around [中心數值] and a spread of [離散程度數值]. There appear to be [離群值描述 / no obvious outliers].
+:::
+
+---
+
+### 1.30 西班牙裔/拉丁裔人口 (Hispanic/Latine population)
+
+美國人口普查局也收集了美國人的種族和民族資料。直方圖顯示了 2023 年美國 3,144 個郡的西班牙裔/拉丁裔 (Hispanic/Latine) 人口百分比分佈。
+
+(a) 請描述此分佈的形狀。
+(b) 此分佈的平均數 (mean) 是大於還是小於中位數 (median)？
+(c) 請提供美國各郡西班牙裔/拉丁裔人口百分比中位數的可能範圍。
+
+::: {.concept-box title="概念：偏態與平均數、中位數的關係"}
+- **右偏 (Skewed to the right)**：平均數 > 中位數。因為極端的大數值會將平均數往右拉。
+- **左偏 (Skewed to the left)**：平均數 < 中位數。因為極端的小數值會將平均數往左拉。
+- **大致對稱 (Roughly symmetric)**：平均數 $\approx$ 中位數。
+:::

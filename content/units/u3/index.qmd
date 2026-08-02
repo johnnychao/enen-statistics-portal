@@ -1,8 +1,8 @@
 ---
-title: "Unit 3｜Collecting Data"
+title: "Unit 3｜收集資料"
 ap-unit: 3
 ---
 
-# Collecting Data
+# 收集資料
 
 本單元為自動化轉譯之 AP 統計學原文教材。

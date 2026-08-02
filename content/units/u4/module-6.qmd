@@ -1,618 +1,232 @@
 ---
-title: "2.6 Normal distributions"
+title: "2.6 常態分配 (Normal Distributions)"
 ---
 
-### 2.5. BINOMIAL DISTRIBUTIONS
-157
-Exercises
-2.31
-Exploring combinations. A coin is tossed 5 times. How many sequences / combinations of Heads/Tails
-are there that have:
-(a) Exactly 1 Tail?
-(b) Exactly 4 Tails?
-(c) Exactly 3 Tails?
-(d) At least 3 Tails?
-2.32
-Political affiliation. Suppose that in a large population, 51% identify as Democrat. A researcher
-takes a random sample of 3 people.
-(a) Use the binomial model to calculate the probability that two of them identify as Democrat.
-(b) Write out all possible orderings of 3 people, 2 of whom identify as Democrat. Use these scenarios to
-calculate the same probability from part (a) but using the Addition Rule for disjoint events. Confirm
-that your answers from parts (a) and (b) match.
-(c) If we wanted to calculate the probability that a random sample of 8 people will have 3 that identify as
-Democrat, briefly describe why the approach from part (b) would be more tedious than the approach
-from part (a).
-2.33
-Underage drinking, Part I. Data collected by the Substance Abuse and Mental Health Services
-Administration (SAMSHA) suggests that 69.7% of 18-20 year olds consumed alcoholic beverages in any
-given year.53
-(a) Suppose a random sample of ten 18-20 year olds is taken.
-Is the use of the binomial distribution
-appropriate for calculating the probability that exactly six consumed alcoholic beverages? Explain.
-(b) Calculate the probability that exactly 6 out of 10 randomly sampled 18- 20 year olds consumed an
-alcoholic drink.
-(c) What is the probability that exactly four out of ten 18-20 year olds have not consumed an alcoholic
-beverage?
-(d) What is the probability that at most 2 out of 5 randomly sampled 18-20 year olds have consumed
-alcoholic beverages?
-(e) What is the probability that at least 1 out of 5 randomly sampled 18-20 year olds have consumed
-alcoholic beverages?
-2.34
-Chickenpox, Part I. Boston Children's Hospital estimates that 90% of Americans have had chickenpox
-by the time they reach adulthood.54
-(a) Suppose we take a random sample of 100 American adults.
-Is the use of the binomial distribution
-appropriate for calculating the probability that exactly 97 out of 100 randomly sampled American
-adults had chickenpox during childhood? Explain.
-(b) Calculate the probability that exactly 97 out of 100 randomly sampled American adults had chickenpox
-during childhood.
-(c) What is the probability that exactly 3 out of a new sample of 100 American adults have not had
-chickenpox in their childhood?
-(d) What is the probability that at least 1 out of 10 randomly sampled American adults have had chickenpox?
-(e) What is the probability that at most 3 out of 10 randomly sampled American adults have not had
-chickenpox?
-53SAMHSA, Oﬃce of Applied Studies, National Survey on Drug Use and Health, 2007 and 2008.
-54Boston Children's Hospital, Chickenpox summary page, referenced April 29, 2021.
+### 2.5 二項分配 (Binomial Distributions) 練習題
 
+**2.31 探索組合 (Exploring combinations)**
+投擲一枚硬幣 5 次。在這些正/反面的序列/組合中，有多少種情況包含：
+(a) 恰好 1 次反面？
+(b) 恰好 4 次反面？
+(c) 恰好 3 次反面？
+(d) 至少 3 次反面？
 
-158
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.35
-Game of dreidel. A dreidel is a four-sided spinning top with the Hebrew letters nun, gimel, hei, and
-shin, one on each side. Each side is equally likely to come up in a single spin of the dreidel. Suppose you
-spin a dreidel three times. Calculate the probability of getting
-(a) at least one nun?
-(b) exactly 2 nuns?
-(c) exactly 1 hei?
-(d) at most 2 gimels?
-Photo by Staccabees, cropped
-(http://flic.kr/p/7gLZTf)
-CC BY 2.0 license
-2.36
-Sickle cell anemia. Sickle cell anemia is a genetic blood disorder where red blood cells lose their
-flexibility and assume an abnormal, rigid, "sickle" shape, which results in a risk of various complications. If
-both parents are carriers of the disease, then a child has a 25% chance of having the disease, 50% chance of
-being a carrier, and 25% chance of neither having the disease nor being a carrier. If two parents who are
-carriers of the disease have 3 children, what is the probability that
-(a) two will have the disease?
-(b) none will have the disease?
-(c) at least one will neither have the disease nor be a carrier?
-(d) the first child with the disease will the be 3rd child?
-2.37
-Underage drinking, Part II.
-We learned in Exercise 2.33 that about 70% of 18-20 year olds
-consumed alcoholic beverages in any given year. We now consider a random sample of fifty 18-20 year olds.
-(a) How many people would you expect to have consumed alcoholic beverages? And with what standard
-deviation?
-(b) Would you be surprised if there were 45 or more people who have consumed alcoholic beverages?
-(c) What is the probability that 45 or more people in this sample have consumed alcoholic beverages? How
-does this probability relate to your answer to part (b)?
-2.38
-Chickenpox, Part II. We learned in Exercise 2.34 that about 90% of American adults had chickenpox
-before adulthood. We now consider a random sample of 120 American adults.
-(a) How many people in this sample would you expect to have had chickenpox in their childhood? And
-with what standard deviation?
-(b) Would you be surprised if there were 105 people who have had chickenpox in their childhood?
-(c) What is the probability that 105 or fewer people in this sample have had chickenpox in their childhood?
-How does this probability relate to your answer to part (b)?
+**2.32 政治傾向 (Political affiliation)**
+假設在一個龐大的母體中，有 51% 的人認為自己是民主黨員。一位研究人員隨機抽樣了 3 個人。
+(a) 使用二項分配模型計算其中兩人認為自己是民主黨員的機率。
+(b) 寫出 3 個人（其中 2 人認為自己是民主黨員）的所有可能排列。使用這些情況並利用互斥事件的加法法則，計算與 (a) 部分相同的機率。確認你 (a) 和 (b) 的答案相符。
+(c) 如果我們想計算在 8 個人的隨機樣本中，有 3 個人認為自己是民主黨員的機率，請簡要說明為什麼使用 (b) 部分的方法會比使用 (a) 部分的方法更繁瑣。
 
+**2.33 未成年飲酒，第一部分 (Underage drinking, Part I)**
+物質濫用和心理健康服務局 (SAMHSA) 收集的數據表明，在特定年份中，有 69.7% 的 18-20 歲年輕人曾飲用酒精飲料。
+(a) 假設隨機抽取十名 18-20 歲年輕人的樣本。使用二項分配來計算恰好有六人曾飲用酒精飲料的機率是否合適？請解釋。
+(b) 計算在隨機抽樣的 10 名 18-20 歲年輕人中，恰好有 6 人曾飲用酒精飲料的機率。
+(c) 在十名 18-20 歲年輕人中，恰好有四人未曾飲用酒精飲料的機率是多少？
+(d) 在隨機抽樣的 5 名 18-20 歲年輕人中，最多有 2 人曾飲用酒精飲料的機率是多少？
+(e) 在隨機抽樣的 5 名 18-20 歲年輕人中，至少有 1 人曾飲用酒精飲料的機率是多少？
 
-### 2.6. NORMAL DISTRIBUTIONS
-159
-2.6
-Normal distributions
-What proportion of adults have systolic blood pressure above 140? If the average weight of a piece
-of carry-on luggage is 11 pounds, what is the probability that 100 random carry on pieces will weigh
-more than 1200 pounds? If 55% of a population supports a certain candidate, what is the probability
-that she will have less than 50% support in a random sample of size 200?
-There is one distribution that can help us answer all of these questions. Can you guess what it is?
-That's right - it's the normal distribution.
-Learning objectives
-1. Describe the standard normal distribution.
-2. Use Z-scores and the standard normal model to approximate a distribution where appropriate.
-3. Calculate the proportion of values in a specified interval for a normal distribution.
-4. Find boundary values of an interval associated with a given proportion under a normal distri-
-bution.
-5. Calculate the mean or standard deviation of a normal distribution given the value of a per-
-centile.
-6. Compare measures of relative position for distributions.
-7. Estimate the proportion of values in a specified interval of a normal distribution using the
-empirical rule.
-2.6.1
-Normal distribution model
-Among all the distributions we see in practice, one is overwhelmingly the most common. The
-symmetric, unimodal, bell curve is ubiquitous throughout statistics. Indeed it is so common, that
-people often know it as the normal curve or normal distribution.55 A normal curve is shown
-in Figure 2.33.
-Figure 2.33: A normal curve.
-55It is also introduced as the Gaussian distribution after Frederic Gauss, the first person to formalize its mathe-
-matical expression.
+**2.34 水痘，第一部分 (Chickenpox, Part I)**
+波士頓兒童醫院估計，90% 的美國人在成年之前都得過水痘。
+(a) 假設我們隨機抽取 100 名美國成年人的樣本。使用二項分配來計算在 100 名隨機抽樣的美國成年人中，恰好有 97 人在兒童時期得過水痘的機率是否合適？請解釋。
+(b) 計算在 100 名隨機抽樣的美國成年人中，恰好有 97 人在兒童時期得過水痘的機率。
+(c) 在 100 名美國成年人的新樣本中，恰好有 3 人在兒童時期未曾得過水痘的機率是多少？
+(d) 在 10 名隨機抽樣的美國成年人中，至少有 1 人得過水痘的機率是多少？
+(e) 在 10 名隨機抽樣的美國成年人中，最多有 3 人未曾得過水痘的機率是多少？
 
+**2.35 陀螺遊戲 (Game of dreidel)**
+光明節陀螺 (dreidel) 是一種四面旋轉陀螺，每一面分別印有希伯來字母 nun、gimel、hei 和 shin。在單次旋轉中，每一面出現的機率均等。假設你旋轉了三次陀螺，計算以下機率：
+(a) 至少出現一次 nun？
+(b) 恰好出現 2 次 nun？
+(c) 恰好出現 1 次 hei？
+(d) 最多出現 2 次 gimel？
 
-160
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-The normal distribution always describes a symmetric, unimodal, bell-shaped curve. How-
-ever, these curves can look diﬀerent depending on the details of the model. Specifically, the normal
-distribution model can be adjusted using two parameters: mean and standard deviation. As you
-can probably guess, changing the mean shifts the bell curve to the left or right, while changing the
-standard deviation stretches or constricts the curve.
-Figure 2.34 shows the normal distribution with mean 0 and standard deviation 1 in the left panel
-and the normal distributions with mean 19 and standard deviation 4 in the right panel. Figure 2.35
-shows these distributions on the same axis.
--3
--2
--1
-0
-1
-2
-3
-7
-11
-15
-19
-23
-27
-31
-Figure 2.34: Both curves represent a normal distribution. However, they diﬀer in
-their center and spread.
-0
-10
-20
-30
-Figure 2.35: The normal distributions shown in Figure 2.34 but plotted together
-and on the same scale.
-Because the mean and standard deviation describe a normal distribution exactly, they are called
-the distribution's parameters. The normal distribution with mean µ = 0 and standard deviation
-σ = 1 is called the standard normal distribution..
-NORMAL DISTRIBUTION FACTS
-Many variables are nearly normal, but none are exactly normal. The normal distribution, while
-never perfect, provides very close approximations for a variety of scenarios. We will use it to
-model data as well as probability distributions.
+**2.36 鐮刀型紅血球疾病 (Sickle cell anemia)**
+鐮刀型紅血球疾病是一種遺傳性血液疾病，紅血球會失去彈性並呈現異常、僵硬的「鐮刀」形狀，這會導致各種併發症的風險。如果父母雙方都是該疾病的帶原者，那麼孩子有 25% 的機率患病，50% 的機率成為帶原者，以及 25% 的機率既不患病也不是帶原者。如果兩個身為帶原者的父母生了 3 個孩子，以下情況的機率是多少：
+(a) 兩個孩子患病？
+(b) 沒有孩子患病？
+(c) 至少有一個孩子既不患病也不是帶原者？
+(d) 第一個患病的孩子會是第 3 個孩子？
 
+**2.37 未成年飲酒，第二部分 (Underage drinking, Part II)**
+在練習題 2.33 中，我們了解到大約有 70% 的 18-20 歲年輕人在特定年份曾飲用酒精飲料。我們現在考慮一個 50 名 18-20 歲年輕人的隨機樣本。
+(a) 你預期有多少人曾飲用過酒精飲料？標準差是多少？
+(b) 如果有 45 人或更多人曾飲用過酒精飲料，你會感到驚訝嗎？
+(c) 在這個樣本中，有 45 人或更多人曾飲用過酒精飲料的機率是多少？這個機率與你在 (b) 部分的答案有何關聯？
 
-### 2.6. NORMAL DISTRIBUTIONS
-161
-2.6.2
-Using the normal distribution to approximate empirical distributions
-We often want to put data onto a standardized scale, which can make comparisons more reasonable.
-EXAMPLE 2.77
-Figure 2.36 shows the mean and standard deviation for total scores on the SAT and ACT. The
-distribution of SAT and ACT scores are both nearly normal. Suppose Ann scored 1300 on her SAT
-and Tom scored 24 on his ACT. Who performed better?
-As we saw in section 1.4.7, we can use Z-scores to compare observations from diﬀerent distributions.
-Using Ann's SAT score, 1300 , along with the SAT mean and SD, we can find Ann's Z-score.
-ZAnn = xAnn -µSAT
-σSAT
-= 1300 -1100
-200
-= 1
-Similarly, using Tom's ACT score, 24, along with the ACT mean and SD we can find his Z-score.
-ZT om = xTom -µACT
-σACT
-= 24 -21
-6
-= 0.5
-Because Ann's score was 1 standard deviation above the mean, while Tom's score was 0.5 standard
-deviations above the mean, we can say that Ann did better than Tom.
-SAT
-ACT
-Mean
-1100
-21
-SD
-200
-6
-Figure 2.36: Mean and standard deviation for the SAT and ACT.
-Assuming that both the SAT and ACT distributions are nearly normally distributed, what
-percent of test takers scored lower than Ann? What percent scored lower than Tom? To answer
-these question exactly, we would need all of the data. However, if we use the information that SAT
-and ACT distributions are nearly normal, we can estimate these percents. Figure 2.37 shows these
-distributions modeled with a normal curve. If we can find the percent of the normal curve that is to
-the left of Ann's score, we could use that percent as our estimate of the percent of the data points
-that are smaller than Ann's score. We call this process normal approximation. The steps are:
-1. First verify that the distribution can be reasonably modeled with a normal distribution.
-2. Convert value or values of interest to Z-scores.
-3. Find the relevant area/percent under the standard normal curve.
-We use the area/percent that we find from the normal curve as our estimate of the desired percent.
-700
-900
-1100
-1300
-1500
-Ann
-9
-15
-21
-27
-33
-Tom
-Figure 2.37: Ann's and Tom's scores shown with the distributions of SAT and
-ACT scores.
+**2.38 水痘，第二部分 (Chickenpox, Part II)**
+在練習題 2.34 中，我們了解到大約 90% 的美國成年人在成年之前得過水痘。我們現在考慮一個 120 名美國成年人的隨機樣本。
+(a) 在這個樣本中，你預期有多少人在兒童時期得過水痘？標準差是多少？
+(b) 如果有 105 人在兒童時期得過水痘，你會感到驚訝嗎？
+(c) 在這個樣本中，有 105 人或更少人在兒童時期得過水痘的機率是多少？這個機率與你在 (b) 部分的答案有何關聯？
 
+---
 
-162
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-There are many techniques for finding areas under a normal distribution. The most common
-approach is to use technology. In practice, statisticians use statistical software, such as R, Python,
-or SAS. In classrooms, it is common to use Desmos or a handheld graphing calculator such as
-NumWorks, TI, or Casio. Instructions for finding areas of a normal distribution using these R,
-Desmos, and these handheld graphing calculators are provided in Section 2.6.4.
-Another option for finding tail areas is to use what's called a probability table; these are
-occasionally used in classrooms but rarely in practice. Appendix C.2 contains such a table and a
-guide for how to use it.
-2.6.3
-Normal probability examples
-Combined SAT scores are approximated well by a normal model with mean 1100 and standard
-deviation 200.
-EXAMPLE 2.78
-How many standard units above average is a score of 1190 on the SAT? What is the probability that
-a randomly selected SAT taker scores at least 1190 on the SAT?
-The probability that a randomly selected SAT taker scores at least 1190 on the SAT is equivalent to
-the proportion of all SAT takers that score at least 1190 on the SAT. First, always draw and label
-a picture of the normal distribution. (Drawings need not be exact to be useful.) We are interested
-in the probability that a randomly selected score will be above 1190, so we shade this upper tail:
-700
-1100
-1500
-x = 1190
--2
-0
-2
-Z = 0.4
-The labels on the distributions correspond to the mean and to values 2 standard deviations above
-and below the mean.
-The number of standard units 1190 is above average on the SAT corresponds to the Z-score of 1190.
-With µ = 1100, σ = 200, the Z-score that corresponds to x = 1190 is computed as
-Z = x -µ
-σ
-= 1190 -1100
-200
-= 90
-200 = 0.45
-To estimate the probability that a randomly selected SAT taker scores at least 1190 on the SAT, we
-can find the area under the standard normal curve to right of Z = 0.45. Using technology, we find
-P(Z ≥0.45) = 0.326. The probability that a randomly selected score is at least 1190 on the SAT is
-0.326.
-ALWAYS DRAW A PICTURE FIRST, AND DO THE CALCULATIONS SECOND
-For any normal probability situation, always draw and label the normal curve and shade the
-area of interest first. The picture will provide an estimate of the probability.
+### 2.6 常態分配 (Normal Distributions)
 
+有多大比例的成年人收縮壓超過 140？如果一件隨身行李的平均重量為 11 磅，那麼 100 件隨機抽取的隨身行李重量超過 1200 磅的機率是多少？如果一個母體中有 55% 的人支持某位候選人，那麼在樣本大小為 200 的隨機樣本中，她獲得不到 50% 支持率的機率是多少？
 
-### 2.6. NORMAL DISTRIBUTIONS
-163
-EXAMPLE 2.79
-Mika earned a 1030 on her SAT. What is her percentile?
-First, a picture is needed. Mika's percentile is the proportion of people who got less than or equal
-to 1030.
-700
-1100
-1500
-x = 1030
--2
-0
-2
-Z = -0.35
-Identifying the mean µ = 1100, the standard deviation σ = 200, and the cutoﬀfor the tail area
-x = 1030 makes it easy to compute the Z-score:
-Z = x -µ
-σ
-= 1030 -1100
-200
-= -0.35
-Using technology, we determine that P(Z ≤-0.35) = 0.363. Mika is at the 36th percentile.
-In Example 2.79, we standardized the value x = 1030 and used technology to find the area
-to the left of Z = -0.35 under the standard normal distribution (µ = 0, σ = 1). Instead of this
-traditional method, we can also use technology to find the area to the left of 1030 under the normal
-distribution with µ = 1100 and σ = 200. When using this approach, full communication should
-include the following:
-• Draw a graph and shade the desired boundary region as we did in the upper left graph.
-• Identify the distribution and its parameters. X is SAT score. X is Normal with µ = 1100 and
-σ = 200. We sometimes write this as X is Normal(µ = 1100, σ = 200).
-• Write a probability statement that corresponds to the shaded area: P(X ≤1030) = 0.363.
-• Answer the question in context: Mika is at the 36th percentile.
-GUIDED PRACTICE 2.80
-Use the results of Example 2.79 to compute the proportion of SAT takers who did better than Mika.
-Also draw a new picture.56
-The last several problems have focused on finding the probability or percentile for a particular
-observation. It is also possible to identify the value corresponding to a particular percentile.
-56If about 36% of SAT takers got less than or equal to Mika, then about 64% must have done better than her.
-700
-1100
-1500
+有一種分配可以幫助我們回答所有這些問題。你能猜出它是什麼嗎？沒錯，就是**常態分配 (normal distribution)**。
 
+#### 學習目標
+1. 描述標準常態分配 (standard normal distribution)。
+2. 在適當的情況下，使用 Z分數 (Z-scores) 和標準常態模型來近似一個分配。
+3. 計算常態分配中特定區間內數值的比例。
+4. 找出常態分配下與給定比例相關聯的區間邊界值。
+5. 給定某個百分位數的數值，計算常態分配的平均數或標準差。
+6. 比較分配中相對位置的測量值。
+7. 使用經驗法則 (empirical rule) 估計常態分配特定區間內數值的比例。
 
-164
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-EXAMPLE 2.81
-Carlos believes he can get into his preferred college if he scores in the 80th percentile or better on
-the SAT. How many standard deviations above the average SAT score will Carlos have to be and
-what score does this correspond to?
-Here, we are given a percentile rather than an SAT score, so we work backwards. As always, first
-draw the picture. We shade the lower 80% of the area under the curve.
-700
-1100
-1500
-80%
-x = ?
--2
-0
-2
-80%
-Z = ?
-First, we find the Z-score associated with the 80th percentile.
-Using technology, we find that
-P(Z ≤0.8416) = 0.80. In any normal distribution, a value with a Z-score of 0.8416 will be at the
-80th percentile. Once we have the Z-score, we work backwards to find the x value that corresponds
-to the 80th percentile using the Z-score formula.
-Z = x -µ
-σ
-0.8416 = x -1100
-200
-0.8416 × 200 + 1100 = x
-x = 1268.32
-Carlos will have to be 0.8416 standard deviations above the mean SAT score to be at the 80th
-percentile, and he will need a score of about 1268.
-To find the score needed to be at the 80th percentile, we can also work with the non-standardized
-normal distribution with µ = 1100 and σ = 200. As we did in Example 2.79, we communicate our
-work as follows.
-• First draw the distribution, shading the desired region as we did in the upper left graph.
-• Identify the distribution and its parameters. X is SAT score. X is Normal(µ = 1100, σ = 200).
-• Write a probability statement that corresponds to the shaded area. P(X ≤1268) = 0.80.
-• Answer the question in context.
-Carlos should aim for a score of 1268 to be at the 80th
-percentile.
-GUIDED PRACTICE 2.82
-Erica scored at the 20th percentile on the SAT. What was her SAT score?57
-While it is convenient to be able to directly find areas under a normal distribution with arbitrary
-parameters, understanding Z-scores and the concept of standardization is fundamental to statistics.
-Consider the following example, where working with a standard normal distribution and Z-scores is
-necessary to solve the problem.
-57First, draw a picture, shading the lower 20% of the normal distribution.
-500
-700
-900
-1100
-1300
-1500
-1700
-20%
-x = ?
-Using Normal(µ = 0, σ = 1), we find that the Z-score with 20% of the area to the left of it is -0.8416: P(Z ≤-0.8416) =
-0.20. Next, set up the Z-score formula and solve for x: -0.8416 = x-1100
-200
-→x = 931.7. Or, using X is Normal(µ = 1100,
-σ = 200), we find P(x ≤931.7) = 0.20. Erica scored approximately 932. Notice that the 20th percentile and 80th
-percentile values are the same distance away from the mean of 1100.
+#### 2.6.1 常態分配模型 (Normal distribution model)
 
+在我們於實務中見到的所有分配中，有一種分配壓倒性地最為常見。這種對稱、單峰、鐘形的曲線在統計學中無處不在。事實上，因為它太常見了，所以人們通常稱之為**常態曲線 (normal curve)** 或**常態分配 (normal distribution)**。（註：它也被稱為高斯分配 (Gaussian distribution)，以第一個將其數學表達式形式化的 Frederic Gauss 命名。）
 
-### 2.6. NORMAL DISTRIBUTIONS
-165
-EXAMPLE 2.83
-Assume that systolic blood pressure for adults is approximately normally distributed with a mean
-of 125 mmHg. If 10 percent of adults have systolic blood pressure above 138, what is the standard
-deviation of the distribution?
-Here we are looking for the standard deviation, not a particular x-value. We know that the distribu-
-tion is approximately normal and that the x-value of 138 corresponds to the 90th percentile, so we
-can find the Z-score for that x-value. Then we can use the Z-score formula to solve for the standard
-deviation.
--1
-0
-1
-90%
-z = 1.282
-125
-90%
-x = 138
-Using technology and the Normal(µ = 0, σ = 1) distribution, we find that P(Z ≥1.282) = 0.10. We
-then plug Z = 1.282 into the Z-score formula and solve for σ.
-Z = x -µ
-σ
-1.282 = 138 -125
-σ
-σ = 138 -125
-1.282
-σ = 10.1
-The standard deviation of systolic blood pressure is estimated as 10.1 mmHg.
-IF THE DATA ARE NOT NEARLY NORMAL, DON'T USE THE NORMAL APPROXIMATION
-Before using the normal approximation method, verify that the data or distribution is approxi-
-mately normal. If it is not, the normal approximation will give incorrect results. Also remember
-that all answers based on normal approximations are in fact approximations and are not exact.
-Finally, we should observe that it is possible for a normal random variable to fall 4, 5, or even
-more standard deviations from the mean. The probability of being further than 4 standard deviations
-from the mean is about 1-in-15,000. For 5 and 6 standard deviations, it is about 1-in-2 million and
-1-in-500 million, respectively. However, while the tails of the normal distribution extend infinitely
-in either direction, our data sets are finite and normal approximation in the extreme tails is unlikely
-to be very accurate, even for bell-shaped data sets.
+常態分配總是描述一條對稱的、單峰的、鐘形的曲線。然而，根據模型的細節，這些曲線看起來可能有所不同。具體來說，常態分配模型可以使用兩個參數進行調整：**平均數 (mean)** 和**標準差 (standard deviation)**。正如你可能猜到的，改變平均數會使鐘形曲線向左或向右移動，而改變標準差則會拉伸或壓縮曲線。
 
+> 圖 2.34 與 2.35 顯示了常態分配的平移與伸縮。這兩條曲線都代表常態分配，但它們的中心和離散程度不同。
 
-166
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.6.4
-Technology: normal probabilities and boundary values
-Given a standard normal distribution (µ = 0, σ = 1),
-(i) find the following probabilities:
-(a) Probability of a value between -2 and 2.
-(b) Probability of a value less than -1.5.
-(ii) find the following boundary values:
-(a) The value that corresponds to the 40th percentile.
-(b) The value z⋆such that 95% of the distribution lies between -z⋆and z⋆.
-*With the standard normal distribution (µ = 0, σ = 1), the values of the distribution correspond to
-Z-scores. If a problem involves a normal distribution with a diﬀerent mean and standard deviation
-(e.g. battery life), we can use the mean and standard deviation of that distribution in place of 0 and 1.
-Desmos: Use normaldist(mean, stdev), replacing mean and stdev with appropriate values.
-1. Type normaldist(0,1).
-2. Click the triangle next to Cumulative Probability.
-3. Select Inner, Outer, Left, or Right as illustrated below.
-4.
-(i) To find a probability, choose Area and enter the boundary value(s) for x.
-(ii) To find a boundary value, choose Bounds and enter the area as a decimal to the right of
-the = sign.
-5. Click the magnifying glass to Zoom Fit the graphing window.
-(i) Finding probabilities/areas.
-(a) P(-2 ≤x ≤2).
-(b) P(x < -1.5). Note: for a continuous distribution P(x < -1.5) = P(x ≤-1.5).
+由於平均數和標準差精確地描述了一個常態分配，因此它們被稱為分配的**參數 (parameters)**。平均數 $\mu = 0$ 且標準差 $\sigma = 1$ 的常態分配被稱為**標準常態分配 (standard normal distribution)**。
 
+::: {.concept-box title="概念：常態分配的事實"}
+許多變數都「幾乎」呈常態分配，但沒有一個是「完全」的常態分配。常態分配雖然從不完美，但為各種情況提供了非常接近的近似值。我們將使用它來建立資料以及機率分配的模型。
+:::
 
-### 2.6. NORMAL DISTRIBUTIONS
-167
-(ii) Finding boundary values.
-(a) The value that corresponds to the 40th percentile. P(x ≤?) = 0.40.
-(b) The value z⋆such that 95% of the distribution lies between -z⋆and z⋆. P(-z⋆≤x ≤z⋆) = 0.95.
-R: Normal probabilities and boundary values for the standard normal distribution.
-(i) Finding probabilities/areas. Use the pnorm(x, mean, stdev) function, which gives the area to
-the left of the x value entered, unless specified otherwise. Note that "mean =" and "sd =" can be
-omitted, but the labels are often included for clarity.
-(a) P(-2 ≤X ≤2).
-> pnorm(2, 0, 1) - pnorm(-2, 0, 1)
-[1] 0.9544997
-(b) P(X ≤1.5).
-> pnorm(-1.5, mean = 0, sd = 1)
-[1] 0.0668072
-(ii) Finding boundary values. Use the qnorm(p, mean, stdev) function. qnorm() returns the value
-that has the entered probability p to the left of it, unless specified otherwise.
-(a) Find the value that corresponds to the 40th percentile.
-> qnorm(0.40, 0, 1)
-[1] -0.2533471
-(b) Find the value z⋆such that 95% of the distribution lies between -z⋆and z⋆. This implies that
-2.5% in the upper (and lower) tail.
-> qnorm(0.025, mean = 0, sd = 1, lower.tail = FALSE)
-[1] 1.959964
+#### 2.6.2 使用常態分配來近似實證分配
 
+我們經常希望將資料放在一個標準化的尺度上，這可以使比較更加合理。
 
-168
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-Calculator: NumWorks calculator instructions and example output are included. For the TI-83/84
-and Casio calculators, general instructions are provided, and worked example videos can be accessed
-via the
-icon or at openintro.org/ti and openintro.org/casio.
-NUMWORKS: NORMAL PROBABILITIES AND BOUNDARY VALUES
-Use OK or EXE to make a selection.
-1. From the home screen, select Distributions then select Normal. If a list of distributions
-does not show up, hit the 2 button (next to OK) as many times as needed.
-2. Enter µ and σ then choose Next. Note: if the screen shows a graph, hit the 2 button.
-3. Hit the left arrow to highlight the graph. Hit the down arrow to choose whether you want
-left, inner, or right, then hit OK. Hit the right arrow to enter the desired value(s).
-(i) For a probability, enter the boundary value(s), then hit EXE.
-(ii) For a boundary value, enter the desired area as a decimal to the right of the = sign,
-then hit EXE.
+**範例 2.77**
+圖 2.36 顯示了 SAT 和 ACT 總分的平均數和標準差。SAT 和 ACT 分數的分配都近似常態分配。假設 Ann 的 SAT 考了 1300 分，而 Tom 的 ACT 考了 24 分。誰表現得更好？
 
+正如我們在 1.4.7 節中所見，我們可以使用 Z分數 (Z-scores) 來比較來自不同分配的觀察值。使用 Ann 的 SAT 分數 1300，以及 SAT 的平均數和標準差，我們可以找到 Ann 的 Z分數：
+$$ Z_{Ann} = \frac{x_{Ann} - \mu_{SAT}}{\sigma_{SAT}} = \frac{1300 - 1100}{200} = 1 $$
 
-### 2.6. NORMAL DISTRIBUTIONS
-169
-TI-84: NORMAL PROBABILITIES
-1. Choose 2ND VARS (i.e. DISTR).
-2. Choose 2:normalcdf.
-3. Enter the lower (left) value and the upper (right) value.
-• If finding just a lower tail area, set lower to -∞(-1E99).
-• If finding just an upper tail area, set upper to ∞(1E99).
-4. Enter µ and σ.
-5. Down arrow, choose Paste, and hit ENTER.
-TI-83: Do steps 1-2, then enter the lower bound, upper bound, µ, and σ separated by commas
-as follows: normalcdf(lower, upper, µ, σ). Then hit ENTER.
-TI-84: BOUNDARY VALUES FOR A NORMAL DISTRIBUTION
-Use 2ND VARS, invNorm to find the X-value that corresponds to a given percentile.
-1. Choose 2ND VARS (i.e. DISTR).
-2. Choose 3:invNorm.
-3. Let Area be the desired percent as a decimal.
-4. Enter the appropriate values for µ and σ. If you want a Z-score enter µ as 0 and σ as 1.
-5. Let Tail be LEFT if entering a percentile. For a value with a certain percent above it,
-choose RIGHT. For a value with a certain percent between ± that value, choose CENTER.
-6. Down arrow, choose Paste, and hit ENTER.
-TI-83: Do steps 1-2, then enter the percentile as a decimal, µ, and σ separated by commas as
-follows: invNorm(area to left, µ, σ). Then hit ENTER.
-CASIO FX-9750GII: NORMAL PROBABILITIES
-1. Navigate to STAT (MENU, then hit 2).
-2. Select DIST (F5), then NORM (F1), and then Ncd (F2).
-3. If needed, set Data to Variable (Var option, which is F2).
-4. Enter the Lower Z-score and the Upper Z-score. Set σ to 1 and µ to 0.
-• If finding just a lower tail area, set Lower to -5.
-• For an upper tail area, set Upper to 5.
-5. Hit EXE, which will return the area probability (p) along with the Z-scores for the lower
-and upper bounds.
-CASIO FX-9750GII: BOUNDARY VALUES FOR A NORMAL DISTRIBUTION
-1. Navigate to STAT (MENU, then hit 2).
-2. Select DIST (F5), then NORM (F1), and then InvN (F3).
-3. If needed, set Data to Variable (Var option, which is F2).
-4. Decide which tail area to use (Tail), the tail area (Area), and then enter the σ and µ
-values.
-5. Hit EXE.
+同樣地，使用 Tom 的 ACT 分數 24，以及 ACT 的平均數和標準差，我們可以找到他的 Z分數：
+$$ Z_{Tom} = \frac{x_{Tom} - \mu_{ACT}}{\sigma_{ACT}} = \frac{24 - 21}{6} = 0.5 $$
 
+因為 Ann 的分數高於平均數 1 個標準差，而 Tom 的分數高於平均數 0.5 個標準差，我們可以說 Ann 的表現比 Tom 好。
 
-170
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.6.5
-68-95-99.7 rule
-Here, we present a useful rule of thumb for the probability of falling within 1, 2, and 3 standard
-deviations of the mean in the normal distribution. The 68-95-99.7 rule, also known as the empirical
-rule, will be useful in a wide range of practical settings, especially when trying to make a quick
-estimate without technology or a Z-table.
-µ -3σ
-µ -2σ
-µ -σ
-µ
-µ + σ
-µ + 2σ
-µ + 3σ
-99.7%
-95%
-68%
-Figure 2.38: Probabilities for falling within 1, 2, and 3 standard deviations of the
-mean in a normal distribution.
-This implies that for an approximately normal distribution, the area that falls between Z = -1
-and Z = 1 is about 68% and the area between Z = -2 and Z = 2 is about 95%.
-It is possible for a normal random variable to fall 4, 5, or even more standard deviations from
-the mean. However, these occurrences are very rare if the data are nearly normal. The probability of
-being further than 4 standard deviations from the mean is about 1-in-15,000. For 5 and 6 standard
-deviations, it is about 1-in-2 million and 1-in-500 million, respectively.
-GUIDED PRACTICE 2.84
-SAT scores closely follow the normal model with mean µ = 1100 and standard deviation σ = 200. (a)
-About what percent of test takers score 700 to 1500? (b) About what percent score between 1100
-and 1500?58
-58(a) 700 and 1500 represent two standard deviations above and below the mean, which means about 95% of test
-takers score between 700 and 1500. (b) Because 1100 is the mean and the normal model is symmetric, half of the test
-takers from part (a) score 1100 to 1500. So about 95%
-2
-= 47.5% score between 1100 and 1500.
+| | SAT | ACT |
+|---|---|---|
+| **平均數 (Mean)** | 1100 | 21 |
+| **標準差 (SD)** | 200 | 6 |
+*圖 2.36：SAT 和 ACT 的平均數與標準差。*
 
+假設 SAT 和 ACT 分數的分配都近似常態分配，有多少百分比的考生得分低於 Ann？有多少百分比的考生得分低於 Tom？要準確回答這些問題，我們需要所有的資料。然而，如果我們利用 SAT 和 ACT 分配近似常態分配的資訊，我們就可以估算這些百分比。如果我們能找到常態曲線在 Ann 分數左側的百分比，我們就可以使用該百分比作為小於 Ann 分數的資料點百分比的估計值。我們稱這個過程為**常態近似 (normal approximation)**。步驟如下：
+1. 首先驗證該分配是否可以合理地用常態分配建立模型。
+2. 將感興趣的數值轉換為 Z分數。
+3. 找出標準常態曲線下的相關面積/百分比。
 
-### 2.6. NORMAL DISTRIBUTIONS
-171
-Section summary
-• A Z-score represents the number of standard deviations a value in a data set is above or below
-the mean. To calculate a Z-score use: Z = x-mean
-SD
-.
-• A continuous random variable is a variable that can take on any value within a specified
-domain. Every interval within the domain has a probability associated with it. The total
-probability or area under a continuous distribution is 1.
-• A normal distribution can be described as a continuous, unimodal, bell-shaped, and sym-
-metric curve. Normal distributions are the most commonly used distribution in Statistics.
-Many continuous random variables and some large data sets have an approximately normal
-distribution, but none are exactly normal.
-• The normal distribution, or the normal curve, is identified by two parameters, the mean µ and
-the standard deviation σ. The smaller the standard deviation, the taller and more concentrated
-the normal curve is around its mean. The larger the standard deviation, the shorter and less
-concentrated the normal curve is around its mean.
-• A standard normal distribution is a normal distribution with mean µ = 0 and standard
-deviation σ = 1.
-• For a normal distribution, approximately 68% of observations are within 1 standard deviation
-of the mean, approximately 95% of observations are within 2 standard deviations of the mean,
-and approximately 99.7% of observations are within 3 standard deviations of the mean. This is
-called the empirical rule, or the 68-95-99.7 rule. The empirical rule is useful for estimating
-the area of a region under an approximately normal distribution.
-• If the distribution of a random variable is approximately normal, the probability that the ran-
-dom variable takes on values within a particular interval of the random variable is determined
-by the area under the normal curve within that interval. The total probability or area under
-the normal curve is 1.
-• The boundaries of an interval associated with a given area in a normal distribution can be
-determined using technology or using z-scores and a standard normal table.
-• Two type of normal approximation problems involve (1) finding a probability or percent, which
-requires finding an area under a normal distribution given one ore more boundary values and
-(2) finding an x-value that bounds a given area or percentile under the normal distribution.
-For both types of problems, first draw a normal distribution and shade the area of interest.
-Then, identify the distribution and its parameters, write the relevant probability statement,
-and answer the question in context.
-• Percentiles and proportions may be used to compare relative positions of individual values
-within a normal distribution or between normal distributions.
+我們使用從常態曲線找到的面積/百分比作為所需百分比的估計值。
 
+尋找常態分配下面積的技術有很多。最常見的方法是使用科技工具。實務上，統計學家會使用統計軟體（如 R、Python 或 SAS）。在課堂上，通常使用 Desmos 或手持繪圖計算機（如 NumWorks、TI 或 Casio）。另一種尋找尾部面積的選項是使用機率表（Z表）；這些表在課堂上偶爾會用到，但在實務上很少使用。
 
+#### 2.6.3 常態機率範例
+
+SAT 總分可以透過平均數為 1100、標準差為 200 的常態模型良好地近似。
+
+**範例 2.78**
+SAT 分數 1190 高於平均數多少個標準單位？隨機選擇的一位 SAT 考生，其 SAT 分數至少為 1190 的機率是多少？
+
+隨機選擇的 SAT 考生得分至少為 1190 的機率，等同於所有 SAT 考生中得分至少為 1190 的比例。首先，**永遠先畫出並標示常態分配的圖形**（圖形不需要非常精確即可發揮作用）。我們感興趣的是隨機選擇的分數高於 1190 的機率，因此我們將右側上尾部分塗上陰影。
+分數 1190 高於 SAT 平均數的標準單位數，對應於 1190 的 Z分數。已知 $\mu = 1100$ 和 $\sigma = 200$，對應於 $x = 1190$ 的 Z分數計算如下：
+$$ Z = \frac{x - \mu}{\sigma} = \frac{1190 - 1100}{200} = \frac{90}{200} = 0.45 $$
+
+為了估計隨機選擇的 SAT 考生得分至少為 1190 的機率，我們可以找出標準常態曲線在 $Z = 0.45$ 右側的面積。使用科技工具，我們得到 $P(Z \ge 0.45) = 0.326$。隨機選擇的分數至少為 1190 的機率為 0.326。
+
+::: {.callout-tip title="AP 技巧｜先畫圖，再計算" collapse="true"}
+對於任何常態機率情況，始終先畫出並標示常態曲線，並將感興趣的區域塗上陰影。這張圖將提供機率的視覺估計。
+:::
+
+**範例 2.79**
+Mika 在 SAT 中獲得了 1030 分。她的百分位數是多少？
+
+首先，我們需要一張圖。Mika 的百分位數是指得分小於或等於 1030 的人數比例。
+識別出平均數 $\mu = 1100$、標準差 $\sigma = 200$，以及尾部區域的邊界 $x = 1030$，這使得計算 Z分數變得容易：
+$$ Z = \frac{x - \mu}{\sigma} = \frac{1030 - 1100}{200} = -0.35 $$
+使用科技工具，我們確定 $P(Z \le -0.35) = 0.363$。Mika 位於第 36 百分位數 (36th percentile)。
+
+在範例 2.79 中，我們將 $x = 1030$ 標準化，並使用科技工具找出標準常態分配（$\mu = 0, \sigma = 1$）下 $Z = -0.35$ 左側的面積。除了這種傳統方法之外，我們也可以使用科技工具找出在 $\mu = 1100$ 且 $\sigma = 200$ 的常態分配下，1030 左側的面積。使用這種方法時，完整的溝通過程應包括：
+- 繪製圖形並將所需的邊界區域塗上陰影。
+- 標識分配及其參數：$X$ 是 SAT 分數。$X$ 服從常態分配，平均數 $\mu = 1100$，標準差 $\sigma = 200$。我們有時將其寫為 $X \sim Normal(\mu = 1100, \sigma = 200)$。
+- 寫出對應於陰影區域的機率陳述式：$P(X \le 1030) = 0.363$。
+- 在情境中回答問題：Mika 位於第 36 百分位數。
+
+**引導練習 2.80**
+使用範例 2.79 的結果來計算 SAT 考生中表現比 Mika 好的比例。並畫一張新圖。（如果大約 36% 的考生得分小於或等於 Mika，那麼大約有 64% 的人表現一定比她好。）
+
+前面的幾個問題著重於尋找特定觀察值的機率或百分位數。我們也可以反過來，找出與特定百分位數相對應的數值。
+
+**範例 2.81**
+Carlos 相信如果他的 SAT 考到第 80 百分位數或更好，他就能進入心儀的大學。Carlos 的成績必須比平均 SAT 分數高出多少個標準差？這對應的具體分數是多少？
+
+在這裡，我們得到的是百分位數而不是 SAT 分數，所以我們要反向計算。和往常一樣，先畫圖，我們將曲線下方底部的 80% 區域塗上陰影。
+首先，我們找出與第 80 百分位數相關聯的 Z分數。使用科技工具，我們發現 $P(Z \le 0.8416) = 0.80$。在任何常態分配中，Z分數為 0.8416 的值都將位於第 80 百分位數。一旦我們有了 Z分數，我們就可以使用 Z分數公式反推對應於第 80 百分位數的 $x$ 值。
+$$ Z = \frac{x - \mu}{\sigma} $$
+$$ 0.8416 = \frac{x - 1100}{200} $$
+$$ 0.8416 \times 200 + 1100 = x $$
+$$ x = 1268.32 $$
+
+Carlos 必須比平均 SAT 分數高出 0.8416 個標準差才能達到第 80 百分位數，而且他需要大約 1268 分的分數。
+
+為了找出達到第 80 百分位數所需的分數，我們也可以使用 $\mu = 1100$ 和 $\sigma = 200$ 的非標準化常態分配。完整的回答如下：
+- 先畫出分配圖，並塗上陰影區域。
+- 標識分配及其參數：$X \sim Normal(\mu = 1100, \sigma = 200)$。
+- 寫出機率陳述式：$P(X \le 1268) = 0.80$。
+- 回答問題：Carlos 應該以 1268 分為目標以達到第 80 百分位數。
+
+**引導練習 2.82**
+Erica 在 SAT 中得分位於第 20 百分位數。她的 SAT 分數是多少？
+（利用 $Z = -0.8416$，解出 $x \approx 932$ 分。請注意，第 20 百分位數和第 80 百分位數的值與平均數 1100 的距離相同。）
+
+**範例 2.83**
+假設成年人的收縮壓近似常態分配，平均值為 125 mmHg。如果 10% 的成年人收縮壓超過 138，則該分配的標準差是多少？
+
+這裡我們要尋找的是標準差，而不是特定的 $x$ 值。我們知道分配近似常態分配，而且 $x$ 值 138 對應於第 90 百分位數，所以我們可以找到該 $x$ 值的 Z分數，然後再用 Z分數公式解出標準差。
+使用科技工具和標準常態分配 $Normal(\mu = 0, \sigma = 1)$，我們發現 $P(Z \ge 1.282) = 0.10$。然後我們將 $Z = 1.282$ 代入公式並解出 $\sigma$：
+$$ 1.282 = \frac{138 - 125}{\sigma} \Rightarrow \sigma = \frac{13}{1.282} \approx 10.1 $$
+收縮壓的標準差估計約為 10.1 mmHg。
+
+::: {.warning-box title="常見迷思：如果資料不接近常態，請勿使用常態近似"}
+在使用常態近似方法之前，請確認資料或分配近似常態分配。如果不是，常態近似將給出錯誤的結果。另外請記住，所有基於常態近似的答案實際上都是近似值，並不完全精確。最後，常態隨機變數有可能落在距離平均數 4、5 甚至更多個標準差之外。但是，在現實中距離超過 4 個標準差的情況已經非常罕見。
+:::
+
+#### 2.6.4 科技工具：常態機率和邊界值
+
+給定標準常態分配（$\mu = 0, \sigma = 1$），可以計算：
+(i) 機率：
+(a) 數值介於 -2 和 2 之間的機率。
+(b) 數值小於 -1.5 的機率。
+(ii) 邊界值：
+(a) 對應於第 40 百分位數的值。
+(b) 使得 95% 的分配介於 $-z^*$ 和 $z^*$ 之間的值 $z^*$。
+
+*(註：大多數計算機（如 TI-84 的 `normalcdf` 和 `invNorm`）或軟體都可以直接給出機率或反求邊界值。)*
+
+#### 2.6.5 68-95-99.7 法則 (經驗法則)
+
+這裡，我們提出一個實用的經驗法則，用於說明常態分配中落在平均數 1、2 和 3 個標準差範圍內的機率。**68-95-99.7 法則 (empirical rule)** 在許多實際情境中都很有用，特別是當沒有科技工具或 Z表時想要快速估算的話。
+
+- 落在 $\mu \pm 1\sigma$ 內的機率約為 68%
+- 落在 $\mu \pm 2\sigma$ 內的機率約為 95%
+- 落在 $\mu \pm 3\sigma$ 內的機率約為 99.7%
+
+這意味著對於一個近似常態的分配，落在 $Z = -1$ 和 $Z = 1$ 之間的面積約為 68%，而落在 $Z = -2$ 和 $Z = 2$ 之間的面積約為 95%。
+
+**引導練習 2.84**
+SAT 分數緊密地服從常態模型，平均數 $\mu = 1100$，標準差 $\sigma = 200$。
+(a) 大約有多少百分比的考生得分在 700 到 1500 之間？
+(b) 大約有多少百分比的考生得分在 1100 到 1500 之間？
+*(解答：(a) 700 和 1500 代表平均數上下各兩個標準差，因此大約有 95% 的考生。 (b) 因為常態模型是對稱的，且 1100 是平均數，因此 (a) 區間的一半大約為 95% / 2 = 47.5%。)*
+
+#### 本節重點摘要 (Section Summary)
+
+- **Z分數 (Z-score)** 代表資料集中的一個數值高於或低於平均數的標準差數量。計算公式為：$Z = \frac{x - \text{平均數}}{\text{標準差}}$。
+- **連續隨機變數 (continuous random variable)** 是一個可以在指定定義域內取任何值的變數。定義域內的每個區間都有一個相關的機率。連續分配下的總機率或總面積為 1。
+- **常態分配 (normal distribution)** 可以被描述為一條連續、單峰、鐘形且對稱的曲線。常態分配是統計學中最常用的分配。許多連續隨機變數和一些大型資料集具有近似常態的分配，但沒有一個是完全常態的。
+- 常態曲線由兩個參數識別：**平均數 $\mu$** 和**標準差 $\sigma$**。標準差越小，常態曲線在其平均數周圍就越陡峭且越集中。標準差越大，常態曲線在其平均數周圍就越平緩且越不集中。
+- **標準常態分配 (standard normal distribution)** 是平均數 $\mu = 0$ 且標準差 $\sigma = 1$ 的常態分配。
+- 對於常態分配，大約 68% 的觀察值在平均數的 1 個標準差內，約 95% 在 2 個標準差內，約 99.7% 在 3 個標準差內。這稱為經驗法則，或 **68-95-99.7 法則**。
+- 如果隨機變數的分配近似常態，則隨機變數在特定區間內取值的機率由常態曲線在該區間內的面積決定。
+- 與常態分配中給定面積相關聯的區間邊界可以使用科技工具或 Z分數與標準常態表（Z表）來決定。
+- 常態近似問題通常包括兩種類型：(1) 給定邊界值求面積（機率），(2) 給定面積（百分位數）反求邊界值。對於這兩類問題，始終應**先畫出常態分配圖並將感興趣的區域塗上陰影**。然後，標識分配及其參數，寫出相關的機率陳述式，並在情境中回答問題。
+- 百分位數和比例可以用來比較常態分配內或常態分配之間單個數值的**相對位置 (relative position)**。

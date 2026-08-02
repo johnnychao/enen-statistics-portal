@@ -1,1215 +1,266 @@
 ---
-title: "5.3 Least squares regression"
+title: "5.3 最小平方法迴歸 (Least Squares Regression)"
 ---
 
-420
-CHAPTER 5. REGRESSION ANALYSIS
-Exercises
-5.13
-Visualize the residuals. The scatterplots shown below each have a superimposed regression line. If
-we were to construct a residual plot (residuals versus x) for each, describe what those plots would look like.
-G
-G
-G
-GGGG
-GGGG
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GGG
-GG
-G
-G
-G
-GG
-G
-GG
-GGG
-GGG
-G
-G
-G
-G
-G
-GG
-G
-GG
-GGG
-G
-G
-G
-GG
-GG
-G
-G
-GG
-G
-GGGG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-(a)
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-GG
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-GGG
-GGG
-GG
-GG
-G
-GGG
-G
-G
-G
-G
-GGG
-GGGGGGGGG
-(b)
-5.14
-Trends in the residuals.
-Shown below are two plots of residuals remaining after fitting a linear
-model to two diﬀerent sets of data. Describe important features and determine if a linear model would be
-appropriate for these data. Explain your reasoning.
-GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
-GGGG
-G
-GGGGGGG
-GGGGG
-G
-GG
-G
-GGGGGGGGG
-G
-GG
-G
-GGG
-GGGGG
-GG
-G
-G
-GG
-GG
-GG
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-GGG
-GG
-G
-GGGG
-G
-GGG
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-GG
-G
-G
-G
-GGGG
-G
-GG
-G
-G
-GGG
-GGG
-GGGG
-G
-G
-GG
-GG
-GG
-G
-G
-G
-GG
-G
-GG
-G
-G
-G
-G
-GGG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GGG
-GG
-GG
-GG
-G
-G
-GG
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-GG
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-GGG
-G
-G
-G
-GG
-GG
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-(a)
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-GGG
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-GGG
-G
-G
-GG
-G
-GG
-GG
-G
-G
-GG
-G
-GGG
-G
-GG
-G
-GGGG
-G
-G
-GGG
-G
-GG
-G
-G
-G
-G
-G
-G
-GGGGGGGGG
-G
-G
-GGG
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-GGGG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-GG
-G
-G
-G
-GG
-G
-GGG
-GG
-G
-G
-G
-GGGG
-G
-G
-GGG
-GG
-G
-G
-G
-G
-GGG
-GG
-G
-GG
-GG
-GG
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-GG
-G
-G
-G
-GG
-GGG
-GG
-G
-GGGGGG
-G
-G
-G
-GG
-G
-GGGG
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-GG
-GGGGGGG
-G
-G
-G
-GGGG
-G
-G
-G
-G
-GG
-GG
-GGG
-G
-GGG
-GG
-G
-G
-GG
-GG
-GGGGG
-GGGG
-GG
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-GGG
-G
-G
-GG
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-GGG
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-GGGG
-G
-GG
-(b)
-5.15
-Units of regression. Consider a regression predicting weight (kg) from height (cm) for a sample of
-adult males. What are the units of the correlation coeﬃcient, the intercept, and the slope?
-5.16
-Which is higher? Determine if I or II is higher or if they are equal. Explain your reasoning. For a
-regression line, the uncertainty associated with the slope estimate, b, is higher when
-I. there is a lot of scatter around the regression line or
-II. there is very little scatter around the regression line
-5.17
-Over-under, Part I. Suppose we fit a regression line to predict the shelf life of an apple based on its
-weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did
-we over or under estimate the shelf-life of the apple? Explain your reasoning.
-5.18
-Over-under, Part II. Suppose we fit a regression line to predict the number of incidents of skin cancer
-per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of
-skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate
-the incidence of skin cancer? Explain your reasoning.
+### 練習題 (Exercises)
 
+**5.13 殘差視覺化 (Visualize the residuals)**
+此題原書附有四個帶有迴歸線的散佈圖。如果我們要為每一個散佈圖建立殘差圖（殘差對 x 的圖），請描述這些圖看起來會是什麼樣子。
 
-### 5.2. LINE FITTING AND RESIDUALS
-421
-5.19
-Tourism spending. The Association of Turkish Travel Agencies reports the number of foreign tourists
-visiting Turkey and tourist spending by year.15 Three plots are provided: scatterplot showing the relationship
-between these two variables along with the least squares fit, residuals plot, and histogram of residuals.
-Number of Tourists
-0m
-5m
-10m
-15m
-20m
-25m
-$0
-$5b
-$10b
-$15b
-Spending
-Number of Tourists
-Residuals
-0m
-5m
-10m
-15m
-20m
-25m
--$1b
-$0
-$1b
-(a) Describe the relationship between number of tourists and spending.
-(b) What are the explanatory and response variables?
-(c) Why might we want to fit a regression line to these data?
-(d) Is a linear model appropriate in this context?
-5.20
-Nutrition at Starbucks, Part I. The scatterplot below shows the relationship between the number of
-calories and amount of carbohydrates (in grams) Starbucks food menu items contain.16 Since Starbucks only
-lists the number of calories on the display items, we are interested in predicting the amount of carbs a menu
-item has based on its calorie content.
-Calories
-Carbs (grams)
-100
-200
-300
-400
-500
-20
-40
-60
-80
-Calories
-Residuals
-100
-200
-300
-400
-500
--20
-0
-20
-Residuals
--40
--20
-0
-20
-40
-0
-5
-10
-15
-20
-25
-(a) Describe the relationship between number of calories and amount of carbohydrates (in grams) that
-Starbucks food menu items contain.
-(b) In this scenario, what are the explanatory and response variables?
-(c) Why might we want to fit a regression line to these data?
-(d) Is a linear model appropriate in this context?
-15Association of Turkish Travel Agencies, Foreign Visitors Figure & Tourist Spendings By Years.
-16Source: Starbucks.com, collected on March 10, 2011,
-www.starbucks.com/menu/nutrition.
+**5.14 殘差的趨勢 (Trends in the residuals)**
+此題原書附有將線性模型配適到兩組不同數據後剩下的殘差圖。請描述重要的特徵，並判斷線性模型是否適合這些數據。請解釋你的推論。
 
+**5.15 迴歸的單位 (Units of regression)**
+考慮一個根據成年男性樣本的身高（公分）來預測體重（公斤）的迴歸模型。相關係數 (correlation coefficient)、截距 (intercept) 以及斜率 (slope) 的單位分別是什麼？
 
-422
-CHAPTER 5. REGRESSION ANALYSIS
-5.3
-Least squares regression
-How well can we predict financial aid based on family income for a particular college? How do we
-measure the fit of a model and compare diﬀerent models to each other? In this section, we find,
-interpret, and apply the least-squares regression line and we investigate a new measure that aims to
-tells us about how well a model "fits" the data.
-Learning objectives
-1. Calculate the coeﬃcients for the least-squares regression line model using technology or identify
-them from computer output.
-2. Interpret coeﬃcients for the least-squares regression line model.
-3. Calculate the coeﬃcient of determination using technology or identify it from from computer
-output.
-4. Interpret the coeﬃcient of determination.
-5.3.1
-An objective measure for finding the best line
-Fitting linear models by eye is open to criticism since it is based on an individual preference.
-In this section, we use least squares regression as a more rigorous approach.
-This section considers family income and gift aid data from a random sample of fifty students
-in the freshman class of Elmhurst College in Illinois. Gift aid is financial aid that does not need to
-be paid back, as opposed to a loan. A scatterplot of the data is shown in Figure 5.18 along with two
-linear fits. The lines follow a negative trend in the data; students who have higher family incomes
-tended to have lower gift aid from the university.
-Family Income ($1000s)
-0
-50
-100
-150
-200
-250
-0
-10
-20
-30
-Gift Aid From University ($1000s)
-Figure 5.18: Gift aid and family income for a random sample of 50 freshman
-students from Elmhurst College. Two lines are fit to the data, the solid line being
-the least squares line.
+**5.16 哪一個比較高？ (Which is higher?)**
+判斷 I 或 II 哪一個比較高，或者它們是否相等。請解釋你的推論。對於一條迴歸線來說，與斜率估計值 $b$ 相關的不確定性 (uncertainty) 較高的情況是當：
+I. 迴歸線周圍有很多散佈 (scatter)
+II. 迴歸線周圍幾乎沒有散佈
 
+**5.17 高估或低估，第一部分 (Over-under, Part I)**
+假設我們配適了一條迴歸線，根據蘋果的重量來預測其保鮮期。對於一顆特定的蘋果，我們預測其保鮮期為 4.6 天。該蘋果的殘差 (residual) 為 -0.6 天。我們是高估還是低估了這顆蘋果的保鮮期？請解釋你的推論。
 
-### 5.3. LEAST SQUARES REGRESSION
-423
-We begin by thinking about what we mean by "best". Mathematically, we want a line that has
-small residuals. Perhaps our criterion could minimize the sum of the residual magnitudes:
-∣y1 -ˆy1∣+ ∣y2 -ˆy2∣+ ⋅⋅⋅+ ∣yn -ˆyn∣
-We could fit a line using this criteria with a computer program. The resulting dashed line shown in
-Figure 5.18 demonstrates this fit can be quite reasonable. However, a more common practice is to
-choose the line that minimizes the sum of the squared residuals:
-(y1 -ˆy1)2 + (y2 -ˆy2)2 + ⋅⋅⋅+ (yn -ˆyn)2
-The line that minimizes the sum of the squared residuals is represented as the solid line in Figure 5.18.
-This is commonly called the least squares line.
-Both lines seem reasonable, so why do data scientists prefer the least squares regression line?
-One reason is that it is easier to compute by hand and in most statistical software. A more compelling
-reason is that in many applications, a residual twice as large as another residual is more than twice
-as bad. For example, being oﬀby 4 is usually more than twice as bad as being oﬀby 2. Squaring
-the residuals accounts for this discrepancy.
-In Figure 5.19, we imagine the squared error about a line as actual squares. The least squares
-regression line minimizes the sum of the areas of these squared errors. In the figure, the sum of the
-squared error is 4 + 1 + 1 = 6. There is no other line about which the sum of the squared error will
-be smaller.
-Figure 5.19: A screenshot from the interactive Desmos Activity: Least Squares
-Demo. Find it at openintro.org/ahss/desmos. The line is the least squares regression
-line as it makes the sum of squared error (in the y direction) least. Here the smallest
-possible sum of squared error is 6.
+**5.18 高估或低估，第二部分 (Over-under, Part II)**
+假設我們配適了一條迴歸線，根據一年中的晴天數量來預測每 1,000 人中皮膚癌的發生率。對於某個特定年份，我們預測皮膚癌發生率為每 1,000 人有 1.5 例，而該年份的殘差為 0.5。我們是高估還是低估了皮膚癌的發生率？請解釋你的推論。
 
+### 5.2 直線配適與殘差 (Line fitting and residuals) 續
 
-424
-CHAPTER 5. REGRESSION ANALYSIS
-5.3.2
-Writing the least squares regression line
-For the Elmhurst College data, we could fit a least squares regression line for predicting gift
-aid based on a student's family income and write the equation as:
-̂
-aid = a + b × family income
-Here a is the y-intercept of the least squares regression line and b is the slope of the least squares
-regression line. a and b are both statistics that can be calculated from the data.
-We can enter all of the data into a statistical software package and easily find the values of a
-and b. However, we can also calculate these values by hand, using only the summary statistics.
-• The slope of the least squares line is given by
-b = r sy
-sx
-where r is the correlation coeﬃcient between the variables x and y, and sx and sy are the
-sample standard deviations of x, the explanatory variable, and y, the response variable.
-• The point of averages (¯x, ¯y) is always on the least squares line. Plugging this point in for x
-and y in the least squares equation and solving for a gives
-¯y = a + b¯x
-a = ¯y -b¯x
-We mentioned earlier that a computer is usually used to compute the least squares line. A
-summary table based on computer output is shown in Figure 5.20 for the Elmhurst College data.
-The first column of numbers provides estimates for a and b, respectively.
-Estimate
-Std. Error
-t value
-Pr(>∣t∣)
-(Intercept)
-24.3193
-1.2915
-18.83
-0.0000
-family income
--0.0431
-0.0108
--3.98
-0.0002
-Figure 5.20: Summary of least squares fit for the Elmhurst College data.
-EXAMPLE 5.16
-Using the second, third, and fourth columns in Figure 5.20 is beyond the scope of this book. However,
-can you guess what they represent?
-Look at the second row, which corresponds to the slope. The first column, Estimate = -0.0431, tells
-us our best estimate for the slope of the population regression line. We call this point estimate b.
-The second column, Std. Error = 0.0108, is the standard error of this point estimate. The third
-column, t value = -3.98, is the T test statistic for the null hypothesis that the slope of the population
-regression line = 0. The last column, Pr(>∣t∣) = 0.0002, is the p-value for this two-sided T-test.
-EXAMPLE 5.17
-Suppose a high school senior is considering Elmhurst College. Can she simply use the linear equation
-that we have found to calculate her financial aid from the university?
-No. Using the equation will provide a prediction or estimate. However, as we see in the scatterplot,
-there is a lot of variability around the line. While the linear equation is good at capturing the trend
-in the data, there will be significant error in predicting an individual student's aid. Additionally,
-the data all come from one freshman class, and the way aid is determined by the university may
-change from year to year.
+**5.19 旅遊消費 (Tourism spending)**
+土耳其旅行社協會 (Association of Turkish Travel Agencies) 報告了每年造訪土耳其的外國遊客人數及遊客消費金額。此處提供三個圖表：顯示這兩個變數之間關係及最小平方法配適線 (least squares fit) 的散佈圖、殘差圖，以及殘差的直方圖。
+(a) 請描述遊客人數與消費金額之間的關係。
+(b) 什麼是解釋變數 (explanatory variable) 與反應變數 (response variable)？
+(c) 為什麼我們可能想對這些數據配適一條迴歸線？
+(d) 線性模型在這種情況下適合嗎？
 
+**5.20 星巴克的營養成分，第一部分 (Nutrition at Starbucks, Part I)**
+原書散佈圖顯示了星巴克食品菜單中，卡路里數量與碳水化合物含量（公克）之間的關係。因為星巴克只在展示品上標示卡路里數量，所以我們有興趣根據卡路里含量來預測菜單項目的碳水化合物含量。
+(a) 請描述星巴克食品菜單中，卡路里數量與碳水化合物含量（公克）之間的關係。
+(b) 在這個情境中，解釋變數與反應變數是什麼？
+(c) 為什麼我們可能想對這些數據配適一條迴歸線？
+(d) 線性模型在這種情況下適合嗎？
 
-### 5.3. LEAST SQUARES REGRESSION
-425
-5.3.3
-Interpreting the coefficients of a regression line
-Interpreting the coeﬃcients in a regression model is often one of the most important steps in
-the analysis.
-EXAMPLE 5.18
-The slope for the Elmhurst College data for predicting gift aid based on family income was calculated
-as -0.0431. Intepret this quantity in the context of the problem.
-You might recall from an algebra course that slope is change in y over change in x. The slope of
-the regression line tells us about the average change in y for each unit change in x. Here, both x
-and y are in thousands of dollars and the slope is negative. So if x is one unit or one thousand
-dollars higher, the predicted value of y will be 0.0431 thousand dollars less. In other words, for each
-additional thousand dollars of family income, the predicted gift aid is 0.0431 thousand, or $43.10
-less.
-EXAMPLE 5.19
-The y-intercept for the Elmhurst College data for predicting gift aid based on family income was
-calculated as 24.3. Intepret this quantity in the context of the problem.
-The intercept a describes the predicted value of y when x = 0.
-The predicted gift aid is 24.3
-thousand dollars if a student's family has no income. The meaning of the intercept is relevant to
-this application since the family income for some students at Elmhurst is $0. In other applications,
-the intercept may have little or no practical value if there are no observations where x is near zero
-(extrapolation). Here, it would be acceptable to say that the average gift aid is 24.3 thousand dollars
-among students whose family have 0 dollars in income.
-INTERPRETING COEFFICIENTS IN A LINEAR MODEL
-• The slope, b, describes the predicted increase or decreases in the response variable y for a
-one unit increase of the explanatory variable x.
-• The y-intercept, a, describes the predicted outcome of y if x = 0. The linear model must
-be valid all the way to x = 0 for this to make sense, which in many applications is not the
-case.
-GUIDED PRACTICE 5.20
-In the previous chapter, we encountered a data set that compared the price of new textbooks for
-UCLA courses at the UCLA Bookstore and on Amazon. We fit a linear model for predicting price
-at UCLA Bookstore from price on Amazon and we get:
-ˆy = 1.86 + 1.03x
-where x is the price on Amazon and y is the price at the UCLA bookstore. Interpret the coeﬃcients
-in this model and discuss whether the interpretations make sense in this context.17
-17The y-intercept is 1.86 and the units of y are in dollars. This tells us that when a textbook costs 0 dollars on
-Amazon, the predicted price of the textbook at the UCLA Bookstore is 1.86 dollars. This does not make sense as
-Amazon does not sell any $0 textbooks. The slope is 1.03, with units (dollars)/(dollars). For each increase in 1 dollar
-that a book costs on Amazon, the predicted cost at the UCLA Bookstore increases by 1.03 dollars. This interpretation
-does make sense in this context.
+---
 
+### 5.3 最小平方法迴歸 (Least Squares Regression)
 
-426
-CHAPTER 5. REGRESSION ANALYSIS
-GUIDED PRACTICE 5.21
-Can we conclude that if Amazon raises the price of a textbook by 1 dollar, the UCLA Bookstore
-will raise the price of the textbook by $1.03?18
-EXERCISE CAUTION WHEN INTERPRETING COEFFICIENTS OF A LINEAR MODEL
-• The slope tells us only the average or predicted change in y for each unit change in x;
-it does not tell us how much y might change based on a change in x for any particular
-individual. Moreover, in most cases, the slope cannot be interpreted in a causal way.
-• When a value of x = 0 doesn't make sense in an application, then the interpretation of the
-y-intercept won't have any practical meaning. In general, beware of extrapolation.
-EXAMPLE 5.22
-Use the model ̂
-aid = 24.3 -0.0431 × family income to estimate the aid of another freshman student
-whose family had income of $1 million.
-Recall that the units of family income are in $1000s, so we want to calculate the aid for
-family income = 1000:
-̂
-aid = 24.3 -0.0431 × family income
-̂
-aid = 24.3 -0.431(1000) = -18.8
-The model predicts this student will have -$18,800 in aid (!). Elmhurst College cannot (or at least
-does not) require any students to pay extra on top of tuition to attend.
-Using a model to predict y-values for x-values outside the domain of the original data is called
-extrapolation. Generally, a linear model is only an approximation of the real relationship between
-two variables.
-If we extrapolate, we are making an unreliable bet that the approximate linear
-relationship will be valid in places where it has not been analyzed.
-18No. The slope describes the average or overall trend. This is observational data; a causal conclusion cannot be
-drawn. Remember, a causal relationship can only be concluded by a well-designed randomized, controlled experiment.
-Additionally, there may be large variation in the points about the line. The slope does not tell us how much y might
-change based on a change in x for a particular textbook.
+我們能多準確地根據某所大學學生的家庭收入來預測其財務補助？我們該如何衡量一個模型的配適度 (fit of a model)，並比較不同模型？在本節中，我們將尋找、解釋並應用最小平方法迴歸線 (least-squares regression line)，同時探討一個旨在告訴我們模型與數據「配適」程度的新指標。
 
+::: {.concept-box title="學習目標 (Learning objectives)"}
+1. 使用科技工具計算最小平方法迴歸線的係數 (coefficients)，或從電腦輸出報表中識別它們。
+2. 解釋最小平方法迴歸線模型的係數。
+3. 使用科技工具計算判定係數 (coefficient of determination)，或從電腦輸出報表中識別它。
+4. 解釋判定係數。
+:::
 
-### 5.3. LEAST SQUARES REGRESSION
-427
-5.3.4
-Using R2
-R2
-R2 to describe the strength of a fit
-Consider the scatterplot of gift aid versus family income for the Elmhurst College data, graphed
-in Figure 5.21. How well does the solid regression line fit the data? And how much better is it than
-the horizontal dashed line at ¯y at fitting the data?
-Family Income ($1000s)
-0
-50
-100
-150
-200
-250
-0
-10
-20
-30
-Gift Aid From University ($1000s)
-Figure 5.21: Gift aid and family income for a random sample of 50 freshman
-students from Elmhurst College, shown with the least squares regression line (ˆy)
-and the average line (¯y).
-It is common to explain the fit of a model using R2 (R-squared), the coeﬃcient of determi-
-nation, also called the explained variance. In Figure 5.21, the variance of the response variable,
-aid received, is s2
-aid = 29.8. However, if we apply our least squares line, then this model reduces
-our uncertainty in predicting aid using a student's family income. The variability in the residuals
-describes how much variation remains after using the model: s2
-RES = 22.4. We could say that the
-reduction in the variance was:
-s2
-aid -s2
-RES
-s2
-aid
-= 29.8 -22.4
-29.8
-= 7.5
-29.8 = 0.25
-If we used the simple standard deviation of the residuals (dividing by n -1 instead of n -2), this
-would be exactly R2. For large data sets, this gives values suﬃciently close; however, to get the
-exact value of R2 we use a sum of squares method, which is described here in general terms.
-Recall that we calculate a residual (y -ˆy) to see how well a regression line predicts a particular
-y-value. To measure how well the regression line fits all the data, we need to calculate all of the
-residuals. We saw in the previous section that the sum of squared residuals is a way of measuring
-overall error about a line. In fact, the sum of squared errors about the regression line is smaller
-than about any other line. How much smaller is this sum than the sum of squared error about the
-line ¯y? Note that we if we do not know x, our best prediction of y is simply ¯y. In a sense, we are
-asking how much information using x and the regression line provides over ignoring x all together.
-Let us take two extreme examples. In Figure 5.22(a), the correlation coeﬃcient is 0 and the
-regression line is the same as the horizontal line at ¯y; the sum of the squared error about ˆy is equal
-to the sum of the squared error about ¯y. R2 = 0: the regression line oﬀers no reduction in error; it
-"explains" 0% of the variation in the y points.
-In Figure 5.22(b), the correlation coeﬃcient is -1 and the regression line goes through all of
-the points. There sum of the squared error about the regression line is 0. R2 = 1: the regression line
-provides 100% reduction in error and so it "explains" 100% of the variation in the y points.
-The exact calculation of R2 is tedious and is done using technology.19
-19For those interested, the calculations of R2 in Figure 5.22 can be found as follows. (a) The sum of the squared
-error about ˆy and ¯y both equal (-1)2 + (2)2 + (-1)2 = 6. R2 = 6-6
-6
-= 1 -6
-6 = 0. (b) R2 = 8-0
-8
-= 1 -0
-8 = 1.
+#### 5.3.1 尋找最佳直線的客觀衡量標準 (An objective measure for finding the best line)
 
+憑肉眼配適線性模型容易受到批評，因為這取決於個人偏好。在本節中，我們使用「最小平方法迴歸」作為一種更嚴謹的方法。
 
-428
-CHAPTER 5. REGRESSION ANALYSIS
-(a)
-(b)
-Figure 5.22: Screenshots from the interactive Desmos Activity: Understanding R2.
-Find it at openintro.org/ahss/desmos. (a) R2 = 0. The regression line is equivalent
-to ¯y and it explains 0% of the variation in the y points. (b) R2 = 1. The regression
-line passes through all of the points and it explains 100% of the variation in the y
-points.
-R2
-R2
-R2 IS THE EXPLAINED VARIANCE
-R2 is always between 0 and 1, inclusive. R2 tells us the proportion of variation in the response
-variable that is explained by a regression model with one or more explanatory variables. The
-higher the value of R2, the better the model "explains" the response variable.
-EXAMPLE 5.23
-The linear model for predicting gift aid from family income for the Elmhurst College data is given
-by: ̂
-aid = 24.3 -0.0431 × family income. R2 ≈0.25. Interpret this quantity in context.
-We can say that about 25% of the variation in gift aid is explained by the linear model with the
-explanatory variable x = family income.
-The value of R2 is, in fact, equal to r2, where r is the correlation coeﬃcient. This means that
-r = +
-√
-R2 or -
-√
-R2, depending on direction of the association. Use this fact to answer the next two
-practice problems.
-GUIDED PRACTICE 5.24
-If a linear model has a very strong negative relationship with a correlation coeﬃcient of -0.97, how
-much of the variation in the response variable is explained by the linear model?20
-GUIDED PRACTICE 5.25
-If a linear model has an R2 or explained variance of 0.94, what is the correlation coeﬃcient?21
-If R2 is simply the square of the correlation coeﬃcient, why do statisticians prefer using R2 to
-assess the fit of a model? The correlation coeﬃcient r only measures linear association, so it only
-has meaning for a linear model. R2, on the other hand, measures the fit of any model, whether
-linear, quadratic, exponential, etc. Because of this, R2 is more useful for measuring and comparing
-the fit of diﬀerent models.
-20R2 = (-0.97)2 = 0.94 or 94%. 94% of the variation in y is explained by the linear model.
-21We take the square root of R2 and get 0.97, but we must be careful, because r could be 0.97 or -0.97. Without
-knowing the slope or seeing the scatterplot, we have no way of knowing if r is positive or negative.
+本節探討伊利諾州 Elmhurst 大學大一新生隨機抽樣的 50 名學生的家庭收入與贈與補助 (gift aid) 數據。贈與補助是一種不需償還的財務補助（有別於貸款）。這些數據的散佈圖與兩條線性配適線顯示在圖表中。這些線反映了數據中的負向趨勢；家庭收入較高的學生，往往從大學獲得較少的贈與補助。
 
+我們首先思考所謂的「最佳 (best)」是什麼意思。在數學上，我們希望一條能使殘差很小的直線。或許我們的標準可以是最小化殘差絕對值之和：
+$$|y_1 - \hat{y}_1| + |y_2 - \hat{y}_2| + \dots + |y_n - \hat{y}_n|$$
 
-### 5.3. LEAST SQUARES REGRESSION
-429
-5.3.5
-Technology: Scatterplots and regression analysis
-The data set loan50, introduced in Chapter 1, contains information on randomly sampled loans.
-Download the loan50 CSV file from openintro.org/data. Open it and perform linear regression
-analysis for predicting total credit utilized from total credit limit.
-Desmos:
-1. ENTER DATA: Open the CSV file.
-Copy the two columns that correspond to x and y
-(the x variable should be on the left). Here we copy the columns total credit limit and
-total credit utilized. In a Desmos cell, paste what you copied. You will see the data
-presented in a table.
-* For small data sets, click + in the upper left, choose table and enter x and y values.
-2. SCATTER PLOT and REGRESSION OUTPUT: Click the Add Regression icon shown above.
-This will return the least squares regression line in the y = mx + b format, R2, and r as shown
-below. Click the magnifying glass in the lower left to Zoom Fit the graphing window. Click the
-wrench icon in the upper right to specify the min, max, and step for the X-Axis and Y-Axis
-and to add labels to the axes.
-3. RESIDUALS and RESIDUAL PLOT: Click plot below the word RESIDUALS. This will add
-the residuals to the table and plot them against the x-variable. To make a residual plot, click
-the circle next to y in the table to deselect it and click the circle next to "Linear Regression"
-to deselect it. Then click the magnifying glass to recenter. Adjust the Y-axis label to be
-"residuals".
+我們可以使用電腦程式根據這個標準配適出一條線。然而，更常見的做法是選擇使**殘差平方和 (sum of the squared residuals)** 最小化的直線：
+$$(y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \dots + (y_n - \hat{y}_n)^2$$
 
+這條使殘差平方和最小化的線，通常被稱為**最小平方法配適線 (least squares line)**。
 
-430
-CHAPTER 5. REGRESSION ANALYSIS
-4. SUMMARIZE RESIDUALS: Summarize the residuals, here e1, as we did in Chapter 1.
-5. NONLINEAR REGRESSION: Make sure the circle next to Linear Regression is selected.
-Click on Linear Regression to choose other models. Note that the residuals will update in the
-table and on the graph based on the model you select.
-6. MANUALLY CREATE regression model: To see the linear regression model in the form
-y = a + bx, you can type y1 ∼a + bx1. The ∼is in the upper left of keyboard. Adjust the
-number after y and x to match the subscript on your data table. You can also use this method
-to manually generate models of your choosing.
+這兩種直線似乎都很合理，那為什麼資料科學家偏好最小平方法迴歸線呢？其中一個原因是它較容易手動計算，在大多數統計軟體中也較容易處理。更具說服力的原因是，在許多應用中，大小為兩倍的殘差，其嚴重程度通常超過兩倍。例如，誤差為 4 通常比誤差為 2 的情況嚴重超過兩倍。將殘差平方能夠反映這種差異。
 
+我們可以將直線周圍的平方誤差想像成實際的「正方形」。最小平方法迴歸線能將這些正方形誤差的面積總和最小化。找不到任何其他直線能使平方誤差總和更小。
 
-### 5.3. LEAST SQUARES REGRESSION
-431
-R: Scatterplots and Linear Regression Analysis
-First read in the x and y values as described on page 52. For simplicity, we use scan(). However,
-if you have loaded the openintro package as described near the bottom of page 53 you can use the
-dataset$variable structure, e.g. loan50$total credit utilized.
-> x = scan()
-1:
-95131
-2:
-51929
-...
-50:
-390156
-51:
-Read 50 items
-> y = scan()
-1:
-32894
-2:
-78341
-...
-50:
-52534
-51:
-Read 50 items
-Use the lm() function to build a linear model and summary() to summarize it.
-> model = lm(y ∼x)
+#### 5.3.2 寫出最小平方法迴歸線 (Writing the least squares regression line)
+
+針對 Elmhurst 大學的數據，我們可以配適一條最小平方法迴歸線，根據學生的家庭收入來預測贈與補助，其方程式可寫為：
+$$ \widehat{\text{aid}} = a + b \times \text{family income} $$
+
+這裡的 $a$ 是最小平方法迴歸線的 y 截距 (y-intercept)，而 $b$ 是斜率 (slope)。$a$ 和 $b$ 都是可以從數據中計算出來的統計量。
+
+我們可以將所有數據輸入統計軟體，輕鬆找出 $a$ 和 $b$ 的值。然而，我們也可以僅使用摘要統計量 (summary statistics) 來手動計算這些值。
+
+::: {.concept-box title="概念：最小平方法直線的公式"}
+- 最小平方法直線的**斜率 (slope)** 公式為：
+  $$ b = r \frac{s_y}{s_x} $$
+  其中 $r$ 是變數 $x$ 和 $y$ 之間的相關係數 (correlation coefficient)，而 $s_x$ 和 $s_y$ 分別是解釋變數 $x$ 和反應變數 $y$ 的樣本標準差。
+
+- **平均數點 (point of averages)** $(\bar{x}, \bar{y})$ 永遠在最小平方法直線上。將這個點的 $x$ 和 $y$ 代入最小平方法方程式中求解 $a$ ，可得：
+  $$ \bar{y} = a + b\bar{x} $$
+  $$ a = \bar{y} - b\bar{x} $$
+:::
+
+我們先前提過，通常會使用電腦來計算最小平方法直線。下表顯示了基於 Elmhurst 大學數據的電腦輸出報表摘要。第一行的數字分別提供了 $a$ 和 $b$ 的估計值。
+
+| | Estimate (估計值) | Std. Error (標準誤) | t value (t 值) | Pr(>\|t\|) (p 值) |
+|---|---|---|---|---|
+| **(Intercept) 截距** | 24.3193 | 1.2915 | 18.83 | 0.0000 |
+| **family income 家庭收入** | -0.0431 | 0.0108 | -3.98 | 0.0002 |
+
+**範例 5.16**
+在使用第二、三、四行超出本書範圍，不過你能猜出它們代表什麼嗎？
+**解答：**
+看第二列，它對應於斜率。第一行 `Estimate = -0.0431` 告訴我們母體迴歸線斜率的最佳估計值。我們稱這個點估計值為 $b$。第二行 `Std. Error = 0.0108` 是這個點估計值的標準誤。第三行 `t value = -3.98` 是檢定「母體迴歸線斜率 = 0」這個虛無假說 (null hypothesis) 的 T 檢定統計量。最後一行 `Pr(>|t|) = 0.0002` 是這個雙尾 T 檢定的 p 值 (p-value)。
+
+**範例 5.17**
+假設一名高中生正考慮就讀 Elmhurst 大學。她能否直接使用我們找出的線性方程式來計算她將獲得的財務補助？
+**解答：**
+不行。使用該方程式只能提供一個預測或估計值 (prediction or estimate)。正如我們在散佈圖中看到的，該直線周圍存在許多變異 (variability)。雖然線性方程式擅長捕捉數據中的趨勢，但在預測個別學生的補助時會有顯著的誤差。此外，這些數據全來自某一屆新生，大學決定補助的方式可能每年都在改變。
+
+#### 5.3.3 解釋迴歸線的係數 (Interpreting the coefficients of a regression line)
+
+在迴歸模型中，解釋係數往往是分析中最重要的一步。
+
+**範例 5.18**
+在 Elmhurst 大學數據中，根據家庭收入預測贈與補助的斜率計算結果為 -0.0431。請在問題的情境中解釋這個數值。
+**解答：**
+代數課程中提過，斜率是 $y$ 的變化量除以 $x$ 的變化量。迴歸線的斜率告訴我們 $x$ 每改變一單位時，$y$ 的平均變化量。在這裡，$x$ 和 $y$ 的單位都是千美元，且斜率為負值。因此，如果 $x$ 增加一單位（即一千美元），$y$ 的預測值會減少 0.0431 千美元。換句話說，**家庭收入每增加一千美元，預測的贈與補助將減少 0.0431 千美元（即 43.10 美元）**。
+
+::: {.callout-tip title="AP English Response｜解釋迴歸線斜率 (Interpreting Slope)" collapse="true"}
+For each additional [1 unit of $x$], the predicted [response variable $y$] [increases/decreases] by [slope] [units of $y$].
+例如：For each additional 1 thousand dollars of family income, the predicted gift aid decreases by 0.0431 thousand dollars.
+:::
+
+**範例 5.19**
+在 Elmhurst 大學數據中，根據家庭收入預測贈與補助的 y 截距計算結果為 24.3。請在問題的情境中解釋這個數值。
+**解答：**
+截距 $a$ 描述了當 $x = 0$ 時 $y$ 的預測值。如果一個學生的家庭收入為零，其預測的贈與補助為 24.3 千美元。截距的含義在這個應用中是相關的，因為 Elmhurst 有些學生的家庭收入確實為 $0。在其他應用中，如果沒有 $x$ 接近零的觀察值，截距可能沒有實際意義（屬於外插法 extrapolation）。在這裡，可以合理地說：在家庭收入為 0 元的學生中，平均的贈與補助為 24.3 千美元。
+
+::: {.callout-tip title="AP English Response｜解釋迴歸線 y 截距 (Interpreting y-intercept)" collapse="true"}
+When the [explanatory variable $x$] is 0 [units], the predicted [response variable $y$] is [y-intercept] [units of $y$].
+:::
+
+::: {.concept-box title="概念：解釋線性模型中的係數"}
+- **斜率 (slope, $b$)**：描述當解釋變數 $x$ 增加一單位時，反應變數 $y$ 的預測增加或減少量。
+- **y 截距 (y-intercept, $a$)**：描述當 $x = 0$ 時 $y$ 的預測結果。線性模型必須在 $x = 0$ 的範圍內仍然有效，這樣解釋才會有意義（但在許多應用中並非如此）。
+:::
+
+**引導練習 5.20**
+在上一章中，我們遇到了一組數據，比較了 UCLA 課程的新教科書在 UCLA 書店與 Amazon 上的價格。我們建立了一個根據 Amazon 價格預測 UCLA 書店價格的線性模型，得到：
+$$ \hat{y} = 1.86 + 1.03x $$
+其中 $x$ 是 Amazon 上的價格，$y$ 是 UCLA 書店的價格。請解釋這個模型中的係數，並討論這些解釋在該情境中是否合理。
+**解答：**
+- **y 截距是 1.86（單位：美元）**。這告訴我們，當一本教科書在 Amazon 上的價格為 0 元時，其在 UCLA 書店的預測價格為 1.86 美元。這在情境中並不合理，因為 Amazon 不會賣 0 元的教科書。
+- **斜率是 1.03（單位：美元/美元）**。一本書在 Amazon 上每增加 1 美元，在 UCLA 書店的預測成本會增加 1.03 美元。這個解釋在這個情境中是合理的。
+
+**引導練習 5.21**
+我們能否得出結論：如果 Amazon 將教科書的價格調高 1 美元，UCLA 書店就會將該教科書的價格調高 1.03 美元？
+**解答：**
+不行。斜率描述的是平均或整體的趨勢。這是觀察性研究 (observational study) 的數據；無法得出因果關係。請記住，只有設計良好的隨機分派 (random assignment) 實驗設計 (experiment) 才能得出因果結論。此外，資料點在直線周圍可能存在很大的變異，斜率並沒有告訴我們特定一本書在 $x$ 改變時 $y$ 會改變多少。
+
+::: {.warning-box title="常見迷思：解釋線性模型係數時請務必謹慎"}
+- 斜率只告訴我們 $x$ 每改變一單位時 $y$ 的「平均」或「預測」變化量；它並未說明對於任何「特定個體」，基於 $x$ 的改變 $y$ 實際上會改變多少。此外，在大多數情況下，斜率不能以「因果關係」的方式來解釋。
+- 當 $x = 0$ 在應用中不具意義時，y 截距的解釋將沒有任何實際意義。一般來說，請小心**外插法 (extrapolation)**。
+:::
+
+**範例 5.22**
+使用模型 $\widehat{\text{aid}} = 24.3 - 0.0431 \times \text{family income}$ 來估計另一名家庭收入為 100 萬美元的大一新生的補助金額。
+**解答：**
+請回想家庭收入的單位是「千美元」，所以我們想計算當 `family income = 1000` 時的補助：
+$$ \widehat{\text{aid}} = 24.3 - 0.0431(1000) = -18.8 $$
+模型預測這名學生將獲得 -$18,800 美元的補助（！）。Elmhurst 大學不能（或至少沒有）要求任何學生除了學費之外再額外支付費用才能就讀。
+
+使用模型去預測超出原始數據定義域的 $x$ 值，這被稱為**外插法 (extrapolation)**。一般而言，線性模型只是兩個變數之間真實關係的近似值。如果我們進行外插，我們等於在進行一個不可靠的賭注，認定這種近似的線性關係在我們尚未分析過的地方依然有效。
+
+#### 5.3.4 使用 $R^2$ 描述配適的強度 (Using $R^2$ to describe the strength of a fit)
+
+考慮 Elmhurst 大學數據中贈與補助對家庭收入的散佈圖。這條實線的迴歸線與數據的配適度有多好？與水平虛線（高度為 $\bar{y}$）相比，它配適數據的效果好多少？
+
+解釋模型配適度最常見的方法是使用 **$R^2$ (R-squared)**，即**判定係數 (coefficient of determination)**，也稱為**可解釋變異 (explained variance)**。
+
+在該資料中，反應變數（獲得的補助）的變異數為 $s_{\text{aid}}^2 = 29.8$。然而，如果我們應用最小平方法直線，這個模型將減少我們根據學生家庭收入預測補助時的不確定性。殘差的變異數描述了使用模型後還剩下多少變異未被解釋：$s_{\text{RES}}^2 = 22.4$。我們可以說變異數的減少量為：
+$$ \frac{s_{\text{aid}}^2 - s_{\text{RES}}^2}{s_{\text{aid}}^2} = \frac{29.8 - 22.4}{29.8} = \frac{7.5}{29.8} \approx 0.25 $$
+
+如果我們使用殘差的簡單標準差（除以 $n-1$ 而不是 $n-2$），這將完全等於 $R^2$。
+
+我們計算殘差 $(y - \hat{y})$ 是為了看出迴歸線對特定 $y$ 值的預測有多準確。而為了衡量迴歸線對整體數據的配適程度，我們需要計算所有的殘差。我們在上一節看到，殘差平方和是衡量直線周圍整體誤差的一種方法。事實上，迴歸線周圍的誤差平方和比任何其他直線周圍的誤差平方和都要小。這個總和比 $\bar{y}$ 直線周圍的誤差平方和小多少？請注意，如果我們不知道 $x$，我們對 $y$ 的最佳預測就只是 $\bar{y}$。從某種意義上說，我們是在問：使用 $x$ 和迴歸線所提供的資訊，比完全忽略 $x$ 多出多少？
+
+- **極端情況 1 ($R^2 = 0$)**：相關係數為 0，迴歸線與 $\bar{y}$ 的水平線相同。此時 $\hat{y}$ 周圍的平方誤差總和等於 $\bar{y}$ 周圍的平方誤差總和。$R^2 = 0$：迴歸線沒有提供任何誤差減少；它「解釋」了 0% 的 $y$ 點變異。
+- **極端情況 2 ($R^2 = 1$)**：相關係數為 -1，迴歸線穿過所有的點，殘差平方和為 0。$R^2 = 1$：迴歸線提供了 100% 的誤差減少，所以它「解釋」了 100% 的 $y$ 點變異。
+
+$R^2$ 的精確計算較為繁瑣，通常由科技工具完成。
+
+::: {.concept-box title="概念：$R^2$ 是可解釋變異 (Explained Variance)"}
+$R^2$ 的值總是在 0 到 1 之間（含）。$R^2$ 告訴我們，**反應變數的變異中，有多大比例 (proportion) 可以被具有一個或多個解釋變數的迴歸模型所解釋**。$R^2$ 的值越高，模型對反應變數的「解釋」就越好。
+:::
+
+**範例 5.23**
+Elmhurst 大學數據中預測贈與補助的線性模型為：$\widehat{\text{aid}} = 24.3 - 0.0431 \times \text{family income}$，其 $R^2 \approx 0.25$。請在情境中解釋這個數值。
+**解答：**
+我們可以說：**贈與補助 (gift aid) 中約有 25% 的變異，可以被以家庭收入 ($x$) 為解釋變數的線性模型所解釋**。
+
+::: {.callout-tip title="AP English Response｜解釋判定係數 $R^2$ (Interpreting $R^2$)" collapse="true"}
+[ $R^2$ %] of the variation in [response variable $y$] can be explained by the linear relationship with [explanatory variable $x$].
+:::
+
+事實上，$R^2$ 的值剛好等於 $r^2$（其中 $r$ 是相關係數）。這意味著 $r = +\sqrt{R^2}$ 或 $r = -\sqrt{R^2}$，取決於關聯的方向。利用這個事實來回答接下來的兩個練習題。
+
+**引導練習 5.24**
+如果一個線性模型具有非常強的負向關係，相關係數為 -0.97，那麼反應變數中有多少變異可以被線性模型解釋？
+**解答：**
+$R^2 = (-0.97)^2 = 0.9409$ 或 94%。$y$ 中有 94% 的變異可被線性模型解釋。
+
+**引導練習 5.25**
+如果一個線性模型的 $R^2$（可解釋變異）為 0.94，那麼相關係數是多少？
+**解答：**
+我們對 $R^2$ 取平方根會得到大約 0.97，但我們必須小心，因為 $r$ 可能是 0.97 或 -0.97。如果不知道斜率或沒看到散佈圖，我們無法判斷 $r$ 是正還是負。
+
+既然 $R^2$ 只是相關係數的平方，那為什麼統計學家在評估模型配適度時更偏好使用 $R^2$ 呢？相關係數 $r$ 只衡量線性關聯，所以它只對線性模型有意義。另一方面，$R^2$ 則測量任何模型的配適度，無論是線性、二次方程式、指數模型等。正因如此，$R^2$ 在衡量與比較不同模型的配適度時更為實用。
+
+#### 5.3.5 科技工具：散佈圖與迴歸分析 (Technology: Scatterplots and regression analysis)
+
+這裡我們以預測總信用額度使用量 (total credit utilized) 對總信用額度 (total credit limit) 的資料集 `loan50` 為例，介紹如何執行線性迴歸分析。
+
+**R 語言：散佈圖與線性迴歸分析**
+使用 `lm()` 函數來建立線性模型，並使用 `summary()` 產生摘要。
+```R
+> model = lm(y ~ x)
 > summary(model)
+
 Residuals:
-Min
-1Q
-Median
-3Q
-Max
--64713
--28247
--16934
-10568
-305912
+   Min     1Q Median     3Q    Max 
+-64713 -28247 -16934  10568 305912 
+
 Coefficients:
-.
-Estimate
-Std.Error
-t value
-Pr(>|t|)
-(Intercept) 42410.57946
-14210.43201
-2.984
-0.00446 **
-.
-x
-0.09176
-0.05333
-1.720
-0.09179
+            Estimate Std.Error t value Pr(>|t|)   
+(Intercept) 42410.58  14210.43   2.984  0.00446 **
+x               0.09      0.05   1.720  0.09179   
 ---
-Residual standard error:
-62540 on 48 degrees of freedom
-Multiple
-R-squared:
-0.05808 , Adjusted R-squared:
-0.03846
-Use plot(x, y) to make a scatterplot. For fun, type help(plot) at the > prompt and investigate
-the optional type argument.
-> plot(x, y)
-> plot(x, y, ylim=c(0,400000), col = "purple", xlab = "Loan Amount ($)",
-ylab = "Total Credit Utilized", abline(model, col="red"))
-Make a histogram of the residuals and a residual plot, plotting the residuals versus x.
-Add xlab = " " and ylab = " " as desired.
-> hist(model$residuals)
-> plot(x, model$residuals, abline(h=0))
+Residual standard error: 62540 on 48 degrees of freedom
+Multiple R-squared:  0.05808,	Adjusted R-squared:  0.03846 
+```
+從報表中可以看出截距 $a$ 為 42410.58，斜率 $b$ 為 0.09，$R^2$ (Multiple R-squared) 為 0.05808。
 
+**TI-83/84 計算機：尋找 $a, b, R^2$ 與 $r$**
+使用 `STAT` > `CALC` > `LinReg(a+bx)`。
+1. 選擇 `STAT`。
+2. 向右鍵選擇 `CALC`。
+3. 向下鍵選擇 `8:LinReg(a+bx)`。（注意：選擇 `4:LinReg(ax+b)` 會顛倒 a 和 b）
+4. 讓 `Xlist` 為 `L1`，`Ylist` 為 `L2`。
+5. 留下 `FreqList` 和 `Store RegEQ` 為空白。
+6. 選擇 `Calculate`，將會回傳：
+   - **$a$**: 最佳配適線的 y 截距
+   - **$b$**: 最佳配適線的斜率
+   - **$r^2$**: 判定係數 (explained variance)
+   - **$r$**: 相關係數
 
-432
-CHAPTER 5. REGRESSION ANALYSIS
-Calculator: Your teacher may give you data files to work with. Alternately, manually enter data
-into a list as described here. NumWorks calculator instructions are included along with example
-output. For the TI-83/84 and Casio calculators, general instructions are provided and worked ex-
-ample videos can be accessed via the
-icon or at openintro.org/ti and openintro.org/casio.
-NUMWORKS: REGRESSION
-Use OK or EXE to make a selection.
-1. Click the yellow Home button (above the black Power button) to get to the home screen.
-2. Select Regression and enter the x and y values.
-3. Use the up and right arrow and select Graph. This will show you the scatterplot. Use the
-left and right arrow to toggle among the data points.
-4. Press the up arrow and the right arrow to select Regression. Here you can choose Linear
-a+bx format or choose a nonlinear regression. This will draw the regression onto the
-scatterplot.
-5. Press the up arrow and the right arrow to select Regression again. Here you will see the
-regression output. Press the down arrow to see more options, including Residual plot.
-6. On the residual plot, use the left and right arrows to select individual points and see their
-corresponding residual.
-7. Use the arrows to choose Stats at the top to see the summary statistics for x and y. Press
-the right arrow to see the y summary statistics. Press down arrow to see more summary
-statistics.
+*(如果你的 TI-83/84 計算機沒有顯示 $r^2$ 與 $r$，需要透過 `CATALOG` [2ND + 0] 找到 `DiagnosticOn` 並按 Enter 開啟此功能。)*
 
+#### 5.3.6 線性迴歸中的離群值類型 (Types of outliers in linear regression)（特別主題）
 
-### 5.3. LEAST SQUARES REGRESSION
-433
-TI-84: FINDING a, b, R2
-R2
-R2, AND r FOR A LINEAR MODEL
-Use STAT, CALC, LinReg(a + bx).
-1. Choose STAT.
-2. Right arrow to CALC.
-3. Down arrow and choose 8:LinReg(a+bx).
-• Caution: choosing 4:LinReg(ax+b) will reverse a and b.
-4. Let Xlist be L1 and Ylist be L2 (don't forget to enter the x and y values in L1 and L2
-before doing this calculation).
-5. Leave FreqList blank.
-6. Leave Store RegEQ blank.
-7. Choose Calculate and hit ENTER, which returns:
-a
-a, the y-intercept of the best fit line
-b
-b, the slope of the best fit line
-r2
-R2, the explained variance
-r
-r, the correlation coeﬃcient
-TI-83: Do steps 1-3, then enter the x list and y list separated by a comma, e.g. LinReg(a+bx)
-L1, L2, then hit ENTER.
-WHAT TO DO IF R2
-R2
-R2 AND r DO NOT SHOW UP ON A TI-83/84
-If r2 and r do now show up when doing STAT, CALC, LinReg, the diagnostics must be turned
-on. This only needs to be once and the diagnostics will remain on.
-1. Hit 2ND 0 (i.e. CATALOG).
-2. Scroll down until the arrow points at DiagnosticOn.
-3. Hit ENTER and ENTER again. The screen should now say:
-DiagnosticOn
-Done
-WHAT TO DO IF A TI-83/84 RETURNS: ERR: DIM MISMATCH
-This error means that the lists, generally L1 and L2, do not have the same length.
-1. Choose 1:Quit.
-2. Choose STAT, Edit and make sure that the lists have the same number of entries.
+迴歸中的**離群值 (outliers)** 是指那些遠離大多數數據點「雲團」的觀察值。這些點特別重要，因為它們可能對最小平方法直線產生強烈的影響。
 
+**範例 5.26**
+觀察各種散佈圖與殘差圖組合，找出明顯的離群值並注意它們如何影響最小平方法直線。回想一下，離群值是指那些看起來不屬於絕大多數資料點趨勢的任何點。
+（從殘差圖中可以看出，離群值可能會影響最小平方法直線的斜率。在某些沒有明顯趨勢的資料中，甚至可能僅僅因為一個離群值就產生了很大的斜率趨勢。）
 
-434
-CHAPTER 5. REGRESSION ANALYSIS
-CASIO FX-9750GII: FINDING a, b, R2
-R2
-R2, AND r FOR A LINEAR MODEL
-1. Navigate to STAT (MENU button, then hit the 2 button or select STAT).
-2. Enter the x and y data into 2 separate lists, e.g. x values in List 1 and y values in List
-2. Observation ordering should be the same in the two lists. For example, if (5,4) is the
-second observation, then the second value in the x list should be 5 and the second value
-in the y list should be 4.
-3. Navigate to CALC (F2) and then SET (F6) to set the regression context.
-• To change the 2Var XList, navigate to it, select List (F1), and enter the proper list
-number. Similarly, set 2Var YList to the proper list.
-4. Hit EXIT.
-5. Select REG (F3), X (F1), and a+bx (F2), which returns:
-a
-a, the y-intercept of the best fit line
-b
-b, the slope of the best fit line
-r
-r, the correlation coeﬃcient
-r2
-R2, the explained variance
-MSe
-Mean squared error, which you can ignore
-If you select ax+b (F1), the a and b meanings will be reversed.
+::: {.concept-box title="概念：槓桿與影響點 (Leverage and Influential Points)"}
+- **高槓桿點 (High leverage)**：在水平方向遠離數據中心點的點往往對直線有較強的拉力，我們稱這些為具有高槓桿的點。
+- **影響點 (Influential point)**：那些在水平方向遠離直線的點是高槓桿點；這些點能強烈影響最小平方法直線的斜率。如果其中一個高槓桿點確實對直線的斜率產生了實際影響，我們就稱它為影響點。通常我們可以說，如果我們在配適直線時移除該點，這個影響點會異常地遠離新的最小平方法直線。
+:::
 
+有時候移除離群值很誘人。但在沒有非常好的理由的情況下，**請不要這麼做**。忽略特殊（且有趣）案例的模型通常表現不佳。例如，如果一家金融公司忽略了最大的市場波動（「離群值」），他們很快就會因為做出考慮不周的投資而破產。
 
-### 5.3. LEAST SQUARES REGRESSION
-435
-5.3.6
-Types of outliers in linear regression (special topic)
-Outliers in regression are observations that fall far from the "cloud" of points. These points
-are especially important because they can have a strong influence on the least squares line.
-EXAMPLE 5.26
-There are six plots shown in Figure 5.23 along with the least squares line and residual plots. For
-each scatterplot and residual plot pair, identify any obvious outliers and note how they influence the
-least squares line. Recall that an outlier is any point that doesn't appear to belong with the vast
-majority of the other points.
-(1) There is one outlier far from the other points, though it only appears to slightly influence the
-line.
-(2) There is one outlier on the right, though it is quite close to the least squares line, which
-suggests it wasn't very influential.
-(3) There is one point far away from the cloud, and this outlier appears to pull the least squares
-line up on the right; examine how the line around the primary cloud doesn't appear to fit very
-well.
-(4) There is a primary cloud and then a small secondary cloud of four outliers. The secondary
-cloud appears to be influencing the line somewhat strongly, making the least squares line fit
-poorly almost everywhere. There might be an interesting explanation for the dual clouds,
-which is something that could be investigated.
-(5) There is no obvious trend in the main cloud of points and the outlier on the right appears to
-largely control the slope of the least squares line.
-(6) There is one outlier far from the cloud, however, it falls quite close to the least squares line
-and does not appear to be very influential.
-Examine the residual plots in Figure 5.23. You will probably find that there is some trend in
-the main clouds of (3) and (4). In these cases, the outliers influenced the slope of the least squares
-lines. In (5), data with no clear trend were assigned a line with a large trend simply due to one
-outlier (!).
-LEVERAGE
-Points that fall horizontally away from the center of the cloud tend to pull harder on the line,
-so we call them points with high leverage.
-Points that fall horizontally far from the line are points of high leverage; these points can
-strongly influence the slope of the least squares line. If one of these high leverage points does appear
-to actually invoke its influence on the slope of the line - as in cases (3), (4), and (5) of Example 5.26
-- then we call it an influential point. Usually we can say a point is influential if, had we fitted the
-line without it, the influential point would have been unusually far from the least squares line.
-It is tempting to remove outliers. Don't do this without a very good reason. Models that ignore
-exceptional (and interesting) cases often perform poorly. For instance, if a financial firm ignored the
-largest market swings - the "outliers" - they would soon go bankrupt by making poorly thought-out
-investments.
-DON'T IGNORE OUTLIERS WHEN FITTING A FINAL MODEL
-If there are outliers in the data, they should not be removed or ignored without a good reason.
-Whatever final model is fit to the data would not be very helpful if it ignores the most exceptional
-cases.
-
-
+::: {.warning-box title="常見迷思：在配適最終模型時不要忽略離群值 (Don't ignore outliers when fitting a final model)"}
+如果數據中存在離群值，在沒有充分理由的情況下，不應將其移除或忽略。無論對數據配適出什麼樣的最終模型，如果它忽略了最特殊的案例，這個模型都不會有太大的幫助。
+:::

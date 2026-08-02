@@ -1,729 +1,220 @@
 ---
-title: "5.1 Summarizing bivariate numerical data"
+title: "5.1 總結雙變數數值資料 (Summarizing bivariate numerical data)"
 ---
 
-396
-Chapter 5
-Regression Analysis
-### 5.1 Summarizing bivariate numerical data
-### 5.2 Line fitting and residuals
-### 5.3 Least squares regression
+線性迴歸 (Linear regression) 是一種非常強大的統計技術。許多人僅從閱讀新聞就能對迴歸有一些熟悉感，在那些新聞中，散佈圖 (scatterplots) 上通常會疊加直線。線性模型可以用來觀察趨勢並進行預測。
 
+### 5.1 總結雙變數數值資料
 
-397
-Linear regression is a very powerful statistical technique. Many people have some
-familiarity with regression just from reading the news, where graphs with straight
-lines are overlaid on scatterplots. Linear models can be used to see trends and to
-make predictions.
-For videos, slides, and other resources, please visit
-www.openintro.org/ahss
+在本節中，我們將探討散佈圖並描述兩個數值變數 (numerical variables) 之間的關係。我們使用 `loan50` 資料集和一個名為 `county 2023` 的美國郡資料集。我們還會介紹一個新的雙變數摘要統計量，稱為相關係數 (correlation coefficient)。
 
+**學習目標**
 
-398
-CHAPTER 5. REGRESSION ANALYSIS
-5.1
-Summarizing bivariate numerical data
-In this section, we explore scatterplots and describe the relationship between two numerical variables.
-We use the loan50 data set and a new data set on US counties, called county 2023.
-We also
-introduce a new bivariate summary called the correlation coeﬃcient.
-Learning objectives
-1. Use scatterplots to depict the relationship between two numerical variables.
-2. Describe the characteristics of a scatterplot.
-3. Justify a claim using scatterplots depicting the distribution of two numerical variables.
-4. Interpret the correlation for a linear relationship.
-5.1.1
-Scatterplots for paired data
-Scatterplots are one type of graph used to study the relationship between two numerical vari-
-ables. A scatterplot is a 2-dimensional graph where each case is plotted as a point. In a practical
-sense, it provides a case-by-case view of data that illustrates the relationship between two numerical
-variables. Consider the loan50 data set introduced earlier in the book. Figure 5.1 displays rows 1,
-2, 3, and 50 of the data set for 50 randomly sampled loans oﬀered through Lending Club.
-loan amount
-interest rate
-term
-grade
-state
-total income
-homeownership
-1
-7500
-7.34
-36
-A
-MD
-70000
-rent
-2
-25000
-9.43
-60
-B
-OH
-254000
-mortgage
-3
-14500
-6.08
-36
-A
-MO
-80000
-mortgage
-⋮
-⋮
-⋮
-⋮
-⋮
-⋮
-⋮
-⋮
-50
-3000
-7.96
-36
-A
-CA
-34000
-rent
-Figure 5.1: Four rows from the loan50 data matrix.
-A scatterplot is shown in Figure 5.2, showing the total income of a borrower (total income)
-and the amount they borrowed (loan amount) for the loan50 data set. In any scatterplot, each
-point represents a single case. For this example, each point represents a single loan. Since there are
-50 loans in loan50, there are 50 points in Figure 5.2.
-Looking at Figure 5.2, we see that there are many borrowers with an income below $100,000
-on the left side of the graph, while there are only a few borrowers with income above $250,000. We
-can also see the range of loan amounts by looking at the vertical axis. While it is more diﬃcult
-to discern the exact distributions of each of these variables, what we can easily observe from the
-scatterplot is the relationship or association between the variables.
-GUIDED PRACTICE 5.1
-Examine the variables in the loan50 data set summarized in Figure 5.1, Create two questions about
-possible relationships between variables in loan50 that are of interest to you.1
-1Two example questions: (1) What is the relationship between loan amount and interest rate? (2) If someone's
-income is above the average, will their interest rate tend to be above or below the average?
+1. 使用散佈圖來描繪兩個數值變數之間的關係。
+2. 描述散佈圖的特徵。
+3. 使用描繪兩個數值變數分佈的散佈圖來證實一項主張。
+4. 解釋線性關係的相關性。
 
+### 5.1.1 成對資料的散佈圖 (Scatterplots for paired data)
 
-### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
-399
-Total Income
-$0
-$50k
-$100k
-$150k
-$200k
-$250k
-$300k
-$0
-$10k
-$20k
-$30k
-$40k
-Loan Amount
-Figure 5.2: A scatterplot of loan amount versus total income for the loan50
-data set.
-EXAMPLE 5.2
-A scatterplot requires bivariate, or paired data. What does paired data mean?
-We say observations are paired when the two observations correspond to the same case or individual.
-In unpaired data, there is no such correspondence. In our example the two observations correspond
-to a particular loan.
-The variable that is suspected to be the response variable (or dependent variable) is plotted on
-the vertical (y) axis and the variable that is suspected to be the explanatory variable is plotted on
-the horizontal (x) axis. In this example, we suspect the loan amount is dependent on total income,
-not the reverse.
-DRAWING SCATTERPLOTS
-(1) Decide which variable should go on each axis, and draw and label the two axes.
-(2) Note the range of each variable, and add tick marks and scales to each axis.
-(3) Plot the dots as you would on an (x,y) coordinate plane.
-GUIDED PRACTICE 5.3
-Why are scatterplots useful? What do they show us that a list of (x, y) data points does not?2
-2Answers may vary. Scatterplots are helpful in quickly spotting associations between variables.
+散佈圖是一種用來研究兩個數值變數之間關係的圖表。散佈圖是二維的圖表，其中每個個案 (case) 都被繪製為一個點。在實務上，它提供了資料的逐案檢視，說明了兩個數值變數之間的關係。考慮本書前面介紹的 `loan50` 資料集。下表顯示了 Lending Club 提供的 50 筆隨機抽樣貸款在資料集中的第 1、2、3 和 50 列。
 
+| loan amount (貸款金額) | interest rate (利率) | term (期數) | grade (等級) | state (州) | total income (總收入) | homeownership (房屋所有權) |
+|---|---|---|---|---|---|---|
+| 7500 | 7.34 | 36 | A | MD | 70000 | rent |
+| 25000 | 9.43 | 60 | B | OH | 254000 | mortgage |
+| 14500 | 6.08 | 36 | A | MO | 80000 | mortgage |
+| ⋮ | ⋮ | ⋮ | ⋮ | ⋮ | ⋮ | ⋮ |
+| 3000 | 7.96 | 36 | A | CA | 34000 | rent |
 
-400
-CHAPTER 5. REGRESSION ANALYSIS
-5.1.2
-Describing the relationship between two numerical variables
-Many analyses are motivated by a researcher looking for a relationship between two or more
-variables. We will investigate relationships between variables using a new data set, the county 2023
-data set. These data come from the US Census Bureau's 2023 American Community Survey (ACS).
-Unlike the Decennial Census, which takes place every 10 years and attempts to collect basic
-demographic data from every resident of the US, the ACS is an ongoing survey that is sent to
-approximately 3.5 million households per year.
-As stated on the ACS website, these data help
-communities "plan for hospitals and schools, support school lunch programs, improve emergency
-services, build bridges, and inform businesses looking to add jobs and expand to new markets, and
-more."3 A social scientist may like to answer some of the following questions:
-(1) How strongly associated are median household income and share of adults with a bachelor's
-degree?
-(2) Is the relationship between median household income and poverty rate for the counties linear
-or nonlinear?
-(3) How useful a predictor is share of adults with a bachelor's degree for mean travel time to work?
-When describing a scatterplot or describing the association between two numerical variables, it
-is helpful to discuss form, strength, and direction. Form can be described as linear, where the points
-follow a trend that changes at an approximately constant rate, or nonlinear, where the points follow
-a trend that is curved rather than constant. We describe the strength of the association as weak,
-moderate, or strong, depending on how closely the points follow the general pattern.
-When two variables show some connection with one another, they are said to be associated.
-The direction of association between two variables can be positive or negative, or there can be no
-association. Positive association means that larger values of the first variable are associated with
-larger values of the second variable.
-EXAMPLE 5.4
-What would it mean for two variables to have a negative association? What about no association?
-Negative association implies that larger values of the first variable are associated with smaller values
-of the second variable. No association implies that the values of the second variable tend to be
-independent of diﬀerences in the first variable.
-Figure 5.3 shows the association between the percent with a bachelor's degree among those 25
-years and older and median household income for each of the 3,144 US counties. Each point on the
-plot represents a single county. For instance, the highlighted dot corresponds to County 1456 in the
-county 2023 data set: Oktibbeha County, Mississippi, which has 45.8% of those ages 25 and older
-with a bachelor's degree and a median household income of $43,482.
-The scatterplot in Figure 5.3 shows a roughly linear, constant trend, with a moderate associa-
-tion. It also shows a positive relationship between the two variables: counties with a higher median
-household income tend to have higher percent of those age 25 and older with a bachelor's degree. In
-this case, it is a choice which variable to put on the horizontal axis. It is true that households with
-higher income tend to be more able to aﬀord college, but it is also true that those with a college
-degree tend to earn higher incomes.
-Oktibbeha County, Mississippi, identified in Figure 5.3 does not quite follow the trend. This
-county has a lower than average household income, but a higher than average percent of bachelor's
-degrees among those 25 years and older. One possible factor is the presence of Mississippi State
-University (MSU) in Oktibbeha County and its adjoining county, which attracts and graduates many
-students in the area.
-3https://www.census.gov/programs-surveys/acs/about.html
+*表 5.1: `loan50` 資料矩陣中的四列資料。*
 
+圖表顯示了一個散佈圖，呈現 `loan50` 資料集中借款人的總收入 (total income) 與其借款金額 (loan amount) 的關係。在任何散佈圖中，每個點都代表一個單一的個案。在這個例子中，每個點代表一筆貸款。由於 `loan50` 中有 50 筆貸款，因此圖中有 50 個點。
 
-### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
-401
-$0
-$50k
-$100k
-$150k
-0%
-20%
-40%
-60%
-80%
-Median Household Income
-Bachelor's Degree (Percent)
-Figure 5.3: A scatterplot of percent with a bachelor's degree among those 25
-years and older versus median household income for the county 2023 data set.
-The highlighted dot represents Oktibbeha County, Mississippi, which has median
-household income of $43,482 and 45.8% of those age 25 and older with a bachelor's
-degree.
-EXAMPLE 5.5
-Figure 5.4 shows a scatterplot of median household income versus the poverty rate for the 3,144
-counties in the US. Each point represents one county. Describe the relationship between these two
-variables.
-The relationship between median household income and poverty rate is nonlinear, as highlighted
-by the dashed line. This is diﬀerent from the scatterplot in Figure 5.3, which did not show much,
-if any, curvature in the trend. The association seems fairly strong as the points follow the curved
-trend pretty closely. There is also a negative association here, as higher rates of poverty tend to be
-associated with lower median household income.
-0%
-10%
-20%
-30%
-40%
-50%
-$0
-$50k
-$100k
-$150k
-Poverty Rate (Percent)
-Median Household Income
-Figure 5.4: A scatterplot of the median household income against the poverty rate
-for the county 2023 data set. A statistical model has also been fit to the data and
-is shown as a dashed line.
+觀察散佈圖，我們可以看到在圖的左側有許多收入低於 100,000 美元的借款人，而收入高於 250,000 美元的借款人只有少數幾個。我們也可以透過查看垂直軸來看到貸款金額的全距 (range)。雖然要辨識這些變數的確切分佈比較困難，但我們能從散佈圖中輕易觀察到的是變數之間的關係 (relationship) 或關聯 (association)。
 
+::: {.callout-tip title="引導練習 5.1" collapse="true"}
+檢查上表總結的 `loan50` 資料集的變數，提出兩個關於 `loan50` 變數之間可能關係且你感興趣的問題。
 
-402
-CHAPTER 5. REGRESSION ANALYSIS
-EXAMPLE 5.6
-Figure 5.5 shows a scatterplot of mean travel time to work versus percent with a bachelor's degree
-among those 25 years and older for counties in the US. The mean travel time to work across all
-counties is shown as a dashed line. Based on the scatterplot, how much help does knowing the
-percent with a bachelor's degree in a county provide for predicting that county's mean travel time
-to work?
-There seems to be almost no association between mean travel time to work and the percent with a
-bachelor's degree. Therefore, knowing the percent with a bachelor's degree in a county oﬀers almost
-no help in trying to predict that county's mean travel time to work. For example, the mean travel
-time to work among those counties with a low percent with a bachelor's degree seems to be about
-the same as the mean travel time to work among those counties with a high percent with a bachelor's
-degree. On the other hand, in Figure 5.4, we see a fairly strong negative association between median
-household income and poverty rate. If a county has a low poverty rate, we would tend to predict
-a higher median household income, whereas if a county has a high poverty rate, we would tend to
-predict a lower median income.
-20%
-40%
-60%
-80%
-10
-20
-30
-40
-Bachelor's Degree (percent)
-Mean Travel Time to Work (minutes)
-Figure 5.5: A scatterplot of mean travel time to work versus the percent with a
-bachelor's degree among those 25 years for the county 2023 data set.
-GUIDED PRACTICE 5.7
-Describe two variables that would have a horseshoe-shaped association in a scatterplot (∩or ∪).4
-4Consider the case where your vertical axis represents something "good" and your horizontal axis represents
-something that is only good in moderation. Health and water consumption fit this description: we require some water
-to survive, but consume too much and it becomes toxic and can kill a person. If health was represented on the vertical
-axis and water consumption on the horizontal axis, then we would create a ∩shape.
+**解答**
+兩個問題的例子：
+(1) 貸款金額與利率之間的關係是什麼？
+(2) 如果某人的收入高於平均水準，他們的利率會傾向於高於還是低於平均水準？
+:::
 
+::: {.concept-box title="概念：成對資料 (Paired data)"}
+散佈圖需要雙變數 (bivariate) 或**成對資料 (paired data)**。什麼是成對資料？當兩個觀察值對應到同一個個案或個體時，我們稱這些觀察值為成對的。在未成對的資料中，不存在這樣的對應關係。在我們的例子中，兩個觀察值對應於某一特定貸款。
 
-### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
-403
-GUIDED PRACTICE 5.8
-Consider the dot plots in Figure 5.6. Do these graphs tell us anything about the association between
-unemployment rates in the two states?5
-0
-2
-4
-6
-8
-10
-12
-Unemployment rate for each of
-the 67 counties in Florida
-0
-2
-4
-6
-8
-10
-12
-Unemployment rate for each of
-the 58 counties in California
-Figure 5.6: Dot plots for unemployment rate, rounded to the nearest percent, for
-counties in Florida and counties in California from the county 2023 data set.
-Describing association between two numerical variables is diﬀerent than comparing distribu-
-tions. When comparing distributions, we ask questions such as, "Which distribution has a greater
-average?" and "How do the shapes of the distribution diﬀer?" The number of individuals in each
-data set need not be the same. When we look at association, we are interested in form, direction,
-and strength of the association between the variables. This requires data sets of equal length that
-are essentially paired (e.g. unemployment rate and poverty rate measured for each county or loan
-amount and corresponding interest rate for the loan).
-COMPARING DISTRIBUTIONS VERSUS LOOKING AT ASSOCIATION
-We compare two distributions with respect to center, spread, and shape.
-To compare the
-distributions visually, we use comparative graphs, such as two histograms, two dot plots, parallel
-box plots, or a back-to-back stem-and-leaf. When describing association between two variables,
-we comment on type, strength, and direction of the association. To see association visually, we
-require a scatterplot.
-5No, to see association we require a scatterplot. Moreover, these data are not paired in any way, so the discussion
-of association does not make sense here.
+被懷疑是**反應變數 (response variable)**（或稱**依變數 dependent variable**）的變數會繪製在垂直 (y) 軸上，而被懷疑是**解釋變數 (explanatory variable)**（或稱**自變數 independent variable**）的變數則繪製在水平 (x) 軸上。在這個例子中，我們懷疑貸款金額取決於總收入，而不是反過來。
+:::
 
+**繪製散佈圖 (DRAWING SCATTERPLOTS)**
 
-404
-CHAPTER 5. REGRESSION ANALYSIS
-5.1.3
-Describing linear relationships with correlation
-When a linear relationship exists between two variables, we can quantify the strength and
-direction of the linear relation with the correlation coeﬃcient, or just correlation for short.
-Figure 5.7 shows eight plots and their corresponding correlations.
-r = 0.33
-r = 0.69
-r = 0.98
-r = 1.00
-r = -0.08
-r = -0.64
-r = -0.92
-r = -1.00
-Figure 5.7: Sample scatterplots and their correlations. The first row shows vari-
-ables with a positive relationship, represented by the trend up and to the right.
-The second row shows variables with a negative trend, where a large value in one
-variable is associated with a low value in the other.
-Only when the relationship is perfectly linear is the correlation coeﬃcient either -1 or 1. If the
-linear relationship is strong and positive, the correlation coeﬃcient will be near +1. If it is strong
-and negative, it will be near -1. If there is no apparent linear relationship between the variables,
-then the correlation coeﬃcient will be near zero.
-THE CORRELATION COEFFICIENT MEASURES THE STRENGTH OF A LINEAR RELATIONSHIP
-The correlation coeﬃcient, which always takes values between -1 and 1, describes the direc-
-tion and strength of the linear relationship between two numerical variables. The strength can
-be strong, moderate, or weak.
-We compute the correlation using a formula, just as we did with the sample mean and standard
-deviation. Formally, we can compute the correlation for observations (x1,y1), (x2,y2), ..., (xn,yn)
-using the formula
-r =
-1
-n -1 ∑(xi -¯x
-sx
-)(yi -¯y
-sy
-)
-where ¯x, ¯y, sx, and sy are the sample means and standard deviations for each variable. This formula
-is rather complex, and we generally perform the calculations on a computer or calculator. We can
-note, though, that the computation involves taking, for each point, the product of the Z-scores that
-correspond to the x and y values.
+1. 決定哪個變數應該放在哪個軸上，畫出並標記兩個軸。
+2. 注意每個變數的全距，並在每個軸上加上刻度標記與比例。
+3. 像在 $(x,y)$ 座標平面上那樣將點繪製出來。
 
+::: {.callout-tip title="引導練習 5.3" collapse="true"}
+為什麼散佈圖很有用？它們能向我們展示出 $(x, y)$ 資料點清單所無法顯示的什麼資訊？
 
-### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
-405
-EXAMPLE 5.9
-Take a look at Figure 5.5 on page 402. How would the correlation coeﬃcient between Mean Travel
-Time to Work and Percent with a Bachelor's degree change if travel time was recorded in hours
-rather than seconds?
-Here, changing the units of y corresponds to dividing all the y values by a certain number. This
-would change the mean and the standard deviation of y, but it would not change the correlation
-coeﬃcient. To see this, imagine dividing every number on the vertical axis by 60. The units of y
-are now in hours rather than minutes, but the graph has remained exactly the same. The units of
-y have changed, by the relative distance of the y values about the mean are the same; that is, the
-Z-scores corresponding to the y values have remained the same.
-CHANGING UNITS OF X AND Y DOES NOT AFFECT THE CORRELATION COEFFICIENT
-The correlation coeﬃcient, r, between two variables is not dependent upon the units in which
-the variables are recorded. The correlation coeﬃcient itself has no units.
-The correlation coeﬃcient is intended to quantify the strength of a linear trend. Nonlinear
-trends, even when strong, sometimes produce correlations coeﬃcients that do not reflect the strength
-of the relationship; see three such examples in Figure 5.8.
-r = -0.23
-r = 0.31
-r = 0.50
-Figure 5.8: Sample scatterplots and their correlation coeﬃcients. In each case,
-there is a strong relationship between the variables. However, the correlation is
-not very strong, and the relationship is not linear.
+**解答**
+答案可能有所不同。散佈圖有助於快速找出變數之間的關聯。
+:::
 
+### 5.1.2 描述兩個數值變數之間的關係 (Describing the relationship between two numerical variables)
 
-406
-CHAPTER 5. REGRESSION ANALYSIS
-EXAMPLE 5.10
-Consider the four scatterplots in Figure 5.9. In which scatterplot is the correlation between x and
-y the strongest?
-All four data sets have the exact same correlation coeﬃcient of r = 0.816 as well as the same
-equation for the best fit line! This group of four graphs, known as Anscombe's Quartet, remind
-us that knowing the value of the correlation coeﬃcient does not tell us what the corresponding
-scatterplot looks like. It is always important to first graph the data.
-Figure 5.9: Four scatterplots with best fit line drawn in, made in Desmos. Inves-
-tigate Anscombe's Quartet at: desmos.com/calculator/paknt6oneh
+許多分析的出發點是研究人員想尋找兩個或多個變數之間的關係。我們將使用一個新的資料集 `county 2023` 來調查變數間的關係。這些資料來自美國普查局 2023 年的美國社區調查 (American Community Survey, ACS)。與每 10 年進行一次、試圖收集美國所有居民基本人口統計資料的十年期普查不同，ACS 是一項持續進行的調查，每年發送給大約 350 萬個家庭。
 
+正如 ACS 網站上所述，這些資料有助於社區「為醫院和學校進行規劃、支持學校午餐計畫、改善緊急服務、建造橋樑，並為希望增加就業和擴展新市場的企業提供資訊等。」社會科學家可能想回答以下幾個問題：
 
-### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
-407
-Section summary
-• A bivariate quantitative data set consists of observations of ordered pairs from two quantitative
-variables, collected from the same individuals in a sample or population, and can be used to
-construct a scatterplot.
-• A scatterplot shows the relationship between two quantitative variables for each observation,
-one corresponding to the value on the x-axis and one corresponding to the value on the y-axis.
-The explanatory variable is placed on the x-axis and is the variable whose values are used to
-explain or predict the corresponding values for the response variable, which is placed on the
-y-axis.
-• A description of the association shown in a scatterplot includes form, direction, strength, and
-unusual features.
-- The form of the association shown in a scatterplot, if any, can be described as linear or
-nonlinear.
-- The direction of the association shown in a scatterplot, if any, can be described as positive
-or negative.
-A positive association means that as values of the explanatory variable
-increase, the values of the response variable tend to increase. A negative association means
-that as values of the explanatory variable increase, the values of the response variable
-tend to decrease. Note that the terms "increase" and "decrease" here are descriptive and
-do not imply a causal relationship.
-- The strength of the association shown in a scatterplot is how closely the points follow the
-general pattern. Strength can be described as strong, moderate, or weak.
-- Unusual features of a scatterplot include clusters of individual points or points that don't
-fit in the general pattern of association between the two variables.
-• Scatterplots depicting the distribution of two numeric variables may reveal information that
-can be used to justify claims about the variable in context.
-• The correlation coeﬃcient r, summarizes the strength and direction of the linear associa-
-tion between two quantitative variables. The correlation coeﬃcient r is unit-free and always
-between -1 and 1, inclusive.
-A negative correlation coeﬃcient value indicates a negative
-association, and a positive correlation coeﬃcient value indicates a positive association.
-• The strength of the linear association is determined by how close the correlation coeﬃcient is
-to -1 or 1. A value of r = 0 indicates that there is no linear association, though there may
-be a diﬀerent type of association such as a quadratic association. A value of r = -1 or r = 1
-indicates that there is a perfect linear association.
-• A correlation coeﬃcient close to -1 or 1 does not necessarily mean that a linear model is
-appropriate.
-• A perceived or real relationship between two variables does not mean that changes in one
-variable cause changes in the other. That is, correlation does not necessarily imply causation.
+1. 家庭收入中位數與擁有學士學位的成年人比例之間的關聯性有多強？
+2. 郡的家庭收入中位數和貧窮率之間的關係是線性的 (linear) 還是非線性的 (nonlinear)？
+3. 擁有學士學位的成年人比例在預測平均通勤時間時有多大的幫助？
 
+當描述散佈圖或描述兩個數值變數之間的關聯時，討論**形式 (form)**、**強度 (strength)**與**方向 (direction)**會很有幫助。形式可以描述為**線性 (linear)**，此時點遵循一個大約以等速率變化的趨勢；或是**非線性 (nonlinear)**，此時點遵循一個彎曲而非恆定的趨勢。我們會根據點遵循整體模式的緊密程度，將關聯的強度描述為**弱 (weak)**、**中等 (moderate)**或**強 (strong)**。
 
-408
-CHAPTER 5. REGRESSION ANALYSIS
-Exercises
-5.1
-ACS, Part I. Each year, the US Census Bureau surveys about 3.5 million households with The American
-Community Survey (ACS). Data collected from the ACS have been crucial in government and policy deci-
-sions, helping to determine the allocation of federal and state funds each year. Some of the questions asked
-on the survey are about their income, age (in years), and gender. The table below contains this information
-for a random sample of 20 respondents to the 2012 ACS.6
-Income
-Age
-Gender
-1
-53,000
-28
-male
-2
-1600
-18
-female
-3
-70,000
-54
-male
-4
-12,800
-22
-male
-5
-1,200
-18
-female
-6
-30,000
-34
-male
-7
-4,500
-21
-male
-8
-20,000
-28
-female
-9
-25,000
-29
-female
-10
-42,000
-33
-male
-Income
-Age
-Gender
-11
-670
-34
-female
-12
-29,000
-55
-female
-13
-44,000
-33
-female
-14
-48,000
-41
-male
-15
-30,000
-47
-female
-16
-60,000
-30
-male
-17
-108,000
-61
-male
-18
-5,800
-50
-female
-19
-50,000
-24
-female
-20
-11,000
-19
-male
-(a) Use technology to create a scatterplot of income vs. age, and describe the relationship between these
-two variables.
-(b) Now create two scatterplots: one for income vs. age for males and another for females.
-(c) How, if at all, do the relationships between income and age diﬀer for males and females?
-5.2
-MLB stats. A baseball team's success in a season is usually measured by their number of wins. In
-order to win, the team has to have scored more points (runs) than their opponent in any given game. As
-such, number of runs is often a good proxy for the success of the team. The table below shows number of
-runs, home runs, and batting averages for a random sample of 10 teams in the 2014 Major League Baseball
-season.7
-Team
-Runs
-Home runs
-Batting avg.
-1
-Baltimore
-705
-211
-0.256
-2
-Boston
-634
-123
-0.244
-3
-Cincinnati
-595
-131
-0.238
-4
-Cleveland
-669
-142
-0.253
-5
-Detroit
-757
-155
-0.277
-6
-Houston
-629
-163
-0.242
-7
-Minnesota
-715
-128
-0.254
-8
-NY Yankees
-633
-147
-0.245
-9
-Pittsburgh
-682
-156
-0.259
-10
-San Francisco
-665
-132
-0.255
-(a) Use technology to create a scatterplot of runs vs. home runs.
-(b) Now create a scatterplot of runs vs. batting averages.
-(c) Are home runs or batting averages more strongly associated with number of runs? Explain your rea-
-soning.
-6United States Census Bureau.
-Summary File.
-2012 American Community Survey.
-U.S. Census Bureau's
-American Community Survey Oﬃce, 2013. Web.
-7ESPN: MLB Team Stats - 2014.
+當兩個變數顯示出彼此存在某種連結時，我們說它們是**相關聯的 (associated)**。兩個變數之間關聯的方向可以是**正向 (positive)**或**負向 (negative)**，或者**沒有關聯 (no association)**。正相關意味著第一個變數較大的值與第二個變數較大的值相關聯。
 
+::: {.callout-tip title="範例 5.4" collapse="true"}
+兩個變數具有負相關是什麼意思？那沒有關聯呢？
 
-### 5.1. SUMMARIZING BIVARIATE NUMERICAL DATA
-409
-5.3
-Mammal life spans. Data were collected on life spans (in years) and gestation lengths (in days) for 62
-mammals. A scatterplot of life span versus length of gestation is shown below.8
-(a) What type of an association is apparent be-
-tween life span and length of gestation?
-(b) What type of an association would you ex-
-pect to see if the axes of the plot were re-
-versed, i.e. if we plotted length of gestation
-versus life span?
-(c) Are life span and length of gestation inde-
-pendent? Explain your reasoning.
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-G
-GG
-G
-G
-G
-G
-G
-G
-G
-G
-G
-Gestation (days)
-Life Span (years)
-0
-200
-400
-600
-0
-25
-50
-75
-100
-5.4
-Associations. Indicate which of the plots show (a) a positive association, (b) a negative association,
-or (c) no association. Also determine if the positive and negative associations are linear or nonlinear. Each
-part may refer to more than one plot.
-(1)
-(2)
-(3)
-(4)
-5.5
-Exams and grades. The two scatterplots below show the relationship between final and mid-semester
-exam grades recorded during several years for a Statistics course at a university.
-(a) Based on these graphs, which of the two exams has the strongest correlation with the final exam grade?
-Explain.
-(b) Can you think of a reason why the correlation between the exam you chose in part (a) and the final
-exam is higher?
-Exam 1
-Final Exam
-40
-60
-80
-100
-40
-60
-80
-100
-Exam 2
-Final Exam
-40
-60
-80
-100
-40
-60
-80
-100
-8T. Allison and D.V. Cicchetti. "Sleep in mammals: ecological and constitutional correlates". In: Arch. Hydrobiol
-75 (1975), p. 442.
+**解答**
+負相關意味著第一個變數較大的值與第二個變數較小的值相關聯。沒有關聯則意味著第二個變數的值傾向於獨立於第一個變數的差異。
+:::
 
+散佈圖顯示了在 3,144 個美國郡中，25 歲及以上擁有學士學位的人口百分比與家庭收入中位數之間的關聯。圖上的每個點代表一個單一的郡。例如，可能有一個點代表密西西比州 Oktibbeha 郡，該郡有 45.8% 的 25 歲及以上人口擁有學士學位，家庭收入中位數為 $43,482。
 
+該散佈圖顯示了一個大致呈線性的恆定趨勢，具有中等強度的關聯。它還顯示了兩個變數之間的正向關係：家庭收入中位數較高的郡，其 25 歲及以上擁有學士學位的人口百分比往往也較高。在這種情況下，把哪個變數放在水平軸上是一種選擇。確實，收入較高的家庭往往更有能力負擔大學學費，但擁有大學學位的人也往往能賺取較高的收入。
+
+密西西比州 Oktibbeha 郡並不完全遵循這個趨勢。這個郡的家庭收入低於平均水準，但在 25 歲及以上的人口中，擁有學士學位的比例卻高於平均水準。一個可能的因素是密西西比州立大學 (MSU) 位於 Oktibbeha 郡及其相鄰的郡，這吸引並培養了該地區的許多學生。
+
+::: {.callout-tip title="範例 5.5" collapse="true"}
+假設有一個顯示美國 3,144 個郡的家庭收入中位數與貧窮率之間關係的散佈圖。請描述這兩個變數之間的關係。
+
+**解答**
+家庭收入中位數和貧窮率之間的關係是**非線性 (nonlinear)**的，趨勢呈現彎曲。關聯性似乎相當強，因為這些點緊密地遵循著彎曲的趨勢。這裡也存在一個負向關聯，因為較高的貧窮率往往與較低的家庭收入中位數相關聯。
+:::
+
+::: {.callout-tip title="範例 5.6" collapse="true"}
+假設有一個顯示美國各郡的平均通勤時間與 25 歲及以上擁有學士學位人口百分比的散佈圖。根據散佈圖，了解一個郡擁有學士學位的百分比，對於預測該郡的平均通勤時間有多大幫助？
+
+**解答**
+平均通勤時間與擁有學士學位的百分比之間似乎幾乎**沒有關聯 (no association)**。因此，了解一個郡擁有學士學位的百分比，在試圖預測該郡的平均通勤時間時幾乎沒有任何幫助。舉例來說，在那些擁有學士學位比例較低的郡中，平均通勤時間似乎與那些擁有學士學位比例較高的郡差不多。另一方面，在家庭收入中位數和貧窮率之間我們看到了相當強的負向關聯。如果一個郡的貧窮率很低，我們傾向於預測其家庭收入中位數較高；反之，如果一個郡的貧窮率很高，我們傾向於預測其收入中位數較低。
+:::
+
+::: {.callout-tip title="引導練習 5.7" collapse="true"}
+描述兩個在散佈圖中會呈現馬蹄形 (∩ 或 ∪) 關聯的變數。
+
+**解答**
+考慮這樣一種情況：垂直軸代表某種「好」的事物，而水平軸代表某種只有在適度情況下才好的事物。健康與飲水量符合這個描述：我們需要一些水才能生存，但喝太多水會產生毒性並可能致人於死。如果垂直軸代表健康，水平軸代表飲水量，那麼我們就會畫出一個 ∩ 的形狀。
+:::
+
+::: {.callout-tip title="引導練習 5.8" collapse="true"}
+考慮兩個並排的點圖 (dot plots)，分別顯示佛羅里達州和加州各郡的失業率。這些圖表是否告訴我們關於這兩州失業率之間關聯的任何資訊？
+
+**解答**
+不能，要觀察關聯性我們需要散佈圖。此外，這些資料沒有以任何方式成對，所以在這裡討論關聯性是沒有意義的。
+:::
+
+::: {.concept-box title="概念：比較分佈與觀察關聯 (Comparing distributions versus looking at association)"}
+我們從**中心 (center)**、**離度 (spread)**與**形狀 (shape)**來比較兩個分佈。為了視覺化地比較分佈，我們使用比較圖表，例如兩個直方圖、兩個點圖、平行箱型圖或背對背莖葉圖。
+當描述兩個變數之間的關聯時，我們會對關聯的**形式 (form)**、**強度 (strength)**和**方向 (direction)**進行評論。要視覺化地觀察關聯，我們需要**散佈圖 (scatterplot)**。
+:::
+
+### 5.1.3 用相關係數描述線性關係 (Describing linear relationships with correlation)
+
+當兩個變數之間存在線性關係時，我們可以用**相關係數 (correlation coefficient)**（或簡稱**相關 correlation**）來量化線性關係的強度與方向。
+
+::: {.concept-box title="概念：相關係數衡量線性關係的強度"}
+相關係數的數值始終介於 -1 到 1 之間，它描述了兩個數值變數之間線性關係的方向與強度。強度可以是強、中等或弱。
+:::
+
+只有當關係是完美的線性時，相關係數才會是 -1 或 1。如果線性關係強且為正，相關係數將接近 +1。如果強且為負，它將接近 -1。如果變數之間沒有明顯的線性關係，那麼相關係數將接近零。
+
+我們使用公式來計算相關係數，就像我們計算樣本平均數和標準差一樣。正式來說，我們可以使用以下公式計算觀察值 $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$ 的相關係數：
+
+$$ r = \frac{1}{n - 1} \sum \left( \frac{x_i - \bar{x}}{s_x} \right) \left( \frac{y_i - \bar{y}}{s_y} \right) $$
+
+其中 $\bar{x}, \bar{y}, s_x, s_y$ 分別是各變數的樣本平均數與標準差。這個公式相當複雜，我們通常會使用電腦或計算機來執行計算。不過我們可以注意到，這個計算過程涉及到將對應於 $x$ 和 $y$ 值的 Z 分數 (Z-scores) 相乘。
+
+::: {.callout-tip title="範例 5.9" collapse="true"}
+如果通勤時間以小時而不是分鐘來記錄，平均通勤時間和擁有學士學位百分比之間的相關係數會發生什麼變化？
+
+**解答**
+在這裡，改變 y 的單位相當於將所有 y 值除以一個特定的數字。這會改變 y 的平均數和標準差，但**不會改變相關係數**。為了理解這一點，想像把垂直軸上的每個數字除以 60。現在 y 的單位是小時而不是分鐘，但圖表的形狀完全相同。y 的單位改變了，但 y 值相對於平均數的相對距離是一樣的；也就是說，對應於 y 值的 Z 分數保持不變。
+:::
+
+::: {.concept-box title="概念：改變 X 和 Y 的單位不會影響相關係數"}
+兩個變數之間的相關係數 $r$ 並不依賴於變數記錄的單位。相關係數本身沒有單位 (unit-free)。
+:::
+
+相關係數旨在量化線性趨勢的強度。非線性趨勢即使很強，有時也會產生無法反映其關係強度的相關係數。
+
+::: {.callout-tip title="範例 5.10" collapse="true"}
+考慮安斯庫姆四重奏 (Anscombe's Quartet) 的四個散佈圖。這些圖形包含非線性趨勢、離群值等，但它們的相關係數有何特徵？
+
+**解答**
+所有四個資料集都有完全相同的相關係數 $r = 0.816$，以及相同的最佳配適線 (best fit line) 方程式！這組被稱為安斯庫姆四重奏的四個圖表提醒我們：**知道相關係數的值，並不能告訴我們對應的散佈圖長什麼樣子**。首先繪製資料圖表總是很重要的。
+:::
+
+### 小結 (Section Summary)
+
+- 雙變數量化資料集 (bivariate quantitative data set) 由從樣本或母體中的同一個體收集的兩個量化變數的有序對觀察值組成，並可用來建構散佈圖。
+- 散佈圖顯示了每次觀察中兩個量化變數之間的關係，一個對應於 x 軸上的值，另一個對應於 y 軸上的值。解釋變數 (explanatory variable) 放在 x 軸上，它是用來解釋或預測反應變數 (response variable) 相對應值的變數，而反應變數則放在 y 軸上。
+- 對散佈圖中顯示之關聯的描述包括**形式 (form)**、**方向 (direction)**、**強度 (strength)**以及**異常特徵 (unusual features)**。
+    - 散佈圖中顯示的關聯形式，可描述為線性 (linear) 或非線性 (nonlinear)。
+    - 散佈圖中顯示的關聯方向，可描述為正向 (positive) 或負向 (negative)。正向關聯意味著隨著解釋變數值的增加，反應變數的值傾向於增加。負向關聯意味著隨著解釋變數值的增加，反應變數的值傾向於減少。請注意，這裡的「增加」和「減少」是描述性的，並不暗示因果關係。
+    - 散佈圖中顯示的關聯強度是指點遵循整體模式的緊密程度。強度可以描述為強 (strong)、中等 (moderate) 或弱 (weak)。
+    - 散佈圖的異常特徵包括個別點的聚集群 (clusters) 或不符合兩個變數之間一般關聯模式的點 (離群值 outliers)。
+- 描繪兩個數值變數分佈的散佈圖可能揭示了一些資訊，這些資訊可用於在情境中證明有關變數的主張。
+- 相關係數 $r$ 總結了兩個量化變數之間線性關聯的強度和方向。相關係數 $r$ 沒有單位，且始終在 -1 到 1 之間（包含 -1 與 1）。負的相關係數值表示負向關聯，正的相關係數值表示正向關聯。
+- 線性關聯的強度取決於相關係數與 -1 或 1 的接近程度。$r = 0$ 的值表示沒有線性關聯，儘管可能存在另一種類型的關聯，例如二次關聯。$r = -1$ 或 $r = 1$ 的值表示完美的線性關聯。
+- 相關係數接近 -1 或 1 **並不一定意味著線性模型是合適的**。
+- 兩個變數之間觀察到或真實存在的關係並不意味著一個變數的變化會引起另一個變數的變化。也就是說，**相關不一定意味著因果 (correlation does not necessarily imply causation)**。
+
+### 練習題 (Exercises)
+
+**5.1 ACS，第一部分**
+每年，美國普查局透過美國社區調查 (ACS) 調查大約 350 萬個家庭。從 ACS 收集的資料在政府和政策決定中至關重要，有助於決定每年聯邦和州資金的分配。調查中詢問的一些問題是關於他們的收入、年齡（以年為單位）和性別。下表包含了 2012 年 ACS 隨機抽樣的受訪者的部分資訊。
+
+| 收入 (Income) | 年齡 (Age) | 性別 (Gender) |
+|---|---|---|
+| 53,000 | 28 | male |
+| 1600 | 18 | female |
+| 70,000 | 54 | male |
+| 12,800 | 22 | male |
+| 1,200 | 18 | female |
+| ... | ... | ... |
+
+(a) 使用科技工具建立收入與年齡的散佈圖，並描述這兩個變數之間的關係。
+(b) 現在建立兩個散佈圖：一個是男性的收入與年齡的關係，另一個是女性的。
+(c) 男性與女性的收入和年齡之間的關係有何不同（如果有的話）？
+
+**5.2 MLB 統計數據**
+一支棒球隊在一個賽季中的成功通常以他們的勝場數來衡量。為了獲勝，球隊必須在任何給定比賽中比對手獲得更多的分數（得分 runs）。因此，得分通常是球隊成功的一個良好代理指標。下表顯示了 2014 年美國職棒大聯盟賽季中隨機抽樣幾支球隊的得分、全壘打數和打擊率。
+
+| 球隊 (Team) | 得分 (Runs) | 全壘打 (Home runs) | 打擊率 (Batting avg.) |
+|---|---|---|---|
+| Baltimore | 705 | 211 | 0.256 |
+| Boston | 634 | 123 | 0.244 |
+| Cincinnati | 595 | 131 | 0.238 |
+| Cleveland | 669 | 142 | 0.253 |
+| ... | ... | ... | ... |
+
+(a) 使用科技工具建立得分與全壘打的散佈圖。
+(b) 現在建立得分與打擊率的散佈圖。
+(c) 全壘打或打擊率哪一個與得分有更強的關聯？請解釋你的推理。
+
+**5.3 哺乳動物壽命**
+收集了 62 種哺乳動物的壽命（以年為單位）和妊娠期長度（以天為單位）的資料，並可繪製成散佈圖。
+(a) 壽命與妊娠期長度之間存在什麼類型的關聯？
+(b) 如果將圖的軸反轉，即我們繪製妊娠期長度與壽命的圖，你期望看到什麼類型的關聯？
+(c) 壽命和妊娠期長度是獨立的嗎？請解釋你的推理。
+
+**5.4 關聯性**
+對於不同的散佈圖，指出哪些圖顯示了 (a) 正向關聯、(b) 負向關聯，或 (c) 沒有關聯。還要判斷正向和負向關聯是線性的還是非線性的。
+
+**5.5 考試與成績**
+假設有兩個散佈圖顯示了某大學統計學課程幾年內記錄的期末考成績與期中考成績（考試 1 和考試 2）之間的關係。
+(a) 根據這些圖表，哪兩次考試中與期末考成績有最強的相關性？請解釋。
+(b) 你能想到為什麼你在 (a) 部分選擇的考試與期末考之間的相關性較高的原因嗎？

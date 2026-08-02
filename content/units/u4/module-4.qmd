@@ -1,585 +1,258 @@
 ---
-title: "2.4 Discrete random variables"
+title: "2.4 離散型隨機變數 (Discrete random variables)"
 ---
 
-134
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.16
-Health coverage, relative frequencies. The Behavioral Risk Factor Surveillance System (BRFSS)
-is an annual telephone survey designed to identify risk factors in the adult population and report emerging
-health trends. The following table displays the distribution of health status of respondents to this survey
-(excellent, very good, good, fair, poor) and whether or not they have health insurance.
-Health Status
-Excellent
-Very good
-Good
-Fair
-Poor
-Total
-Health
-No
-0.0230
-0.0364
-0.0427
-0.0192
-0.0050
-0.1262
-Coverage
-Yes
-0.2099
-0.3123
-0.2410
-0.0817
-0.0289
-0.8738
-Total
-0.2329
-0.3486
-0.2838
-0.1009
-0.0338
-1.0000
-(a) Are being in excellent health and having health coverage mutually exclusive?
-(b) What is the probability that a randomly chosen individual has excellent health?
-(c) What is the probability that a randomly chosen individual has excellent health given that he has health
-coverage?
-(d) What is the probability that a randomly chosen individual has excellent health given that he doesn't
-have health coverage?
-(e) Do having excellent health and having health coverage appear to be independent?
-2.17
-Swing voters.
-A Pew Research survey asked 2,373 randomly sampled registered voters their
-political aﬃliation (Republican, Democrat, or Independent) and whether or not they identify as swing voters.
-35% of respondents identified as Independent, 23% identified as swing voters, and 11% identified as both.44
-(a) Are being Independent and being a swing voter disjoint, i.e. mutually exclusive?
-(b) Draw a Venn diagram summarizing the variables and their associated probabilities.
-(c) What percent of voters are Independent but not swing voters?
-(d) What percent of voters are Independent or swing voters?
-(e) What percent of voters are neither Independent nor swing voters?
-(f) Is the event that someone is a swing voter independent of the event that someone is a political Indepen-
-dent?
-2.18
-Poverty and language. The American Community Survey is an ongoing survey that provides data
-every year to give communities the current information they need to plan investments and services. The
-2010 American Community Survey estimates that 14.6% of Americans live below the poverty line, 20.7%
-speak a language other than English (foreign language) at home, and 4.2% fall into both categories.45
-(a) Are living below the poverty line and speaking a foreign language at home disjoint?
-(b) Draw a Venn diagram summarizing the variables and their associated probabilities.
-(c) What percent of Americans live below the poverty line and only speak English at home?
-(d) What percent of Americans live below the poverty line or speak a foreign language at home?
-(e) What percent of Americans live above the poverty line and only speak English at home?
-(f) Is the event that someone lives below the poverty line independent of the event that the person speaks
-a foreign language at home?
-2.19
-Marbles in an urn. Imagine you have an urn containing 5 red, 3 blue, and 2 orange marbles in it.
-(a) What is the probability that the first marble you draw is blue?
-(b) Suppose you drew a blue marble in the first draw. If drawing with replacement, what is the probability
-of drawing a blue marble in the second draw?
-(c) Suppose you instead drew an orange marble in the first draw. If drawing with replacement, what is the
-probability of drawing a blue marble in the second draw?
-(d) If drawing with replacement, what is the probability of drawing two blue marbles in a row?
-(e) When drawing with replacement, are the draws independent? Explain.
-44Pew Research Center, With Voters Focused on Economy, Obama Lead Narrows, data collected between April
-4-15, 2012.
-45U.S. Census Bureau, 2010 American Community Survey 1-Year Estimates, Characteristics of People by Language
-Spoken at Home.
+### 課前練習 (Practice Problems)
 
+**2.16 健康保險與相對次數 (Health coverage, relative frequencies)**
+行為風險因子監測系統 (BRFSS) 是一項年度電話調查，旨在識別成年人口中的風險因子並報告新興的健康趨勢。下表顯示了此調查受訪者的健康狀況分佈（極好、很好、良好、尚可、不佳）以及他們是否擁有健康保險。
 
-2.3. CONDITIONAL PROBABILITY, INTERSECTIONS, AND UNIONS
-135
-2.20
-Socks in a drawer. In your sock drawer you have 4 blue, 5 gray, and 3 black socks. Half asleep one
-morning you grab 2 socks at random and put them on. Find the probability you end up wearing
-(a) 2 blue socks
-(b) no gray socks
-(c) at least 1 black sock
-(d) a green sock
-(e) matching socks
-2.21
-Chips in a bag. Imagine you have a bag containing 5 red, 3 blue, and 2 orange chips.
-(a) Suppose you draw a chip and it is blue. If drawing without replacement, what is the probability the
-next is also blue?
-(b) Suppose you draw a chip and it is orange, and then you draw a second chip without replacement. What
-is the probability this second chip is blue?
-(c) If drawing without replacement, what is the probability of drawing two blue chips in a row?
-(d) When drawing without replacement, are the draws independent? Explain.
-2.22
-Books on a bookshelf. The table below shows the distribution of books on a bookcase based on
-whether they are nonfiction or fiction and hardcover or paperback.
-Format
-Hardcover
-Paperback
-Total
-Type
-Fiction
-13
-59
-72
-Nonfiction
-15
-8
-23
-Total
-28
-67
-95
-(a) Find the probability of drawing a hardcover book first then a paperback fiction book second when
-drawing without replacement.
-(b) Determine the probability of drawing a fiction book first and then a hardcover book second, when
-drawing without replacement.
-(c) Calculate the probability of the scenario in part (b), except this time complete the calculations under
-the scenario where the first book is placed back on the bookcase before randomly drawing the second
-book.
-(d) The final answers to parts (b) and (c) are very similar. Explain why this is the case.
-2.23
-It's never lupus.
-Lupus is a medical phenomenon where antibodies that are supposed to attack
-foreign cells to prevent infections instead see plasma proteins as foreign bodies, leading to a high risk of
-blood clotting. It is believed that 2% of the population suﬀer from this disease. The test is 98% accurate
-if a person actually has the disease. The test is 74% accurate if a person does not have the disease. There
-is a line from the Fox television show House that is often used after a patient tests positive for lupus: "It's
-never lupus." Do you think there is truth to this statement? Use appropriate probabilities to support your
-answer.
-2.24
-Predisposition for thrombosis. A genetic test is used to determine if people have a predisposition
-for thrombosis, which is the formation of a blood clot inside a blood vessel that obstructs the flow of blood
-through the circulatory system. It is believed that 3% of people actually have this predisposition. The
-genetic test is 99% accurate if a person actually has the predisposition, meaning that the probability of a
-positive test result when a person actually has the predisposition is 0.99. The test is 98% accurate if a
-person does not have the predisposition. What is the probability that a randomly selected person who tests
-positive for the predisposition by the test actually has the predisposition?
+| 健康狀況 | 沒有保險 (No) | 有保險 (Yes) | 總計 |
+| :--- | :--- | :--- | :--- |
+| 極好 (Excellent) | 0.0230 | 0.2099 | 0.2329 |
+| 很好 (Very good) | 0.0364 | 0.3123 | 0.3486 |
+| 良好 (Good) | 0.0427 | 0.2410 | 0.2838 |
+| 尚可 (Fair) | 0.0192 | 0.0817 | 0.1009 |
+| 不佳 (Poor) | 0.0050 | 0.0289 | 0.0338 |
+| **總計** | **0.1262** | **0.8738** | **1.0000** |
 
+(a) 「健康狀況極好」與「擁有健康保險」是互斥的 (mutually exclusive) 嗎？
+(b) 隨機選擇一名個體，其健康狀況極好的機率是多少？
+(c) 已知隨機選擇的個體擁有健康保險，其健康狀況極好的機率是多少？
+(d) 已知隨機選擇的個體沒有健康保險，其健康狀況極好的機率是多少？
+(e) 「健康狀況極好」與「擁有健康保險」看起來是否為獨立事件 (independent)？
 
-136
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.4
-Discrete random variables
-We can consider the number of textbooks that a student a particular university will purchase to
-be a random variable. What does the distribution look like? How can we calculate the expected
-number of textbooks purchased and the typical variation in that number? If we know the average
-cost per textbook, how can we calculate the expected amount of money a student at this university
-will spend on textbooks and the typical variation in that amount? In this section, we define and
-summarize random variables such as these, and we look at some of their properties.
-Learning objectives
-1. Construct a probability distribution for a discrete random variable.
-2. Calculate mean and standard deviation for a discrete random variable
-3. Interpret the mean and standard deviation for a discrete random variable.
-2.4.1
-Probability distributions
-The sum of the roll of two dice can vary from roll to roll. We call a variable or process such as
-this a random variable, and we usually represent a random variable with a capital letter such as
-X, Y , or Z.
-RANDOM VARIABLE
-A random process or variable with a numerical outcome.
-A probability distribution for a discrete random variable shows the probability associated
-with every possible value of the random variable. Figure 2.23 shows the probability distribution for
-the sum of two dice.
-Dice sum
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-Probability
-1
-36
-2
-36
-3
-36
-4
-36
-5
-36
-6
-36
-5
-36
-4
-36
-3
-36
-2
-36
-1
-36
-Figure 2.23: Probability distribution for the sum of two dice.
-In order for a distribution to represent a valid probability distribution, it must satisfy certain
-rules.
-RULES FOR PROBABILITY DISTRIBUTIONS
-A probability distribution is a list of the possible outcomes with corresponding probabilities
-that satisfies three rules:
-1. The outcomes listed must be disjoint.
-2. Each probability must be between 0 and 1.
-3. The probabilities must total 1.
+**2.17 搖擺選民 (Swing voters)**
+皮尤研究中心 (Pew Research) 的一項調查詢問了 2,373 名隨機抽樣的登記選民，了解他們的政治傾向（共和黨、民主黨或無黨籍）以及他們是否認為自己是搖擺選民。其中 35% 的受訪者自認為是無黨籍，23% 認為自己是搖擺選民，而 11% 認為自己兩者皆是。
+(a) 「無黨籍」與「搖擺選民」是互斥的 (disjoint / mutually exclusive) 嗎？
+(b) 畫一個文氏圖 (Venn diagram) 來總結這些變數及其相關機率。
+(c) 有百分之多少的選民是無黨籍但不是搖擺選民？
+(d) 有百分之多少的選民是無黨籍或是搖擺選民？
+(e) 有百分之多少的選民既不是無黨籍也不是搖擺選民？
+(f) 一個人是搖擺選民的事件，與他政治上是無黨籍的事件是否為獨立事件？
 
+**2.18 貧窮與語言 (Poverty and language)**
+美國社區調查 (American Community Survey) 是一項持續進行的調查，每年提供數據以給予社區規劃投資與服務所需的最新資訊。2010 年的調查估計，有 14.6% 的美國人生活在貧窮線以下，20.7% 的人在家說英語以外的語言（外語），而有 4.2% 的人同時符合這兩類。
+(a) 「生活在貧窮線以下」與「在家說外語」是互斥的嗎？
+(b) 畫一個文氏圖來總結這些變數及其相關機率。
+(c) 有百分之多少的美國人生活在貧窮線以下且在家只說英語？
+(d) 有百分之多少的美國人生活在貧窮線以下或是在家說外語？
+(e) 有百分之多少的美國人生活在貧窮線上且在家只說英語？
+(f) 一個人生活在貧窮線以下的事件，與他在家說外語的事件是否為獨立事件？
 
-### 2.4. DISCRETE RANDOM VARIABLES
-137
-EXAMPLE 2.57
-Based on the probability distribution table shown in Figure 2.23, what is the probability of getting
-a dice sum of greater than 10?
-To be greater than 10 means to be 11 or 12. So the probability of the dice sum being greater than
-10 is
-2
-36 + 1
-36 =
-3
-36.
-It is common to want to know the probability of getting less than or equal to a certain value.
-In this case, a cumulative probability distribution can be used.
-Instead of identifying the
-probability of each value, we record the probability of being less than or equal to each value as
-shown in the figure below.
-Dice sum
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-Cumulative probability (≤dice sum)
-1
-36
-3
-36
-6
-36
-10
-36
-15
-36
-21
-36
-26
-36
-30
-36
-33
-36
-35
-36
-36
-36
-Figure 2.24: Cumulative probability distribution for the sum of two dice.
-EXAMPLE 2.58
-Based on the cumulative probability distribution table shown in Figure 2.24, what is the probability
-of getting a dice sum less than or equal to 4? Greater than 4?
-Because this distribution is a cumulative distribution, we do not need to add up terms. The prob-
-ability of being less than or equal to 4 is given in the cumulative distribution as
-6
-### 36. To be greater
-than 4 is the complement of being less than or equal to 4, so the probability of a dice sum greater
-than 4 can be found as 1 -6
-36 = 30
-36.
-Chapter 1 emphasized the importance of plotting data to provide quick summaries. Probability
-distributions can also be summarized in a histogram or bar plot. The probability distribution for
-the sum of two dice is shown in Figure 2.23 and its histogram is plotted in Figure 2.25.
-Dice sum
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-0.00
-0.05
-0.10
-0.15
-Probability
-Figure 2.25: A histogram for the probability distribution of the sum of two dice.
-In these bar plots, the bar heights represent the probabilities of outcomes. If the outcomes are
-numerical and discrete, it is usually (visually) convenient to make a histogram, as in the case of
-the sum of two dice. Another example of plotting the bars at their respective locations is shown in
-Figure 2.26.
+**2.19 甕中的彈珠 (Marbles in an urn)**
+想像你有一個甕，裡面裝有 5 顆紅彈珠、3 顆藍彈珠和 2 顆橘色彈珠。
+(a) 你第一次抽出藍彈珠的機率是多少？
+(b) 假設你第一次抽出了藍彈珠。如果採取「抽出後放回 (with replacement)」的方式，第二次抽出藍彈珠的機率是多少？
+(c) 假設你第一次抽出的是橘色彈珠。如果採取「抽出後放回」的方式，第二次抽出藍彈珠的機率是多少？
+(d) 如果採取「抽出後放回」的方式，連續兩次抽出藍彈珠的機率是多少？
+(e) 當採取「抽出後放回」時，這些抽取事件是獨立的嗎？請解釋。
 
+**2.20 抽屜裡的襪子 (Socks in a drawer)**
+你的襪子抽屜裡有 4 隻藍襪子、5 隻灰襪子和 3 隻黑襪子。某天早晨你半睡半醒時，隨機抓了 2 隻襪子穿上。請找出你最終穿上以下襪子的機率：
+(a) 2 隻藍襪子
+(b) 沒有灰襪子
+(c) 至少 1 隻黑襪子
+(d) 1 隻綠襪子
+(e) 兩隻顏色匹配的襪子
 
-138
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.4.2
-Introduction to expectation
-EXAMPLE 2.59
-Two books are assigned for a statistics class: a textbook and its corresponding study guide. The
-university bookstore determined 20% of enrolled students do not buy either book, 55% buy the
-textbook only, and 25% buy both books, and these percentages are relatively constant from one
-term to another. If there are 100 students enrolled, how many books should the bookstore expect
-to sell to this class?
-Around 20 students will not buy either book (0 books total), about 55 will buy one book (55 books
-total), and approximately 25 will buy two books (totaling 50 books for these 25 students). The
-bookstore should expect to sell about 105 books for this class.
-GUIDED PRACTICE 2.60
-Would you be surprised if the bookstore sold slightly more or less than 105 books?46
-EXAMPLE 2.61
-The textbook costs $137 and the study guide $33. How much revenue should the bookstore expect
-from this class of 100 students?
-About 55 students will just buy a textbook, providing revenue of
-$137 × 55 = $7,535
-The roughly 25 students who buy both the textbook and the study guide would pay a total of
-($137 + $33) × 25 = $170 × 25 = $4,250
-Thus, the bookstore should expect to generate about $7,535 + $4,250 = $11,785 from these 100
-students for this one class. However, there might be some sampling variability so the actual amount
-may diﬀer by a little bit.
-EXAMPLE 2.62
-What is the average revenue per student for this course?
-The expected total revenue is $11,785, and there are 100 students. Therefore the expected revenue
-per student is $11,785/100 = $117.85.
-46If they sell a little more or a little less, this should not be a surprise. Hopefully it is now clear that there is
-natural variability in observed data. For example, if we would flip a coin 100 times, it will not usually come up heads
-exactly half the time, but it will probably be close.
+**2.21 袋子裡的籌碼 (Chips in a bag)**
+想像你有一個袋子，裡面裝有 5 個紅籌碼、3 個藍籌碼和 2 個橘色籌碼。
+(a) 假設你抽出了一個籌碼且是藍色的。如果採取「抽出後不放回 (without replacement)」的方式，下一次也抽出藍籌碼的機率是多少？
+(b) 假設你抽出了一個籌碼且是橘色的，然後在不放回的情況下抽出第二個籌碼。第二個籌碼是藍色的機率是多少？
+(c) 如果採取「抽出後不放回」的方式，連續兩次抽出藍籌碼的機率是多少？
+(d) 當採取「抽出後不放回」時，這些抽取事件是獨立的嗎？請解釋。
 
+**2.22 書架上的書 (Books on a bookshelf)**
+下表顯示了書架上書籍的分佈情況，根據它們是虛構類 (fiction) 或非虛構類 (nonfiction)，以及精裝本 (hardcover) 或平裝本 (paperback) 來分類。
 
-### 2.4. DISCRETE RANDOM VARIABLES
-139
-cost (dollars)
-0
-137
-170
-0.0
-0.1
-0.2
-0.3
-0.4
-0.5
-probability
-Figure 2.26: Probability distribution for the bookstore's revenue from one student.
-The triangle represents the average revenue per student.
-2.4.3
-Expected value
-The amount of money a single student will spend on her statistics books is a random variable,
-and we represent it by X. The possible outcomes of X are labeled with a corresponding lower case
-letter x and subscripts. For example, we write x1 = $0, x2 = $137, and x3 = $170, which occur
-with probabilities 0.20, 0.55, and 0.25. The distribution of X is summarized in Figure 2.26 and
-Figure 2.27.
-i
-1
-2
-3
-Total
-xi
-$0
-$137
-$170
--
-P(xi)
-0.20
-0.55
-0.25
-1.00
-Figure 2.27: The probability distribution for the random variable X, representing
-the bookstore's revenue from a single student.
-We use P(xi) to represent the
-probability of xi.
-We computed the average outcome of X as $117.85 in Example 2.62. We call this average the
-expected value of X, denoted by E(X). The expected value of a random variable is computed by
-adding each outcome weighted by its probability:
-E(X) = 0 ⋅P(0) + 137 ⋅P(137) + 170 ⋅P(170)
-= 0 ⋅0.20 + 137 ⋅0.55 + 170 ⋅0.25 = 117.85
-EXPECTED VALUE OF A DISCRETE RANDOM VARIABLE
-If X takes outcomes x1, x2, ..., xn with probabilities P(x1), P(x2), ..., P(xn), the mean, or
-expected value, of X is the sum of each outcome multiplied by its corresponding probability:
-µX = E(X) =
-n
-∑
-i=1
-xi ⋅P(xi)
-= x1 ⋅P(x1) + x2 ⋅P(x2) + ⋯+ xn ⋅P(xn)
-The expected value for a random variable represents the average outcome. For example, E(X) =
-117.85 represents the average amount the bookstore expects to make across all students, which we
-could also write as µ = 117.85. While the bookstore will make more than this on some students and
-less than this on other students, in the long run, the average will be $117.85.
+| 類型 | 精裝本 (Hardcover) | 平裝本 (Paperback) | 總計 |
+| :--- | :--- | :--- | :--- |
+| 虛構類 (Fiction) | 13 | 59 | 72 |
+| 非虛構類 (Nonfiction) | 15 | 8 | 23 |
+| **總計** | **28** | **67** | **95** |
 
+(a) 當採取「抽出後不放回」的方式時，先抽出一本精裝書，然後再抽出一本平裝虛構類書籍的機率是多少？
+(b) 當採取「抽出後不放回」的方式時，先抽出一本虛構類書籍，然後再抽出一本精裝書的機率是多少？
+(c) 計算與 (b) 相同情境的機率，但這次在隨機抽出第二本書之前，先將第一本書放回書架上。
+(d) (b) 和 (c) 部分的最終答案非常相似。請解釋為什麼會這樣。
 
-140
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-INTERPRETING THE MEAN OR EXPECTED VALUE OF A RANDOM VARIABLE
-The mean or expected value of a random variable can be interpreted as the long-run average
-outcome of the random variable.
-In physics, the expectation holds the same meaning as the center of gravity. The distribution
-can be represented by a series of weights at each outcome, and the mean represents the balancing
-point. This is represented in Figures 2.26 and 2.28. The idea of a center of gravity also expands
-to continuous probability distributions.
-Figure 2.29 shows a continuous probability distribution
-balanced atop a wedge placed at the mean.
-0
-137
-170
-117.85
-Figure 2.28: A weight system representing the probability distribution for X. The
-string holds the distribution at the mean to keep the system balanced.
-µ
-Figure 2.29: A continuous distribution can also be balanced at its mean.
+**2.23 絕對不是紅斑性狼瘡 (It's never lupus)**
+紅斑性狼瘡 (Lupus) 是一種醫學現象，原本應該攻擊外來細胞以預防感染的抗體，反而將血漿蛋白視為外來物，導致高血栓風險。據信有 2% 的人口患有這種疾病。如果一個人確實患有該病，檢測的準確率為 98%。如果一個人沒有患該病，檢測的準確率為 74%。在福斯電視台的影集《怪醫豪斯》(House) 中，當病人紅斑性狼瘡檢測呈陽性時，常會有一句台詞：「絕對不是紅斑性狼瘡。」你認為這句話有道理嗎？請使用適當的機率來支持你的答案。
 
+**2.24 血栓症的易感性 (Predisposition for thrombosis)**
+基因檢測被用來確定人們是否有血栓症的易感性，血栓症是指血管內形成血塊，阻礙血液在循環系統中的流動。據信有 3% 的人實際上有這種易感性。如果一個人實際上有這種易感性，基因檢測的準確率為 99%，這意味著當一個人實際上有易感性時，檢測結果呈陽性的機率是 0.99。如果一個人沒有這種易感性，檢測的準確率為 98%。請問一個隨機選擇且檢測結果呈陽性的人，實際上確實擁有這種易感性的機率是多少？
 
-### 2.4. DISCRETE RANDOM VARIABLES
-141
-2.4.4
-Variability in random variables
-Suppose you ran the university bookstore. Besides how much revenue you expect to generate,
-you might also want to know the volatility (variability) in your revenue.
-The variance and standard deviation can be used to describe the variability of a random variable.
-Section 1.4.2 introduced a method for finding the variance and standard deviation for a data set. We
-first computed deviations from the mean (xi -µ), squared those deviations, and took an average to
-get the variance. In the case of a random variable, we again compute squared deviations. However,
-we take their sum weighted by their corresponding probabilities, just like we did for the expectation.
-This weighted sum of squared deviations equals the variance, and we calculate the standard deviation
-by taking the square root of the variance, just as we did in Section 1.4.2.
-VARIANCE AND STANDARD DEVIATION OF A DISCRETE RANDOM VARIABLE
-If X takes outcomes x1, x2, ..., xn with probabilities P(x1), P(x2), ..., P(xn) and expected
-value µX = E(X), then to find the standard deviation of X, we first find the variance and then
-take its square root.
-V ar(X) = σ2
-X =
-n
-∑
-i=1
-(xi -µX)2 ⋅P(xi)
-= (x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
-SD(X) = σX =
-¿
-Á
-Á
-À
-n
-∑
-i=1
-(xi -µX)2 ⋅P(xi)
-=
-√
-(x1 -µX)2 ⋅P(x1) + (x2 -µX)2 ⋅P(x2) + ⋯+ (xn -µX)2 ⋅P(xn)
-EXAMPLE 2.63
-Compute the expected value, variance, and standard deviation of X, the revenue of a single statistics
-student for the bookstore.
-It is useful to construct a table that holds computations for each outcome separately, then add up
-the results.
-i
-1
-2
-3
-Total
-xi
-$0
-$137
-$170
-P(xi)
-0.20
-0.55
-0.25
-xi ⋅P(xi)
-0
-75.35
-42.50
-117.85
-Thus, the expected value is µX = $117.85, which we computed earlier. The variance can be con-
-structed using a similar table:
-i
-1
-2
-3
-Total
-xi
-$0
-$137
-$170
-P(xi)
-0.20
-0.55
-0.25
-xi -µX
--117.85
-19.15
-52.15
-(xi -µX)2
-13888.62
-366.72
-2719.62
-(xi -µX)2 ⋅P(xi)
-2777.7
-201.7
-679.9
-3659.3
-The variance of X is σ2
-X = 3659.3, which means the standard deviation is σX =
-√
-3659.3 = $60.49.
-The standard deviation of X, the revenue of a statistics student for the bookstore, is $60.49.
-We interpret this by saying that the typical deviation of revenue of a statistics student from the
-mean revenue of $117.85 over the long run is $60.49.
+---
 
+### 2.4 離散型隨機變數 (Discrete random variables)
 
-142
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-INTERPRETING THE STANDARD DEVIATION OF A RANDOM VARIABLE
-The standard deviation of a random variable can be interpreted as the typical deviation of the
-values of a random variable from the mean value of the random variable over the long-run.
-GUIDED PRACTICE 2.64
-The bookstore also oﬀers a chemistry textbook for $159 and a book supplement for $41. From past
-experience, they know about 25% of chemistry students just buy the textbook while 60% buy both
-the textbook and supplement.47
-(a) What proportion of students don't buy either book? Assume no students buy the supplement
-without the textbook.
-(b) Let Y represent the revenue from a single student. Write out the probability distribution of
-Y , i.e. a table for each outcome and its associated probability.
-(c) Compute the expected revenue from a single chemistry student.
-(d) Find the standard deviation to describe the variability associated with the revenue from a
-single student.
-(e) Interpret the mean and the standard deviation in the context of the problem.
-47(a) 100% - 25% - 60% = 15% of students do not buy any books for the class.
-(b) is represented by the first three lines in the table below.
-(c) is given as the total on the line yi ⋅P(yi), which is $159.75.
-(d) is the square-root of the variance listed on in the total on the last line: σY =
-√
-V ar(Y ) =
-√
-4800 = 69.28.
-i (scenario)
-1 (noBook)
-2 (textbook)
-3 (both)
-Total
-yi
-0.00
-159.00
-200.00
-P(yi)
-0.15
-0.25
-0.60
-yi ⋅P(yi)
-0.00
-39.75
-120.00
-E(Y ) = 159.75
-yi -µY
--159.75
--0.75
-40.25
-(yi -µY)2
-25520.06
-0.56
-1620.06
-(yi -µY)2 ⋅P(yi)
-3828.0
-0.1
-972.0
-V ar(Y ) ≈4800
-(e) In the long run, the average revenue from a chemistry student is $159.75 and the typical deviation in that revenue
-from the mean of $159.75 is $69.28.
+我們可以將某所特定大學的學生購買教科書的數量視為一個隨機變數。這個分配看起來是什麼樣子？我們如何計算預期購買的教科書數量，以及該數量的典型變異 (typical variation)？如果我們知道每本教科書的平均成本，我們如何計算這所大學的學生預期會花在教科書上的金額，以及該金額的典型變異？在本節中，我們將定義並總結像這樣的隨機變數，並探討它們的一些屬性。
 
+**學習目標 (Learning objectives)**
+1. 建構離散型隨機變數的機率分配 (probability distribution)。
+2. 計算離散型隨機變數的平均數 (mean) 與標準差 (standard deviation)。
+3. 解釋離散型隨機變數的平均數與標準差的意義。
 
+#### 2.4.1 機率分配 (Probability distributions)
+
+擲兩顆骰子總和會因每次擲骰而有所不同。我們稱這類變數或過程為**隨機變數 (random variable)**，並且通常用大寫字母（如 $X, Y$ 或 $Z$）來表示。
+
+::: {.concept-box title="概念：隨機變數 (Random Variable)"}
+具有數值結果的隨機過程或變數。
+:::
+
+離散型隨機變數的機率分配顯示了與隨機變數的每個可能數值相關聯的機率。下表顯示了擲兩顆骰子總和的機率分配。
+
+| 骰子總和 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **機率** | $\frac{1}{36}$ | $\frac{2}{36}$ | $\frac{3}{36}$ | $\frac{4}{36}$ | $\frac{5}{36}$ | $\frac{6}{36}$ | $\frac{5}{36}$ | $\frac{4}{36}$ | $\frac{3}{36}$ | $\frac{2}{36}$ | $\frac{1}{36}$ |
+
+為了讓分配代表一個有效的機率分配，它必須滿足某些規則。
+
+::: {.concept-box title="概念：機率分配的規則 (Rules for Probability Distributions)"}
+機率分配是包含所有可能結果及其對應機率的列表，且必須滿足以下三個規則：
+1. 列出的結果必須是**互斥的 (disjoint)**。
+2. 每個機率必須介於 0 和 1 之間。
+3. 所有機率的總和必須為 1。
+:::
+
+**範例 2.57**
+根據上述的機率分配表，擲出骰子總和**大於 10** 的機率是多少？
+大於 10 代表結果是 11 或 12。因此，骰子總和大於 10 的機率為：
+$$ \frac{2}{36} + \frac{1}{36} = \frac{3}{36} $$
+
+我們常常會想知道獲得「小於或等於」某個特定值的機率。在這種情況下，可以使用**累積機率分配 (cumulative probability distribution)**。我們不記錄每個數值的個別機率，而是記錄小於或等於每個數值的機率，如下表所示：
+
+| 骰子總和 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **累積機率 ($\leq$ 骰子總和)** | $\frac{1}{36}$ | $\frac{3}{36}$ | $\frac{6}{36}$ | $\frac{10}{36}$ | $\frac{15}{36}$ | $\frac{21}{36}$ | $\frac{26}{36}$ | $\frac{30}{36}$ | $\frac{33}{36}$ | $\frac{35}{36}$ | $\frac{36}{36}$ |
+
+**範例 2.58**
+根據上述累積機率分配表，擲出骰子總和**小於或等於 4** 的機率是多少？**大於 4** 的機率呢？
+由於這是一個累積分配，我們不需要將個別項目相加。小於或等於 4 的機率可直接從累積分配表中得到，為 $\frac{6}{36}$。大於 4 是小於或等於 4 的餘事件 (complement)，因此骰子總和大於 4 的機率為 $1 - \frac{6}{36} = \frac{30}{36}$。
+
+第一章強調了繪製數據圖表以提供快速摘要的重要性。機率分配也可以用直方圖 (histogram) 或長條圖 (bar plot) 來總結。在這些圖表中，柱子的高度代表結果的機率。如果結果是數值且是離散的，通常（視覺上）最方便的做法是繪製直方圖，如同擲兩顆骰子總和的情況。
+
+#### 2.4.2 期望值簡介 (Introduction to expectation)
+
+**範例 2.59**
+某門統計學課程指定了兩本書：一本教科書和一本對應的學習指南。大學書店確定，有 20% 的註冊學生兩本書都不買，55% 只買教科書，而 25% 兩本書都買，且這些百分比在不同學期之間相對穩定。如果有 100 名學生註冊，書店預期能賣出多少本書給這個班級？
+
+大約有 20 名學生不買任何書（總共 0 本），約 55 人買一本書（總共 55 本），而約 25 人買兩本書（這 25 名學生總共買 50 本）。書店預期能為這個班級賣出約 105 本書。
+
+::: {.callout-tip title="引導練習 2.60" collapse="true"}
+**問題：** 如果書店實際賣出的書稍微多於或少於 105 本，你會感到驚訝嗎？
+**解答：** 如果他們賣出的稍微多一點或少一點，這不應該令人驚訝。觀察數據中存在自然變異性是正常的現象。例如，如果我們擲硬幣 100 次，通常不會精準地出現 50 次正面，但結果應該會很接近。
+:::
+
+**範例 2.61**
+教科書價格為 137 美元，學習指南為 33 美元。書店預期從這個有 100 名學生的班級中獲得多少收入？
+
+大約 55 名學生只買教科書，提供收入：
+$$ \$137 \times 55 = \$7,535 $$
+大約 25 名同時買教科書和學習指南的學生將支付總共：
+$$ (\$137 + \$33) \times 25 = \$170 \times 25 = \$4,250 $$
+因此，書店預期從這個班級的 100 名學生中獲得約 $\$7,535 + \$4,250 = \$11,785$ 的收入。然而，可能存在一些抽樣變異性，因此實際金額可能會略有不同。
+
+**範例 2.62**
+這門課程每位學生的平均收入是多少？
+預期的總收入是 11,785 美元，共有 100 名學生。因此，每位學生的預期收入是 $\$11,785 / 100 = \$117.85$。
+
+#### 2.4.3 期望值 (Expected value)
+
+單一學生在這門統計學課程書籍上花費的金額是一個隨機變數，我們用 $X$ 表示。$X$ 的可能結果用對應的小寫字母 $x$ 和下標來標記。例如，我們寫 $x_1 = \$0, x_2 = \$137, x_3 = \$170$，其發生的機率分別為 0.20、0.55 和 0.25。$X$ 的分配總結如下表。
+
+| $i$ | $x_i$ | $P(x_i)$ |
+| :---: | :---: | :---: |
+| 1 | $0 | 0.20 |
+| 2 | $137 | 0.55 |
+| 3 | $170 | 0.25 |
+| **總計** | - | **1.00** |
+
+我們使用 $P(x_i)$ 來表示 $x_i$ 發生的機率。在範例 2.62 中，我們計算了 $X$ 的平均結果為 \$117.85。我們將此平均值稱為 $X$ 的**期望值 (expected value)**，記為 $E(X)$。隨機變數的期望值是透過將每個結果乘以其對應的機率（作為權重）然後相加來計算的：
+$$ E(X) = 0 \cdot P(0) + 137 \cdot P(137) + 170 \cdot P(170) $$
+$$ = 0 \cdot 0.20 + 137 \cdot 0.55 + 170 \cdot 0.25 = 117.85 $$
+
+::: {.concept-box title="概念：離散型隨機變數的期望值 (Expected Value)"}
+如果 $X$ 包含結果 $x_1, x_2, ..., x_n$ 以及其對應機率 $P(x_1), P(x_2), ..., P(x_n)$，則 $X$ 的平均數 (mean) 或期望值 (expected value) 是每個結果乘以其對應機率的總和：
+$$ \mu_X = E(X) = \sum_{i=1}^{n} x_i \cdot P(x_i) = x_1 \cdot P(x_1) + x_2 \cdot P(x_2) + \dots + x_n \cdot P(x_n) $$
+:::
+
+隨機變數的期望值代表平均結果。例如，$E(X) = 117.85$ 代表書店預期從所有學生身上賺取的平均金額，我們也可以寫成 $\mu = 117.85$。雖然書店在某些學生身上賺取的金額會多於此數，而在其他學生身上則會少於此數，但在長期下來，平均值將會是 117.85 美元。
+
+::: {.concept-box title="概念：解釋隨機變數的平均數或期望值"}
+隨機變數的平均數或期望值可以解釋為該隨機變數在**長期下的平均結果** (long-run average outcome)。
+:::
+
+在物理學中，期望值的意義與**重心 (center of gravity)** 相同。機率分配可以表示為每個結果上的一系列權重，而平均數代表平衡點。重心的概念也延伸到連續型機率分配 (continuous probability distributions)。連續分配也可以在其平均數處保持平衡。
+
+#### 2.4.4 隨機變數的變異性 (Variability in random variables)
+
+假設你經營這家大學書店。除了你預期能產生多少收入外，你可能還想知道收入的波動性（變異性）。
+
+變異數 (variance) 和標準差 (standard deviation) 可用來描述隨機變數的變異性。第 1 章介紹了計算資料集變異數和標準差的方法。我們首先計算偏離平均數的偏差 $(x_i - \mu)$，將這些偏差平方，然後取平均以得到變異數。在隨機變數的情況下，我們同樣計算平方偏差。不過，我們會將它們的總和根據其對應的機率進行加權，就像我們計算期望值時所做的一樣。這個加權平方偏差的總和就等於變異數，我們藉由將變異數開平方根來計算標準差。
+
+::: {.concept-box title="概念：離散型隨機變數的變異數與標準差 (Variance and Standard Deviation)"}
+如果 $X$ 包含結果 $x_1, x_2, ..., x_n$ 以及其對應機率 $P(x_1), P(x_2), ..., P(x_n)$ 且期望值為 $\mu_X = E(X)$，那麼為了找到 $X$ 的標準差，我們首先找到變異數，然後將其開平方根：
+
+**變異數 (Variance):**
+$$ Var(X) = \sigma_X^2 = \sum_{i=1}^{n} (x_i - \mu_X)^2 \cdot P(x_i) $$
+$$ = (x_1 - \mu_X)^2 \cdot P(x_1) + (x_2 - \mu_X)^2 \cdot P(x_2) + \dots + (x_n - \mu_X)^2 \cdot P(x_n) $$
+
+**標準差 (Standard Deviation):**
+$$ SD(X) = \sigma_X = \sqrt{\sum_{i=1}^{n} (x_i - \mu_X)^2 \cdot P(x_i)} $$
+$$ = \sqrt{(x_1 - \mu_X)^2 \cdot P(x_1) + (x_2 - \mu_X)^2 \cdot P(x_2) + \dots + (x_n - \mu_X)^2 \cdot P(x_n)} $$
+:::
+
+**範例 2.63**
+計算書店中單一統計學學生收入 $X$ 的期望值、變異數和標準差。
+
+建構一個表格來分開計算每個結果，然後將結果加總是非常有用的。
+
+| $i$ | $x_i$ | $P(x_i)$ | $x_i \cdot P(x_i)$ |
+| :---: | :---: | :---: | :---: |
+| 1 | $0 | 0.20 | 0 |
+| 2 | $137 | 0.55 | 75.35 |
+| 3 | $170 | 0.25 | 42.50 |
+| **總計** | | | **117.85** |
+
+因此，期望值為 $\mu_X = \$117.85$，我們之前已經計算過。變異數也可以使用類似的表格來建構：
+
+| $i$ | $x_i$ | $P(x_i)$ | $x_i - \mu_X$ | $(x_i - \mu_X)^2$ | $(x_i - \mu_X)^2 \cdot P(x_i)$ |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | $0 | 0.20 | -117.85 | 13888.62 | 2777.7 |
+| 2 | $137 | 0.55 | 19.15 | 366.72 | 201.7 |
+| 3 | $170 | 0.25 | 52.15 | 2719.62 | 679.9 |
+| **總計** | | | | | **3659.3** |
+
+$X$ 的變異數為 $\sigma_X^2 = 3659.3$，這意味著標準差為 $\sigma_X = \sqrt{3659.3} = \$60.49$。
+書店的統計學學生收入 $X$ 的標準差為 60.49 美元。
+我們的解釋是：在長期下，統計學學生的收入與平均收入 \$117.85 之間的**典型偏差 (typical deviation)** 是 \$60.49。
+
+::: {.concept-box title="概念：解釋隨機變數的標準差"}
+隨機變數的標準差可以解釋為：在長期下，該隨機變數的數值與其平均數之間的**典型差異 (typical deviation)**。
+:::
+
+::: {.callout-tip title="引導練習 2.64" collapse="true"}
+書店也提供一本 159 美元的化學教科書和一本 41 美元的補充教材。根據過去的經驗，他們知道大約 25% 的化學學生只買教科書，而 60% 既買教科書也買補充教材。
+(a) 有多少比例的學生兩本書都不買？假設沒有學生只買補充教材而不買教科書。
+(b) 讓 $Y$ 代表單一學生的收入。寫出 $Y$ 的機率分配，即每個結果及其相關機率的表格。
+(c) 計算單一化學學生的預期收入。
+(d) 找出描述單一學生收入相關變異性的標準差。
+(e) 在問題的情境下，解釋平均數和標準差的意義。
+
+**解答：**
+(a) $100\% - 25\% - 60\% = 15\%$ 的學生不買這門課的任何書。
+(b), (c), (d) 的計算過程如下表所示：
+
+| 情境 ($i$) | $y_i$ | $P(y_i)$ | $y_i \cdot P(y_i)$ | $y_i - \mu_Y$ | $(y_i - \mu_Y)^2$ | $(y_i - \mu_Y)^2 \cdot P(y_i)$ |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 (都不買) | $0.00 | 0.15 | 0.00 | -159.75 | 25520.06 | 3828.0 |
+| 2 (教科書) | $159.00 | 0.25 | 39.75 | -0.75 | 0.56 | 0.1 |
+| 3 (兩者皆買) | $200.00 | 0.60 | 120.00 | 40.25 | 1620.06 | 972.0 |
+| **總計** | | | **$E(Y) = 159.75$** | | | **$Var(Y) \approx 4800$** |
+
+(d) 標準差是變異數的平方根：$\sigma_Y = \sqrt{Var(Y)} = \sqrt{4800} \approx 69.28$。
+(e) 在長期下，化學學生的平均收入為 \$159.75，且該收入與平均數 \$159.75 之間的典型偏差約為 \$69.28。
+:::

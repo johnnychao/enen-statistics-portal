@@ -1,509 +1,331 @@
 ---
-title: "2.2 Probability basics"
+title: "2.2 機率基礎 (Probability basics)"
 ---
 
-104
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.3
-Side effects of Avandia, Part I. Rosiglitazone is the active ingredient in the controversial type 2
-diabetes medicine Avandia and has been linked to an increased risk of serious cardiovascular problems such
-as stroke, heart failure, and death. A common alternative treatment is pioglitazone, the active ingredient
-in a diabetes medicine called Actos. In a nationwide retrospective observational study of 227,571 Medicare
-beneficiaries aged 65 years or older, it was found that 2,593 of the 67,593 patients using rosiglitazone and
-5,386 of the 159,978 using pioglitazone had serious cardiovascular problems. These data are summarized in
-the contingency table below.5
-Cardiovascular problems
-Yes
-No
-Total
-Treatment
-Rosiglitazone
-2,593
-65,000
-67,593
-Pioglitazone
-5,386
-154,592
-159,978
-Total
-7,979
-219,592
-227,571
-Determine if each of the following statements is true or false. If false, explain why. Be careful: The reasoning
-may be wrong even if the statement's conclusion is correct. In such cases, the statement should be considered
-false.
-(a) Since more patients on pioglitazone had cardiovascular problems (5,386 vs. 2,593), we can conclude that
-the rate of cardiovascular problems for those on a pioglitazone treatment is higher.
-(b) The data suggest that diabetic patients who are taking rosiglitazone are more likely to have cardio-
-vascular problems since the rate of incidence was (2,593 / 67,593 = 0.038) 3.8% for patients on this
-treatment, while it was only (5,386 / 159,978 = 0.034) 3.4% for patients on pioglitazone.
-(c) The fact that the rate of incidence is higher for the rosiglitazone group proves that rosiglitazone causes
-serious cardiovascular problems.
-(d) Based on the information provided so far, we cannot tell if the diﬀerence between the rates of incidences
-is due to a relationship between the two variables or due to chance.
-2.4
-Views on immigration. 910 randomly sampled registered voters from Tampa, FL were asked if they
-thought undocumented workers in the US should be (i) allowed to keep their jobs and apply for US citizenship,
-(ii) allowed to keep their jobs as temporary guest workers but not allowed to apply for US citizenship, or
-(iii) lose their jobs and have to leave the country. The results of the survey by political ideology are shown
-below.6
-Political ideology
-Conservative
-Moderate
-Liberal
-Total
-(i) Apply for citizenship
-57
-120
-101
-278
-(ii) Guest worker
-121
-113
-28
-262
-Response
-(iii) Leave the country
-179
-126
-45
-350
-(iv) Not sure
-15
-4
-1
-20
-Total
-372
-363
-175
-910
-(a) What percent of these Tampa, FL voters identify themselves as conservatives?
-(b) What percent of these Tampa, FL voters are in favor of the citizenship option?
-(c) What percent of these Tampa, FL voters identify themselves as conservatives and are in favor of the
-citizenship option?
-(d) What percent of these Tampa, FL voters who identify themselves as conservatives are also in favor of
-the citizenship option? What percent of moderates share this view? What percent of liberals share this
-view?
-(e) Do political ideology and views on immigration appear to be independent? Explain your reasoning.
-5D.J. Graham et al. "Risk of acute myocardial infarction, stroke, heart failure, and death in elderly Medicare
-patients treated with rosiglitazone or pioglitazone". In: JAMA 304.4 (2010), p. 411. issn: 0098-7484.
-6SurveyUSA, News Poll #18927, data collected Jan 27-29, 2012.
+**2.3 Avandia 的副作用，第一部分 (Side effects of Avandia, Part I.)**
+羅格列酮 (Rosiglitazone) 是具爭議性的第2型糖尿病藥物 Avandia（梵帝雅）的活性成分，已被證實與中風、心臟衰竭和死亡等嚴重心血管問題的風險增加有關。常見的替代療法是吡格列酮 (pioglitazone)，這是另一種名為 Actos（愛妥糖）的糖尿病藥物的活性成分。在一項針對 227,571 名 65 歲以上 Medicare 受益人的全國性回顧性觀察研究 (observational study) 中發現，67,593 名使用羅格列酮的患者中有 2,593 人，以及 159,978 名使用吡格列酮的患者中有 5,386 人，出現嚴重的心血管問題。這些數據總結在下方的列聯表 (contingency table) 中。
 
+| 治療方式 (Treatment) | 心血管問題：有 (Yes) | 心血管問題：無 (No) | 總計 (Total) |
+|---|---|---|---|
+| **羅格列酮 (Rosiglitazone)** | 2,593 | 65,000 | 67,593 |
+| **吡格列酮 (Pioglitazone)** | 5,386 | 154,592 | 159,978 |
+| **總計 (Total)** | 7,979 | 219,592 | 227,571 |
 
-### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
-105
-2.5
-Heart transplant data display. The Stanford University Heart Transplant Study was conducted to
-determine whether an experimental heart transplant program increased lifespan. Each patient entering the
-program was oﬃcially designated a heart transplant candidate, meaning that they were gravely ill and might
-benefit from a new heart. Patients were randomly assigned into treatment and control groups. Patients in
-the treatment group received a transplant, and those in the control group did not. The visualizations below
-display two diﬀerent versions of the study results.7
-(a) Provide one aspect of the two group comparison that is easier to see from the stacked bar plot (left)?
-(b) Provide one aspect of the two group comparison that is easier to see from the standardized bar plot
-(right)?
-(c) For the Heart Transplant Study which of those aspects would be more important to display? That is,
-which bar plot would be better as a data visualization?
-2.6
-Shipping holiday gifts data display. A local news survey asked 500 randomly sampled Los Angeles
-residents which shipping carrier they prefer to use for shipping holiday gifts. The bar plots below show the
-distribution of responses by age group as well as distribution of responses by shipping method.
-(a) Which graph (top or bottom) would you use to understand the shipping choices of people of diﬀerent
-ages? Explain.
-(b) Which graph (top or bottom) would you use to understand the age distribution across diﬀerent types
-of shipping choices? Explain.
-(c) A new shipping company would like to market to people over the age of 55. Who will be their biggest
-competitor? Explain.
-(d) FedEx would like to reach out to grow their market share so as to balance the age demographics of
-FedEx users. To what age group should FedEx market?
-7B. Turnbull et al. "Survivorship of Heart Transplant Data". In: Journal of the American Statistical Association
-69 (1974), pp. 74-80.
+判斷以下各項敘述是否正確。若為錯誤，請解釋原因。請注意：即使敘述的結論正確，其推論過程也可能是錯的。在這種情況下，該敘述應視為錯誤。
 
+(a) 因為使用吡格列酮出現心血管問題的患者較多（5,386 人對 2,593 人），我們可以結論出接受吡格列酮治療的患者發生心血管問題的比率較高。
+(b) 數據顯示，服用羅格列酮的糖尿病患者更可能出現心血管問題，因為該治療組的發生率為 3.8% (2,593 / 67,593 = 0.038)，而吡格列酮組僅為 3.4% (5,386 / 159,978 = 0.034)。
+(c) 羅格列酮組發生率較高的事實證明 (proves) 羅格列酮會導致嚴重的心血管問題。
+(d) 根據目前提供的資訊，我們無法確定發生率之間的差異是因為這兩個變數之間存在關聯 (relationship)，還是純粹出於隨機機率 (chance)。
 
-106
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.2
-Probability basics
-What is the probability of rolling an even number on a die? Of getting 5 heads in row when tossing
-a coin? Of drawing a Heart or an Ace from a deck of cards? The study of probability is fun and
-interesting in its own right, but it also forms the foundation for statistical models and inferential
-procedures, many of which we will investigate in upcoming chapters.
-Learning objectives
-1. Estimate probabilities using simulations.
-2. Calculate probabilities for events and their complements.
-3. Justify why two events are mutually exclusive (or disjoint) using joint probability.
-4. Calculate probabilities for independent events.
-2.2.1
-Introductory examples
-EXAMPLE 2.6
-A "die", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the
-chance of getting 1 when rolling a die?
-If the die is fair, then the chance of a 1 is as good as the chance of any other number. Since there
-are six outcomes, the chance must be 1-in-6 or, equivalently, 1/6.
-EXAMPLE 2.7
-What is the chance of getting a 1 or 2 in the next roll?
-1 and 2 constitute two of the six equally likely possible outcomes, so the chance of getting one of
-these two outcomes must be 2/6 = 1/3.
-EXAMPLE 2.8
-What is the chance of getting either 1, 2, 3, 4, 5, or 6 on the next roll?
-100%. The outcome must be one of these numbers.
-EXAMPLE 2.9
-What is the chance of not rolling a 2?
-Since the chance of rolling a 2 is 1/6 or 16.¯6%, the chance of not rolling a 2 must be 100% -16.¯6% =
-83.¯3% or 5/6.
-Alternatively, we could have noticed that not rolling a 2 is the same as getting a 1, 3, 4, 5, or 6,
-which makes up five of the six equally likely outcomes and has probability 5/6.
+**2.4 移民觀點 (Views on immigration.)**
+對佛羅里達州坦帕市 910 名隨機抽樣 (randomly sampled) 的登記選民進行調查，詢問他們認為美國的無證工人應該 (i) 獲准保住工作並申請美國公民身分，(ii) 獲准作為臨時客工保住工作，但不允許申請美國公民身分，還是 (iii) 失去工作並必須離開該國。按政治意識形態分類的調查結果如下所示。
 
+| 回應 | 保守派 (Conservative) | 溫和派 (Moderate) | 自由派 (Liberal) | 總計 (Total) |
+|---|---|---|---|---|
+| **(i) 申請公民身分** | 57 | 120 | 101 | 278 |
+| **(ii) 客工** | 121 | 113 | 28 | 262 |
+| **(iii) 離開該國** | 179 | 126 | 45 | 350 |
+| **(iv) 不確定** | 15 | 4 | 1 | 20 |
+| **總計 (Total)** | 372 | 363 | 175 | 910 |
 
-### 2.2. PROBABILITY BASICS
-107
-EXAMPLE 2.10
-Consider rolling two dice. If 1/6th of the time the first die is a 1 and 1/6th of those times the second
-die is a 1, what is the chance of getting two 1s?
-If 16.¯6% of the time the first die is a 1 and 1/6th of those times the second die is also a 1, then the
-chance that both dice are 1 is (1/6) × (1/6) or 1/36.
-2.2.2
-Estimating probabilities using simulation
-We use probability to build tools to describe and understand apparent randomness. We often
-frame probability in terms of a random process giving rise to an outcome. A random process
-generates results that are determined by chance. An outcome is the result of one trial of a random
-process.
-Roll a die
-→
-1, 2, 3, 4, 5, or 6
-Flip a coin
-→
-H or T
-Rolling a die or flipping a coin is a seemingly random process and each gives rise to an outcome.
-PROBABILITY
-The probability of an outcome is the proportion of times the outcome would occur if we
-observed the random process an infinite number of times.
-Probability is defined as a proportion, and it always takes values between 0 and 1 (inclusively).
-It may also be displayed as a percentage between 0% and 100%.
-An event is a collection of outcomes. Probability can be illustrated by rolling a die many times.
-Consider the event "roll a 1". We can use a simulation to model this event and to estimate the
-likelihood of the event by calculating the relative frequency of the event. The relative frequency
-of an event is the proportion of times the event occurs out of the number of trials. Let ˆpn be the
-proportion of outcomes that are 1 after the first n rolls. As the number of rolls increases, ˆpn (the
-relative frequency of rolls) will converge to the probability of rolling a 1, p = 1/6. Figure 2.9 shows
-this convergence for 100,000 die rolls. The tendency of ˆpn to stabilize around p, that is, the tendency
-of the relative frequency to stabilize around the true probability, is described by the Law of Large
-Numbers.
-n (number of rolls)
-1
-10
-100
-1,000
-10,000
-100,000
-0.00
-0.05
-0.10
-0.15
-0.20
-0.25
-0.30
-p^
-n
-Figure 2.9: The fraction of die rolls that are 1 at each stage in a simulation. The
-relative frequency tends to get closer to the probability 1/6 ≈0.167 as the number
-of rolls increases.
+(a) 坦帕市這些選民中有百分之多少自認為是保守派？
+(b) 坦帕市這些選民中有百分之多少支持申請公民身分的選項？
+(c) 坦帕市這些選民中有百分之多少自認為是保守派並且支持申請公民身分的選項？
+(d) 在自認為是保守派的坦帕市選民中，有百分之多少也支持申請公民身分的選項？溫和派中有百分之多少有此看法？自由派中又有百分之多少有此看法？
+(e) 政治意識形態與對移民的觀點看起來是獨立的 (independent) 嗎？請解釋你的推論。
 
+### 2.1 兩個類別變數之間的關聯 (Relationships between two categorical variables)
 
-108
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-LAW OF LARGE NUMBERS
-The law of large numbers states that for independent trials, as the number of trials increases,
-the long-run relative frequency of the outcome or event gets closer and closer to a single value.
-Occasionally the proportion will veer oﬀfrom the probability and appear to defy the Law of
-Large Numbers, as ˆpn does many times in Figure 2.9. However, these deviations become smaller as
-the number of rolls increases.
-Above we write p as the probability of rolling a 1. We can also write this probability as
-P(rolling a 1)
-As we become more comfortable with this notation, we will abbreviate it further. For instance,
-if it is clear that the process is "rolling a die", we could abbreviate P(rolling a 1) as P(1).
-GUIDED PRACTICE 2.11
-Random processes include rolling a die and flipping a coin. (a) Think of another random process.
-(b) Describe all the possible outcomes of that process. For instance, rolling a die is a random process
-with potential outcomes 1, 2, ..., 6. 8
-What we think of as random processes are not necessarily random, but they may just be too
-diﬃcult to understand exactly. The fourth example in the footnote solution to Guided Practice 2.11
-suggests a roommate's behavior is a random process. However, even if a roommate's behavior is not
-truly random, modeling her behavior as a random process can still be useful.
-MODELING A PROCESS AS RANDOM
-It can be helpful to model a process as random even if it is not truly random.
-2.2.3
-Sample space and complement of an event
-Rolling a die produces a value in the set {1, 2, 3, 4, 5, 6}. This set of all possible outcomes is
-called the sample space (S) for rolling a die. The probability of the sample space is 1: if we roll
-a die, it will come up as one of the numbers among 1, 2, 3, 4, 5, or 6. Additionally, the probability
-of any event is always between 0 and 1, inclusive.
-We can say that the probability of rolling an even number when rolling a die is 3/6 = 1/2,
-because there are three possible outcomes that are even (2, 4, 6) among the six possible outcomes
-and each of the outcomes in the sample space is equally likely.
-More generally, if all outcomes
-in the sample space are equally likely, then the theoretical probability an event E will occur can
-be found by dividing the number of outcomes in event E by the total number of outcomes in the
-sample space. Probability calculations tend to be more straightforward when each possible outcome
-is equally likely. However, this is often not the case. For example, while someone playing the lottery
-can either win or not win, the chance of winning is not 50%!
-8Here are four examples. (i) Whether someone gets sick in the next month or not is an apparently random process
-with outcomes sick and not. (ii) We can generate a random process by randomly picking a person and measuring
-that person's height. The outcome of this process will be a positive number. (iii) Whether the stock market goes up
-or down next week is a seemingly random process with possible outcomes up, down, and no change. Alternatively, we
-could have used the percent change in the stock market as a numerical outcome. (iv) Whether your roommate cleans
-her dishes tonight probably seems like a random process with possible outcomes cleans dishes and leaves dishes.
+**2.5 心臟移植數據展示 (Heart transplant data display.)**
+史丹佛大學心臟移植研究旨在確定一項實驗性心臟移植計畫是否能延長壽命。進入該計畫的每位患者都被正式指定為心臟移植候選人，這意味著他們病重且可能從新心臟中獲益。患者被隨機分派 (randomly assigned) 到治療組和對照組。治療組的患者接受了移植，而對照組的患者則沒有。下方的視覺化圖表展示了該研究結果的兩種不同版本。
 
+(a) 堆疊長條圖 (stacked bar plot)（左）更容易看出兩組比較的哪個方面？
+(b) 標準化長條圖 (standardized bar plot)（右）更容易看出兩組比較的哪個方面？
+(c) 對於心臟移植研究，展示上述哪個方面會更重要？也就是說，哪一種長條圖作為數據視覺化會更好？
 
-### 2.2. PROBABILITY BASICS
-109
-We often use the sample space to examine the scenario where an event does not occur. Let
-D = {2, 3} represent the event that the outcome of a die roll is 2 or 3. Then the complement
-represents all outcomes in our sample space that are not in D, which is denoted by Dc = {1, 4, 5,
-6}. That is, Dc is the set of all possible outcomes not already included in D. Figure 2.10 shows the
-relationship between D, Dc, and the sample space S.
-1
-4
-5
-6
-2
-3
-D
-DC
-S
-Figure 2.10: Event D = {2, 3} and its complement, Dc = {1, 4, 5, 6}. S represents
-the sample space, which is the set of all possible events.
-GUIDED PRACTICE 2.12
-(a) Compute P(Dc) = P(rolling a 1, 4, 5, or 6). (b) What is P(D) + P(Dc)?9
-GUIDED PRACTICE 2.13
-Events A = {1, 2} and B = {4, 6} are shown in Figure 2.11 on page 111. (a) Write out what Ac and
-Bc represent. (b) Compute P(Ac) and P(Bc). (c) Compute P(A) + P(Ac) and P(B) + P(Bc).10
-An event A together with its complement Ac comprise the entire sample space. Because of this
-we can say that P(A) + P(Ac) = 1.
-COMPLEMENT
-The complement of event A is denoted Ac, and Ac represents all outcomes not in A. A and Ac
-are mathematically related:
-P(A) + P(Ac) = 1,
-i.e.
-P(A) = 1 -P(Ac)
-In simple examples, computing A or Ac is feasible in a few steps. However, using the complement
-can save a lot of time as problems grow in complexity.
-GUIDED PRACTICE 2.14
-A die is rolled 10 times. (a) What is the complement of getting at least one 6 in 10 rolls of the die?
-(b) What is the complement of getting at most three 6's in 10 rolls of the die?11
-9(a) The outcomes are disjoint and each has probability 1/6, so the total probability is 4/6 = 2/3. (b) We can also
-see that P(D) = 1
-6 + 1
-6 = 1/3. Because D and Dc are disjoint, P(D) + P(Dc) = 1.
-10Brief solutions: (a) Ac = {3, 4, 5, 6} and Bc = {1, 2, 3, 5}. (b) Noting that each outcome is disjoint, add the
-individual outcome probabilities to get P(Ac) = 2/3 and P(Bc) = 2/3. (c) A and Ac are disjoint, and the same is true
-of B and Bc. Therefore, P(A) + P(Ac) = 1 and P(B) + P(Bc) = 1.
-11(a) The complement of getting at least one 6 in ten rolls of a die is getting zero 6's in the 10 rolls. (b) The
-complement of getting at most three 6's in 10 rolls is getting four, five, ..., nine, or ten 6's in 10 rolls.
+**2.6 寄送節日禮物數據展示 (Shipping holiday gifts data display.)**
+當地一項新聞調查詢問了 500 名隨機抽樣的洛杉磯居民，他們喜歡使用哪家快遞公司來寄送節日禮物。下方的長條圖顯示了按年齡組劃分的回應分佈，以及按寄送方式劃分的回應分佈。
 
+(a) 你會使用哪張圖（上或下）來了解不同年齡層人們的寄送選擇？請解釋。
+(b) 你會使用哪張圖（上或下）來了解各種不同寄送選擇的年齡分佈？請解釋。
+(c) 一家新的快遞公司想向 55 歲以上的人群行銷。誰將是他們最大的競爭對手？請解釋。
+(d) 聯邦快遞 (FedEx) 希望擴大其市場份額，以平衡其使用者的年齡層結構。FedEx 應該向哪個年齡組行銷？
 
-110
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-2.2.4
-Disjoint or mutually exclusive outcomes
-Two outcomes are called disjoint or mutually exclusive if they cannot both happen in the
-same trial. For instance, if we roll a die, the outcomes 1 and 2 are disjoint since they cannot both
-occur on a single roll. On the other hand, the outcomes 1 and "rolling an odd number" are not
-disjoint since both occur if the outcome of the roll is a 1. The terms disjoint and mutually exclusive
-are equivalent and interchangeable.
-Calculating the probability of disjoint outcomes is easy. When rolling a die, the outcomes 1
-and 2 are disjoint, and we compute the probability that one of these outcomes will occur by adding
-their separate probabilities:
-P(1 or 2) = P(1) + P(2) = 1/6 + 1/6 = 1/3
-What about the probability of rolling a 1, 2, 3, 4, 5, or 6? Here again, all of the outcomes are
-disjoint so we add the probabilities:
-P(1 or 2 or 3 or 4 or 5 or 6)
-= P(1) + P(2) + P(3) + P(4) + P(5) + P(6)
-= 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 1.
-The Addition Rule guarantees the accuracy of this approach when the outcomes are disjoint.
-ADDITION RULE OF DISJOINT OUTCOMES
-If A1 and A2 represent two disjoint outcomes, then the probability that one of them occurs is
-given by
-P(A1 or A2) = P(A1) + P(A2)
-If there are many disjoint outcomes A1, ..., Ak, then the probability that one of these outcomes
-will occur is
-P(A1) + P(A2) + ⋯+ P(Ak)
-GUIDED PRACTICE 2.15
-We are interested in the probability of rolling a 1, 4, or 5. (a) Explain why the outcomes 1, 4, and
-5 are disjoint. (b) Apply the Addition Rule for disjoint outcomes to determine P(1 or 4 or 5).12
-GUIDED PRACTICE 2.16
-In the email data set in Chapter 1, the number variable described whether no number (labeled
-none), only one or more small numbers (small), or whether at least one big number appeared in an
-email (big). Of the 3,921 emails, 549 had no numbers, 2,827 had only one or more small numbers,
-and 545 had at least one big number. (a) Are the outcomes none, small, and big disjoint? (b)
-Determine the proportion of emails with value small and big separately. (c) Use the Addition Rule
-for disjoint outcomes to compute the probability a randomly selected email from the data set has a
-number in it, small or big.13
-12(a) The random process is a die roll, and at most one of these outcomes can come up. This means they are
-disjoint outcomes. (b) P(1 or 4 or 5) = P(1) + P(4) + P(5) = 1
-6 + 1
-6 + 1
-6 = 3
-6 = 1
-2
-13(a) Yes. Each email is categorized in only one level of number. (b) Small:
-2827
-3921 = 0.721. Big:
-545
-3921 = 0.139. (c)
-P(small or big) = P(small) + P(big) = 0.721 + 0.139 = 0.860.
+---
 
+### 2.2 機率基礎 (Probability basics)
 
-### 2.2. PROBABILITY BASICS
-111
-Statisticians rarely work with individual outcomes and instead consider sets or collections of
-outcomes. Let A represent the event where a die roll results in 1 or 2 and B represent the event
-that the die roll is a 4 or a 6. We write A as the set of outcomes {1, 2} and B = {4, 6}. These
-sets are commonly called events. Because A and B have no elements in common, they are disjoint
-events. A and B are represented in Figure 2.11.
-1
-2
-3
-4
-5
-6
-A
-B
-D
-Figure 2.11: Three events, A, B, and D, consist of outcomes from rolling a die. A
-and B are disjoint since they do not have any outcomes in common.
-The Addition Rule applies to both disjoint outcomes and disjoint events. The probability that
-one of the disjoint events A or B occurs is the sum of the separate probabilities:
-P(A or B) = P(A) + P(B) = 1/3 + 1/3 = 2/3
-GUIDED PRACTICE 2.17
-(a) Verify the probability of event A, P(A), is 1/3 using the Addition Rule. (b) Do the same for
-event B.14
-GUIDED PRACTICE 2.18
-(a) Using Figure 2.11 as a reference, what outcomes are represented by event D? (b) Are events B
-and D disjoint? (c) Are events A and D disjoint?15
-GUIDED PRACTICE 2.19
-In Guided Practice 2.18, you confirmed B and D from Figure 2.11 are disjoint.
-Compute the
-probability that either event B or event D occurs.16
-2.2.5
-Joint probabilies when events are independent
-Just as variables and observations can be independent, random processes can be independent,
-too. Two processes are independent if knowing the outcome of one provides no useful information
-about the outcome of the other. For instance, flipping a coin and rolling a die are two independent
-processes - knowing the coin was heads does not help determine the outcome of a die roll. On the
-other hand, stock prices usually move up or down together, so they are not independent. To define
-independence mathematically, we will have to wait for the discussion of conditional probability in
-the next section.
-Example 2.10 provides a basic example of two independent processes: rolling two dice. We
-want to determine the probability that both will be 1.
-Suppose one of the dice is red and the
-other white. If the outcome of the red die is a 1, it provides no information about the outcome
-of the white die. We first encountered this same question in Example 2.10 (page 107), where we
-calculated the probability using the following reasoning: 1/6th of the time the red die is a 1, and
-1/6th of those times the white die will also be 1. This is illustrated in Figure 2.12. Because the rolls
-are independent, the probabilities of the corresponding outcomes can be multiplied to get the final
-answer: (1/6) × (1/6) = 1/36. This can be generalized to many independent processes.
-14(a) P(A) = P(1 or 2) = P(1) + P(2) = 1
-6 + 1
-6 = 2
-6 = 1
-3 . (b) Similarly, P(B) = 1/3.
-15(a) Outcomes 2 and 3. (b) Yes, events B and D are disjoint because they share no outcomes. (c) The events A
-and D share an outcome in common, 2, and so are not disjoint.
-16Since B and D are disjoint events, use the Addition Rule: P(B or D) = P(B) + P(D) = 1
-3 + 1
-3 = 2
-3 .
+擲骰子得到偶數的機率是多少？連續擲硬幣 5 次都得到正面的機率是多少？從一副撲克牌中抽到紅心或 A 的機率是多少？機率的研究本身既有趣又吸引人，它同時也構成了統計模型和推論程序的基礎，我們將在後續章節中探討許多這類方法。
 
+::: {.concept-box title="學習目標"}
+1. 使用模擬 (simulations) 來估計機率。
+2. 計算事件 (events) 及其餘事件 (complements) 的機率。
+3. 利用聯合機率 (joint probability) 解釋為什麼兩個事件是互斥的 (mutually exclusive / disjoint)。
+4. 計算獨立事件 (independent events) 的機率。
+:::
 
-112
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-All rolls
-1/6th of the first
-rolls are a 1.
-1/6th of those times where
-the first roll is a 1 the
-second roll is also a 1.
-Figure 2.12: 1/6th of the time, the first roll is a 1. Then 1/6th of those times, the
-second roll will also be a 1.
-EXAMPLE 2.20
-What if there was also a blue die independent of the other two? What is the probability of rolling
-the three dice and getting all 1s?
-The same logic applies from Example 2.10. If 1/36th of the time the white and red dice are both 1,
-then 1/6th of those times the blue die will also be 1, so multiply:
-P(white = 1 and red = 1 and blue = 1) = P(white = 1) × P(red = 1) × P(blue = 1)
-= (1/6) × (1/6) × (1/6) = 1/216
-Examples 2.10 and 2.20 illustrate what is called the Multiplication Rule for independent pro-
-cesses.
-MULTIPLICATION RULE FOR INDEPENDENT PROCESSES
-If A and B represent events from two diﬀerent and independent processes, then the probability
-that both A and B occur can be calculated as the product of their separate probabilities:
-P(A and B) = P(A) × P(B)
-Similarly, if there are k events A1, ..., Ak from k independent processes, then the probability
-they all occur is
-P(A1) × P(A2) × ⋯× P(Ak)
-GUIDED PRACTICE 2.21
-About 9% of people are left-handed. Suppose 2 people are selected at random from the U.S. pop-
-ulation. Because the sample size of 2 is very small relative to the population, it is reasonable to
-assume these two people are independent. (a) What is the probability that both are left-handed?
-(b) What is the probability that both are right-handed?17
-17(a) The probability the first person is left-handed is 0.09, which is the same for the second person. We apply the
-Multiplication Rule for independent processes to determine the probability that both will be left-handed: 0.09×0.09 =
-0.0081.
-(b) It is reasonable to assume the proportion of people who are ambidextrous (both right- and left-handed) is nearly
-0, which results in P(right-handed) = 1 -0.09 = 0.91. Using the same reasoning as in part (a), the probability that
-both will be right-handed is 0.91 × 0.91 = 0.8281.
+#### 2.2.1 導論範例 (Introductory examples)
 
+**範例 2.6**
+「骰子 (die)」（dice的單數形）是一個具有六個面的立方體，分別標有數字 1、2、3、4、5 和 6。擲骰子得到 1 的機率是多少？
+如果骰子是公正的 (fair)，那麼得到 1 的機率與得到其他任何數字的機率一樣好。因為有六種結果，機率必須是六分之一，或者等於 $1/6$。
 
-### 2.2. PROBABILITY BASICS
-113
-GUIDED PRACTICE 2.22
-Suppose 5 people are selected at random.18
-(a) What is the probability that all are right-handed?
-(b) What is the probability that all are left-handed?
-(c) What is the probability that not all of the people are right-handed?
-Suppose the variables handedness and gender are independent, i.e. knowing someone's gender
-provides no useful information about their handedness and vice-versa.
-Then we can compute
-whether a randomly selected person is right-handed and female19 using the Multiplication Rule:
-P(right-handed and female)
-=
-P(right-handed) × P(female)
-=
-0.91 × 0.50 = 0.455
-GUIDED PRACTICE 2.23
-Three people are selected at random.20
-(a) What is the probability that the first person is male and right-handed?
-(b) What is the probability that the first two people are male and right-handed?.
-(c) What is the probability that the third person is female and left-handed?
-(d) What is the probability that the first two people are male and right-handed and the third
-person is female and left-handed?
-Sometimes we wonder if one outcome provides useful information about another outcome. The
-question we are asking is, are the occurrences of the two events independent? We say that two
-events A and B are independent if they satisfy Equation (2.21).
-EXAMPLE 2.24
-If we shuﬄe up a deck of cards and draw one, is the event that the card is a heart independent of
-the event that the card is an ace?
-The probability the card is a heart is 1/4 and the probability that it is an ace is 1/13. The probability
-the card is the ace of hearts is 1/52. We check whether Equation 2.21 is satisfied:
-P(♡) × P(ace) = 1
-4 × 1
-13 = 1
-52 = P(♡and ace)
-Because the equation holds, the event that the card is a heart and the event that the card is an ace
-are independent events.
-18(a) The abbreviations RH and LH are used for right-handed and left-handed, respectively. Since each are indepen-
-dent, we apply the Multiplication Rule for independent processes:
-P(all five are RH) = P(first = RH, second = RH, ..., fifth = RH)
-= P(first = RH) × P(second = RH) × ⋅⋅⋅× P(fifth = RH)
-= 0.91 × 0.91 × 0.91 × 0.91 × 0.91 = 0.624
-(b) Using the same reasoning as in (a), 0.09 × 0.09 × 0.09 × 0.09 × 0.09 = 0.0000059
-(c) Use the complement, P(all five are RH), to answer this question:
-P(not all RH) = 1 -P(all RH) = 1 -0.624 = 0.376
-19The actual proportion of the U.S. population that is female is about 50%, and so we use 0.5 for the probability
-of sampling a woman. However, this probability does diﬀer in other countries.
-20Brief answers are provided. (a) This can be written in probability notation as P(a randomly selected person is
-male and right-handed) = 0.455. (b) 0.207. (c) 0.045. (d) 0.0093.
+**範例 2.7**
+在下一次投擲中得到 1 或 2 的機率是多少？
+1 和 2 構成了六個發生機會均等的可能結果中的兩個，所以得到這兩種結果之一的機率必須是 $2/6 = 1/3$。
 
+**範例 2.8**
+在下一次投擲中得到 1、2、3、4、5 或 6 其中之一的機率是多少？
+100%。結果必定是這些數字之一。
 
+**範例 2.9**
+沒有擲出 2 的機率是多少？
+由於擲出 2 的機率是 $1/6$ 或 $16.\overline{6}\%$，因此沒有擲出 2 的機率必須是 $100\% - 16.\overline{6}\% = 83.\overline{3}\%$ 或 $5/6$。
+或者，我們可以注意到，沒有擲出 2 就等於擲出 1、3、4、5 或 6，這佔了六個等可能結果中的五個，其機率為 $5/6$。
+
+**範例 2.10**
+考慮擲兩顆骰子。如果第一顆骰子有 $1/6$ 的機率出現 1，而且在那些情況中，第二顆骰子也有 $1/6$ 的機率出現 1，那麼兩顆都得到 1 的機率是多少？
+如果在 $16.\overline{6}\%$ 的情況下第一顆骰子是 1，而在這些情況中又有 $1/6$ 的機會第二顆骰子也是 1，那麼兩顆骰子都是 1 的機率為 $(1/6) \times (1/6) = 1/36$。
+
+#### 2.2.2 使用模擬估計機率 (Estimating probabilities using simulation)
+
+我們使用機率來建立工具以描述和理解表面的隨機性。我們經常以產生某種結果的隨機過程 (random process) 來框架機率。隨機過程會產生由機率（chance）決定的結果。結果 (outcome) 是一次隨機過程試驗的結果。
+
+- 擲骰子 $\rightarrow$ 1, 2, 3, 4, 5, 或 6
+- 擲硬幣 $\rightarrow$ 正面 (H) 或 反面 (T)
+
+擲骰子或擲硬幣是一個看似隨機的過程，每個過程都會產生一個結果。
+
+::: {.concept-box title="概念：機率 (Probability)"}
+一個結果的**機率 (probability)** 是指：如果我們觀察該隨機過程無限次，該結果發生的次數比例。
+
+機率被定義為一個比例，其數值始終介於 0 和 1 之間（包含 0 和 1）。它也可以顯示為 0% 到 100% 之間的百分比。
+:::
+
+一個**事件 (event)** 是結果的集合。可以透過多次擲骰子來說明機率。考慮事件「擲出 1」。我們可以使用模擬來模擬這個事件，並透過計算事件的相對次數 (relative frequency) 來估計事件發生的可能性。事件的相對次數是事件發生次數佔試驗總數的比例。
+
+令 $\hat{p}_n$ 為前 $n$ 次投擲後結果為 1 的比例。隨著投擲次數的增加，$\hat{p}_n$（投擲的相對次數）將收斂到擲出 1 的機率，$p = 1/6$。相對次數 $\hat{p}_n$ 穩定在真實機率 $p$ 附近的趨勢，被稱為**大數法則 (Law of Large Numbers)**。
+
+::: {.concept-box title="概念：大數法則 (Law of Large Numbers)"}
+大數法則指出，對於獨立試驗，隨著試驗次數的增加，結果或事件的長期相對次數 (long-run relative frequency) 會越來越接近單一數值。
+:::
+
+有時候比例會偏離機率，似乎違反了大數法則。然而，隨著試驗次數的增加，這些偏差會變得越來越小。
+在上方我們將擲出 1 的機率寫成 $p$。我們也可以將這個機率寫成：
+$$P(\text{擲出 1})$$
+當我們對這種符號更加熟悉時，我們會進一步縮寫它。例如，如果很明顯這是一個「擲骰子」的過程，我們可以將 $P(\text{擲出 1})$ 縮寫為 $P(1)$。
+
+**引導練習 2.11**
+隨機過程包括擲骰子和擲硬幣。(a) 試想另一個隨機過程。(b) 描述該過程所有可能的結果。例如，擲骰子是一個隨機過程，潛在結果為 1, 2, ..., 6。
+
+::: {.callout-tip title="解答" collapse="true"}
+以下是四個例子：
+(i) 某人在下個月是否生病是個看似隨機的過程，結果為「生病」或「沒生病」。
+(ii) 我們可以透過隨機挑選一個人並測量其身高來產生隨機過程。這個過程的結果會是一個正數。
+(iii) 下週股市是漲或跌是一個看似隨機的過程，可能結果為「上漲」、「下跌」及「不變」。
+(iv) 你的室友今晚是否會洗碗似乎是個隨機過程，可能結果為「洗碗」或「不洗碗」。
+:::
+
+我們認為是隨機過程的事物不一定真的是隨機的，它們可能只是太難以精確理解。引導練習中的第 (iv) 個例子暗示室友的行為是一個隨機過程。然而，即使室友的行為並非真正隨機，將她的行為模擬為隨機過程依然是有用的。
+
+::: {.concept-box title="將過程模型化為隨機 (Modeling a process as random)"}
+即使某個過程並非真正隨機，將其模擬為隨機過程依然可能很有幫助。
+:::
+
+#### 2.2.3 樣本空間與餘事件 (Sample space and complement of an event)
+
+擲骰子會產生集合 $\{1, 2, 3, 4, 5, 6\}$ 中的一個值。這個包含所有可能結果的集合稱為擲骰子的**樣本空間 (sample space, $S$)**。樣本空間的機率為 1：如果我們擲骰子，結果必然是 1、2、3、4、5 或 6 中的一個數字。此外，任何事件的機率總是介於 0 和 1 之間（含）。
+
+我們可以說，擲骰子得到偶數的機率是 $3/6 = 1/2$，因為在六個可能結果中，有三個可能結果是偶數（2、4、6），且樣本空間中的每個結果發生的可能性相同。
+
+更一般地說，如果樣本空間中的所有結果發生的可能性相同，那麼事件 $E$ 發生的理論機率，可以透過將事件 $E$ 中的結果數量除以樣本空間中的總結果數量來求得。當每個可能結果發生的可能性相同時，機率計算往往比較直接。然而，情況通常並非如此。例如，雖然玩彩券的人可能中獎或不中獎，但中獎的機率並不是 50%！
+
+我們經常使用樣本空間來檢查事件沒有發生的情況。令 $D = \{2, 3\}$ 代表擲骰子結果為 2 或 3 的事件。那麼其**餘事件 (complement)** 代表我們樣本空間中所有不在 $D$ 中的結果，以 $D^c = \{1, 4, 5, 6\}$ 表示。也就是說，$D^c$ 是所有未包含在 $D$ 中的可能結果的集合。
+
+**引導練習 2.12**
+(a) 計算 $P(D^c) = P(\text{擲出 1, 4, 5 或 6})$。(b) $P(D) + P(D^c)$ 是多少？
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) 每個結果是互斥的，每個機率為 1/6，所以總機率為 $4/6 = 2/3$。
+(b) 我們也可以看出 $P(D) = 1/6 + 1/6 = 1/3$。由於 $D$ 和 $D^c$ 是互斥的，因此 $P(D) + P(D^c) = 1$。
+:::
+
+**引導練習 2.13**
+假設事件 $A = \{1, 2\}$ 且 $B = \{4, 6\}$。
+(a) 寫出 $A^c$ 和 $B^c$ 分別代表什麼。
+(b) 計算 $P(A^c)$ 和 $P(B^c)$。
+(c) 計算 $P(A) + P(A^c)$ 以及 $P(B) + P(B^c)$。
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) $A^c = \{3, 4, 5, 6\}$ 且 $B^c = \{1, 2, 3, 5\}$。
+(b) 注意到每個結果都是互斥的，將個別結果的機率相加，得到 $P(A^c) = 4/6 = 2/3$ 且 $P(B^c) = 4/6 = 2/3$。
+(c) $A$ 和 $A^c$ 是互斥的，$B$ 和 $B^c$ 也是如此。因此，$P(A) + P(A^c) = 1$ 且 $P(B) + P(B^c) = 1$。
+:::
+
+一個事件 $A$ 連同其餘事件 $A^c$ 構成了整個樣本空間。正因為如此，我們可以說 $P(A) + P(A^c) = 1$。
+
+::: {.concept-box title="概念：餘事件 (Complement)"}
+事件 $A$ 的餘事件記為 $A^c$，$A^c$ 代表所有不在 $A$ 中的結果。$A$ 和 $A^c$ 在數學上有以下關聯：
+$$P(A) + P(A^c) = 1$$
+也就是說：
+$$P(A) = 1 - P(A^c)$$
+:::
+
+在簡單的例子中，只要幾個步驟就可以計算出 $A$ 或 $A^c$。然而，隨著問題的複雜度增加，使用餘事件可以節省大量的時間。
+
+**引導練習 2.14**
+將一顆骰子擲 10 次。
+(a) 在 10 次投擲中「至少得到一個 6 (at least one 6)」的餘事件是什麼？
+(b) 在 10 次投擲中「最多得到三個 6 (at most three 6s)」的餘事件是什麼？
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) 在 10 次投擲中至少得到一個 6 的餘事件是「在 10 次投擲中得到零個 6」。
+(b) 在 10 次投擲中最多得到三個 6 的餘事件是「在 10 次投擲中得到四、五、...、九或十個 6」。
+:::
+
+#### 2.2.4 互斥結果 (Disjoint or mutually exclusive outcomes)
+
+如果兩個結果不可能在同一次試驗中同時發生，則稱之為**互斥 (disjoint 或 mutually exclusive)**。例如，如果我們擲一顆骰子，結果 1 和 2 是互斥的，因為它們不可能在單次投擲中同時出現。另一方面，結果 1 和「擲出奇數」並不是互斥的，因為如果投擲結果為 1，則兩者都會發生。「Disjoint」和「mutually exclusive」這兩個詞語是同義且可互換的。
+
+計算互斥結果的機率很簡單。擲骰子時，結果 1 和 2 是互斥的，我們將它們各自的機率相加來計算其中之一發生的機率：
+$$P(1 \text{ 或 } 2) = P(1) + P(2) = 1/6 + 1/6 = 1/3$$
+擲出 1、2、3、4、5 或 6 的機率呢？這裡所有的結果同樣都是互斥的，所以我們將機率相加：
+$$P(1 \text{ 或 } 2 \text{ 或 } 3 \text{ 或 } 4 \text{ 或 } 5 \text{ 或 } 6)$$
+$$= P(1) + P(2) + P(3) + P(4) + P(5) + P(6)$$
+$$= 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 1$$
+加法規則 (Addition Rule) 保證了當結果互斥時這種做法的準確性。
+
+::: {.concept-box title="概念：互斥結果的加法規則 (Addition Rule of Disjoint Outcomes)"}
+如果 $A_1$ 和 $A_2$ 代表兩個互斥結果，那麼它們其中之一發生的機率可以由下式給出：
+$$P(A_1 \text{ 或 } A_2) = P(A_1) + P(A_2)$$
+如果有多個互斥結果 $A_1, A_2, \dots, A_k$，那麼這些結果中會有一個發生的機率為：
+$$P(A_1) + P(A_2) + \dots + P(A_k)$$
+:::
+
+**引導練習 2.15**
+我們對擲出 1、4 或 5 的機率感興趣。(a) 解釋為什麼結果 1、4 和 5 是互斥的。(b) 應用互斥結果的加法規則來確定 $P(1 \text{ 或 } 4 \text{ 或 } 5)$。
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) 隨機過程是擲骰子，這些結果中最多只有一個會出現。這意味著它們是互斥結果。
+(b) $P(1 \text{ 或 } 4 \text{ 或 } 5) = P(1) + P(4) + P(5) = 1/6 + 1/6 + 1/6 = 3/6 = 1/2$。
+:::
+
+**引導練習 2.16**
+在第 1 章的電子郵件資料集中，變數 `number` 描述了電子郵件中是沒有數字（標記為 `none`）、只有一個或多個小數字（`small`），還是出現了至少一個大數字（`big`）。在 3,921 封電子郵件中，有 549 封沒有數字，2,827 封只有一個或多個小數字，545 封有至少一個大數字。
+(a) 結果 `none`、`small` 和 `big` 是互斥的嗎？
+(b) 分別確定數值為 `small` 和 `big` 的電子郵件的比例。
+(c) 使用互斥結果的加法規則來計算從資料集中隨機選取一封電子郵件時，該郵件中含有數字（`small` 或 `big`）的機率。
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) 是。每封電子郵件只被歸類在 `number` 的其中一個層次。
+(b) `small`: $2827/3921 \approx 0.721$。`big`: $545/3921 \approx 0.139$。
+(c) $P(\text{small 或 big}) = P(\text{small}) + P(\text{big}) = 0.721 + 0.139 = 0.860$。
+:::
+
+統計學家很少處理單一結果，而是考慮結果的集合 (sets) 或事件。令 $A$ 代表擲骰子結果為 1 或 2 的事件，而 $B$ 代表擲骰子結果為 4 或 6 的事件。我們將 $A$ 寫成結果的集合 $\{1, 2\}$，且 $B = \{4, 6\}$。這些集合通常被稱為**事件 (events)**。因為 $A$ 和 $B$ 沒有共同的元素，所以它們是**互斥事件 (disjoint events)**。
+
+加法規則適用於互斥結果和互斥事件。互斥事件 $A$ 或 $B$ 之一發生的機率是它們各自機率的總和：
+$$P(A \text{ 或 } B) = P(A) + P(B) = 1/3 + 1/3 = 2/3$$
+
+**引導練習 2.17**
+(a) 使用加法規則驗證事件 $A$ 的機率 $P(A)$ 是否為 1/3。(b) 對事件 $B$ 做同樣的事情。
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) $P(A) = P(1 \text{ 或 } 2) = P(1) + P(2) = 1/6 + 1/6 = 2/6 = 1/3$。
+(b) 類似地，$P(B) = P(4 \text{ 或 } 6) = P(4) + P(6) = 1/6 + 1/6 = 2/6 = 1/3$。
+:::
+
+**引導練習 2.18**
+(a) 以先前的設定為例，事件 $D = \{2, 3\}$ 代表哪些結果？
+(b) 事件 $B = \{4, 6\}$ 和 $D$ 是互斥的嗎？
+(c) 事件 $A = \{1, 2\}$ 和 $D$ 是互斥的嗎？
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) 結果 2 和 3。
+(b) 是的，事件 $B$ 和 $D$ 是互斥的，因為它們沒有共同的結果。
+(c) 事件 $A$ 和 $D$ 有一個共同結果 2，因此不互斥。
+:::
+
+**引導練習 2.19**
+在引導練習 2.18 中，你確認了 $B$ 和 $D$ 是互斥的。計算事件 $B$ 或事件 $D$ 發生的機率。
+
+::: {.callout-tip title="解答" collapse="true"}
+由於 $B$ 和 $D$ 是互斥事件，使用加法規則：$P(B \text{ 或 } D) = P(B) + P(D) = 1/3 + 1/3 = 2/3$。
+:::
+
+#### 2.2.5 當事件獨立時的聯合機率 (Joint probabilities when events are independent)
+
+就像變數和觀察值可以是獨立的一樣，隨機過程也可以是獨立的。如果知道其中一個過程的結果，並不能提供有關另一個過程結果的有用資訊，則這兩個過程是**獨立的 (independent)**。例如，擲硬幣和擲骰子是兩個獨立的過程 —— 知道硬幣是正面並無助於決定擲骰子的結果。另一方面，股票價格通常會一起上漲或下跌，因此它們並不獨立。要在數學上定義獨立性，我們必須等到下一節討論條件機率 (conditional probability) 時再進行。
+
+範例 2.10 提供了一個兩個獨立過程的基本例子：擲兩顆骰子。我們想確定兩者都是 1 的機率。
+假設其中一顆骰子是紅色的，另一顆是白色的。如果紅色骰子的結果是 1，它不會提供有關白色骰子結果的任何資訊。我們在範例 2.10 中首次遇到了同樣的問題，當時我們使用以下推理計算了機率：有 1/6 的時間紅色骰子是 1，而在這些時間中又有 1/6 的機會白色骰子也會是 1。由於這兩次投擲是獨立的，可以將相應結果的機率相乘來得到最終答案：$(1/6) \times (1/6) = 1/36$。這可以推廣到許多獨立過程。
+
+**範例 2.20**
+如果還有一顆獨立於其他兩顆的藍色骰子呢？擲出這三顆骰子且全為 1 的機率是多少？
+範例 2.10 中的相同邏輯也適用於此。如果有 $1/36$ 的時間白色和紅色骰子都是 1，那麼在這些時間中又有 $1/6$ 的機會藍色骰子也會是 1，所以把它們相乘：
+$$P(\text{白} = 1 \text{ 且 紅} = 1 \text{ 且 藍} = 1) = P(\text{白} = 1) \times P(\text{紅} = 1) \times P(\text{藍} = 1)$$
+$$= (1/6) \times (1/6) \times (1/6) = 1/216$$
+
+範例 2.10 和 2.20 說明了獨立過程的**乘法規則 (Multiplication Rule)**。
+
+::: {.concept-box title="概念：獨立過程的乘法規則 (Multiplication Rule for Independent Processes)"}
+如果 $A$ 和 $B$ 代表來自兩個不同且獨立過程的事件，那麼 $A$ 和 $B$ 同時發生的機率，可以透過計算它們各自機率的乘積得出：
+$$P(A \text{ 且 } B) = P(A) \times P(B)$$
+類似地，如果有來自 $k$ 個獨立過程的 $k$ 個事件 $A_1, \dots, A_k$，那麼它們全部發生的機率為：
+$$P(A_1) \times P(A_2) \times \dots \times P(A_k)$$
+:::
+
+**引導練習 2.21**
+大約 9% 的人是左撇子。假設從美國人口中隨機選擇 2 個人。由於樣本量 2 遠小於人口，我們可以合理假設這兩人是獨立的。
+(a) 兩個人都是左撇子的機率是多少？
+(b) 兩個人都是右撇子的機率是多少？
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) 第一個人是左撇子的機率是 0.09，第二個人也是一樣的。我們應用獨立過程的乘法規則來確定兩個人都是左撇子的機率：$0.09 \times 0.09 = 0.0081$。
+(b) 我們可以合理假設雙撇子（雙手通用）的人口比例幾乎為 0，由此得出 $P(\text{右撇子}) = 1 - 0.09 = 0.91$。使用與 (a) 部分相同的推理，兩人都為右撇子的機率是 $0.91 \times 0.91 = 0.8281$。
+:::
+
+**引導練習 2.22**
+假設隨機選擇 5 個人。
+(a) 所有 5 個人都是右撇子的機率是多少？
+(b) 所有 5 個人都是左撇子的機率是多少？
+(c) 至少有一人「不是」右撇子（並非所有人都是右撇子）的機率是多少？
+
+::: {.callout-tip title="解答" collapse="true"}
+使用簡稱：RH 代表右撇子，LH 代表左撇子。
+(a) 由於每個人都是獨立的，應用獨立過程的乘法規則：
+$$P(\text{五人皆為 RH}) = P(\text{第一人=RH}) \times \dots \times P(\text{第五人=RH})$$
+$$= 0.91 \times 0.91 \times 0.91 \times 0.91 \times 0.91 \approx 0.624$$
+(b) 使用與 (a) 相同的推理：$0.09 \times 0.09 \times 0.09 \times 0.09 \times 0.09 \approx 0.0000059$。
+(c) 使用餘事件 $P(\text{五人皆為 RH})$ 來回答這個問題：
+$$P(\text{並非全為 RH}) = 1 - P(\text{全為 RH}) = 1 - 0.624 = 0.376$$
+:::
+
+假設「慣用手 (handedness)」和「性別 (gender)」這兩個變數是獨立的，也就是說，知道某人的性別並不能提供有關其慣用手的有用資訊，反之亦然。那麼我們可以使用乘法規則來計算隨機選取的一個人既是右撇子又是女性的機率：
+$$P(\text{右撇子 且 女性})$$
+$$= P(\text{右撇子}) \times P(\text{女性})$$
+$$= 0.91 \times 0.50 = 0.455$$
+
+**引導練習 2.23**
+隨機選擇三個人。
+(a) 第一個人是男性且為右撇子的機率是多少？
+(b) 前兩個人是男性且為右撇子的機率是多少？
+(c) 第三個人是女性且為左撇子的機率是多少？
+(d) 前兩個人是男性且為右撇子，而第三個人是女性且為左撇子的機率是多少？
+
+::: {.callout-tip title="解答" collapse="true"}
+(a) 寫成機率符號為 $P(\text{隨機選擇的人是男性且為右撇子}) = 0.91 \times 0.50 = 0.455$。
+(b) $0.455 \times 0.455 \approx 0.207$。
+(c) $0.09 \times 0.50 = 0.045$。
+(d) $0.207 \times 0.045 \approx 0.0093$。
+:::
+
+有時候我們會想知道某個結果是否能提供有關另一個結果的有用資訊。我們所問的是：這兩個事件的發生是否為獨立的？我們說兩個事件 $A$ 和 $B$ 是**獨立的 (independent)**，如果它們滿足以下方程式：
+$$P(A \text{ 且 } B) = P(A) \times P(B)$$
+
+**範例 2.24**
+如果我們將一副撲克牌洗勻並抽出一張，那麼「這張牌是紅心 (heart)」的事件與「這張牌是 A (ace)」的事件是獨立的嗎？
+這張牌是紅心的機率是 1/4，這張牌是 A 的機率是 1/13。這張牌是紅心 A 的機率是 1/52。我們檢查乘法規則是否滿足：
+$$P(\text{紅心}) \times P(\text{A}) = \frac{1}{4} \times \frac{1}{13} = \frac{1}{52} = P(\text{紅心 且 A})$$
+因為等式成立，所以這張牌是紅心的事件與這張牌是 A 的事件是獨立事件。

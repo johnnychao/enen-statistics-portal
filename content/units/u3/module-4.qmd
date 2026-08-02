@@ -1,322 +1,146 @@
 ---
-title: "1.5.4 Introduction to experiments"
+title: "1.5.4 實驗介紹"
 ---
 
-62
-CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
-Figure 1.34:
-In February 2010, some media
-pundits cited one large snow storm as valid
-evidence against global warming. As comedian
-Jon Stewart pointed out, "It's one storm, in
-one region, of one country."
--------------------
-February 10th, 2010.
-Lastly, it is important that the investigative question indicates the type(s) of conclusion(s)
-applicable from the study. The investigative question should provide the population to which the
-conclusions will be applicable and, in the case of an experiment that uses random assignment, a
-cause-and-eﬀect conclusion.
-1.5.2
-Anecdotal evidence
-Consider the following possible responses to the three research questions:
-1. A man on the news got mercury poisoning from eating swordfish, so the average mercury
-concentration in swordfish must be dangerously high.
-2. I met two students who took more than 7 years to graduate from Duke, so it must take longer
-to graduate at Duke than at many other colleges.
-3. My friend's dad had a heart attack and died after they gave him a new heart disease drug, so
-the drug must not work.
-Each conclusion is based on data. However, there are two problems. First, the data only represent
-one or two cases.
-Second, and more importantly, it is unclear whether these cases are actually
-representative of the population. Data collected in this haphazard fashion are called anecdotal
-evidence.
-ANECDOTAL EVIDENCE
-Be careful of making inferences based on anecdotal evidence. Such evidence may be true and
-verifiable, but it may only represent extraordinary cases. The majority of cases and the average
-case may in fact be very diﬀerent.
-Anecdotal evidence typically is composed of unusual cases that we recall based on their striking
-characteristics. For instance, we may vividly remember the time when our friend bought a lottery
-ticket and won $250 but forget most the times she bought one and lost. Instead of focusing on the
-most unusual cases, we should examine a representative sample of many cases.
+最後，研究問題（investigative question）必須明確指出該研究可以得出的結論類型，這一點非常重要。研究問題應提供結論適用的母體（population）；若使用的是包含隨機分派（random assignment）的實驗，則應能得出因果關係（cause-and-effect）的結論。
 
+### 1.5.2 軼事證據 (Anecdotal evidence)
 
-### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
-63
-1.5.3
-Explanatory and response variables
-When we ask questions about the relationship between two variables, we sometimes also want
-to determine if the change in one variable causes a change in the other. Consider the following
-rephrasing of an earlier question about the county data set:
-If there is an increase in the median household income in a county, does this drive an
-increase in its population?
-In this question, we are asking whether one variable aﬀects another.
-If this is our underlying
-belief, then median household income is the explanatory variable and the population change is the
-response variable in the hypothesized relationship.44
-EXPLANATORY AND RESPONSE VARIABLES
-When we suspect one variable might causally aﬀect another, we label the first variable the
-explanatory variable and the second the response variable.
-might affect
-explanatory
-variable
-response
-variable
-For many pairs of variables, there is no hypothesized relationship, and these labels would not
-be applied to either variable in such cases.
-ASSOCIATION DOES NOT IMPLY CAUSATION
-Labeling variables as explanatory and response does not guarantee the relationship between the
-two is actually causal, even if there is an association identified between the two variables. We
-use these labels only to keep track of which variable we suspect aﬀects the other.
-In many cases, the relationship is complex or unknown. It may be unclear whether variable A
-explains variable B or whether variable B explains variable A. For example, it is now known that a
-particular protein called REST is much depleted in people suﬀering from Alzheimer's disease. While
-this raises hopes of a possible approach for treating Alzheimer's, it is still unknown whether the
-lack of the protein causes brain deterioration, whether brain deterioration causes depletion in the
-REST protein, or whether some third variable causes both brain deterioration and REST depletion.
-That is, we do not know if the lack of the protein is an explanatory variable or a response variable.
-Perhaps it is both.45
-44Sometimes the explanatory variable is called the independent variable and the response variable is called the
-dependent variable. However, this becomes confusing since a pair of variables might be independent or dependent,
-so we avoid this language.
-45nytimes.com/2014/03/20/health/fetal-gene-may-protect-brain-from-alzheimers-study-finds.html
+考慮以下三個研究問題的可能回答：
 
+1. 新聞上有一名男子因為吃劍旗魚而汞中毒，所以劍旗魚的平均汞濃度一定高得危險。
+2. 我遇過兩位花了超過七年才從杜克大學畢業的學生，所以在杜克大學畢業一定比其他許多大學要花更長的時間。
+3. 我朋友的爸爸在服用一種新的心臟病藥物後心臟病發過世了，所以這種藥一定沒效。
 
-64
-CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
-1.5.4
-Introduction to experiments
-There are two primary types of data collection: experiments and observational studies.
-When researchers want to investigate the possibility of a causal connection, they conduct an
-experiment. For all experiments, the researchers must impose a treatment. For most studies there
-will be both an explanatory and a response variable. For instance, we may suspect administering
-a drug will reduce mortality in heart attack patients over the following year.
-To check if there
-really is a causal connection between the explanatory variable and the response, researchers will
-collect a sample of individuals and split them into groups.
-The individuals in each group are
-assigned a treatment. When individuals are randomly assigned to a group, the experiment is called
-a randomized experiment.
-For example, each heart attack patient in a drug trial could be
-randomly assigned into one of two groups: the first group receives a placebo (fake treatment) and
-the second group receives the drug. See the case study in Section 1.7.1 for another example of an
-experiment.
-In an experiment, a treatment is applied to an observational unit called an experimental unit.
-When the experimental units are people, we commonly refer to them as subjects or participants
-rather than experimental units. In our example, each heart attack patient received a placebo or a
-drug, so the experimental unit or subject in this study is a heart attack patient. At the end of the
-study, the response variable is measured on each experimental unit. Here, there response variable
-could be whether or not a heart attack patient survived at least 5 years after receiving the drug or
-placebo. Reachers will compare the proportion in each group that survived at least 5 years. If the
-diﬀerence is significant, and if the experiment is well-designed, then the researchers will be able to
-draw a causal conclusion about the eﬀect of the drug.
-Some experiments study more than one factor (explanatory variable) at a time, and each of
-these factors may have two or more levels (possible values). For example, suppose a researcher
-plans to investigate how the type and volume of music aﬀect a person's performance on a particular
-video game. Because these two factors, type and volume, could interact in interesting ways, we do
-not want to test one factor at a time. Instead, we want to do an experiment in which we test all
-combinations of the factors. Let's say that volume has two levels (soft and loud) and that type has
-three levels (dance, classical, and punk). Then, we would want to have experiment groups for each
-of the six (2 x 3 = 6) combinations: soft dance, soft classical, soft punk, loud dance, loud classical,
-loud punk. Each combination is a treatment. Therefore, this experiment will have 2 factors and
-6 treatments. To replicate each treatment 10 times, one would need to play the game 60 times.
-GUIDED PRACTICE 1.52
-A researcher wants to compare the eﬀectiveness of four diﬀerent drugs.
-She also wants to test
-each of the drugs at two doses: low and high. Describe the factors, levels, and treatments of this
-experiment.46
-As the number of factors and levels increases, the number of treatments become large and
-the analysis of the resulting data becomes more complex, requiring the use of advanced statistical
-methods. We will investigate only one factor at a time in this book.
-46There are two factors: type of drug, which has four levels, and dose, which has 2 levels. There will be 4 x 2 = 8
-treatments: drug 1 at low dose, drug 1 at high dose, drug 2 at low dose, and so on.
+每一個結論都是基於數據得出的。然而，這其中有兩個問題。首先，這些數據只代表了一兩個案例。其次，更重要的是，目前尚不清楚這些案例是否真正具有母體的代表性。以這種隨意的方式收集的數據被稱為**軼事證據（anecdotal evidence）**。
 
+::: {.concept-box title="概念：軼事證據 (Anecdotal Evidence)"}
+小心不要基於軼事證據做出推論。這類證據可能是真實且可驗證的，但它們可能只代表極端或罕見的案例。事實上，大多數的案例和平均情況可能與此截然不同。
+:::
 
-### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
-65
-1.5.5
-Observational studies
-Researchers perform an observational study when they collect data without interfering with
-how the data arise. For instance, researchers may collect information via surveys, review medical or
-company records, or follow a cohort of many similar individuals to study why certain diseases might
-develop. In each of these situations, researchers merely observe or take measurements of things that
-arise naturally.
-Observational studies come in two forms: prospective and retrospective studies. A prospec-
-tive study identifies individuals and collects information as events unfold. For instance, medical
-researchers may identify and follow a group of similar individuals over many years to assess the
-possible influences of behavior on cancer risk. One example of such a study is The Nurses' Health
-Study, started in 1976 and expanded in 1989. This prospective study recruits registered nurses and
-then collects data from them using questionnaires. Retrospective studies collect data after events
-have taken place, e.g. researchers may review past events in medical records. Some data sets, such
-as county, may contain both prospectively- and retrospectively-collected variables. Local govern-
-ments prospectively collect some variables as events unfolded (e.g. retails sales) while the federal
-government retrospectively collected others during the 2010 census (e.g. county population counts).
-EXAMPLE 1.53
-Suppose that a researcher is interested in the average tip customers at a particular restaurant give.
-Should she carry out an observational study or an experiment?
-In addressing this question, we ask, "Will the researcher be imposing any treatment?" Because
-there is no treatment or interference that would be applicable here, it will be an observational study.
-Additionally, one consideration the researcher should be aware of is that, if customers know their
-tips are being recorded, it could change their behavior, making the results of the study inaccurate.
-Making causal conclusions based on experiments is often reasonable. However, making the same
-causal conclusions based on observational data is treacherous and is not recommended. Observational
-studies are generally only suﬃcient to show associations.
-GUIDED PRACTICE 1.54
-Suppose an observational study tracked sunscreen use and skin cancer, and it was found people who
-use sunscreen are more likely to get skin cancer than people who do not use sunscreen. Does this
-mean sunscreen causes skin cancer?47
-Some previous research tells us that using sunscreen actually reduces skin cancer risk, so maybe
-there is another variable that can explain this hypothetical association between sunscreen usage and
-skin cancer. One important piece of information that is absent is sun exposure. Sun exposure is
-what is called a confounding variable, confounding factor, or a confounder).
-sun exposure
-use sunscreen
-skin cancer
-?
-CONFOUNDING VARIABLE
-A confounding variable is a variable that is associated with both the explanatory and response
-variables. Because of the confounding variable's association with both variables, we do not
-know if the response is due to the explanatory variable or due to the confounding variable.
-47No. See the paragraph following the exercise for an explanation.
+軼事證據通常由不尋常的案例組成，我們之所以記得它們，是因為它們具有引人注目的特徵。例如，我們可能會清楚地記得朋友買彩券中獎 250 美元的那一次，卻忘記了她大多數買彩券沒中獎的次數。我們不應該把重點放在最不尋常的案例上，而是應該檢查包含許多案例的代表性樣本。
 
+### 1.5.3 解釋變數與反應變數 (Explanatory and response variables)
 
-66
-CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
-Sun exposure is a confounding factor because it is associated with both the use of sunscreen
-and the development of skin cancer. People who are out in the sun all day are more likely to use
-sunscreen, and people who are out in the sun all day are more likely to get skin cancer. Research
-shows us the development of skin cancer is due to the sun exposure. The variables of sunscreen usage
-and sun exposure are confounded, and without this research, we would have no way of knowing
-which one was the true cause of skin cancer.
-EXAMPLE 1.55
-In a study that followed 1,169 non-diabetic adults who had been hospitalized for a first heart attack,
-the people that reported eating chocolate had increased survival rate over the next 8 years than
-those that reported not eating chocolate. Also, those who ate more chocolate tended to live longer
-on average. The researchers controlled for several confounding factors, such as age, physical activity,
-smoking, and many other factors. Can we conclude that the consumption of chocolate caused the
-people to live longer?
-This is an observational study, not a controlled randomized experiment. Even though the researchers
-controlled for many possible variables, there may still be other confounding factors. (Can you think
-of any that weren't mentioned?) While it is possible that the chocolate had an eﬀect, this study
-cannot prove that chocolate increased the survival rate of patients.
-EXAMPLE 1.56
-The authors who conducted the study did warn in the article that additional studies would be nec-
-essary to determine whether the correlation between chocolate consumption and survival translates
-to any causal relationship. That is, they acknowledged that there may be confounding factors. One
-possible confounding factor not considered was mental health. In context, explain what it would
-mean for mental health to be a confounding factor in this study.
-Mental health would be a confounding factor if, for example, people with better mental health
-tended to eat more chocolate, and those with better mental health also were less likely to die within
-the 8 year study period. Notice that if better mental health were not associated with eating more
-chocolate, it would not be considered a confounding factor because it wouldn't explain the observed
-associated between eating chocolate and having a better survival rate. If better mental health were
-associated only with eating chocolate and not with a better survival rate, then it would also not be
-confounding for the same reason. Only if a variable that is associated with both the explanatory
-variable of interest (chocolate) and the outcome variable in the study (survival during the 8 year
-study period) can it be considered a confounding factor.
-While one method to justify making causal conclusions from observational studies is to exhaust
-the search for confounding variables, there is no guarantee that all confounding variables can be
-examined or measured.
-ASSOCIATION ≠CAUSATION
-In general, association does not imply causation, and causation can only be inferred from a
-randomized experiment.
+當我們探討兩個變數之間的關係時，有時我們也會想確定一個變數的變化是否會「導致」另一個變數的變化。請考慮以下針對先前縣市數據集問題的重新表述：
 
+> 如果一個縣市的家庭收入中位數增加，是否會帶動該縣市人口的增長？
 
-### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
-67
-Section summary
-• The nature and purpose of the investigative question should guide the data collection process
-and should be phrased in terms of the variable(s) of interest in the study. If the purpose
-is to draw a causal conclusion an experiment should be used. If the purpose is to make a
-generalization from a sample to a larger population, a random sample from the population of
-interest should be taken.
-• Depending on the investigative question, one of two main data analysis methods may be used:
-confidence intervals or hypothesis tests. With confidence intervals, we seek to estimate a stated
-parameter within a range of reasonable values. With hypothesis tests, we seek to determine
-how much evidence there is that the stated parameter is greater than, less than, or diﬀerent
-from a certain hypothesized value.
-• An investigative question should indicate the type(s) of conclusion(s) applicable from the
-study. The investigative question should provide the population to which the conclusions will
-be applicable and, in the case of an experiment that uses random assignment, a cause-and-eﬀect
-conclusion.
-• A census consists of recording information from all items or individuals in a population.
-• An experiment is a study in which a researcher assigns conditions, or treatments, to exper-
-imental units to explore an investigative question of interest. The goal is to draw a causal
-conclusion about the eﬀect of the treatment(s).
-• The experimental unit is the observational unit to which the treatment is assigned. When
-experimental units consist of people, they are sometimes referred to as subjects or participants.
-• In an experiment, an explanatory variable, or factor, is a variable whose diﬀerent categories,
-or levels, are imposed on the experimental units. The diﬀerent categories, or levels, of the
-explanatory variable are called treatments. When there is more than one explanatory variable,
-the combinations of the categories, or levels, of the explanatory variables are called treatments.
-• A response variable is an outcome measured on each experimental unit after the treatment
-has been administered.
-• An observational study is a study where treatments are not imposed. The researcher records
-the values of the variables of interest in order to explore an investigative question of interest.
-• To be able to genera
-• A prospective study is one in which the observational units of study are selected at a point
-in time, and data are gathered both at that time and into the future.
-• A retrospective study is one in which the observational units of study are selected at a point
-in time and data from the past are gathered.
-• A survey is an observational study in which the data are collected from humans using a
-standard set of questions.
-• A confounding variable in an observational study provides an alternative explanation for
-the observed relationship between the explanatory and response variables determined in the
-study, thereby lowering the credibility of the assertion of a causal relationship between the
-explanatory and response variables of interest. To be a confounding variable, a variable must
-be associated with both the explanatory variable and the response variable.
-• A sample is considered random when all observational units in the sample have an equal chance
-of being selected from the population. A random mechanism is any resource used to select the
-observational units to be included in the sample.
-• It is appropriate to generalize from a sample to the population of individuals from which the
-sample was selected only when the individuals in the sample are randomly selected from the
-population. Do not generalize from anecdotal evidence or from volunteer or other types of
-non-random samples.
-• When observational units, or experimental units, in a sample are not randomly selected from
-a population, it is appropriate to make generalizations only about a population of individuals
-that are similar to those used in the study.
+在這個問題中，我們是在問一個變數是否會影響另一個變數。如果這是我們的基本假設，那麼在這段假定的關係中，家庭收入中位數就是**解釋變數（explanatory variable）**，而人口變化就是**反應變數（response variable）**。
 
+::: {.concept-box title="概念：解釋變數與反應變數"}
+當我們懷疑一個變數可能對另一個變數產生因果影響時，我們會將第一個變數標記為**解釋變數**，將第二個變數標記為**反應變數**。
+:::
 
-68
-CHAPTER 1. EXPLORING ONE-VARIABLE DATA AND COLLECTING DATA
-Exercises
-1.31
-Air pollution and birth outcomes, scope of inference.
-Exercise 1.1 introduces a study where
-researchers collected data to examine the relationship between air pollutants and preterm births in Southern
-California. During the study air pollution levels were measured by air quality monitoring stations. Length of
-gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure
-during gestation was calculated for each birth.
-(a) Identify the population of interest and the sample in this study.
-(b) Comment on whether or not the results of the study can be generalized to the population, and if the
-findings of the study can be used to establish causal relationships.
-1.32
-Cheaters, scope of inference. Exercise 1.3 introduces a study where researchers studying the rela-
-tionship between honesty, age, and self-control conducted an experiment on 160 children between the ages
-of 5 and 15. The researchers asked each child to toss a fair coin in private and to record the outcome (white
-or black) on a paper sheet, and said they would only reward children who report white. Half the students
-were explicitly told not to cheat and the others were not given any explicit instructions. Diﬀerences were
-observed in the cheating rates in the instruction and no instruction groups, as well as some diﬀerences across
-children's characteristics within each group.
-(a) Identify the population of interest and the sample in this study.
-(b) Comment on whether or not the results of the study can be generalized to the population, and if the
-findings of the study can be used to establish causal relationships.
-1.33
-Buteyko method, scope of inference. Exercise 1.2 introduces a study on using the Buteyko shallow
-breathing technique to reduce asthma symptoms and improve quality of life. As part of this study 600
-asthma patients aged 18-69 who relied on medication for asthma treatment were recruited and randomly
-assigned to two groups: one practiced the Buteyko method and the other did not. Those in the Buteyko
-group experienced, on average, a significant reduction in asthma symptoms and an improvement in quality
-of life.
-(a) Identify the population of interest and the sample in this study.
-(b) Comment on whether or not the results of the study can be generalized to the population, and if the
-findings of the study can be used to establish causal relationships.
-1.34
-Stressed out, Part I. A study that surveyed a random sample of otherwise healthy high school students
-found that they are more likely to get muscle cramps when they are stressed. The study also noted that
-students drink more coﬀee and sleep less when they are stressed.
-(a) What type of study is this?
-(b) Can this study be used to conclude a causal relationship between increased stress and muscle cramps?
-(c) State possible confounding variables that might explain the observed relationship between increased
-stress and muscle cramps.
+對於許多成對的變數來說，並沒有假設它們之間存在關聯，在這些情況下就不會對任何變數使用這些標籤。
 
+::: {.warning-box title="常見迷思：關聯不代表因果關係 (Association does not imply causation)"}
+將變數標記為解釋變數和反應變數，並不能保證兩者之間的關係就真的是因果關係，即使這兩個變數之間被確認存在關聯（association）。我們使用這些標籤只是為了記錄我們「懷疑」哪個變數會影響另一個變數。
+:::
 
+在許多情況下，變數之間的關係是複雜或未知的。可能不清楚到底是變數 A 解釋了變數 B，還是變數 B 解釋了變數 A。例如，現在我們知道患有阿茲海默症的人體內一種名為 REST 的特定蛋白質會大量減少。雖然這讓人們對治療阿茲海默症的可能方法燃起了希望，但目前仍不清楚是缺乏這種蛋白質導致了腦部退化，還是腦部退化導致了 REST 蛋白質的減少，又或者是某個第三變數同時導致了腦部退化和 REST 蛋白質的減少。也就是說，我們不知道缺乏這種蛋白質究竟是解釋變數還是反應變數。也許兩者皆是。
+
+### 1.5.4 實驗介紹 (Introduction to experiments)
+
+資料收集主要有兩種類型：**實驗設計（experiments）**與**觀察性研究（observational studies）**。
+
+當研究人員想要調查是否存在因果關係時，他們會進行實驗設計。對於所有的實驗，研究人員都必須施加某種**處理（treatment）**。在大多數的研究中，都會有解釋變數和反應變數。例如，我們可能懷疑服用某種藥物可以降低心臟病患者在未來一年內的死亡率。為了確認解釋變數和反應變數之間是否真的存在因果關係，研究人員會收集一個個體樣本，並將他們分成不同的組別。每組的個體會被分配到一種處理。當個體被**隨機分派（randomly assigned）**到某個組別時，這樣的實驗稱為**隨機實驗（randomized experiment）**。舉例來說，在藥物試驗中，每位心臟病患者可能會被隨機分派到兩個組別之一：第一組接受安慰劑（假處理），第二組接受該藥物。
+
+在實驗中，處理方法會被應用在一個觀察單位上，這稱為**實驗單位（experimental unit）**。當實驗單位是人的時候，我們通常稱他們為**受試者（subjects）**或**參與者（participants）**，而不是實驗單位。在我們的例子中，每位心臟病患者都接受了安慰劑或藥物，所以這項研究中的實驗單位或受試者就是心臟病患者。在研究結束時，會在每個實驗單位上測量反應變數。在這裡，反應變數可能是心臟病患者在接受藥物或安慰劑後是否存活了至少 5 年。研究人員會比較各組中存活至少 5 年的比例。如果差異顯著，而且實驗設計良好，那麼研究人員就能夠得出關於藥物效果的**因果結論（causal conclusion）**。
+
+有些實驗一次研究多個**因子（factor，即解釋變數）**，而每個因子可能會有兩個或多個**水準（levels，即可能的值）**。舉例來說，假設一位研究人員計畫調查音樂的類型和音量如何影響一個人在特定電動遊戲上的表現。因為「類型」和「音量」這兩個因子可能會產生有趣的交互作用，我們不想一次只測試一個因子。相反地，我們想要進行一項測試所有因子組合的實驗。假設音量有兩個水準（小聲和大聲），而類型有三個水準（舞曲、古典樂和龐克樂）。那麼，我們就會需要針對這六種（$2 \times 3 = 6$）組合分別設立實驗組：小聲舞曲、小聲古典樂、小聲龐克樂、大聲舞曲、大聲古典樂、大聲龐克樂。每一種組合都是一種**處理（treatment）**。因此，這個實驗將有 2 個因子和 6 種處理。為了將每種處理重複進行 10 次（replicate），受試者總共需要玩 60 次遊戲。
+
+**隨堂練習 1.52**
+一位研究人員想要比較四種不同藥物的效果。她也想在兩種劑量（低劑量和高劑量）下測試每一種藥物。請描述這個實驗的因子（factors）、水準（levels）和處理（treatments）。
+
+::: {.callout-tip title="解答" collapse="true"}
+有兩個因子（factors）：藥物種類和劑量。藥物種類有四個水準（levels），而劑量有兩個水準。因此將會有 $4 \times 2 = 8$ 種處理（treatments）：低劑量藥物 1、高劑量藥物 1、低劑量藥物 2...以此類推。
+:::
+
+隨著因子和水準數量的增加，處理的數量也會變大，而且對結果數據的分析會變得更複雜，需要使用進階的統計方法。在本書中，我們一次只探討一個因子。
+
+### 1.5.5 觀察性研究 (Observational studies)
+
+當研究人員收集數據，但並不干預數據如何產生時，他們進行的就是**觀察性研究（observational study）**。例如，研究人員可能透過問卷調查收集資訊、檢閱醫療或公司紀錄，或者追蹤一群特徵相似的人（世代）來研究為何某些疾病會發生。在這些情況下，研究人員只是觀察或測量自然發生的事情。
+
+觀察性研究有兩種形式：**前瞻性研究（prospective studies）**和**回溯性研究（retrospective studies）**。**前瞻性研究**會在事件發展時確認個體並收集資訊。例如，醫學研究人員可能會確認並追蹤一群相似的個體許多年，以評估行為對罹癌風險的可能影響。這種研究的一個例子是始於 1976 年並在 1989 年擴大的《護理人員健康研究》（Nurses' Health Study）。這項前瞻性研究招募註冊護理師，然後使用問卷向她們收集資料。**回溯性研究**則是在事件發生後才收集數據，例如研究人員可能會檢閱醫療紀錄中過去發生的事件。有些數據集（例如某個縣市的數據）可能同時包含前瞻性和回溯性收集的變數。地方政府可能會在前瞻性地收集隨著事件發展的某些變數（例如零售額），而聯邦政府則可能在 2010 年人口普查期間回溯性地收集其他變數（例如縣市人口總數）。
+
+**範例 1.53**
+假設一位研究人員對某家特定餐廳顧客給的平均小費感興趣。她應該進行觀察性研究還是實驗設計？
+
+在解決這個問題時，我們會問：「研究人員會施加任何處理嗎？」因為這裡不適用任何處理或干預，所以這將是一項觀察性研究。此外，研究人員應注意的一點是，如果顧客知道他們的小費正在被記錄，這可能會改變他們的行為，導致研究結果不準確。
+
+根據實驗得出因果結論通常是合理的。然而，根據觀察性數據得出同樣的因果結論則是危險的，我們不建議這麼做。**觀察性研究通常只足以顯示關聯性（associations）。**
+
+**隨堂練習 1.54**
+假設一項觀察性研究追蹤了防曬乳的使用情況和皮膚癌的關係，結果發現使用防曬乳的人比不使用防曬乳的人更容易罹患皮膚癌。這是否意味著防曬乳會導致皮膚癌？
+
+::: {.callout-tip title="解答" collapse="true"}
+不是的。詳情請看下一段的解釋。
+:::
+
+一些先前的研究告訴我們，使用防曬乳實際上可以降低罹患皮膚癌的風險，所以也許有另一個變數可以解釋防曬乳使用量與皮膚癌之間的這種假設關聯。一項缺失的重要資訊是「陽光曝曬量」。陽光曝曬量就是所謂的**干擾變數（confounding variable）**，也稱為干擾因子（confounding factor 或 confounder）。
+
+::: {.concept-box title="概念：干擾變數 (Confounding Variable)"}
+干擾變數是一個同時與解釋變數和反應變數相關聯的變數。因為干擾變數與這兩個變數都有關聯，我們無從得知結果（反應變數）究竟是由解釋變數引起的，還是由干擾變數引起的。
+:::
+
+陽光曝曬量是一個干擾因子，因為它同時與防曬乳的使用和皮膚癌的發展有關。整天在太陽底下的人更有可能使用防曬乳，而且整天在太陽底下的人也更有可能罹患皮膚癌。研究向我們表明，皮膚癌的發展是由於陽光曝曬造成的。防曬乳的使用和陽光曝曬這兩個變數產生了**混淆（confounded）**，如果沒有這些研究，我們就無從得知哪個才是導致皮膚癌的真正原因。
+
+**範例 1.55**
+在一項追蹤了 1,169 名因首次心臟病發作而住院的非糖尿病成人的研究中，報告有吃巧克力的人在接下來的 8 年裡，其存活率高於報告不吃巧克力的人。此外，吃較多巧克力的人平均壽命往往更長。研究人員控制了幾個干擾因子，例如年齡、體力活動、吸菸以及許多其他因素。我們能否得出結論，吃巧克力「導致」這些人活得更長？
+
+這是一項觀察性研究，而不是對照式的隨機實驗。儘管研究人員控制了許多可能的變數，但仍然可能存在其他的干擾因子。（你能想到任何沒有被提及的因素嗎？）雖然巧克力可能確實有影響，但這項研究無法「證明」巧克力提高了患者的存活率。
+
+**範例 1.56**
+進行這項研究的作者確實在文章中警告，需要進一步的研究來確定巧克力攝取量和存活率之間的相關性是否能轉化為任何因果關係。也就是說，他們承認可能存在干擾因子。一個沒有被考慮到的可能干擾因子是「心理健康」。在這種情境下，請解釋在這項研究中，「心理健康成為干擾因子」意味著什麼。
+
+如果心理健康較好的人傾向於吃更多的巧克力，而且心理健康較好的人在 8 年的研究期間也較不容易死亡，那麼心理健康就會是一個干擾因子。請注意，如果心理健康狀況較好與吃更多巧克力無關，那麼它就不會被視為干擾因子，因為這無法解釋所觀察到的吃巧克力和擁有更好存活率之間的關聯。如果心理健康狀況較好僅僅與吃巧克力相關，而與更好的存活率無關，基於同樣的原因，這也不會造成干擾。只有當一個變數同時與感興趣的解釋變數（巧克力）和研究中的結果變數（8 年研究期間的存活情況）**皆相關**時，它才能被視為干擾因子。
+
+雖然為觀察性研究中的因果結論辯護的一種方法是窮盡對干擾變數的搜尋，但無法保證所有的干擾變數都能被檢查或測量到。
+
+::: {.warning-box title="常見迷思：關聯 ≠ 因果 (Association ≠ Causation)"}
+一般而言，關聯不代表因果關係；因果關係只能從**隨機實驗（randomized experiment）**中推論出來。
+:::
+
+### 本節總結
+
+- 研究問題的性質和目的應當引導數據收集的過程，並且應該使用研究中感興趣的變數來描述。如果目的是得出因果結論，應該使用**實驗設計**。如果目的是將樣本的結果推論（generalize）到更大的母體，那麼就應該從感興趣的母體中抽取**隨機樣本（random sample）**。
+- 取決於研究問題，可以使用兩種主要數據分析方法之一：**信賴區間（confidence intervals）**或**假說檢定（hypothesis tests）**。使用信賴區間，我們試圖在一個合理的值域內估計一個特定的參數（parameter）。使用假說檢定，我們試圖確定有多少證據表明特定的參數大於、小於或不等於某個假設的值。
+- 研究問題應該指明該研究適用的結論類型。研究問題應該提供這些結論將適用於哪個母體；在使用了隨機分派的實驗中，則是可以得出因果結論。
+- **普查（census）**包括記錄母體中所有項目或個體的資訊。
+- **實驗（experiment）**是一種研究，在這種研究中，研究人員將條件或**處理（treatments）**分配給實驗單位，以探索感興趣的研究問題。目標是得出關於處理效果的因果結論。
+- **實驗單位（experimental unit）**是被分配處理的觀察單位。當實驗單位是由人組成時，他們有時被稱為**受試者（subjects）**或**參與者（participants）**。
+- 在實驗中，**解釋變數**（或稱為**因子 factor**）是一個變數，其不同的類別或**水準（levels）**會施加在實驗單位上。解釋變數的不同類別或水準被稱為**處理（treatments）**。當解釋變數超過一個時，解釋變數的類別或水準的**組合**被稱為處理。
+- **反應變數（response variable）**是在實施處理後，對每個實驗單位測量到的結果。
+- **觀察性研究（observational study）**是一種不施加處理的研究。研究人員記錄感興趣的變數值，以便探索感興趣的研究問題。
+- **前瞻性研究（prospective study）**是指在某個時間點選擇研究的觀察單位，並在該時間點以及未來持續收集數據的研究。
+- **回溯性研究（retrospective study）**是指在某個時間點選擇研究的觀察單位，並收集來自過去的數據的研究。
+- **問卷調查（survey）**是一種觀察性研究，在這種研究中，使用一套標準問題從人類收集數據。
+- 觀察性研究中的**干擾變數（confounding variable）**為研究中確定的解釋變數與反應變數之間所觀察到的關係提供了替代解釋，從而降低了主張我們感興趣的解釋變數與反應變數之間存在因果關係的不可信度。要成為干擾變數，該變數必須同時與解釋變數和反應變數相關。
+- 當樣本中的所有觀察單位都有同等的機會從母體中被選中時，該樣本就被認為是隨機的。隨機機制是指用來選擇要包含在樣本中的觀察單位的任何資源。
+- 只有當樣本中的個體是從母體中隨機抽取時，才適合將樣本的結果推論（generalize）到抽取該樣本的個體母體。請勿從軼事證據、志願者或其他類型的非隨機樣本進行推論。
+- 當樣本中的觀察單位或實驗單位不是從母體中隨機抽取時，只適合將結果推論到與研究中使用的個體相似的個體母體。
+
+### 練習題
+
+**1.31 空氣污染與出生結果，推論範圍 (Scope of inference)。**
+練習題 1.1 介紹了一項研究，研究人員收集數據以檢查南加州空氣污染物與早產之間的關係。在研究期間，空氣污染程度由空氣品質監測站測量。收集了 1989 年至 1993 年間 143,196 名新生兒的妊娠期長度數據，並計算了每個新生兒在妊娠期間接觸空氣污染的程度。
+(a) 指出這項研究中感興趣的母體和樣本。
+(b) 評論研究結果是否可以推論到母體，以及研究發現是否可以用來建立因果關係。
+
+**1.32 說謊者，推論範圍。**
+練習題 1.3 介紹了一項研究，研究誠實、年齡和自我控制之間關係的研究人員對 160 名年齡在 5 到 15 歲之間的兒童進行了一項實驗。研究人員要求每個孩子私底下擲一枚公正的硬幣，並在紙上記錄結果（白色或黑色），並說他們只會獎勵報告「白色」的孩子。一半的學生被明確告知不要作弊，而另一半則沒有給予任何明確的指示。在有指示和無指示組別的作弊率觀察到了差異，並且在每組兒童特徵之間也觀察到了一些差異。
+(a) 指出這項研究中感興趣的母體和樣本。
+(b) 評論研究結果是否可以推論到母體，以及研究發現是否可以用來建立因果關係。
+
+**1.33 布泰科呼吸法 (Buteyko method)，推論範圍。**
+練習題 1.2 介紹了一項關於使用布泰科淺呼吸技巧來減輕氣喘症狀並改善生活品質的研究。作為這項研究的一部分，招募了 600 名依賴藥物治療氣喘的 18-69 歲氣喘患者，並將他們隨機分派到兩組：一組練習布泰科呼吸法，另一組則沒有。平均而言，布泰科組的患者氣喘症狀明顯減輕，生活品質也有所改善。
+(a) 指出這項研究中感興趣的母體和樣本。
+(b) 評論研究結果是否可以推論到母體，以及研究發現是否可以用來建立因果關係。
+
+**1.34 壓力過大，第一部分。**
+一項針對平時健康的高中生隨機樣本進行的問卷調查研究發現，當他們壓力大時，更容易發生肌肉痙攣。該研究還指出，學生在壓力大時會喝更多咖啡且睡眠時間較少。
+(a) 這是什麼類型的研究？
+(b) 這項研究可以用來得出壓力增加與肌肉痙攣之間存在因果關係的結論嗎？
+(c) 請說明可能解釋壓力增加與肌肉痙攣之間所觀察到關係的潛在干擾變數。

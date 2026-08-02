@@ -1,54 +1,67 @@
 ---
-title: "1.5.1 Investigative question & conclusions"
+title: "1.5.1 探究問題與結論 (Investigative question & conclusions)"
 ---
 
-### 1.4. NUMERICAL SUMMARIES AND BOX PLOTS
-59
-1.23
-Histograms vs. box plots. Compare the two plots below. What characteristics of the distribution
-are apparent in the histogram and not in the box plot? What characteristics are apparent in the box plot
-but not in the histogram?
-5
-10
-15
-20
-25
-0
-50
-100
-150
-200
-5
-10
-15
-20
-25
-1.24
-Facebook friends. Facebook data indicate that 50% of Facebook users have 100 or more friends,
-and that the average friend count of users is 190. What do these findings suggest about the shape of the
-distribution of number of friends of Facebook users?43
-1.25
-Distributions and appropriate statistics, Part I. For each of the following, state whether you expect
-the distribution to be symmetric, right skewed, or left skewed. Also specify whether the mean or median
-would best represent a typical observation in the data, and whether the variability of observations would be
-best represented using the standard deviation or IQR. Explain your reasoning.
-(a) Number of pets per household.
-(b) Distance to work, i.e. number of miles between work and home.
-(c) Heights of adult males.
-1.26
-Distributions and appropriate statistics, Part II. For each of the following, state whether you expect
-the distribution to be symmetric, right skewed, or left skewed. Also specify whether the mean or median
-would best represent a typical observation in the data, and whether the variability of observations would be
-best represented using the standard deviation or IQR. Explain your reasoning.
-(a) Housing prices in a country where 25% of the houses cost below $350,000, 50% of the houses cost below
-$450,000, 75% of the houses cost below $1,000,000 and there are a meaningful number of houses that
-cost more than $6,000,000.
-(b) Housing prices in a country where 25% of the houses cost below $300,000, 50% of the houses cost below
-$600,000, 75% of the houses cost below $900,000 and very few houses that cost more than $1,200,000.
-(c) Number of alcoholic drinks consumed by college students in a given week. Assume that most of these
-students don't drink since they are under 21 years old, and only a few drink excessively.
-(d) Annual salaries of the employees at a Fortune 500 company where only a few high level executives earn
-much higher salaries than all the other employees.
-43Lars Backstrom. "Anatomy of Facebook". In: Facebook Data Team's Notes (2011).
+### 1.4 數值摘要與箱型圖 (Numerical Summaries and Box Plots)
 
+**1.23 直方圖 vs. 箱型圖 (Histograms vs. box plots)**
 
+比較下方的兩個圖表（原題附有直方圖與箱型圖）。哪些分佈特徵在直方圖中明顯，但在箱型圖中看不出來？哪些特徵在箱型圖中明顯，但在直方圖中看不出來？
+
+::: {.concept-box title="概念：直方圖與箱型圖的比較"}
+- **直方圖 (Histogram)**：能清楚顯示資料的形狀（如雙峰 bimodal、多峰 multimodal）、間隙 (gaps) 以及整體的頻率分佈，但無法精確看出中位數 (median) 或四分位數 (quartiles)。
+- **箱型圖 (Box Plot)**：能清楚標示出五數總結 (Five-number summary：最小值、Q1、中位數、Q3、最大值) 以及潛在的離群值 (outliers)，但會隱藏資料的形狀細節（例如無法區分單峰或雙峰分佈）。
+:::
+
+::: {.callout-tip title="AP English Response｜Comparing Histograms and Box Plots" collapse="true"}
+- **Histogram**: "The histogram displays the overall shape of the distribution, including any gaps, clusters, or multiple peaks (multimodality), which are obscured in a box plot."
+- **Box Plot**: "The box plot explicitly shows the median, quartiles, and identifies specific outliers, whereas these values can only be approximated from a histogram."
+:::
+
+---
+
+**1.24 Facebook 好友數 (Facebook friends)**
+
+Facebook 的數據顯示，50% 的使用者有 100 個或以上的好友，而使用者的平均 (mean) 好友數為 190。這些發現對於 Facebook 使用者好友數量分佈的形狀有何啟示？[^1]
+
+[^1]: Lars Backstrom. "Anatomy of Facebook". In: Facebook Data Team's Notes (2011).
+
+::: {.concept-box title="概念：平均數與中位數的關係"}
+根據題意，有 50% 的人好友數在 100 以上，代表**中位數 (Median) = 100**。而**平均數 (Mean) = 190**。
+- 當 **平均數 (Mean) > 中位數 (Median)**，分佈通常為 **右偏 (Right Skewed / Skewed to the Right)**。這表示有少數用戶擁有極大量的好友，拉高了整體的平均數。
+- 當 **平均數 (Mean) < 中位數 (Median)**，分佈通常為 **左偏 (Left Skewed / Skewed to the Left)**。
+- 當 **平均數 (Mean) $\approx$ 中位數 (Median)**，分佈通常為 **近似對稱 (Approximately Symmetric)**。
+:::
+
+---
+
+**1.25 分佈與適當的統計量，第一部分 (Distributions and appropriate statistics, Part I)**
+
+針對以下各項，說明你預期該分佈是對稱的 (symmetric)、右偏 (right skewed) 還是左偏 (left skewed)。並具體說明平均數 (mean) 或中位數 (median) 何者最能代表資料中的典型觀察值，以及觀察值的變異性 (variability) 最適合使用標準差 (standard deviation) 還是四分位距 (IQR) 來表示。請解釋你的推論。
+
+(a) 每個家庭的寵物數量 (Number of pets per household)。
+(b) 通勤距離，即工作地點與住家之間的英里數 (Distance to work)。
+(c) 成年男性的身高 (Heights of adult males)。
+
+::: {.warning-box title="常見迷思"}
+學生常以為所有自然界的數據都是常態或對稱分佈。實際上，許多人類行為（如通勤距離）或計數資料（如寵物數量）會因為有一個硬性的下界（如 0），且有少數極端高值存在，而呈現**右偏 (Right Skewed)**。對於偏態分佈，應使用具備抵抗性 (resistant) 的**中位數 (Median)**和**四分位距 (IQR)**來描述中心和散佈情形。
+:::
+
+---
+
+**1.26 分佈與適當的統計量，第二部分 (Distributions and appropriate statistics, Part II)**
+
+針對以下各項，說明你預期該分佈是對稱的 (symmetric)、右偏 (right skewed) 還是左偏 (left skewed)。並具體說明平均數 (mean) 或中位數 (median) 何者最能代表資料中的典型觀察值，以及觀察值的變異性 (variability) 最適合使用標準差 (standard deviation) 還是四分位距 (IQR) 來表示。請解釋你的推論。
+
+(a) 一個國家的房價，其中 25% 的房屋價格低於 \$350,000，50% 的房屋價格低於 \$450,000，75% 的房屋價格低於 \$1,000,000，且有相當數量的房屋價格超過 \$6,000,000。
+(b) 一個國家的房價，其中 25% 的房屋價格低於 \$300,000，50% 的房屋價格低於 \$600,000，75% 的房屋價格低於 \$900,000，且極少數房屋價格超過 \$1,200,000。
+(c) 大學生在特定一週內消耗的酒精飲料數量。假設大多數學生因為未滿 21 歲而不喝酒，只有少數人過度飲酒。
+(d) 一家財富 500 強 (Fortune 500) 公司員工的年薪，其中只有少數高階主管的薪水遠高於所有其他員工。
+
+::: {.callout-tip title="AP English Response｜Choosing Appropriate Statistics" collapse="true"}
+When justifying the choice of center and spread in your AP exam:
+- **對於偏態分佈 / 有離群值時 (For skewed distributions / distributions with outliers):**
+  "Because the distribution is highly skewed to the right (or left), the **median** is a better measure of center because it is resistant to extreme values. The **IQR** is a better measure of variability for the same reason."
+- **對於對稱分佈 (For symmetric distributions):**
+  "Because the distribution is approximately symmetric with no major outliers, the **mean** is appropriate to describe the center, and the **standard deviation** is appropriate to describe the variability."
+:::

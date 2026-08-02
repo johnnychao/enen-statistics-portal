@@ -1,8 +1,8 @@
 ---
-title: "Unit 4｜Probability, Random Variables, and Probability Distributions"
+title: "Unit 4｜機率、隨機變數與機率分配"
 ap-unit: 4
 ---
 
-# Probability, Random Variables, and Probability Distributions
+### 機率、隨機變數與機率分配
 
 本單元為自動化轉譯之 AP 統計學原文教材。

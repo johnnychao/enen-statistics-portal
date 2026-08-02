@@ -1,55 +1,41 @@
 ---
-title: "1.5.3 Explanatory and response variables"
+title: "1.5.3 解釋變數與反應變數"
 ---
 
-### 1.5. OVERVIEW OF DATA COLLECTION PRINCIPLES
-61
-1.5
-Overview of data collection principles
-How do researchers collect data? Why are the results of some studies more reliable than others?
-The way a researcher collects data depends upon the research goals. In this section, we look at
-diﬀerent methods of collecting data and consider the types of conclusions that can be drawn from
-those methods.
-Learning objectives
-1. Identify the main types of data collection: census, experiment, and observation study, and
-determine which one is appropriate for a given investigative question.
-2. Classify a study as observational or experimental, and determine when a study's results can
-be generalized to the population and when a causal relationship can be drawn.
-3. Identify and explain possible confounding factors within a study.
-1.5.1
-The investigative question and types of conclusions
-In Section 1.1, we saw that the first step of the investigative process is to identify a research
-question. An investigative question for a specific study should have a defined purpose. There are
-two types of conclusions that can be drawn from statistical studies. The first is a causal conclusion
-about the eﬀect of a treatment and the second is a generalization or inference from a sample to a
-larger population.
-If the purpose of the study is to draw a causal conclusion, an experiment with random assign-
-ment of treatments should be implemented. For example, if researchers want to see if a certain drug
-causes a reduction of blood pressure, they would carry out an experiment and randomly assign some
-people to take the drug and others to take a placebo (fake treatment).
-If, on the other hand, the purpose is to generalize the results of a sample to a larger population,
-an observational study with random sampling should be used. For example, researchers often want
-to estimate a parameter or quantity about a population, such as the average household size or
-proportion of registered voters that will vote for a certain candidate for mayor. Here, it is not an
-experiment that is needed, but rather a random sample from the target population, in this case
-registered voters in the city. Taking a random sample from the population will allow the researcher
-to generalize and say that the estimate from the sample (the statistic) is a reasonable estimate for
-the population parameter.
-Sometimes we want to draw a causal conclusion and generalize that causal conclusion to a larger
-population. To be able to draw both types of conclusions, we need a random sample of individuals
-and then a randomized experiment implemented on those individuals.
-Here we contrasted the
-primary goal of a random sample with the primary goal of an experiment. We explore sampling
-techniques and experimental design more thoroughly later in this chapter.
-The second step of the investigative process is data collection.
-The nature of the research
-question will determine whether an experiment or observational study is appropriate. The third
-step of the statistical process is analysis. A researcher should have a well-define variable of interest
-and a clearly stated parameter of interest.
-We will consider two main types of analysis in this
-textbook: confidence intervals and hypothesis tests, both of which will be introduced in Chapter 3.
-With confidence intervals, we seek to estimate the parameter within a range of reasonable values.
-With hypothesis tests, we seek to determine how much evidence there is that the parameter is greater
-than, less than, or diﬀerent from a certain hypothesized value.
+### 1.5 資料蒐集原則概述
 
+研究人員如何蒐集資料？為什麼有些研究的結果比其他研究更可靠？
 
+研究人員蒐集資料的方式取決於其研究目標。在本節中，我們將探討不同的資料蒐集方法，並思考從這些方法中可以得出哪些類型的結論。
+
+::: {.concept-box title="學習目標"}
+1. 辨識主要的資料蒐集類型：普查 (census)、實驗設計 (experiment) 與觀察性研究 (observational study)，並能決定哪一種方法適合特定的探究問題。
+2. 將研究分類為觀察性或實驗性，並判斷何時研究結果可推論 (generalized) 至母體 (population)，何時能得出因果關係 (causal relationship)。
+3. 辨識並解釋研究中可能的干擾因子 (confounding factors)。
+:::
+
+### 1.5.1 探究問題與結論類型
+
+在 1.1 節中，我們看到統計探究過程的第一步是確認研究問題。特定研究的探究問題必須有明確的目的。統計研究可以得出兩種主要結論：
+
+1. 關於處理 (treatment) 效果的**因果結論 (causal conclusion)**。
+2. 從樣本 (sample) 對更大母體 (population) 進行的**推論 (inference)** 或**一般化推論 (generalization)**。
+
+如果研究的目的是要得出因果結論，則應實施具有**隨機分派 (random assignment)** 處理的**實驗設計 (experiment)**。例如，如果研究人員想了解某種藥物是否會導致血壓降低，他們會進行一項實驗，隨機分派一部分人服用該藥物，而其他人則服用安慰劑 (placebo，假處理)。
+
+另一方面，如果目的是將樣本結果推論至更大的母體，則應使用具有**隨機抽樣 (random sampling)** 的**觀察性研究 (observational study)**。例如，研究人員經常希望估計母體的某個參數 (parameter) 或數量，像是平均家庭人口數，或會投票給某位市長候選人的登記選民比例 (proportion)。此時需要的不是實驗設計，而是從目標母體（以本例來說是該市的登記選民）中抽取隨機樣本 (random sample)。從母體中進行隨機抽樣，可以讓研究人員進行推論，並說明來自樣本的估計值（即統計量 statistic）是母體參數的合理估計值。
+
+::: {.callout-tip title="AP 重點提示｜隨機抽樣與隨機分派" collapse="true"}
+在 AP 統計學中，分辨隨機抽樣 (Random Sampling) 與隨機分派 (Random Assignment) 的目的非常重要：
+- **Random Sampling** (隨機抽樣) 允許我們將樣本的結果推論 (generalize) 到母體。
+- **Random Assignment** (隨機分派) 允許我們建立處理與反應之間的因果關係 (cause-and-effect relationship)。
+:::
+
+有時候，我們希望得出因果結論，並將該因果結論推論到更大的母體。為了能夠得出這兩種結論，我們需要先抽取個體的隨機樣本，然後對這些個體實施隨機實驗 (randomized experiment)。在這裡，我們對比了隨機樣本的主要目標與實驗設計的主要目標。我們將在本章後續更深入探討抽樣技巧與實驗設計。
+
+統計探究過程的第二步是**資料蒐集 (data collection)**。研究問題的性質將決定適合採用實驗設計還是觀察性研究。統計過程的第三步是**資料分析 (analysis)**。研究人員必須有明確定義的感興趣變數 (variable of interest) 以及清楚陳述的感興趣參數 (parameter of interest)。
+
+在本教材中，我們將考慮兩種主要的分析類型：**信賴區間 (confidence intervals)** 與**假說檢定 (hypothesis tests)**，這兩者都將在第三章中介紹：
+
+- 透過**信賴區間**，我們試圖在一個合理數值的範圍內估計參數。
+- 透過**假說檢定**，我們試圖判定有多少證據支持該參數大於、小於或不同於某個假設的數值。

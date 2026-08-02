@@ -1,8 +1,8 @@
 ---
-title: "Unit 5｜Sampling Distributions"
+title: "Unit 5｜抽樣分配"
 ap-unit: 5
 ---
 
-# Sampling Distributions
+# 抽樣分配
 
 本單元為自動化轉譯之 AP 統計學原文教材。

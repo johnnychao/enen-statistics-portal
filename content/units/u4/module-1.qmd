@@ -1,486 +1,193 @@
 ---
-title: "2.1 Relationships between two categorical variables"
+title: "2.1 兩個類別變數之間的關係 (Relationships between two categorical variables)"
 ---
 
-94
-Chapter 2
-Probability, random
-variables, and probability
-distributions
-### 2.1 Relationships between two categorical variables
-### 2.2 Probability basics
-2.3 Conditional probability, intersections, and unions
-### 2.4 Discrete random variables
-### 2.5 Binomial distributions
-### 2.6 Normal distributions
-### 2.7 Sampling distributions and the central limit theorem
+### 第 2 章 機率、隨機變數與機率分配
 
+機率是統計學的基礎，你可能已經對許多概念有所了解。然而，對多數人來說，這些概念的正式化是全新的。我們將從大多數人熟悉的例子開始介紹機率概念。接著，我們分析並應用離散機率分配（包括二項式分配），以及統計學中最重要的連續分配——常態分配。最後，我們介紹抽樣分配（sampling distribution）的概念，這將為接下來的兩章奠定基礎。
 
-95
-Probability forms a foundation of statistics, and you're probably already aware of
-many of the ideas. However, formalization of the concepts is new for most. We begin
-by introducing probability concepts through examples that will be familiar to most
-people. Then we analyze and apply discrete probability distributions, including the
-binomial distribution, and the most important continuous distribution in statistics -
-the normal distribution. Finally, we introduce the concept of a sampling distribution
-which will lay the groundwork for the next two chapters.
-For videos, slides, and other resources, please visit
-www.openintro.org/ahss
+*（有關影片、投影片及其他資源，請造訪 www.openintro.org/ahss）*
 
+---
 
-96
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-### 2.1 Relationships between two categorical variables
-How do we visualize and summarize categorical data? How can we see the relationship between
-two categorical variables? For example, is there an association between the categorical variables of
-homeownership type and application type? Does email type provide any useful value in classifying
-email as spam or not spam?
-In this section, we will introduce tables and other basic tools for
-categorical data that are used throughout this book.
-Learning objectives
-1. Compare tabular and graphical representations for the relationship between two categorical
-variables.
-2. Justify a claim using tabular and graphical representations for the distributions of two cate-
-gorical variables.
-3. Calculate summary statistics from two-way tables.
-4. Compare summary statistics for two categorical variables.
-5. Justify a claim using summary statistics for two categorical variables.
-2.1.1
-Introduction to two-way tables
-In Section 1.2 we summarized homeownership, a categorical variable from the loan data set
-that has three levels, using a one-way frequency table and a one-way relative frequency table. Those
-tables are reproduced here.
-homeownership
-Count
-rent
-3858
-mortgage
-4789
-own
-1353
-Total
-10000
-homeownership
-Relative Frequency
-rent
-0.3858
-mortgage
-0.4789
-own
-0.1353
-Total
-1.000
-Sometimes we to represent the frequencies split among two categorical variables. Figure 2.1
-summarizes two variables: app type and homeownership. A table that summarizes data for two
-categorical variables in this way is called a two-way table or a contingency table. In a two-
-way frequency table, each value in the table represents the count or number of times a particular
-combination of outcomes occurred. For example, the value 3496 corresponds to the number of loans
-in the data set where the borrower rents and the application type was individual.
-Row and column totals are also included. The row totals provide the total counts across each
-row (e.g. 3496 + 3839 + 1170 = 8505), and column totals are total counts down each column.
-homeownership
-rent
-mortgage
-own
-Total
-individual
-3496
-3839
-1170
-8505
-app type
-joint
-362
-950
-183
-1495
-Total
-3858
-4789
-1353
-10000
-Figure 2.1: A two-way frequency table for app type and homeownership.
+### 2.1 兩個類別變數之間的關係 (Relationships between two categorical variables)
 
+我們該如何視覺化和總結類別資料（categorical data）？我們該如何觀察兩個類別變數之間的關係？例如，房屋所有權類型（homeownership type）與申請類型（application type）這兩個類別變數之間是否存在關聯（association）？電子郵件類型是否能提供有用的價值，將電子郵件分類為垃圾郵件或非垃圾郵件？
 
-### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
-97
-We can also create a two-way relative frequency table that shows the proportion for each
-combination of categories. These proportions are called joint relative frequencies. To calculate
-these, we divide every count in the frequency table by the entire table total of 10,000. For example,
-we calculate the proportion of the loans that are classified as own and individual as 1170/10,000
-= 0.1170.
-The row and column totals are called the marginal relative frequencies. The marginal
-relative frequency for the first row is 0.8505, which found by taking the individual row total
-divided by the total for the entire table. The marginal relative frequency for the second column is
-0.4789, which is found by taking the mortgage column total divided by the total for the entire table.
-homeownership
-rent
-mortgage
-own
-Total
-individual
-0.3496
-0.3839
-0.1170
-0.8505
-app type
-joint
-0.0362
-0.0950
-0.0183
-0.1495
-Total
-0.3858
-0.4789
-0.1353
-1.000
-Figure 2.2: A two-way relative frequency table for app type and homeownership.
-2.1.2
-Graphical representations for two categorical variables
-Bar charts and mosaic plots provide a way to visualize and compare the distributions of cate-
-gorical variables. A segmented bar chart, or stacked bar chart, is a graphical display of two-way
-table information. For example, a segmented bar chart is shown in Figure 2.3(a), where we have first
-created a bar chart using the homeownership variable and then divided each group by the levels of
-app type.
-One related visualization to the segmented bar chart is the side-by-side bar chart.
-An
-example is shown in Figure 2.3(b).
-Figures 2.3(c) and 2.3(d) show a standardize segmented bar chart and a standardized side-
-by-side bar chart. These visualizations are helpful for understanding the proportion of individual
-or joint loan applications for borrowers in each level of homeownership. Additionally, because the
-proportions of joint and individual vary across the groups, we can conclude that the two variables
-are associated.
-EXAMPLE 2.1
-Examine the four bar charts in Figure 2.3.
-When is the segmented, side-by-side, standardized
-segmented bar chart, or standardized side-by-side the most useful?
-The segmented bar chart is most useful when it's reasonable to assign one variable as the explanatory
-variable and the other variable as the response, since we are eﬀectively grouping by one variable first
-and then breaking it down by the others.
-Side-by-side bar charts are more agnostic in their display about which variable, if any, represents
-the explanatory and which the response variable. It is also easy to discern the number of cases in
-of the six diﬀerent group combinations. However, one downside is that it tends to require more
-horizontal space; the narrowness of Figure 2.3(b) makes the plot feel a bit cramped. Additionally,
-when two groups are of very diﬀerent sizes, as we see in the own group relative to either of the other
-two groups, it is diﬃcult to discern if there is an association between the variables.
-The standardized segmented bar chart is helpful if the primary variable in the segmented bar chart
-is relatively imbalanced, e.g. the own category has only a third of the observations in the mortgage
-category, making the simple segmented bar chart less useful for checking for an association. The
-major downside of the standardized version is that we lose all sense of how many cases each of the
-bars represents.
-The last plot is a standardized side-by-side bar chart. It shows the joint and individual groups as
-proportions within each level of homeownership, and it oﬀers similar benefits and tradeoﬀs to the
-standardized version of the stacked bar plot.
+在本節中，我們將介紹本書中常用的雙向表（two-way tables）及其他處理類別資料的基本工具。
 
+::: {.concept-box title="學習目標"}
+1. 比較兩個類別變數關係的表格與圖形表示法。
+2. 使用兩個類別變數分配的表格和圖形表示法來證明一項主張。
+3. 從雙向表計算摘要統計量（summary statistics）。
+4. 比較兩個類別變數的摘要統計量。
+5. 使用兩個類別變數的摘要統計量來證明一項主張。
+:::
 
-98
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-rent
-mortgage
-own
-0
-1000
-2000
-3000
-4000
-joint
-individual
-Frequency
-(a)
-rent
-mortgage
-own
-0
-1000
-2000
-3000
-4000
-joint
-individual
-Frequency
-(b)
-rent
-mortgage
-own
-0.0
-0.2
-0.4
-0.6
-0.8
-1.0
-joint
-individual
-Proportion
-(c)
-rent
-mortgage
-own
-0.0
-0.2
-0.4
-0.6
-0.8
-1.0
-Proportion
-joint
-individual
-(d)
-Figure 2.3:
-(a) segmented bar chart for homeownership, where the counts
-have been further broken down by app type.
-(b) Side-by-side bar chart for
-homeownership and app type.
-(c) Standardized version of the segmented
-bar chart. (d) Standardized side-by-side bar chart.
-A mosaic plot is a visualization technique suitable for two-way tables that resembles a stan-
-dardized segmented bar chart with the added benefit that we still see the relative group sizes of the
-primary variable as well.
-To get started in creating our first mosaic plot, we'll break a square into columns for each
-category of the homeownership variable, with the result shown in Figure 2.4(a).
-Each column
-represents a level of homeownership, and the column widths correspond to the proportion of loans
-in each of those categories. For instance, there are fewer loans where the borrower is an owner than
-where the borrower has a mortgage. In general, mosaic plots use box areas to represent the number
-of cases in each category.
-To finish the completed mosaic plot, the single-variable mosaic plot is further divided into
-pieces in Figure 2.4(b) using the app type variable. As with the standardized segmented bar chart
-in Figure 2.3(c), each column is split proportional to the number of loans from individual and joint
-borrowers. For example, the second column represents loans where the borrower has a mortgage,
-and it was divided into individual loans (upper) and joint loans (lower). As another example, the
-bottom segment of the third column represents loans where the borrower owns their home and applied
-jointly, while the upper segment of this column represents borrowers who are homeowners and filed
-individually. We can again use this plot to see that the homeownership and app type variables are
-associated, since some columns are divided in diﬀerent vertical locations than others, which was the
-same technique used for checking an association in the standardized segmented bar chart.
+### 2.1.1 雙向表簡介 (Introduction to two-way tables)
 
+在 1.2 節中，我們使用單向次數分配表（one-way frequency table）和單向相對次數分配表（one-way relative frequency table）總結了貸款資料集中的一個類別變數：房屋所有權（homeownership），該變數有三個層級（levels）。這些表格重現如下：
 
-### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
-99
-rent
-mortgage
-own
-(a)
-rent
-mortgage
-own
-individual
-joint
-(b)
-Figure 2.4: (a) The one-variable mosaic plot for homeownership. (b) Two-variable
-mosaic plot for both homeownership and app type.
-In Figure 2.4(b), we chose to first split by the homeowner status of the borrower. However, we
-could have instead first split by the application type, as in Figure 2.5. Like with the bar charts, it's
-common to use the explanatory variable to represent the first split in a mosaic plot, and then for
-the response to break up each level of the explanatory variable.
-indiv.
-joint
-rent
-mortgage
-own
-Figure 2.5: Mosaic plot where loans are grouped by the homeownership variable
-after they've been divided into the individual and joint application types.
-2.1.3
-Conditional relative frequencies
-The bar charts and mosaic plots encountered in the previous section provide visual representa-
-tions of counts or proportions in two-way tables. We will find these summaries useful when looking for
-evidence of an association between two categorical variables, such as app type and homeownership.
-For instance, suppose we are interested in the following: for applicants who rent, what proportion
-apply as an individual and what proportion apply jointly? Also, how does this compare to applicants
-whose homeownership type is mortgage?
-We can calculate the proportion of individual or joint application types within each homeownership
-type and compare them. These proportions are called conditional relative freqencies. Looking
-at Figure 2.6, we will condition on homeownership type and compute column proportions: we take
-each cell frequency and divide it by the column total to see what proportion of the column variable
-it represents. Notice that these proportions can be seen in the standardized stacked and segmented
-bar graphs shown in Figure 2.3 and in the mosaic plot in Figure 2.4(b).
+| 房屋所有權 (homeownership) | 次數 (Count) |
+|:---|---:|
+| 租屋 (rent) | 3858 |
+| 房貸 (mortgage) | 4789 |
+| 自有 (own) | 1353 |
+| **總計 (Total)** | **10000** |
 
+| 房屋所有權 (homeownership) | 相對次數 (Relative Frequency) |
+|:---|---:|
+| 租屋 (rent) | 0.3858 |
+| 房貸 (mortgage) | 0.4789 |
+| 自有 (own) | 0.1353 |
+| **總計 (Total)** | **1.000** |
 
-100
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-In Figure 2.6, the value 0.906 indicates that 90.6% of renters applied as individuals. This is
-equivalent to saying that the rate of individual applications among renters is 90.6%. This rate is
-higher than among those with mortgages (80.2%) or who own their own home (85.1%). Because
-these rates vary between the three levels of homeownership (rent, mortgage, own), this provides
-evidence that the app type and homeownership variables are associated.
-rent
-mortgage
-own
-Total
-individual
-0.906
-0.802
-0.865
-0.851
-joint
-0.094
-0.198
-0.135
-0.150
-Total
-1.000
-1.000
-1.000
-1.000
-Figure 2.6:
-A two-way table with column proportions for the app type and
-homeownership variables.
-The total for the last column is oﬀby 0.001 due to
-a rounding error.
-We can also ask a diﬀerent question. What proportion of individual applicants rent, have a
-mortgage, or own? And how does this compare to joint applicants? Here, we condition on app
-type and we calculate row proportions: we take each cell frequency and divide it by the row total to
-see what proportion of the row variable it represents, as shown in Figure 2.7. To calculate the row
-proportion at the intersection of individual and rent, we divide 3496 by the row total of 8505,
-which equals 0.411 and represents the proportion of individual applicants who rent.
-rent
-mortgage
-own
-Total
-individual
-0.411
-0.451
-0.138
-1.000
-joint
-0.242
-0.635
-0.122
-1.000
-Total
-0.386
-0.479
-0.135
-1.000
-Figure 2.7:
-A two-way table with row proportions for the app type and
-homeownership variables. The row total is oﬀby 0.001 for the joint row due
-to a rounding error.
-When comparing these row proportions, we would look down columns to see if the proportion
-of loans where the borrower rents, has a mortgage, or owns varied across the individual to joint
-application types. Here we also see an association: those with a joint application are more likely
-to have a mortgage and less likely to rent than those with an individual application. We can see
-these row proportions in the mosaic plot in Figure 2.5, while we can see the column proportions in
-the mosaic plot in Figure 2.4(b).
-GUIDED PRACTICE 2.2
-(a) What does 0.802 represent in Figure 2.6? (b) What does 0.451 represent in Figure 2.7? 1
-GUIDED PRACTICE 2.3
-(a) What does 0.135 represent in the Figure 2.6? (b) What does 0.122 at the intersection of joint
-and own represent in Figure 2.7?2
-1(a) 0.802 represents the fraction of applicants with mortgages who applied as individuals. (b) 0.451 represents
-the proportion of individual applicants who have a mortgage.
-2(a) 0.135 represents the proportion of home-owning borrowers who had a joint application for the loan. (b) 0.122
-represents the proportion of joint borrowers who own their home.
+有時候我們想要呈現兩個類別變數之間的次數分配。圖 2.1 總結了兩個變數：申請類型（app type）和房屋所有權（homeownership）。像這樣總結兩個類別變數資料的表格被稱為**雙向表（two-way table）**或**列聯表（contingency table）**。在雙向次數分配表中，表格中的每個數值代表特定結果組合發生的次數。例如，數值 3496 對應於資料集中借款人為租屋且申請類型為個人的貸款數量。
 
+表格中也包含了列總計（row totals）和欄總計（column totals）。列總計提供每一列的總數（例如 3496 + 3839 + 1170 = 8505），而欄總計提供每一欄的總數。
 
-### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
-101
-EXAMPLE 2.4
-Data scientists use statistics to filter spam from incoming email messages. By noting specific char-
-acteristics of an email, a data scientist may be able to classify some emails as spam or not spam with
-high accuracy. One such characteristic is whether the email contains no numbers, small numbers, or
-big numbers. Another characteristic is the email format, which indicates whether or not an email
-has any HTML content, such as bolded text. We'll focus on email format and spam status using the
-email data set, and these variables are summarized in a two-way table in Figure 2.8. Which would
-be more helpful to someone hoping to classify email as spam or regular email for this table: row or
-column proportions?
-A data scientist would be interested in how the proportion of spam changes within each email
-format. This corresponds to column proportions: the proportion of spam in plain text emails and
-the proportion of spam in HTML emails.
-If we generate the column proportions, we can see that a higher proportion of plain text emails are
-spam (209/1195 = 17.5%) than compared to HTML emails (158/2726 = 5.8%). This information on
-its own is insuﬃcient to classify an email as spam or not spam, as over 80% of plain text emails
-are not spam. Yet, when we carefully combine this information with many other characteristics, we
-stand a reasonable chance of being able to classify some emails as spam or not spam with confidence.
-text
-HTML
-Total
-spam
-209
-158
-367
-not spam
-986
-2568
-3554
-Total
-1195
-2726
-3921
-Figure 2.8: A two-way table for spam and format.
-Example 2.4 points out that row and column proportions are not equivalent. Before settling
-on one form for a table, it is important to consider each to ensure that the most useful table is
-constructed.
-We will revisit this idea of "conditioning" on a row or column variable to look for association
-between two variables in Section 2.3 when we investigate conditional probability. To determine of
-the association is "significant" or not, we will have to wait for Chapter 3, Inference for categorical
-data: proportions.
-EXAMPLE 2.5
-Look back to the mosaic plots in Figures 2.4(b) and 2.5 and the tables in Figures 2.7 and 2.6. Are
-there any obvious scenarios where one might be more useful than the other?
-None that we thought were obvious! What is distinct about app type and homeownership vs the
-email example is that these two variables don't have a clear explanatory-response variable relation-
-ship that we might hypothesize (see Section 1.5.3 for these terms). Usually it is most useful to
-"condition" on the explanatory variable. For instance, in the email example, the email format was
-seen as a possible explanatory variable of whether the message was spam, so we would find it more
-interesting to compute the relative frequencies (proportions) for each email format.
+| | 租屋 (rent) | 房貸 (mortgage) | 自有 (own) | **總計 (Total)** |
+|:---|---:|---:|---:|---:|
+| **個人 (individual)** | 3496 | 3839 | 1170 | 8505 |
+| **共同 (joint)** | 362 | 950 | 183 | 1495 |
+| **總計 (Total)** | **3858** | **4789** | **1353** | **10000** |
 
+*圖 2.1：申請類型與房屋所有權的雙向次數分配表。*
 
-102
-CHAPTER 2. PROBABILITY, RANDOM VARIABLES, AND PROBABILITY DISTRIBUTIONS
-Section summary
-• A two-way table, also called a contingency table, can be used to summarize and compare
-data for two categorical variables. The entries in the cells of the table can be frequencies (i.e.,
-counts) or relative frequencies (i.e., proportions).
-• Side-by-side bar charts, segmented bar charts, and mosaic plots are examples of graphs
-used to display the relationship between two categorical variables. In these graphs, the fre-
-quency or relative frequency of each category, or level, of one of the categorical variables is
-displayed for each category of the other categorical variable.
-• Graphical representations of two categorical variables can be used to compare the relationship
-of one categorical variable across the levels of the other categorical variable and determine
-whether the two variables are associated.
-• Tabular and graphical representations for the distributions of two categorical variables may
-reveal information that can be used to justify claims about the variables in context.
-• A joint relative frequency in a two-way table is a cell frequency divided by the total for
-the entire table.
-• A marginal relative frequency in a two-way table is a row total divided by the total for
-the entire table or a column total divided by the total for the entire table.
-• A conditional relative frequency is a relative frequency computed by restricting to a
-particular level, or category of interest. A conditional relative frequency can be a cell frequency
-in a column divided by the total for that column or it can be a cell frequency in a row divided
-by the total for that row.
-• Summary statistics for two categorical variables can be used to compare distributions for
-evidence of an association between the two variables and may reveal information that can be
-used to justify claims about the variable in context.
+我們也可以建立一個**雙向相對次數分配表（two-way relative frequency table）**，顯示每個類別組合的比例。這些比例被稱為**聯合相對次數（joint relative frequencies）**。為計算這些數值，我們將次數表中的每個計數除以整個表格的總計 10,000。例如，我們計算被分類為「自有」且「個人」的貸款比例為 1170 / 10,000 = 0.1170。
 
+列總計與欄總計被稱為**邊際相對次數（marginal relative frequencies）**。第一列的邊際相對次數為 0.8505，是將個人的列總計除以全表總計所得到。第二欄的邊際相對次數為 0.4789，是將房貸的欄總計除以全表總計所得。
 
-### 2.1. RELATIONSHIPS BETWEEN TWO CATEGORICAL VARIABLES
-103
-Exercises
-2.1
-Views on the DREAM Act. A random sample of registered voters from Tampa, FL were asked if they
-support the DREAM Act, a proposed law which would provide a path to citizenship for people brought
-illegally to the US as children. The survey also collected information on the political ideology of the respon-
-dents. Based on the mosaic plot shown below, do views on the DREAM Act and political ideology appear
-to be independent? Explain your reasoning.3
-Conservative
-Moderate
-Liberal
-Support
-Not support
-Not sure
-2.2
-Raise taxes. A random sample of registered voters nationally were asked whether they think it's better
-to raise taxes on the rich or raise taxes on the poor. The survey also collected information on the political
-party aﬃliation of the respondents. Based on the mosaic plot shown below, do views on raising taxes and
-political aﬃliation appear to be independent? Explain your reasoning.4
-Democrat
-Republican
-Indep / Other
-Raise taxes on the rich
-Raise taxes on the poor
-Not sure
-3SurveyUSA, News Poll #18927, data collected Jan 27-29, 2012.
-4Public Policy Polling, Americans on College Degrees, Classic Literature, the Seasons, and More, data collected
-Feb 20-22, 2015.
+| | 租屋 (rent) | 房貸 (mortgage) | 自有 (own) | **總計 (Total)** |
+|:---|---:|---:|---:|---:|
+| **個人 (individual)** | 0.3496 | 0.3839 | 0.1170 | 0.8505 |
+| **共同 (joint)** | 0.0362 | 0.0950 | 0.0183 | 0.1495 |
+| **總計 (Total)** | **0.3858** | **0.4789** | **0.1353** | **1.000** |
 
+*圖 2.2：申請類型與房屋所有權的雙向相對次數分配表。*
 
+### 2.1.2 兩個類別變數的圖形表示法 (Graphical representations for two categorical variables)
+
+長條圖（Bar charts）和馬賽克圖（mosaic plots）提供了一種視覺化並比較類別變數分配的方法。**分段長條圖（segmented bar chart）**或**堆疊長條圖（stacked bar chart）**是雙向表資訊的一種圖形顯示。例如，圖 2.3(a) 顯示了一個分段長條圖，我們先使用房屋所有權變數建立了長條圖，然後根據申請類型的不同層級將每個群組劃分。
+
+與分段長條圖相關的另一種視覺化圖形是**並排長條圖（side-by-side bar chart）**。圖 2.3(b) 顯示了一個例子。
+
+圖 2.3(c) 和 2.3(d) 顯示了標準化的分段長條圖（standardized segmented bar chart）和標準化的並排長條圖（standardized side-by-side bar chart）。這些視覺化圖形有助於了解在房屋所有權各層級中，借款人為個人或共同貸款申請的比例。此外，由於「共同」和「個人」的比例在各群組間有所不同，我們可以得出這兩個變數具有**關聯性（associated）**的結論。
+
+::: {.concept-box title="範例 2.1 (Example 2.1)"}
+觀察圖 2.3 中的四個長條圖。在什麼情況下，分段長條圖、並排長條圖、標準化分段長條圖或標準化並排長條圖最有用？
+
+- **分段長條圖（Segmented bar chart）** 在可以合理地將一個變數指定為解釋變數（explanatory variable），而另一個變數指定為反應變數（response variable）時最有用，因為我們實際上是先根據一個變數進行分組，然後再透過另一個變數將其細分。
+- **並排長條圖（Side-by-side bar charts）** 在顯示哪個變數是解釋變數，哪個是反應變數方面比較中立。它也很容易看出六種不同組別組合的樣本數。然而，缺點是它往往需要更多的水平空間；圖 2.3(b) 的狹窄特性使得圖形看起來有點擁擠。此外，當兩個組別大小差異很大時（就像我們在「自有」組相對於其他兩組所看到的那樣），很難看出變數之間是否存在關聯。
+- **標準化分段長條圖（Standardized segmented bar chart）** 在分段長條圖中的主要變數分佈相對不平衡時很有幫助，例如「自有」類別的觀察值只有「房貸」類別的三分之一，這使得簡單的分段長條圖在檢查關聯性時較不實用。標準化版本的主要缺點是我們會失去每個長條代表多少個案數的概念。
+- **標準化並排長條圖（Standardized side-by-side bar chart）** 顯示了每個房屋所有權層級內的「共同」和「個人」組別比例，其優點與缺點與標準化的堆疊長條圖類似。
+:::
+
+*(在此處請參考原文書之 圖 2.3 進行對照)*
+
+**馬賽克圖（mosaic plot）**是一種適用於雙向表的視覺化技術，它類似於標準化分段長條圖，但增加了一個好處：我們仍然可以看出主要變數的相對組別大小。
+
+為了開始繪製我們第一個馬賽克圖，我們將一個正方形依照房屋所有權變數的各個類別劃分成數欄，結果如圖 2.4(a) 所示。每一欄代表房屋所有權的一個層級，欄寬對應於各個類別中貸款的比例。例如，借款人為「自有房屋」的貸款數少於有「房貸」的貸款數。一般來說，馬賽克圖使用方塊面積來表示每個類別的個案數量。
+
+為了完成馬賽克圖，圖 2.4(b) 使用申請類型變數進一步將單變數馬賽克圖分割成幾部分。正如圖 2.3(c) 的標準化分段長條圖，每一欄的分割比例對應於個人與共同借款人的貸款數量。例如，第二欄代表借款人有房貸的貸款，它被分成個人貸款（上半部）和共同貸款（下半部）。另一個例子是，第三欄的底部區塊代表借款人擁有自己的房子且共同申請的貸款，而此欄的上半部代表借款人擁有房子且單獨申請的人。我們再次可以使用這張圖看出房屋所有權與申請類型這兩個變數存在關聯，因為某些欄的垂直分割位置與其他欄不同，這與在標準化分段長條圖中用來檢查關聯性的技巧相同。
+
+*(在此處請參考原文書之 圖 2.4 馬賽克圖)*
+
+在圖 2.4(b) 中，我們選擇先按借款人的房屋所有權狀態進行分割。然而，我們也可以像圖 2.5 一樣，先按申請類型進行分割。與長條圖一樣，我們通常會使用解釋變數（explanatory variable）來表示馬賽克圖中的第一次分割，然後用反應變數（response variable）來分割解釋變數的每一層級。
+
+*(在此處請參考原文書之 圖 2.5 馬賽克圖)*
+
+### 2.1.3 條件相對次數 (Conditional relative frequencies)
+
+在上一節遇到的長條圖和馬賽克圖提供了雙向表中計數或比例的視覺表示。當我們尋找兩個類別變數（例如申請類型與房屋所有權）之間關聯性的證據時，這些摘要將會非常有用。
+
+例如，假設我們對以下問題感興趣：對於租屋的申請人，以個人身分申請的比例為何？共同申請的比例又為何？這與房屋所有權類型為房貸的申請人相比又如何？
+
+我們可以計算每個房屋所有權類型內的個人或共同申請類型的比例並進行比較。這些比例被稱為**條件相對次數（conditional relative freqencies）**。觀察圖 2.6，我們將以房屋所有權類型為條件（condition on），並計算欄比例（column proportions）：我們將每個儲存格的次數除以欄總計，以看出它代表了該欄變數的多少比例。請注意，這些比例可以在圖 2.3 中顯示的標準化堆疊與分段長條圖中，以及圖 2.4(b) 的馬賽克圖中看到。
+
+| | 租屋 (rent) | 房貸 (mortgage) | 自有 (own) | **總計 (Total)** |
+|:---|---:|---:|---:|---:|
+| **個人 (individual)** | 0.906 | 0.802 | 0.865 | 0.851 |
+| **共同 (joint)** | 0.094 | 0.198 | 0.135 | 0.150 |
+| **總計 (Total)** | **1.000** | **1.000** | **1.000** | **1.000** |
+
+*圖 2.6：包含申請類型與房屋所有權變數之欄比例的雙向表。由於四捨五入誤差，最後一欄的總計誤差為 0.001。*
+
+在圖 2.6 中，數值 0.906 表示有 90.6% 的租屋者以個人身分申請。這等於說租屋者中個人申請的比例（rate）為 90.6%。這個比例高於有房貸者（80.2%）或自有房屋者（85.1%）。由於這些比例在房屋所有權的三個層級（租屋、房貸、自有）之間有所不同，這提供了申請類型與房屋所有權變數之間具有關聯性的證據。
+
+我們也可以提出另一個不同的問題。個人申請人中，租屋、有房貸或自有房屋的比例分別是多少？這與共同申請人相比又如何？在此，我們以申請類型為條件，計算列比例（row proportions）：我們將每個儲存格次數除以列總計，以了解它代表該列變數的多少比例，如圖 2.7 所示。為計算「個人」與「租屋」交集處的列比例，我們將 3496 除以列總計 8505，這等於 0.411，代表個人申請人中租屋者的比例。
+
+| | 租屋 (rent) | 房貸 (mortgage) | 自有 (own) | **總計 (Total)** |
+|:---|---:|---:|---:|---:|
+| **個人 (individual)** | 0.411 | 0.451 | 0.138 | 1.000 |
+| **共同 (joint)** | 0.242 | 0.635 | 0.122 | 1.000 |
+| **總計 (Total)** | **0.386** | **0.479** | **0.135** | **1.000** |
+
+*圖 2.7：包含申請類型與房屋所有權變數之列比例的雙向表。由於四捨五入的誤差，共同(joint)的列總計誤差為 0.001。*
+
+當比較這些列比例時，我們會向下查看各欄，看看借款人租屋、有房貸或自有房屋的比例在個人到共同申請類型之間是否有所不同。在這裡我們同樣看出關聯：共同申請的借款人比單獨申請的借款人更有可能有房貸且較少租屋。我們可以在圖 2.5 的馬賽克圖中看到這些列比例，而在圖 2.4(b) 的馬賽克圖中可以看到欄比例。
+
+::: {.concept-box title="引導練習 2.2 (Guided Practice 2.2)"}
+(a) 圖 2.6 中的 0.802 代表什麼？
+(b) 圖 2.7 中的 0.451 代表什麼？
+
+- (a) 0.802 代表有房貸的申請人中，以個人身分申請的比例。
+- (b) 0.451 代表個人申請人中，有房貸的比例。
+:::
+
+::: {.concept-box title="引導練習 2.3 (Guided Practice 2.3)"}
+(a) 圖 2.6 中的 0.135 代表什麼？
+(b) 圖 2.7 中共同與自有房屋交集處的 0.122 代表什麼？
+
+- (a) 0.135 代表擁有房屋的借款人中，共同申請貸款的比例。
+- (b) 0.122 代表共同申請借款人中，擁有房屋的比例。
+:::
+
+::: {.concept-box title="範例 2.4 (Example 2.4)"}
+資料科學家使用統計學從收到的電子郵件中過濾出垃圾郵件。透過記錄電子郵件的特定特徵，資料科學家可能可以以很高的準確率將某些電子郵件分類為垃圾郵件或非垃圾郵件。其中一項特徵是郵件中是否沒有數字、小數字或大數字。另一項特徵是電子郵件的格式，顯示郵件是否有任何 HTML 內容，如粗體文字。我們將使用電子郵件資料集聚焦在電子郵件格式與垃圾郵件狀態，這些變數整理於圖 2.8 的雙向表中。對於希望將此表中的電子郵件分類為垃圾郵件或一般郵件的人來說，哪一個會更有幫助：列比例還是欄比例？
+
+資料科學家會對每個電子郵件格式內垃圾郵件的比例變化感興趣。這對應於欄比例（column proportions）：純文字電子郵件中的垃圾郵件比例和 HTML 電子郵件中的垃圾郵件比例。
+
+如果我們產生欄比例，我們可以看到純文字電子郵件中有較高比例是垃圾郵件（209/1195 = 17.5%），而 HTML 電子郵件則是（158/2726 = 5.8%）。這個資訊本身不足以將電子郵件分類為垃圾郵件或非垃圾郵件，因為超過 80% 的純文字電子郵件不是垃圾郵件。然而，當我們仔細將這個資訊與許多其他特徵結合起來時，我們就有合理的機會能夠有信心地將某些電子郵件分類為垃圾郵件或非垃圾郵件。
+
+| | 純文字 (text) | HTML | **總計 (Total)** |
+|:---|---:|---:|---:|
+| **垃圾郵件 (spam)** | 209 | 158 | 367 |
+| **非垃圾郵件 (not spam)** | 986 | 2568 | 3554 |
+| **總計 (Total)** | **1195** | **2726** | **3921** |
+
+*圖 2.8：垃圾郵件與格式的雙向表。*
+:::
+
+範例 2.4 指出，列比例和欄比例是不相等的。在決定表格的形式之前，重要的是要考量兩者，以確保構建出最有用的表格。
+
+我們將在第 2.3 節探討條件機率時，重新審視這個在列變數或欄變數上設定「條件」以尋找兩個變數間關聯的概念。要確定關聯是否顯著，我們必須等到第 3 章，即關於比例（proportions）之類別資料推論。
+
+::: {.concept-box title="範例 2.5 (Example 2.5)"}
+回顧圖 2.4(b) 和 2.5 的馬賽克圖，以及圖 2.7 和 2.6 的表格。有沒有明顯的情境會讓某一個圖或表比另一個更有用？
+
+我們認為沒有明顯的答案！申請類型和房屋所有權相較於電子郵件例子的不同之處在於，這兩個變數沒有我們可能去假設的明確解釋變數-反應變數關係（這些術語請見 1.5.3 節）。通常，以解釋變數作為「條件」是最有用的。例如，在電子郵件的例子中，電子郵件格式被視為該訊息是否為垃圾郵件的可能解釋變數，因此我們會發現計算每種電子郵件格式的相對次數（比例）更有趣。
+:::
+
+### 小結 (Section summary)
+
+- **雙向表 (two-way table)**，也稱為**列聯表 (contingency table)**，可用於總結和比較兩個類別變數的資料。表格儲存格中的項目可以是次數（即計數）或相對次數（即比例）。
+- **並排長條圖 (Side-by-side bar charts)**、**分段長條圖 (segmented bar charts)**與**馬賽克圖 (mosaic plots)**是顯示兩個類別變數之間關係的圖形範例。在這些圖形中，會針對另一個類別變數的每個類別，顯示其中一個類別變數各個類別或層級的次數或相對次數。
+- 兩個類別變數的圖形表示可用來比較一個類別變數在另一個類別變數各個層級之間的關係，並判斷這兩個變數是否**相關聯 (associated)**。
+- 兩個類別變數分配的表格和圖形表示可能揭露一些資訊，這些資訊可用於在情境中證明有關這些變數的主張。
+- 雙向表中的**聯合相對次數 (joint relative frequency)** 是將儲存格次數除以全表總計。
+- 雙向表中的**邊際相對次數 (marginal relative frequency)** 是將列總計除以全表總計，或將欄總計除以全表總計。
+- **條件相對次數 (conditional relative frequency)** 是透過限制在特定層級或感興趣的類別來計算的相對次數。條件相對次數可以是一欄中的儲存格次數除以該欄的總計，也可以是一列中的儲存格次數除以該列的總計。
+- 兩個類別變數的**摘要統計量 (Summary statistics)** 可用來比較分配，以尋找兩個變數之間存在關聯的證據，並可能揭露一些資訊，可用於在情境中證明有關該變數的主張。
+
+### 練習題 (Exercises)
+
+**2.1 對《夢想家法案》的看法 (Views on the DREAM Act)**
+在佛羅里達州坦帕市，隨機抽取了登記選民的樣本，詢問他們是否支持《夢想家法案》(DREAM Act)——這是一項提案，旨在為小時候被非法帶入美國的人提供獲得公民身分的途徑。該調查也收集了受訪者政治意識形態的資訊。根據下列馬賽克圖，對《夢想家法案》的看法與政治意識形態看起來是獨立的嗎？請解釋你的推理。
+*(保守派 Conservative / 溫和派 Moderate / 自由派 Liberal)*
+*(支持 Support / 不支持 Not support / 不確定 Not sure)*
+
+**2.2 提高稅收 (Raise taxes)**
+在全國隨機抽取登記選民樣本，詢問他們認為提高富人稅還是提高窮人稅比較好。該調查也收集了受訪者政黨傾向的資訊。根據下列馬賽克圖，對提高稅收的看法與政黨傾向看起來是獨立的嗎？請解釋你的推理。
+*(民主黨 Democrat / 共和黨 Republican / 獨立人士或無黨籍 Indep / Other)*
+*(提高富人稅 Raise taxes on the rich / 提高窮人稅 Raise taxes on the poor / 不確定 Not sure)*
