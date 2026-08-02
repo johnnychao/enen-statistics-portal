@@ -58,11 +58,11 @@ function initLabs() {
       // labId is like lab-01-data-questions
       const a = document.createElement("a");
       // Use standard Github -> Colab redirect URL format
-      a.href = \`https://colab.research.google.com/github/johnnychao/enen-statistics-portal/blob/main/content/labs/colab/\${labId}.ipynb\`;
+      a.href = `https://colab.research.google.com/github/johnnychao/enen-statistics-portal/blob/main/content/labs/colab/\${labId}.ipynb`;
       a.target = "_blank";
       a.className = "glossary-item"; // Reuse styling
       a.style.display = "block";
-      a.innerHTML = \`<strong style="color:var(--accent-cyan);">\${labId.replace(/-/g, ' ')}</strong><div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">啟動 Jupyter Notebook 🚀</div>\`;
+      a.innerHTML = `<strong style="color:var(--accent-cyan);">\${labId.replace(/-/g, ' ')}</strong><div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem;">啟動 Jupyter Notebook 🚀</div>`;
       container.appendChild(a);
     }
   }
