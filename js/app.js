@@ -16,6 +16,14 @@ const DEFAULT_PAID_STUDENTS = [
     joinedDate: "2026-06-15",
     note: "AP 5分全修保證班",
     completedModules: []
+  },
+  {
+    email: "johnny2cindy@gmail.com",
+    name: "恩恩老師 (Admin)",
+    allowedUnits: ["all"],
+    joinedDate: "2026-08-01",
+    note: "系統管理者與教師",
+    completedModules: []
   }
 ];
 
@@ -145,6 +153,13 @@ function loadStudentDatabase() {
   if (saved) {
     try {
       paidStudents = JSON.parse(saved);
+      // Auto-merge new default students that aren't in localStorage yet
+      DEFAULT_PAID_STUDENTS.forEach(defaultStudent => {
+        if (!paidStudents.find(s => s.email === defaultStudent.email)) {
+          paidStudents.push(defaultStudent);
+        }
+      });
+      localStorage.setItem("enen_paid_students", JSON.stringify(paidStudents));
     } catch (e) {
       paidStudents = DEFAULT_PAID_STUDENTS;
     }
