@@ -1,5 +1,5 @@
 ---
-title: "2.1 兩個類別變數之間的關係 (Relationships between two categorical variables)"
+title: "模組 1｜兩個類別變數之間的關係 (Relationships between two categorical variables)"
 ---
 
 ### 第 2 章 機率、隨機變數與機率分配

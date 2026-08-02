@@ -1,5 +1,5 @@
 ---
-title: "2.7 抽樣分配與中央極限定理 (Sampling distributions and CLT)"
+title: "模組 1｜抽樣分配與中央極限定理 (Sampling distributions and CLT)"
 ---
 
 ### 練習題 (Exercises)

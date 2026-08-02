@@ -1,5 +1,5 @@
 ---
-title: "模組 4｜什麼是典型學生"
+title: "模組 4｜模組 4｜什麼是典型學生"
 content-id: "u1-m04"
 framework-version: "2026-27"
 ap-unit: 1

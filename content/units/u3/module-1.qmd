@@ -1,5 +1,5 @@
 ---
-title: "1.5.1 探究問題與結論 (Investigative question & conclusions)"
+title: "模組 1｜探究問題與結論 (Investigative question & conclusions)"
 ---
 
 ### 1.4 數值摘要與箱型圖 (Numerical Summaries and Box Plots)

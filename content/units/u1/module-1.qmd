@@ -1,5 +1,5 @@
 ---
-title: "模組 1｜從問題到資料"
+title: "模組 1｜模組 1｜從問題到資料"
 content-id: "u1-m01"
 framework-version: "2026-27"
 ap-unit: 1

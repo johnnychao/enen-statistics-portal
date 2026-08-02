@@ -1,5 +1,5 @@
 ---
-title: "2.4 離散型隨機變數 (Discrete random variables)"
+title: "模組 4｜離散型隨機變數 (Discrete random variables)"
 ---
 
 ### 課前練習 (Practice Problems)

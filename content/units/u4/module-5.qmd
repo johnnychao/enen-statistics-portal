@@ -1,5 +1,5 @@
 ---
-title: "2.5 二項分配 (Binomial Distributions)"
+title: "模組 5｜二項分配 (Binomial Distributions)"
 ---
 
 ### 2.4 離散隨機變數 (Discrete Random Variables) 總結

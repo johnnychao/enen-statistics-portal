@@ -1,5 +1,5 @@
 ---
-title: "模組 6｜能否建立因果結論"
+title: "模組 6｜模組 6｜能否建立因果結論"
 content-id: "u1-m06"
 framework-version: "2026-27"
 ap-unit: 1

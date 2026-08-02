@@ -1,5 +1,5 @@
 ---
-title: "5.3 最小平方法迴歸 (Least Squares Regression)"
+title: "模組 3｜最小平方法迴歸 (Least Squares Regression)"
 ---
 
 ### 練習題 (Exercises)

@@ -1,5 +1,5 @@
 ---
-title: "5.2 直線配適與殘差 (Line fitting and residuals)"
+title: "模組 2｜直線配適與殘差 (Line fitting and residuals)"
 ---
 
 ### 5.1 二元數值數據摘要 (Summarizing Bivariate Numerical Data) 練習題

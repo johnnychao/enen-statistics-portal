@@ -1,5 +1,5 @@
 ---
-title: "2.6 常態分配 (Normal Distributions)"
+title: "模組 6｜常態分配 (Normal Distributions)"
 ---
 
 ### 2.5 二項分配 (Binomial Distributions) 練習題

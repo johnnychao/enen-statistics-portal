@@ -1,5 +1,5 @@
 ---
-title: "1.5.4 實驗介紹"
+title: "模組 4｜實驗介紹"
 ---
 
 最後，研究問題（investigative question）必須明確指出該研究可以得出的結論類型，這一點非常重要。研究問題應提供結論適用的母體（population）；若使用的是包含隨機分派（random assignment）的實驗，則應能得出因果關係（cause-and-effect）的結論。

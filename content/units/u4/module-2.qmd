@@ -1,5 +1,5 @@
 ---
-title: "2.2 機率基礎 (Probability basics)"
+title: "模組 2｜機率基礎 (Probability basics)"
 ---
 
 **2.3 Avandia 的副作用，第一部分 (Side effects of Avandia, Part I.)**

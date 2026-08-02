@@ -1,5 +1,5 @@
 ---
-title: "5.1 總結雙變數數值資料 (Summarizing bivariate numerical data)"
+title: "模組 1｜總結雙變數數值資料 (Summarizing bivariate numerical data)"
 ---
 
 線性迴歸 (Linear regression) 是一種非常強大的統計技術。許多人僅從閱讀新聞就能對迴歸有一些熟悉感，在那些新聞中，散佈圖 (scatterplots) 上通常會疊加直線。線性模型可以用來觀察趨勢並進行預測。

@@ -1,5 +1,5 @@
 ---
-title: "2.3 條件機率 (Conditional probability)"
+title: "模組 3｜條件機率 (Conditional probability)"
 ---
 
 ### 2.2 機率基礎 (Probability Basics) 總結與習題
