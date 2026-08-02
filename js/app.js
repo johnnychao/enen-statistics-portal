@@ -548,6 +548,52 @@ function openTeacherAdminModal() {
   }
 }
 
+// --- 6. Internal Link Interceptor ---
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a');
+  if (!a) return;
+  
+  const href = a.getAttribute('href');
+  if (!href) return;
+  
+  if (href.endsWith('.qmd') || href.includes('.qmd#')) {
+    e.preventDefault();
+    const cleanHref = href.split('#')[0];
+    const basename = cleanHref.split('/').pop().replace('.qmd', '');
+    
+    // Try to detect target unit from URL (e.g. /u2/index.qmd -> u2)
+    const match = cleanHref.match(/\/u([1-9])\//);
+    const targetUnitId = match ? `u${match[1]}` : activeUnitId;
+    
+    let targetModuleId = "";
+    if (href.includes('practice/')) {
+       targetModuleId = `practice-${basename}`;
+    } else if (href.includes('assessment/')) {
+       targetModuleId = `assessment-${basename}`;
+    } else if (basename === 'index') {
+       targetModuleId = `${targetUnitId}-index`;
+    } else {
+       targetModuleId = `${targetUnitId}-${basename}`;
+    }
+    
+    const unit = COURSE_DATA.units.find(u => u.id === targetUnitId);
+    if (unit && unit.modules.find(m => m.id === targetModuleId)) {
+      if (activeUnitId !== targetUnitId) {
+        switchUnit(targetUnitId);
+      }
+      loadModule(targetModuleId);
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else {
+      console.warn("Module not found: ", targetModuleId);
+    }
+  } else if (href.endsWith('.ipynb')) {
+    e.preventDefault();
+    const basename = href.split('/').pop().replace('.ipynb', '');
+    const colabUrl = `https://colab.research.google.com/github/johnnychao/enen-statistics-portal/blob/main/content/labs/colab/${basename}.ipynb`;
+    window.open(colabUrl, '_blank');
+  }
+});
+
 function closeTeacherAdminModal() {
   document.getElementById("teacherAdminModal").classList.remove("active");
 }
