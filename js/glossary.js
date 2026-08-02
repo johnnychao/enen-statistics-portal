@@ -1,0 +1,22 @@
+const GLOBAL_GLOSSARY_DATA = [
+    { term: "Categorical Variable", zh: "類別變數", desc: "Places an individual into one of several groups or categories." },
+    { term: "Quantitative Variable", zh: "數值變數", desc: "Takes numerical values for which arithmetic operations make sense." },
+    { term: "SOCS", zh: "分布描述法則", desc: "Shape, Outliers, Center, Spread for describing quantitative distributions." },
+    { term: "1.5 x IQR Rule", zh: "極端值檢定法則", desc: "Outlier rule: values < Q1 - 1.5*IQR or > Q3 + 1.5*IQR." },
+    { term: "Standardized Z-Score", zh: "標準化 Z 分數", desc: "Measures distance from mean in standard deviation units: z = (x - mu) / sigma." },
+    { term: "Simple Random Sample (SRS)", zh: "簡單隨機抽樣", desc: "Every group of n individuals has an equal chance of being selected." },
+    { term: "Stratified Random Sampling", zh: "分層隨機抽樣", desc: "Divide population into homogeneous strata, then take SRS from each stratum." },
+    { term: "Cluster Sampling", zh: "群集抽樣", desc: "Divide population into heterogeneous clusters, randomly select clusters and census all in selected clusters." },
+    { term: "Confounding Variable", zh: "混淆變數", desc: "A variable associated with both explanatory and response variables, making causality unclear." },
+    { term: "LSRL (Least-Squares Regression Line)", zh: "最小二乘迴歸線", desc: "Line y_hat = a + bx that minimizes the sum of squared residuals." },
+    { term: "Residual", zh: "殘差", desc: "Difference between actual and predicted value: e = y - y_hat." },
+    { term: "Coefficient of Determination (r^2)", zh: "判定係數", desc: "Proportion of variability in Y explained by the linear relationship with X." },
+    { term: "Mutually Exclusive (Disjoint)", zh: "互斥事件", desc: "Two events that cannot occur simultaneously: P(A and B) = 0." },
+    { term: "Independent Events", zh: "獨立事件", desc: "Occurrence of one event does not change the probability of the other: P(A|B) = P(A)." },
+    { term: "Binomial Distribution", zh: "二項分布", desc: "Distribution of successes in n independent Bernoulli trials with probability p." },
+    { term: "Central Limit Theorem (CLT)", zh: "中央極限定理", desc: "Sampling distribution of sample mean x_bar approaches Normal for large n (>=30)." },
+    { term: "Type I Error", zh: "第一型錯誤 (α 錯誤)", desc: "Rejecting a true null hypothesis H0." },
+    { term: "Type II Error", zh: "第二型錯誤 (β 錯誤)", desc: "Failing to reject a false null hypothesis H0." },
+    { term: "Power of a Test", zh: "檢定力 (1 - β)", desc: "Probability of correctly rejecting a false null hypothesis." },
+    { term: "p-value", zh: "p 值", desc: "Probability of getting evidence as or more extreme than observed, assuming H0 is true." }
+  ];

@@ -144,9 +144,9 @@ function buildCourseData() {
   // Sort units
   newCourseData.units.sort((a, b) => a.id.localeCompare(b.id));
 
-  // Preserve glossary if it exists in the original COURSE_DATA
-  if (COURSE_DATA && COURSE_DATA.glossary) {
-    newCourseData.glossary = COURSE_DATA.glossary;
+  // Initialize glossary
+  if (typeof GLOBAL_GLOSSARY_DATA !== 'undefined') {
+    newCourseData.glossary = GLOBAL_GLOSSARY_DATA;
   } else {
     newCourseData.glossary = [];
   }
