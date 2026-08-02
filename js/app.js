@@ -31,8 +31,8 @@ const DEFAULT_PAID_STUDENTS = [
 let COURSE_DATA = { units: [] };
 let currentUser = null;
 let paidStudents = [];
-let activeUnitId = "u1";
-let activeModuleId = "u1-index";
+let activeUnitId = "u0";
+let activeModuleId = "u0-index";
 let isTeacherUnlocked = false;
 
 // Initialize Application

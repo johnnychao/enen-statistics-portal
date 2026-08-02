@@ -2,6 +2,16 @@
 
 const GENERATED_COURSE_DATA = {
   "units": {
+    "u0": {
+      "index": {
+        "metadata": {
+          "title": "課程大綱｜AP Statistics",
+          "content-id": "u0-index",
+          "ap-unit": 0
+        },
+        "html": "<h2>歡迎來到 AP 統計學 (AP Statistics) 📊</h2>\n<p>本教材專為準備 AP 統計學考試的學生所設計，結合真實世界的數據集與互動式教具，引導您從問題出發，學習如何利用資料做出可信的結論。</p>\n<p>本課程的編排邏輯由淺入深，幫助您在面對真實的統計問題時，不僅能夠計算出正確的數字，更能理解這些數字背後的意義，並且能夠寫出符合 AP 考試標準的精確英文結論。</p>\n<h2>教材結構與學習地圖</h2>\n<p>本課程共劃分為五個主要單元，每個單元都圍繞著一個核心的統計學大觀念。請依序學習，每個單元內部皆包含了數個主題模組 (Modules)、實驗活動 (Labs) 與綜合練習。</p>\n<table>\n<thead>\n<tr>\n<th align=\"left\">單元 (Unit)</th>\n<th align=\"left\">核心主題</th>\n<th align=\"left\">學習焦點</th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"left\"><strong><a href=\"../u1/index.qmd\">Unit 1｜從問題到可信的結論</a></strong></td>\n<td align=\"left\">一維資料探索</td>\n<td align=\"left\">如何收集資料、繪製統計圖表，並計算平均數與標準差，以回答具體的決策問題。</td>\n</tr>\n<tr>\n<td align=\"left\"><strong><a href=\"../u2/index.qmd\">Unit 2｜探索雙變數資料</a></strong></td>\n<td align=\"left\">雙變數資料與迴歸</td>\n<td align=\"left\">探討兩個數值變數之間的關聯性，學習相關係數與最小平方法 (OLS) 線性迴歸模型。</td>\n</tr>\n<tr>\n<td align=\"left\"><strong><a href=\"../u3/index.qmd\">Unit 3｜收集資料</a></strong></td>\n<td align=\"left\">實驗設計與抽樣</td>\n<td align=\"left\">了解觀察性研究與實驗設計的差異，學習隨機抽樣與隨機分派的黃金準則。</td>\n</tr>\n<tr>\n<td align=\"left\"><strong><a href=\"../u4/index.qmd\">Unit 4｜機率、隨機變數與機率分配</a></strong></td>\n<td align=\"left\">機率理論與模型</td>\n<td align=\"left\">深入探討條件機率、離散與連續型隨機變數，以及二項分配與常態分配的應用。</td>\n</tr>\n<tr>\n<td align=\"left\"><strong><a href=\"../u5/index.qmd\">Unit 5｜抽樣分配</a></strong></td>\n<td align=\"left\">統計推論基礎</td>\n<td align=\"left\">理解中央極限定理 (CLT) 的威力，學習樣本比例與樣本平均數的抽樣分配特性。</td>\n</tr>\n</tbody></table>\n<h2>如何使用本教材？</h2>\n<ol>\n<li><strong>先看單元導讀</strong>：每次進入一個新單元時，請務必先閱讀該單元的「首頁摘要」，了解該單元的真實世界情境與學習目標。</li>\n<li><strong>跟隨模組學習</strong>：依序完成該單元下的各個模組 (Modules)。遇到 <code>::: {.concept-box}</code> 時請特別留意核心觀念。</li>\n<li><strong>熟記作答模板</strong>：AP 考試非常重視作答的完整度。請務必熟記教材中提供的 <code>AP English Response</code> 英文作答模板。</li>\n<li><strong>互動式練習</strong>：利用各單元的 Jupyter Notebook (Colab Labs) 進行真實資料的程式實作，培養您的資料敏感度。</li>\n</ol>\n<p>現在，請從左側目錄選擇 <strong>Unit 1</strong>，開始您的統計學之旅！🚀</p>\n"
+      }
+    },
     "u1": {
       "index": {
         "metadata": {
@@ -169,10 +179,11 @@ const GENERATED_COURSE_DATA = {
     "u2": {
       "index": {
         "metadata": {
-          "title": "Unit 2｜第2單元｜探索雙變數資料",
+          "title": "Unit 2｜探索雙變數數值資料與線性迴歸",
+          "content-id": "u2-index",
           "ap-unit": 2
         },
-        "html": "<h3>探索雙變數資料</h3>\n<p>本單元為自動化轉譯之 AP 統計學原文教材。</p>\n"
+        "html": "<h2>預測未來的藝術與科學</h2>\n<h2>本單元主故事</h2>\n<p>延續對於晨間安排的討論，學校行政團隊在初步調查後，想要更精確地了解學生行為與表現之間的具體關係。決策團隊現在特別關注一個問題：「學生的平均睡眠時間」或「通勤距離」是否能有效預測「學習準備度」？如果可以，具體的影響程度有多大？</p>\n<p>你將繼續擔任學生資料顧問，使用<strong>雙變數數值資料 (Bivariate Numerical Data)</strong> 與<strong>線性迴歸模型 (Linear Regression Models)</strong> 來回答決策問題：</p>\n<blockquote>\n<p><strong>這兩個變數之間存在什麼樣的數學關係？我們能否透過線性模型建立可靠的預測？</strong><br><strong>What is the relationship between these numerical variables? Can we build a reliable prediction using a linear regression model?</strong></p>\n</blockquote>\n<p>資料中的人物與紀錄皆由程式產生，不代表任何真實學生，也不得用來辨認個人。</p>\n<h2>開始前</h2>\n<ol>\n<li>請先回顧 Unit 1 對於單一變數分佈的描述方法。</li>\n<li>依序完成三個情境模組與對應的練習題。</li>\n<li>熟練使用科技工具（如計算機或 R）來取得迴歸係數與相關係數。</li>\n<li>每個 Topic 結束前檢視你的觀念是否清晰。</li>\n</ol>\n<div class=\"concept-box\">\n  <h4 class=\"callout-title\">本教材的雙語策略</h4>\n  <div class=\"callout-body\"><p>中文用來建立直覺與說明情境；英文用來練習正式術語與統計論證。你不需要逐句翻譯，重點是能用自己的話作出有資料支持的結論。</p>\n  </div>\n</div><h2>三個模組</h2>\n<table>\n<thead>\n<tr>\n<th>模組</th>\n<th>決策焦點</th>\n<th>核心產出</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a href=\"module-1.qmd\">1. 總結雙變數數值資料</a></td>\n<td>兩個數值變數之間存在什麼樣的關聯？</td>\n<td>散佈圖特徵描述與相關係數 ($r$) 解釋</td>\n</tr>\n<tr>\n<td><a href=\"module-2.qmd\">2. 直線配適與殘差</a></td>\n<td>我們能用直線預測結果嗎？預測的誤差有多大？</td>\n<td>計算預測值、殘差並判讀殘差圖 (Residual plots)</td>\n</tr>\n<tr>\n<td><a href=\"module-3.qmd\">3. 最小平方法迴歸</a></td>\n<td>這條直線配適度多好？變數的實際影響是什麼？</td>\n<td>解釋迴歸係數、$R^2$ 與評估離群值的影響</td>\n</tr>\n</tbody></table>\n<h2>完成本單元後，我能……</h2>\n<ul>\n<li>使用散佈圖 (Scatterplots) 來描繪與描述兩個數值變數之間的關聯（包含形式、強度、方向與異常特徵）。</li>\n<li>解釋相關係數 ($r$) 的意義與限制，並深刻理解<strong>相關不一定意味著因果 (correlation does not imply causation)</strong>。</li>\n<li>寫出最小平方法迴歸方程式，並計算預測值 ($\\hat{y}$) 與殘差 (residuals)。</li>\n<li>透過殘差圖判斷線性模型是否為合適的選擇，避免對非線性趨勢盲目使用線性迴歸。</li>\n<li>運用實際情境精準解釋迴歸線的**斜率 (slope)**與 <strong>y 截距 (y-intercept)</strong>。</li>\n<li>解釋<strong>判定係數 ($R^2$)</strong> 作為模型可解釋變異 (explained variance) 的比例。</li>\n<li>辨識高槓桿點 (high leverage) 與影響點 (influential points) 對迴歸模型的潛在影響，並知道不可隨意移除離群值。</li>\n</ul>\n<div class=\"warning-box\">\n  <h4 class=\"callout-title\">非官方教材聲明</h4>\n  <div class=\"callout-body\"><p>本網站為教師原創、非官方的課程伴讀教材，未獲 College Board 背書或認可。所有練習皆為原創情境，不是官方考題。</p>\n  </div>\n</div>"
       },
       "module-1": {
         "metadata": {
@@ -196,10 +207,31 @@ const GENERATED_COURSE_DATA = {
     "u3": {
       "index": {
         "metadata": {
-          "title": "Unit 3｜收集資料",
-          "ap-unit": 3
+          "title": "Unit 3｜資料蒐集：抽樣與實驗設計",
+          "content-id": "u3-index",
+          "framework-version": "2026-27",
+          "ap-unit": 3,
+          "ap-topics": [
+            "3.1",
+            "3.2",
+            "3.3",
+            "3.4",
+            "3.5",
+            "3.6",
+            "3.7"
+          ],
+          "practices": [
+            "1.A",
+            "1.B",
+            "2.A",
+            "3.A",
+            "4.A"
+          ],
+          "module": "u3",
+          "periods": 14,
+          "last-reviewed": "2026-08"
         },
-        "html": "<h1>收集資料</h1>\n<p>本單元為自動化轉譯之 AP 統計學原文教材。</p>\n"
+        "html": "<h2>好的資料決定結論的品質</h2>\n<h2>本單元主故事</h2>\n<p>學校計畫在下學期引進一套全新的「個人化數位學習系統」，期望能提升學生的數學成績與學習動機。然而，這套系統造價昂貴，行政團隊想要在全面實施前先進行評估。</p>\n<p>你將擔任學生資料顧問，負責設計一份無偏誤的問卷抽樣計畫，以及一項嚴謹的對照實驗，來回答以下關鍵問題：</p>\n<blockquote>\n<p><strong>我們能將問卷結果推論到全校學生嗎？這套新系統真的「導致」了學生成績的提升嗎？</strong><br><strong>Can we generalize the survey results to all students? Does the new system truly cause an improvement in student performance?</strong></p>\n</blockquote>\n<p>資料的產生方式將決定我們能說出什麼樣的故事。</p>\n<h2>開始前</h2>\n<ol>\n<li>先做章前診斷，找出需要複習的基礎。</li>\n<li>依序完成四個情境模組與 Lab 練習。</li>\n<li>每個 Topic 結束前完成 Exit Ticket。</li>\n<li>最後完成單元評量與資料建議書。</li>\n</ol>\n<div class=\"concept-box\">\n  <h4 class=\"callout-title\">本教材的雙語策略</h4>\n  <div class=\"callout-body\"><p>中文用來建立直覺與說明情境；英文用來練習正式術語與統計論證。你不需要逐句翻譯，重點是能用自己的話作出有資料支持的結論。</p>\n  </div>\n</div><h2>四個模組</h2>\n<table>\n<thead>\n<tr>\n<th>模組</th>\n<th>決策焦點</th>\n<th>核心產出</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a href=\"module-1.qmd\">1. 探究問題與結論</a></td>\n<td>分佈特徵如何影響結論？我們該選用哪些統計量？</td>\n<td>數值摘要與解釋</td>\n</tr>\n<tr>\n<td><a href=\"module-2.qmd\">2. 軼事證據</a></td>\n<td>特例能代表整體嗎？穩健統計量有何重要性？</td>\n<td>辨識極端值與穩健性</td>\n</tr>\n<tr>\n<td><a href=\"module-3.qmd\">3. 解釋變數與反應變數</a></td>\n<td>什麼是因果關係？什麼是推論？干擾變數如何影響觀察？</td>\n<td>辨識變數與推論範圍</td>\n</tr>\n<tr>\n<td><a href=\"module-4.qmd\">4. 實驗介紹</a></td>\n<td>實驗與觀察性研究的差異為何？如何進行隨機分派？</td>\n<td>實驗設計藍圖</td>\n</tr>\n</tbody></table>\n<h2>學習地圖</h2>\n<p>本單元將深入探討如何透過<strong>觀察性研究 (Observational studies)</strong> 來推論母體，以及如何透過<strong>隨機實驗 (Randomized experiments)</strong> 來確立因果關係。我們將學習分辨隨機抽樣與隨機分派的不同目的，並防範潛在的干擾變數。</p>\n<h2>完成本單元後，我能……</h2>\n<ul>\n<li>區別普查、觀察性研究與實驗設計。</li>\n<li>說明隨機抽樣 (Random Sampling) 與隨機分派 (Random Assignment) 的目的差異。</li>\n<li>辨識研究中的解釋變數、反應變數與潛在的干擾變數。</li>\n<li>設計一項包含處理、對照組與隨機分派的簡單實驗。</li>\n<li>評估研究結果是否能推廣至母體，以及是否能支持因果結論。</li>\n</ul>\n<div class=\"warning-box\">\n  <h4 class=\"callout-title\">非官方教材聲明</h4>\n  <div class=\"callout-body\"><p>本網站為教師原創、非官方的課程伴讀教材，未獲 College Board 背書或認可。所有練習皆為原創情境，不是官方考題。</p>\n  </div>\n</div>"
       },
       "module-1": {
         "metadata": {
@@ -230,9 +262,10 @@ const GENERATED_COURSE_DATA = {
       "index": {
         "metadata": {
           "title": "Unit 4｜機率、隨機變數與機率分配",
+          "content-id": "u4-index",
           "ap-unit": 4
         },
-        "html": "<h3>機率、隨機變數與機率分配</h3>\n<p>本單元為自動化轉譯之 AP 統計學原文教材。</p>\n"
+        "html": "<h2>隨機性中的規律：從不確定到可預測</h2>\n<h2>本單元主故事</h2>\n<p>這座城市正在面臨一種新型傳染病的威脅，衛生局緊急引進了一批快篩試劑。然而，任何檢測都不是完美的，可能會出現偽陽性（沒病卻驗出陽性）或偽陰性（有病卻驗出陰性）。此外，醫院也需要提早準備病床，但每天的新增病患數量是隨機的。</p>\n<p>你將擔任市府公共衛生團隊的數據顧問，使用機率模型與隨機變數來回答一個關鍵的決策問題：</p>\n<blockquote>\n<p><strong>當一個市民快篩呈現陽性時，他真正感染的機率有多高？我們該如何建立模型，預測未來一週醫院的預期病患人數與潛在風險？</strong><br><strong>When a citizen tests positive, what is the probability they are actually infected? How can we model the expected number of patients and potential risks for hospitals next week?</strong></p>\n</blockquote>\n<p>在本單元中，我們將學習如何量化不確定性，並運用機率分配來預測隨機事件的長期行為。</p>\n<h2>開始前</h2>\n<ol>\n<li>閱讀各模組的基礎概念與課前預習。</li>\n<li>依序完成六個模組的情境演練。</li>\n<li>掌握機率規則、條件機率的計算，以及各種機率分配（如二項分配與常態分配）的應用。</li>\n</ol>\n<div class=\"concept-box\">\n  <h4 class=\"callout-title\">本教材的雙語策略</h4>\n  <div class=\"callout-body\"><p>中文用來建立直覺與說明情境；英文用來練習正式術語與統計論證。你不需要逐句翻譯，重點是能用自己的話作出有資料支持的結論。</p>\n  </div>\n</div><h2>六個模組</h2>\n<table>\n<thead>\n<tr>\n<th>模組</th>\n<th>決策焦點</th>\n<th>Topics</th>\n<th>核心產出</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a href=\"module-1.qmd\">1. 兩個類別變數之間的關係</a></td>\n<td>兩個變數之間是否具有關聯性？</td>\n<td>類別資料、列聯表 (Contingency table)</td>\n<td>識別類別變數的關聯</td>\n</tr>\n<tr>\n<td><a href=\"module-2.qmd\">2. 機率基礎</a></td>\n<td>如何量化隨機事件發生的可能性？</td>\n<td>長期相對次數、大數法則、互斥事件</td>\n<td>基礎機率計算與解釋</td>\n</tr>\n<tr>\n<td><a href=\"module-3.qmd\">3. 條件機率</a></td>\n<td>在已知某些資訊下，事件發生的機率如何改變？</td>\n<td>條件機率、獨立事件、樹狀圖</td>\n<td>偽陽性與貝氏機率分析</td>\n</tr>\n<tr>\n<td><a href=\"module-4.qmd\">4. 離散型隨機變數</a></td>\n<td>如何描述一個隨機過程的所有可能結果與機率？</td>\n<td>期望值 (Expected value)、標準差、機率分配</td>\n<td>隨機變數的特徵計算</td>\n</tr>\n<tr>\n<td><a href=\"module-5.qmd\">5. 二項分配</a></td>\n<td>在多次獨立試驗中，成功特定次數的機率是多少？</td>\n<td>二項分配 (Binomial distribution)、成功機率</td>\n<td>二項機率計算與應用</td>\n</tr>\n<tr>\n<td><a href=\"module-6.qmd\">6. 常態分配</a></td>\n<td>連續資料的典型分佈長什麼樣子？</td>\n<td>常態分配 (Normal distribution)、Z 分數</td>\n<td>連續機率分配的應用</td>\n</tr>\n</tbody></table>\n<h2>完成本單元後，我能……</h2>\n<ul>\n<li>透過列聯表分析兩個類別變數之間的關聯性。</li>\n<li>計算簡單事件、複合事件以及條件事件的機率。</li>\n<li>判斷兩個事件是否獨立。</li>\n<li>計算並解釋離散型隨機變數的期望值與標準差。</li>\n<li>辨識二項分配的情境，並計算其機率與參數。</li>\n<li>運用常態分配模型來尋找機率、百分位數與 Z 分數。</li>\n</ul>\n<div class=\"warning-box\">\n  <h4 class=\"callout-title\">非官方教材聲明</h4>\n  <div class=\"callout-body\"><p>本網站為教師原創、非官方的課程伴讀教材，未獲 College Board 背書或認可。所有練習皆為原創情境，不是官方考題。</p>\n  </div>\n</div>"
       },
       "module-1": {
         "metadata": {
@@ -274,10 +307,31 @@ const GENERATED_COURSE_DATA = {
     "u5": {
       "index": {
         "metadata": {
-          "title": "Unit 5｜抽樣分配",
-          "ap-unit": 5
+          "title": "Unit 5｜抽樣分配與中央極限定理",
+          "content-id": "u5-index",
+          "framework-version": "2026-27",
+          "ap-unit": 5,
+          "ap-topics": [
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5",
+            "5.6",
+            "5.7",
+            "5.8"
+          ],
+          "practices": [
+            "1.A",
+            "2.A",
+            "3.A",
+            "4.A"
+          ],
+          "module": "u5",
+          "periods": 15,
+          "last-reviewed": "2026-08"
         },
-        "html": "<h1>抽樣分配</h1>\n<p>本單元為自動化轉譯之 AP 統計學原文教材。</p>\n"
+        "html": "<h2>樣本的表現與母體的真相</h2>\n<h2>本單元主故事</h2>\n<p>學校正在考慮全面導入一種新的教學科技工具，為此對全校學生進行了一次小規模的隨機問卷調查。結果顯示有 64% 的受訪學生支持這項改變。行政團隊很高興，但你作為學生顧問，心中卻有一個疑問：</p>\n<blockquote>\n<p><strong>如果我們重新抽取另一批學生，支持率還會是 64% 嗎？這個樣本的結果，能夠代表全體學生的真實想法嗎？</strong>\n<strong>How much would the sample proportion vary if we took a different random sample, and can this sample accurately reflect the true population parameter?</strong></p>\n</blockquote>\n<p>為了回答這個問題，你將利用電腦模擬抽出成千上萬個樣本，觀察「樣本結果」是如何分布的。這將帶你發現統計學中最神奇的現象：中央極限定理（Central Limit Theorem）。</p>\n<h2>開始前</h2>\n<ol>\n<li>確認已熟練常態分配（Normal Distribution）與機率的計算。</li>\n<li>依序完成本單元的學習模組。</li>\n<li>透過模擬（Simulation）建立對抽樣分配的直覺，不要死記公式。</li>\n</ol>\n<div class=\"concept-box\">\n  <h4 class=\"callout-title\">本教材的雙語策略</h4>\n  <div class=\"callout-body\"><p>中文用來建立直覺與說明情境；英文用來練習正式術語與統計論證。重點是能用自己的話作出有資料支持的結論。</p>\n  </div>\n</div><h2>單元模組</h2>\n<table>\n<thead>\n<tr>\n<th>模組</th>\n<th>決策焦點</th>\n<th align=\"right\">Topics</th>\n<th>核心產出</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a href=\"module-1.qmd\">1. 抽樣分配與中央極限定理</a></td>\n<td>我們如何知道單一樣本的結果是否可靠？</td>\n<td align=\"right\">5.1–5.8</td>\n<td>抽樣分配與隨機化分配的解釋、運用中央極限定理</td>\n</tr>\n</tbody></table>\n<h2>四項統計實務</h2>\n<table>\n<thead>\n<tr>\n<th>Practice</th>\n<th>本單元怎麼練</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1.A</td>\n<td>辨識評估母體參數所需的樣本資料</td>\n</tr>\n<tr>\n<td>2.A</td>\n<td>運用中央極限定理計算樣本統計量的機率</td>\n</tr>\n<tr>\n<td>3.A</td>\n<td>評估常態模型適用於抽樣分配的條件</td>\n</tr>\n<tr>\n<td>4.A</td>\n<td>解釋樣本統計量在多次抽樣下的變異性</td>\n</tr>\n</tbody></table>\n<h2>完成本單元後，我能……</h2>\n<ul>\n<li>區分母體參數（population parameter）與樣本統計量（sample statistic）。</li>\n<li>描述抽樣分配（sampling distribution）與隨機化分配（randomization distribution）的意義。</li>\n<li>解釋中央極限定理（Central Limit Theorem），並說明樣本大小對分配形狀與變異數的影響。</li>\n<li>利用抽樣分配模型，計算並評估特定樣本結果出現的機率。</li>\n</ul>\n<div class=\"warning-box\">\n  <h4 class=\"callout-title\">非官方教材聲明</h4>\n  <div class=\"callout-body\"><p>本網站為教師原創、非官方的課程伴讀教材，未獲 College Board 背書或認可。所有練習皆為原創情境，不是官方考題。</p>\n  </div>\n</div>"
       },
       "module-1": {
         "metadata": {

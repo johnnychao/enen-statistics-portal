@@ -1,8 +1,58 @@
 ---
-title: "Unit 5｜抽樣分配"
+title: "Unit 5｜抽樣分配與中央極限定理"
+content-id: "u5-index"
+framework-version: "2026-27"
 ap-unit: 5
+ap-topics: ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6", "5.7", "5.8"]
+practices: ["1.A", "2.A", "3.A", "4.A"]
+module: "u5"
+periods: 15
+last-reviewed: "2026-08"
 ---
 
-# 抽樣分配
+## 樣本的表現與母體的真相
 
-本單元為自動化轉譯之 AP 統計學原文教材。
+## 本單元主故事
+
+學校正在考慮全面導入一種新的教學科技工具，為此對全校學生進行了一次小規模的隨機問卷調查。結果顯示有 64% 的受訪學生支持這項改變。行政團隊很高興，但你作為學生顧問，心中卻有一個疑問：
+
+> **如果我們重新抽取另一批學生，支持率還會是 64% 嗎？這個樣本的結果，能夠代表全體學生的真實想法嗎？**
+> **How much would the sample proportion vary if we took a different random sample, and can this sample accurately reflect the true population parameter?**
+
+為了回答這個問題，你將利用電腦模擬抽出成千上萬個樣本，觀察「樣本結果」是如何分布的。這將帶你發現統計學中最神奇的現象：中央極限定理（Central Limit Theorem）。
+
+## 開始前
+
+1. 確認已熟練常態分配（Normal Distribution）與機率的計算。
+2. 依序完成本單元的學習模組。
+3. 透過模擬（Simulation）建立對抽樣分配的直覺，不要死記公式。
+
+::: {.callout-note title="本教材的雙語策略"}
+中文用來建立直覺與說明情境；英文用來練習正式術語與統計論證。重點是能用自己的話作出有資料支持的結論。
+:::
+
+## 單元模組
+
+| 模組 | 決策焦點 | Topics | 核心產出 |
+|---|---|---:|---|
+| [1. 抽樣分配與中央極限定理](module-1.qmd) | 我們如何知道單一樣本的結果是否可靠？ | 5.1–5.8 | 抽樣分配與隨機化分配的解釋、運用中央極限定理 |
+
+## 四項統計實務
+
+| Practice | 本單元怎麼練 |
+|---|---|
+| 1.A | 辨識評估母體參數所需的樣本資料 |
+| 2.A | 運用中央極限定理計算樣本統計量的機率 |
+| 3.A | 評估常態模型適用於抽樣分配的條件 |
+| 4.A | 解釋樣本統計量在多次抽樣下的變異性 |
+
+## 完成本單元後，我能……
+
+- 區分母體參數（population parameter）與樣本統計量（sample statistic）。
+- 描述抽樣分配（sampling distribution）與隨機化分配（randomization distribution）的意義。
+- 解釋中央極限定理（Central Limit Theorem），並說明樣本大小對分配形狀與變異數的影響。
+- 利用抽樣分配模型，計算並評估特定樣本結果出現的機率。
+
+::: {.callout-warning title="非官方教材聲明"}
+本網站為教師原創、非官方的課程伴讀教材，未獲 College Board 背書或認可。所有練習皆為原創情境，不是官方考題。
+:::
